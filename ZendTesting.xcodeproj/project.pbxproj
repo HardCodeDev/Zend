@@ -7,161 +7,114 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		451322F91A0FBF610002AC13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451322F81A0FBF610002AC13 /* Cocoa.framework */; };
-		451322FB1A0FBF610002AC13 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451322FA1A0FBF610002AC13 /* SpriteKit.framework */; };
-		451323051A0FBF610002AC13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 451323031A0FBF610002AC13 /* InfoPlist.strings */; };
-		451323071A0FBF610002AC13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 451323061A0FBF610002AC13 /* main.m */; };
-		4513230B1A0FBF610002AC13 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 451323091A0FBF610002AC13 /* Credits.rtf */; };
-		4513230D1A0FBF610002AC13 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4513230C1A0FBF610002AC13 /* MainMenu.xib */; };
-		4513230F1A0FBF610002AC13 /* HCMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4513230E1A0FBF610002AC13 /* HCMyScene.m */; };
-		451323121A0FBF610002AC13 /* HCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 451323111A0FBF610002AC13 /* HCAppDelegate.m */; };
-		451323151A0FBF610002AC13 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 451323141A0FBF610002AC13 /* Spaceship.png */; };
-		451323171A0FBF610002AC13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 451323161A0FBF610002AC13 /* Images.xcassets */; };
-		4513231E1A0FBF610002AC13 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4513231D1A0FBF610002AC13 /* XCTest.framework */; };
-		4513231F1A0FBF610002AC13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451322F81A0FBF610002AC13 /* Cocoa.framework */; };
-		451323271A0FBF610002AC13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 451323251A0FBF610002AC13 /* InfoPlist.strings */; };
-		451323291A0FBF610002AC13 /* ZendTestingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 451323281A0FBF610002AC13 /* ZendTestingTests.m */; };
+		45BF66BF1A10FAFF00DBA3AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BF66BE1A10FAFF00DBA3AF /* AppDelegate.m */; };
+		45BF66C11A10FAFF00DBA3AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BF66C01A10FAFF00DBA3AF /* main.m */; };
+		45BF66C41A10FAFF00DBA3AF /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BF66C31A10FAFF00DBA3AF /* GameScene.m */; };
+		45BF66C61A10FAFF00DBA3AF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 45BF66C51A10FAFF00DBA3AF /* GameScene.sks */; };
+		45BF66C81A10FAFF00DBA3AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45BF66C71A10FAFF00DBA3AF /* Images.xcassets */; };
+		45BF66CB1A10FAFF00DBA3AF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BF66C91A10FAFF00DBA3AF /* MainMenu.xib */; };
+		45BF66D71A10FAFF00DBA3AF /* ZendTestingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BF66D61A10FAFF00DBA3AF /* ZendTestingTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		451323201A0FBF610002AC13 /* PBXContainerItemProxy */ = {
+		45BF66D11A10FAFF00DBA3AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 451322ED1A0FBF610002AC13 /* Project object */;
+			containerPortal = 45BF66B01A10FAFF00DBA3AF /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 451322F41A0FBF610002AC13;
+			remoteGlobalIDString = 45BF66B71A10FAFF00DBA3AF;
 			remoteInfo = ZendTesting;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		451322F51A0FBF610002AC13 /* ZendTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZendTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		451322F81A0FBF610002AC13 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		451322FA1A0FBF610002AC13 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
-		451322FD1A0FBF610002AC13 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		451322FE1A0FBF610002AC13 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		451322FF1A0FBF610002AC13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		451323021A0FBF610002AC13 /* ZendTesting-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZendTesting-Info.plist"; sourceTree = "<group>"; };
-		451323041A0FBF610002AC13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		451323061A0FBF610002AC13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		451323081A0FBF610002AC13 /* ZendTesting-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZendTesting-Prefix.pch"; sourceTree = "<group>"; };
-		4513230A1A0FBF610002AC13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		4513230C1A0FBF610002AC13 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		4513230E1A0FBF610002AC13 /* HCMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCMyScene.m; sourceTree = "<group>"; };
-		451323101A0FBF610002AC13 /* HCMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCMyScene.h; sourceTree = "<group>"; };
-		451323111A0FBF610002AC13 /* HCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HCAppDelegate.m; sourceTree = "<group>"; };
-		451323131A0FBF610002AC13 /* HCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCAppDelegate.h; sourceTree = "<group>"; };
-		451323141A0FBF610002AC13 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
-		451323161A0FBF610002AC13 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4513231C1A0FBF610002AC13 /* ZendTestingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZendTestingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4513231D1A0FBF610002AC13 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		451323241A0FBF610002AC13 /* ZendTestingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZendTestingTests-Info.plist"; sourceTree = "<group>"; };
-		451323261A0FBF610002AC13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		451323281A0FBF610002AC13 /* ZendTestingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTestingTests.m; sourceTree = "<group>"; };
+		45BF66B81A10FAFF00DBA3AF /* ZendTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZendTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BF66BC1A10FAFF00DBA3AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45BF66BD1A10FAFF00DBA3AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		45BF66BE1A10FAFF00DBA3AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		45BF66C01A10FAFF00DBA3AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		45BF66C21A10FAFF00DBA3AF /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		45BF66C31A10FAFF00DBA3AF /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		45BF66C51A10FAFF00DBA3AF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		45BF66C71A10FAFF00DBA3AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		45BF66CA1A10FAFF00DBA3AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		45BF66D01A10FAFF00DBA3AF /* ZendTestingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZendTestingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BF66D51A10FAFF00DBA3AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45BF66D61A10FAFF00DBA3AF /* ZendTestingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTestingTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		451322F21A0FBF610002AC13 /* Frameworks */ = {
+		45BF66B51A10FAFF00DBA3AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				451322FB1A0FBF610002AC13 /* SpriteKit.framework in Frameworks */,
-				451322F91A0FBF610002AC13 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		451323191A0FBF610002AC13 /* Frameworks */ = {
+		45BF66CD1A10FAFF00DBA3AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4513231F1A0FBF610002AC13 /* Cocoa.framework in Frameworks */,
-				4513231E1A0FBF610002AC13 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		451322EC1A0FBF610002AC13 = {
+		45BF66AF1A10FAFF00DBA3AF = {
 			isa = PBXGroup;
 			children = (
-				451323001A0FBF610002AC13 /* ZendTesting */,
-				451323221A0FBF610002AC13 /* ZendTestingTests */,
-				451322F71A0FBF610002AC13 /* Frameworks */,
-				451322F61A0FBF610002AC13 /* Products */,
+				45BF66BA1A10FAFF00DBA3AF /* ZendTesting */,
+				45BF66D31A10FAFF00DBA3AF /* ZendTestingTests */,
+				45BF66B91A10FAFF00DBA3AF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		451322F61A0FBF610002AC13 /* Products */ = {
+		45BF66B91A10FAFF00DBA3AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				451322F51A0FBF610002AC13 /* ZendTesting.app */,
-				4513231C1A0FBF610002AC13 /* ZendTestingTests.xctest */,
+				45BF66B81A10FAFF00DBA3AF /* ZendTesting.app */,
+				45BF66D01A10FAFF00DBA3AF /* ZendTestingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		451322F71A0FBF610002AC13 /* Frameworks */ = {
+		45BF66BA1A10FAFF00DBA3AF /* ZendTesting */ = {
 			isa = PBXGroup;
 			children = (
-				451322F81A0FBF610002AC13 /* Cocoa.framework */,
-				451322FA1A0FBF610002AC13 /* SpriteKit.framework */,
-				4513231D1A0FBF610002AC13 /* XCTest.framework */,
-				451322FC1A0FBF610002AC13 /* Other Frameworks */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		451322FC1A0FBF610002AC13 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				451322FD1A0FBF610002AC13 /* AppKit.framework */,
-				451322FE1A0FBF610002AC13 /* CoreData.framework */,
-				451322FF1A0FBF610002AC13 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		451323001A0FBF610002AC13 /* ZendTesting */ = {
-			isa = PBXGroup;
-			children = (
-				4513230C1A0FBF610002AC13 /* MainMenu.xib */,
-				4513230E1A0FBF610002AC13 /* HCMyScene.m */,
-				451323101A0FBF610002AC13 /* HCMyScene.h */,
-				451323111A0FBF610002AC13 /* HCAppDelegate.m */,
-				451323131A0FBF610002AC13 /* HCAppDelegate.h */,
-				451323141A0FBF610002AC13 /* Spaceship.png */,
-				451323161A0FBF610002AC13 /* Images.xcassets */,
-				451323011A0FBF610002AC13 /* Supporting Files */,
+				45BF66BD1A10FAFF00DBA3AF /* AppDelegate.h */,
+				45BF66BE1A10FAFF00DBA3AF /* AppDelegate.m */,
+				45BF66C21A10FAFF00DBA3AF /* GameScene.h */,
+				45BF66C31A10FAFF00DBA3AF /* GameScene.m */,
+				45BF66C51A10FAFF00DBA3AF /* GameScene.sks */,
+				45BF66C71A10FAFF00DBA3AF /* Images.xcassets */,
+				45BF66C91A10FAFF00DBA3AF /* MainMenu.xib */,
+				45BF66BB1A10FAFF00DBA3AF /* Supporting Files */,
 			);
 			path = ZendTesting;
 			sourceTree = "<group>";
 		};
-		451323011A0FBF610002AC13 /* Supporting Files */ = {
+		45BF66BB1A10FAFF00DBA3AF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				451323021A0FBF610002AC13 /* ZendTesting-Info.plist */,
-				451323031A0FBF610002AC13 /* InfoPlist.strings */,
-				451323061A0FBF610002AC13 /* main.m */,
-				451323081A0FBF610002AC13 /* ZendTesting-Prefix.pch */,
-				451323091A0FBF610002AC13 /* Credits.rtf */,
+				45BF66BC1A10FAFF00DBA3AF /* Info.plist */,
+				45BF66C01A10FAFF00DBA3AF /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		451323221A0FBF610002AC13 /* ZendTestingTests */ = {
+		45BF66D31A10FAFF00DBA3AF /* ZendTestingTests */ = {
 			isa = PBXGroup;
 			children = (
-				451323281A0FBF610002AC13 /* ZendTestingTests.m */,
-				451323231A0FBF610002AC13 /* Supporting Files */,
+				45BF66D61A10FAFF00DBA3AF /* ZendTestingTests.m */,
+				45BF66D41A10FAFF00DBA3AF /* Supporting Files */,
 			);
 			path = ZendTestingTests;
 			sourceTree = "<group>";
 		};
-		451323231A0FBF610002AC13 /* Supporting Files */ = {
+		45BF66D41A10FAFF00DBA3AF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				451323241A0FBF610002AC13 /* ZendTestingTests-Info.plist */,
-				451323251A0FBF610002AC13 /* InfoPlist.strings */,
+				45BF66D51A10FAFF00DBA3AF /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -169,13 +122,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		451322F41A0FBF610002AC13 /* ZendTesting */ = {
+		45BF66B71A10FAFF00DBA3AF /* ZendTesting */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4513232C1A0FBF610002AC13 /* Build configuration list for PBXNativeTarget "ZendTesting" */;
+			buildConfigurationList = 45BF66DA1A10FAFF00DBA3AF /* Build configuration list for PBXNativeTarget "ZendTesting" */;
 			buildPhases = (
-				451322F11A0FBF610002AC13 /* Sources */,
-				451322F21A0FBF610002AC13 /* Frameworks */,
-				451322F31A0FBF610002AC13 /* Resources */,
+				45BF66B41A10FAFF00DBA3AF /* Sources */,
+				45BF66B51A10FAFF00DBA3AF /* Frameworks */,
+				45BF66B61A10FAFF00DBA3AF /* Resources */,
 			);
 			buildRules = (
 			);
@@ -183,141 +136,126 @@
 			);
 			name = ZendTesting;
 			productName = ZendTesting;
-			productReference = 451322F51A0FBF610002AC13 /* ZendTesting.app */;
+			productReference = 45BF66B81A10FAFF00DBA3AF /* ZendTesting.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4513231B1A0FBF610002AC13 /* ZendTestingTests */ = {
+		45BF66CF1A10FAFF00DBA3AF /* ZendTestingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4513232F1A0FBF610002AC13 /* Build configuration list for PBXNativeTarget "ZendTestingTests" */;
+			buildConfigurationList = 45BF66DD1A10FAFF00DBA3AF /* Build configuration list for PBXNativeTarget "ZendTestingTests" */;
 			buildPhases = (
-				451323181A0FBF610002AC13 /* Sources */,
-				451323191A0FBF610002AC13 /* Frameworks */,
-				4513231A1A0FBF610002AC13 /* Resources */,
+				45BF66CC1A10FAFF00DBA3AF /* Sources */,
+				45BF66CD1A10FAFF00DBA3AF /* Frameworks */,
+				45BF66CE1A10FAFF00DBA3AF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				451323211A0FBF610002AC13 /* PBXTargetDependency */,
+				45BF66D21A10FAFF00DBA3AF /* PBXTargetDependency */,
 			);
 			name = ZendTestingTests;
 			productName = ZendTestingTests;
-			productReference = 4513231C1A0FBF610002AC13 /* ZendTestingTests.xctest */;
+			productReference = 45BF66D01A10FAFF00DBA3AF /* ZendTestingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		451322ED1A0FBF610002AC13 /* Project object */ = {
+		45BF66B01A10FAFF00DBA3AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = HC;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = HardCode;
 				TargetAttributes = {
-					4513231B1A0FBF610002AC13 = {
-						TestTargetID = 451322F41A0FBF610002AC13;
+					45BF66B71A10FAFF00DBA3AF = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					45BF66CF1A10FAFF00DBA3AF = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 45BF66B71A10FAFF00DBA3AF;
 					};
 				};
 			};
-			buildConfigurationList = 451322F01A0FBF610002AC13 /* Build configuration list for PBXProject "ZendTesting" */;
+			buildConfigurationList = 45BF66B31A10FAFF00DBA3AF /* Build configuration list for PBXProject "ZendTesting" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
-			mainGroup = 451322EC1A0FBF610002AC13;
-			productRefGroup = 451322F61A0FBF610002AC13 /* Products */;
+			mainGroup = 45BF66AF1A10FAFF00DBA3AF;
+			productRefGroup = 45BF66B91A10FAFF00DBA3AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				451322F41A0FBF610002AC13 /* ZendTesting */,
-				4513231B1A0FBF610002AC13 /* ZendTestingTests */,
+				45BF66B71A10FAFF00DBA3AF /* ZendTesting */,
+				45BF66CF1A10FAFF00DBA3AF /* ZendTestingTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		451322F31A0FBF610002AC13 /* Resources */ = {
+		45BF66B61A10FAFF00DBA3AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				451323151A0FBF610002AC13 /* Spaceship.png in Resources */,
-				451323171A0FBF610002AC13 /* Images.xcassets in Resources */,
-				451323051A0FBF610002AC13 /* InfoPlist.strings in Resources */,
-				4513230B1A0FBF610002AC13 /* Credits.rtf in Resources */,
-				4513230D1A0FBF610002AC13 /* MainMenu.xib in Resources */,
+				45BF66C61A10FAFF00DBA3AF /* GameScene.sks in Resources */,
+				45BF66C81A10FAFF00DBA3AF /* Images.xcassets in Resources */,
+				45BF66CB1A10FAFF00DBA3AF /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4513231A1A0FBF610002AC13 /* Resources */ = {
+		45BF66CE1A10FAFF00DBA3AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				451323271A0FBF610002AC13 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		451322F11A0FBF610002AC13 /* Sources */ = {
+		45BF66B41A10FAFF00DBA3AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				451323071A0FBF610002AC13 /* main.m in Sources */,
-				4513230F1A0FBF610002AC13 /* HCMyScene.m in Sources */,
-				451323121A0FBF610002AC13 /* HCAppDelegate.m in Sources */,
+				45BF66C11A10FAFF00DBA3AF /* main.m in Sources */,
+				45BF66C41A10FAFF00DBA3AF /* GameScene.m in Sources */,
+				45BF66BF1A10FAFF00DBA3AF /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		451323181A0FBF610002AC13 /* Sources */ = {
+		45BF66CC1A10FAFF00DBA3AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				451323291A0FBF610002AC13 /* ZendTestingTests.m in Sources */,
+				45BF66D71A10FAFF00DBA3AF /* ZendTestingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		451323211A0FBF610002AC13 /* PBXTargetDependency */ = {
+		45BF66D21A10FAFF00DBA3AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 451322F41A0FBF610002AC13 /* ZendTesting */;
-			targetProxy = 451323201A0FBF610002AC13 /* PBXContainerItemProxy */;
+			target = 45BF66B71A10FAFF00DBA3AF /* ZendTesting */;
+			targetProxy = 45BF66D11A10FAFF00DBA3AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		451323031A0FBF610002AC13 /* InfoPlist.strings */ = {
+		45BF66C91A10FAFF00DBA3AF /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				451323041A0FBF610002AC13 /* en */,
+				45BF66CA1A10FAFF00DBA3AF /* Base */,
 			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		451323091A0FBF610002AC13 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4513230A1A0FBF610002AC13 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		451323251A0FBF610002AC13 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				451323261A0FBF610002AC13 /* en */,
-			);
-			name = InfoPlist.strings;
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4513232A1A0FBF610002AC13 /* Debug */ = {
+		45BF66D81A10FAFF00DBA3AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -332,11 +270,13 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -350,12 +290,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		4513232B1A0FBF610002AC13 /* Release */ = {
+		45BF66D91A10FAFF00DBA3AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -370,12 +311,14 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -383,107 +326,98 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		4513232D1A0FBF610002AC13 /* Debug */ = {
+		45BF66DB1A10FAFF00DBA3AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZendTesting/ZendTesting-Prefix.pch";
-				INFOPLIST_FILE = "ZendTesting/ZendTesting-Info.plist";
+				INFOPLIST_FILE = ZendTesting/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
-				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		4513232E1A0FBF610002AC13 /* Release */ = {
+		45BF66DC1A10FAFF00DBA3AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZendTesting/ZendTesting-Prefix.pch";
-				INFOPLIST_FILE = "ZendTesting/ZendTesting-Info.plist";
+				INFOPLIST_FILE = ZendTesting/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
-				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
-		451323301A0FBF610002AC13 /* Debug */ = {
+		45BF66DE1A10FAFF00DBA3AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZendTesting.app/Contents/MacOS/ZendTesting";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZendTesting/ZendTesting-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ZendTestingTests/ZendTestingTests-Info.plist";
+				INFOPLIST_FILE = ZendTestingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZendTesting.app/Contents/MacOS/ZendTesting";
 			};
 			name = Debug;
 		};
-		451323311A0FBF610002AC13 /* Release */ = {
+		45BF66DF1A10FAFF00DBA3AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZendTesting.app/Contents/MacOS/ZendTesting";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ZendTesting/ZendTesting-Prefix.pch";
-				INFOPLIST_FILE = "ZendTestingTests/ZendTestingTests-Info.plist";
+				INFOPLIST_FILE = ZendTestingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZendTesting.app/Contents/MacOS/ZendTesting";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		451322F01A0FBF610002AC13 /* Build configuration list for PBXProject "ZendTesting" */ = {
+		45BF66B31A10FAFF00DBA3AF /* Build configuration list for PBXProject "ZendTesting" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4513232A1A0FBF610002AC13 /* Debug */,
-				4513232B1A0FBF610002AC13 /* Release */,
+				45BF66D81A10FAFF00DBA3AF /* Debug */,
+				45BF66D91A10FAFF00DBA3AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4513232C1A0FBF610002AC13 /* Build configuration list for PBXNativeTarget "ZendTesting" */ = {
+		45BF66DA1A10FAFF00DBA3AF /* Build configuration list for PBXNativeTarget "ZendTesting" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4513232D1A0FBF610002AC13 /* Debug */,
-				4513232E1A0FBF610002AC13 /* Release */,
+				45BF66DB1A10FAFF00DBA3AF /* Debug */,
+				45BF66DC1A10FAFF00DBA3AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		4513232F1A0FBF610002AC13 /* Build configuration list for PBXNativeTarget "ZendTestingTests" */ = {
+		45BF66DD1A10FAFF00DBA3AF /* Build configuration list for PBXNativeTarget "ZendTestingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				451323301A0FBF610002AC13 /* Debug */,
-				451323311A0FBF610002AC13 /* Release */,
+				45BF66DE1A10FAFF00DBA3AF /* Debug */,
+				45BF66DF1A10FAFF00DBA3AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 451322ED1A0FBF610002AC13 /* Project object */;
+	rootObject = 45BF66B01A10FAFF00DBA3AF /* Project object */;
 }

@@ -1,5 +1,5 @@
 //
-//  HCMyScene.h
+//  GameScene.h
 //  ZendTesting
 //
 
@@ -8,6 +8,6 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface HCMyScene : SKScene
+@interface GameScene : SKScene
 
 @end
