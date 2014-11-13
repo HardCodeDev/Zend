@@ -9,7 +9,10 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface Zombie : SKNode {
-    
+    NSInteger age;
+    NSInteger speed;
+    NSInteger height;
+    NSInteger weidth;
 }
 
 @end
