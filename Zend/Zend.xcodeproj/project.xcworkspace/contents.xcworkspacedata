@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ZendTesting.xcodeproj">
+      location = "self:Zend.xcodeproj">
    </FileRef>
 </Workspace>

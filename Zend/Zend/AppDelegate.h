@@ -1,6 +1,6 @@
 //
 //  AppDelegate.h
-//  ZendTesting
+//  Zend
 //
 
 //  Copyright (c) 2014 HardCode. All rights reserved.

@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  ZendTesting
+//  Zend
 //
-//  Created by Nikita Makarov on 10/11/14.
+//  Created by Anton Yakimenko on 16.11.14.
 //  Copyright (c) 2014 HardCode. All rights reserved.
 //
 

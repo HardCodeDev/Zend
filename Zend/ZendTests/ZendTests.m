@@ -1,19 +1,19 @@
 //
-//  ZendTestingTests.m
-//  ZendTestingTests
+//  ZendTests.m
+//  ZendTests
 //
-//  Created by Nikita Makarov on 10/11/14.
+//  Created by Anton Yakimenko on 16.11.14.
 //  Copyright (c) 2014 HardCode. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
 
-@interface ZendTestingTests : XCTestCase
+@interface ZendTests : XCTestCase
 
 @end
 
-@implementation ZendTestingTests
+@implementation ZendTests
 
 - (void)setUp {
     [super setUp];

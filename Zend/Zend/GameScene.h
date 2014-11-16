@@ -1,13 +1,13 @@
 //
-//  Bonus.h
-//  ZendTesting
+//  GameScene.h
+//  Zend
 //
-//  Created by Nikita Makarov on 10/11/14.
+
 //  Copyright (c) 2014 HardCode. All rights reserved.
 //
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface Bonus : SKNode
+@interface GameScene : SKScene
 
 @end
