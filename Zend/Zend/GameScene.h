@@ -7,7 +7,13 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "PlatformFactory.h"
 
-@interface GameScene : SKScene
+@interface GameScene : SKScene {
+
+    SKNode *world;
+    PlatformFactory *pFactory;
+
+}
 
 @end
