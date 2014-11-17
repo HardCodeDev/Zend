@@ -10,9 +10,32 @@
 
 @implementation Platform
 
-+ (instancetype) platformWithImageNamed:(NSString *)imageName
++ (instancetype)platformWithImageNamed:(NSString *)imageName
 {
-    return [[Platform alloc] initWithImageNamed:imageName];
+    Platform *platform = [[Platform alloc] initWithImageNamed:imageName];
+    return platform;
+}
+
+- (void)setSpriteSize:(CGFloat) size
+{
+    self.scale = size;
+    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
+}
+
+- (void)initPhysicsBody
+{
+    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
+    self.physicsBody.restitution = 0;
+    self.physicsBody.friction = 1000.0;
+    self.physicsBody.allowsRotation = NO;
+    self.physicsBody.affectedByGravity = NO;
+    self.physicsBody.categoryBitMask = 1;
+    self.physicsBody.collisionBitMask = 0;
+}
+
+- (void)update
+{
+
 }
 
 @end

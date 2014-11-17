@@ -10,6 +10,7 @@
 
 @interface Platform : SKSpriteNode
 
-+ (instancetype) platformWithImageNamed:(NSString *)imageName;
-
++ (instancetype)platformWithImageNamed:(NSString *)imageName;
+- (void)update;
+- (void)initPhysicsBody;
 @end
