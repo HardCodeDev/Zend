@@ -17,43 +17,41 @@
     self.physicsWorld.gravity = CGVectorMake(0, -8);
     [self addChild:world];
     
-    Platform *platform = [pFactory createPlatformWithImageNamed:@"Spaceship" atPosition:CGPointMake(200, 200)];
-    NSLog(@"%f", platform.position.x);
-    [world addChild:platform];
+    Platform *platform = [pFactory createPlatformWithImageNamed:@"ground.png" atPosition:CGPointMake(500, 700)];
     
+    Platform *dynPlatform = [pFactory createDynamicPlatformWithImageNamed:@"ground.png"
+                                                            beginPosition:CGPointMake(800, 200)
+                                                              endPosition:CGPointMake(200, 200) speed:1];
+    [world addChild:[pFactory createDynamicPlatformWithImageNamed:@"ground.png"
+                                                            beginPosition:CGPointMake(400, 200)
+                                                      endPosition:CGPointMake(400, 100) speed:3]];
+    [world addChild:platform];
+    [world addChild:dynPlatform];
     SKSpriteNode *spriteA = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
     SKSpriteNode *spriteB = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
     spriteA.scale = 0.5;
     spriteB.scale = 0.5;
     spriteA.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spriteA.frame.size];
     spriteB.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spriteB.frame.size];
-    int x0 = 500;
-    spriteA.position = CGPointMake(x0-300, 600);
-    spriteB.position = CGPointMake(x0+100, 600);
-   // spriteA.physicsBody.dynamic = NO;
-    //spriteB.physicsBody.dynamic = NO;
+    spriteA.physicsBody.allowsRotation = NO;
+    spriteB.physicsBody.allowsRotation = NO;
+    int x = 500;
+    spriteA.position = CGPointMake(x-300, 600);
+    spriteB.position = CGPointMake(x+100, 600);
+    spriteA.physicsBody.restitution = 0;
+    spriteB.physicsBody.restitution = 0;
+
     [world addChild:spriteA];
     [world addChild:spriteB];
-    float x = spriteA.position.x;
-    SKAction *a = [SKAction moveToY:(x+400) duration:1];
-    SKAction *b = [SKAction moveToY:x duration:1];
-    SKAction *sequence = [SKAction sequence:@[a,b]];
-    [spriteA runAction:[SKAction repeatActionForever:sequence]];
-    
-    SKAction *c = [SKAction moveToX:(x+400) duration:1];
-    SKAction *d = [SKAction moveToX:x duration:1];
-    SKAction *sequence2 = [SKAction sequence:@[c,d]];
-    [spriteB runAction:[SKAction repeatActionForever:sequence2]];
-    
-    spriteA.physicsBody.categoryBitMask = 1;
+
+    spriteA.physicsBody.categoryBitMask = 2;
     spriteA.physicsBody.collisionBitMask = 3;
     spriteA.physicsBody.contactTestBitMask = 1;
     
-    spriteB.physicsBody.categoryBitMask = 1;
+    spriteB.physicsBody.categoryBitMask = 2;
     spriteB.physicsBody.collisionBitMask = 3;
     spriteB.physicsBody.contactTestBitMask = 1;
     
-    platform.physicsBody.categoryBitMask = 2;
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
@@ -67,9 +65,10 @@
     for(int i=0; i<ns.count; ++i)
     {
         SKNode *node = [ns objectAtIndex:i];
-        if(node.position.y<0)
+        if([node.name isEqualToString:@"dynamicPlatform"] == YES)
         {
-            node.position = CGPointMake(node.position.x, 500);
+            DynamicPlatform *platform = (DynamicPlatform *)node;
+            [platform update];
         }
     }
 }

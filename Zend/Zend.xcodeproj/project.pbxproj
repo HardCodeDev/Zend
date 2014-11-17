@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */; };
 		3A1C7D5B1A1919860036F9C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5A1A1919860036F9C7 /* AppDelegate.m */; };
 		3A1C7D5D1A1919860036F9C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5C1A1919860036F9C7 /* main.m */; };
 		3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5F1A1919860036F9C7 /* GameScene.m */; };
@@ -19,6 +20,7 @@
 		3ADECE6A1A19F1ED00179646 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE691A19F1ED00179646 /* Zombie.m */; };
 		3ADECE6E1A19F36100179646 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE6D1A19F36100179646 /* Platform.m */; };
 		3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE701A19F3B100179646 /* PlatformFactory.m */; };
+		3ADECE751A1A3A2A00179646 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADECE741A1A3A2A00179646 /* ground.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A0B936C1A1A6A79002CE2FB /* DynamicPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicPlatform.h; path = Zend/DynamicPlatform.h; sourceTree = "<group>"; };
+		3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicPlatform.m; path = Zend/DynamicPlatform.m; sourceTree = "<group>"; };
 		3A1C7D541A1919860036F9C7 /* Zend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D581A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D591A1919860036F9C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,6 +59,7 @@
 		3ADECE6D1A19F36100179646 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = Zend/Platform.m; sourceTree = "<group>"; };
 		3ADECE6F1A19F3B100179646 /* PlatformFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlatformFactory.h; path = Zend/PlatformFactory.h; sourceTree = "<group>"; };
 		3ADECE701A19F3B100179646 /* PlatformFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlatformFactory.m; path = Zend/PlatformFactory.m; sourceTree = "<group>"; };
+		3ADECE741A1A3A2A00179646 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ground.png; path = Zend/ground.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,7 @@
 		3A1C7D4B1A1919860036F9C7 = {
 			isa = PBXGroup;
 			children = (
+				3ADECE741A1A3A2A00179646 /* ground.png */,
 				3ADECE6B1A19F25E00179646 /* World */,
 				3ADECE641A19E8F500179646 /* Character */,
 				3A1C7D561A1919860036F9C7 /* Zend */,
@@ -156,6 +162,8 @@
 				3ADECE6D1A19F36100179646 /* Platform.m */,
 				3ADECE6F1A19F3B100179646 /* PlatformFactory.h */,
 				3ADECE701A19F3B100179646 /* PlatformFactory.m */,
+				3A0B936C1A1A6A79002CE2FB /* DynamicPlatform.h */,
+				3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */,
 			);
 			name = World;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADECE751A1A3A2A00179646 /* ground.png in Resources */,
 				3A1C7D621A1919860036F9C7 /* GameScene.sks in Resources */,
 				3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
@@ -264,6 +273,7 @@
 				3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */,
 				3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */,
 				3ADECE6E1A19F36100179646 /* Platform.m in Sources */,
+				3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */,
 				3ADECE671A19EB5700179646 /* ZombieFactory.m in Sources */,
 				3ADECE6A1A19F1ED00179646 /* Zombie.m in Sources */,
 				3A1C7D5B1A1919860036F9C7 /* AppDelegate.m in Sources */,

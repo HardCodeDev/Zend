@@ -10,13 +10,24 @@
 
 @implementation PlatformFactory
 
-- (Platform*) createPlatformWithImageNamed:(NSString *)imageName atPosition:(CGPoint)point
+- (Platform *) createPlatformWithImageNamed:(NSString *)imageName atPosition:(CGPoint)point
 {
     Platform *platform = [Platform platformWithImageNamed:imageName];
-    platform.scale = 0.5;
     platform.position = point;
-    platform.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:platform.frame.size];
-    platform.physicsBody.dynamic = NO;
+    [platform initPhysicsBody];
+    return platform;
+}
+- (Platform *) createDynamicPlatformWithImageNamed:(NSString *)imageName
+                                    beginPosition:(CGPoint)beginPoint
+                                      endPosition:(CGPoint)endPoint
+                                             speed:(CGFloat)speed
+{
+    DynamicPlatform *platform = [DynamicPlatform platformWithImageNamed:imageName];
+    platform.position = beginPoint;
+    platform.beginPoint = beginPoint;
+    platform.endPoint = endPoint;
+    platform.speed = speed;
+    [platform initPhysicsBody];
     return platform;
 }
 
