@@ -10,6 +10,20 @@
 
 @implementation Character
 
-int health;
+- (Character *)cloneWithType:(NSString *)characterType {
+    return nil;
+}
+
+- (void)assignType:(NSString *)characterType {
+    if ([characterType isEqualToString:@"Player"]) {
+        type = PLAYER;
+    }
+    else if ([characterType isEqualToString:@"Friend"]) {
+        type = FRIEND;
+    }
+    else if ([characterType isEqualToString:@"Zombie"]) {
+        type = ZOMBIE;
+    }
+}
 
 @end

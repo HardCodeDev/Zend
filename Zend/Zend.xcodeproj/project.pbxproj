@@ -15,9 +15,6 @@
 		3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D631A1919860036F9C7 /* Images.xcassets */; };
 		3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D651A1919860036F9C7 /* MainMenu.xib */; };
 		3A1C7D731A1919860036F9C7 /* ZendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D721A1919860036F9C7 /* ZendTests.m */; };
-		3ADECE631A19E8AB00179646 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE621A19E8AB00179646 /* Character.m */; };
-		3ADECE671A19EB5700179646 /* ZombieFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE661A19EB5700179646 /* ZombieFactory.m */; };
-		3ADECE6A1A19F1ED00179646 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE691A19F1ED00179646 /* Zombie.m */; };
 		3ADECE6E1A19F36100179646 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE6D1A19F36100179646 /* Platform.m */; };
 		3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE701A19F3B100179646 /* PlatformFactory.m */; };
 		3ADECE751A1A3A2A00179646 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADECE741A1A3A2A00179646 /* ground.png */; };
@@ -49,12 +46,6 @@
 		3A1C7D6C1A1919860036F9C7 /* ZendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D711A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D721A1919860036F9C7 /* ZendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTests.m; sourceTree = "<group>"; };
-		3ADECE611A19E8AB00179646 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Character.h; path = Zend/Character.h; sourceTree = "<group>"; };
-		3ADECE621A19E8AB00179646 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Character.m; path = Zend/Character.m; sourceTree = "<group>"; };
-		3ADECE651A19EB5700179646 /* ZombieFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZombieFactory.h; path = Zend/ZombieFactory.h; sourceTree = "<group>"; };
-		3ADECE661A19EB5700179646 /* ZombieFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZombieFactory.m; path = Zend/ZombieFactory.m; sourceTree = "<group>"; };
-		3ADECE681A19F1ED00179646 /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Zombie.h; path = Zend/Zombie.h; sourceTree = "<group>"; };
-		3ADECE691A19F1ED00179646 /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Zombie.m; path = Zend/Zombie.m; sourceTree = "<group>"; };
 		3ADECE6C1A19F36100179646 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = Zend/Platform.h; sourceTree = "<group>"; };
 		3ADECE6D1A19F36100179646 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = Zend/Platform.m; sourceTree = "<group>"; };
 		3ADECE6F1A19F3B100179646 /* PlatformFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlatformFactory.h; path = Zend/PlatformFactory.h; sourceTree = "<group>"; };
@@ -145,12 +136,16 @@
 		3ADECE641A19E8F500179646 /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				3ADECE621A19E8AB00179646 /* Character.m */,
-				3ADECE611A19E8AB00179646 /* Character.h */,
-				3ADECE651A19EB5700179646 /* ZombieFactory.h */,
-				3ADECE661A19EB5700179646 /* ZombieFactory.m */,
-				3ADECE681A19F1ED00179646 /* Zombie.h */,
-				3ADECE691A19F1ED00179646 /* Zombie.m */,
+				455E323D1A1A9CB00047A0EC /* Character.h */,
+				455E323E1A1A9CB00047A0EC /* Character.m */,
+				455E323F1A1A9CB00047A0EC /* CharacterFactory.h */,
+				455E32401A1A9CB00047A0EC /* CharacterFactory.m */,
+				455E32411A1A9CB00047A0EC /* FatZombie.h */,
+				455E32421A1A9CB00047A0EC /* FatZombie.m */,
+				455E32431A1A9CB00047A0EC /* Human.h */,
+				455E32441A1A9CB00047A0EC /* Human.m */,
+				455E32451A1A9CB00047A0EC /* SkinnyZombie.h */,
+				455E32461A1A9CB00047A0EC /* SkinnyZombie.m */,
 			);
 			name = Character;
 			sourceTree = "<group>";
@@ -272,12 +267,16 @@
 				3A1C7D5D1A1919860036F9C7 /* main.m in Sources */,
 				3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */,
 				3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */,
+				455E324B1A1A9CB00047A0EC /* SkinnyZombie.m in Sources */,
 				3ADECE6E1A19F36100179646 /* Platform.m in Sources */,
 				3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */,
 				3ADECE671A19EB5700179646 /* ZombieFactory.m in Sources */,
 				3ADECE6A1A19F1ED00179646 /* Zombie.m in Sources */,
 				3A1C7D5B1A1919860036F9C7 /* AppDelegate.m in Sources */,
-				3ADECE631A19E8AB00179646 /* Character.m in Sources */,
+				455E32481A1A9CB00047A0EC /* CharacterFactory.m in Sources */,
+				455E324A1A1A9CB00047A0EC /* Human.m in Sources */,
+				455E32471A1A9CB00047A0EC /* Character.m in Sources */,
+				455E32491A1A9CB00047A0EC /* FatZombie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
