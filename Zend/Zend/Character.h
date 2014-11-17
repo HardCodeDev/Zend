@@ -8,6 +8,18 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface Character : SKSpriteNode
+@interface Character : SKSpriteNode {
+    enum CharacterType {
+        PLAYER,
+        FRIEND,
+        ZOMBIE
+    };
+    NSUInteger type;
+    NSUInteger level;
+    NSUInteger damage;
+}
+
+- (Character *)cloneWithType:(NSString *)characterType;
+- (void)assignType:(NSString *)characterType;
 
 @end
