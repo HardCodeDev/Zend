@@ -37,7 +37,7 @@
 
     /* Set the scale mode to scale to fit the window */
     scene.scaleMode = SKSceneScaleModeAspectFit;
-
+    scene.backgroundColor = [SKColor colorWithRed:150.0/255.0 green:220.0/255.0 blue:255.0/255.0 alpha:1.0];
     [self.skView presentScene:scene];
 
     /* Sprite Kit applies additional optimizations to improve rendering performance */
@@ -45,6 +45,7 @@
     
     self.skView.showsFPS = YES;
     self.skView.showsNodeCount = YES;
+    
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {

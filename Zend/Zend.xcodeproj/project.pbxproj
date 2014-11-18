@@ -18,6 +18,14 @@
 		3ADECE6E1A19F36100179646 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE6D1A19F36100179646 /* Platform.m */; };
 		3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE701A19F3B100179646 /* PlatformFactory.m */; };
 		3ADECE751A1A3A2A00179646 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADECE741A1A3A2A00179646 /* ground.png */; };
+		3AE3FB0D1A1AAA7A00B2F287 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB041A1AAA7A00B2F287 /* Character.m */; };
+		3AE3FB0E1A1AAA7A00B2F287 /* CharacterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB061A1AAA7A00B2F287 /* CharacterFactory.m */; };
+		3AE3FB0F1A1AAA7A00B2F287 /* FatZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB081A1AAA7A00B2F287 /* FatZombie.m */; };
+		3AE3FB101A1AAA7A00B2F287 /* Human.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB0A1A1AAA7A00B2F287 /* Human.m */; };
+		3AE3FB111A1AAA7A00B2F287 /* SkinnyZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB0C1A1AAA7A00B2F287 /* SkinnyZombie.m */; };
+		3AE3FB171A1AAF3D00B2F287 /* PlayerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB161A1AAF3D00B2F287 /* PlayerControl.m */; };
+		3AE3FB191A1AB02900B2F287 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3FB181A1AB02900B2F287 /* Background.png */; };
+		3AE3FB1B1A1AB3CB00B2F287 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3FB1A1A1AB3CB00B2F287 /* player.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +59,20 @@
 		3ADECE6F1A19F3B100179646 /* PlatformFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlatformFactory.h; path = Zend/PlatformFactory.h; sourceTree = "<group>"; };
 		3ADECE701A19F3B100179646 /* PlatformFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlatformFactory.m; path = Zend/PlatformFactory.m; sourceTree = "<group>"; };
 		3ADECE741A1A3A2A00179646 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ground.png; path = Zend/ground.png; sourceTree = "<group>"; };
+		3AE3FB031A1AAA7A00B2F287 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Character.h; path = Zend/Character.h; sourceTree = "<group>"; };
+		3AE3FB041A1AAA7A00B2F287 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Character.m; path = Zend/Character.m; sourceTree = "<group>"; };
+		3AE3FB051A1AAA7A00B2F287 /* CharacterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterFactory.h; path = Zend/CharacterFactory.h; sourceTree = "<group>"; };
+		3AE3FB061A1AAA7A00B2F287 /* CharacterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharacterFactory.m; path = Zend/CharacterFactory.m; sourceTree = "<group>"; };
+		3AE3FB071A1AAA7A00B2F287 /* FatZombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FatZombie.h; path = Zend/FatZombie.h; sourceTree = "<group>"; };
+		3AE3FB081A1AAA7A00B2F287 /* FatZombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FatZombie.m; path = Zend/FatZombie.m; sourceTree = "<group>"; };
+		3AE3FB091A1AAA7A00B2F287 /* Human.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Human.h; path = Zend/Human.h; sourceTree = "<group>"; };
+		3AE3FB0A1A1AAA7A00B2F287 /* Human.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Human.m; path = Zend/Human.m; sourceTree = "<group>"; };
+		3AE3FB0B1A1AAA7A00B2F287 /* SkinnyZombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkinnyZombie.h; path = Zend/SkinnyZombie.h; sourceTree = "<group>"; };
+		3AE3FB0C1A1AAA7A00B2F287 /* SkinnyZombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SkinnyZombie.m; path = Zend/SkinnyZombie.m; sourceTree = "<group>"; };
+		3AE3FB151A1AAF3D00B2F287 /* PlayerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerControl.h; path = Zend/PlayerControl.h; sourceTree = "<group>"; };
+		3AE3FB161A1AAF3D00B2F287 /* PlayerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerControl.m; path = Zend/PlayerControl.m; sourceTree = "<group>"; };
+		3AE3FB181A1AB02900B2F287 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Zend/Background.png; sourceTree = "<group>"; };
+		3AE3FB1A1A1AB3CB00B2F287 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player.png; path = Zend/player.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +97,11 @@
 			isa = PBXGroup;
 			children = (
 				3ADECE741A1A3A2A00179646 /* ground.png */,
+				3AE3FB1A1A1AB3CB00B2F287 /* player.png */,
+				3AE3FB181A1AB02900B2F287 /* Background.png */,
 				3ADECE6B1A19F25E00179646 /* World */,
 				3ADECE641A19E8F500179646 /* Character */,
+				3AFFAE621A1AC083002D6320 /* Player */,
 				3A1C7D561A1919860036F9C7 /* Zend */,
 				3A1C7D6F1A1919860036F9C7 /* ZendTests */,
 				3A1C7D551A1919860036F9C7 /* Products */,
@@ -136,16 +161,16 @@
 		3ADECE641A19E8F500179646 /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				455E323D1A1A9CB00047A0EC /* Character.h */,
-				455E323E1A1A9CB00047A0EC /* Character.m */,
-				455E323F1A1A9CB00047A0EC /* CharacterFactory.h */,
-				455E32401A1A9CB00047A0EC /* CharacterFactory.m */,
-				455E32411A1A9CB00047A0EC /* FatZombie.h */,
-				455E32421A1A9CB00047A0EC /* FatZombie.m */,
-				455E32431A1A9CB00047A0EC /* Human.h */,
-				455E32441A1A9CB00047A0EC /* Human.m */,
-				455E32451A1A9CB00047A0EC /* SkinnyZombie.h */,
-				455E32461A1A9CB00047A0EC /* SkinnyZombie.m */,
+				3AE3FB031A1AAA7A00B2F287 /* Character.h */,
+				3AE3FB041A1AAA7A00B2F287 /* Character.m */,
+				3AE3FB051A1AAA7A00B2F287 /* CharacterFactory.h */,
+				3AE3FB061A1AAA7A00B2F287 /* CharacterFactory.m */,
+				3AE3FB071A1AAA7A00B2F287 /* FatZombie.h */,
+				3AE3FB081A1AAA7A00B2F287 /* FatZombie.m */,
+				3AE3FB091A1AAA7A00B2F287 /* Human.h */,
+				3AE3FB0A1A1AAA7A00B2F287 /* Human.m */,
+				3AE3FB0B1A1AAA7A00B2F287 /* SkinnyZombie.h */,
+				3AE3FB0C1A1AAA7A00B2F287 /* SkinnyZombie.m */,
 			);
 			name = Character;
 			sourceTree = "<group>";
@@ -161,6 +186,15 @@
 				3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */,
 			);
 			name = World;
+			sourceTree = "<group>";
+		};
+		3AFFAE621A1AC083002D6320 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				3AE3FB151A1AAF3D00B2F287 /* PlayerControl.h */,
+				3AE3FB161A1AAF3D00B2F287 /* PlayerControl.m */,
+			);
+			name = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +279,8 @@
 			files = (
 				3ADECE751A1A3A2A00179646 /* ground.png in Resources */,
 				3A1C7D621A1919860036F9C7 /* GameScene.sks in Resources */,
+				3AE3FB1B1A1AB3CB00B2F287 /* player.png in Resources */,
+				3AE3FB191A1AB02900B2F287 /* Background.png in Resources */,
 				3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
 			);
@@ -264,19 +300,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE3FB171A1AAF3D00B2F287 /* PlayerControl.m in Sources */,
 				3A1C7D5D1A1919860036F9C7 /* main.m in Sources */,
+				3AE3FB0D1A1AAA7A00B2F287 /* Character.m in Sources */,
+				3AE3FB0E1A1AAA7A00B2F287 /* CharacterFactory.m in Sources */,
+				3AE3FB111A1AAA7A00B2F287 /* SkinnyZombie.m in Sources */,
 				3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */,
 				3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */,
-				455E324B1A1A9CB00047A0EC /* SkinnyZombie.m in Sources */,
 				3ADECE6E1A19F36100179646 /* Platform.m in Sources */,
+				3AE3FB0F1A1AAA7A00B2F287 /* FatZombie.m in Sources */,
+				3AE3FB101A1AAA7A00B2F287 /* Human.m in Sources */,
 				3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */,
-				3ADECE671A19EB5700179646 /* ZombieFactory.m in Sources */,
-				3ADECE6A1A19F1ED00179646 /* Zombie.m in Sources */,
 				3A1C7D5B1A1919860036F9C7 /* AppDelegate.m in Sources */,
-				455E32481A1A9CB00047A0EC /* CharacterFactory.m in Sources */,
-				455E324A1A1A9CB00047A0EC /* Human.m in Sources */,
-				455E32471A1A9CB00047A0EC /* Character.m in Sources */,
-				455E32491A1A9CB00047A0EC /* FatZombie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

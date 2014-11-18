@@ -38,13 +38,13 @@
         self.isMovingForward = YES;
     if(self.isMovingForward)
     {
-        self.physicsBody.velocity = CGVectorMake((self.endPoint.x-self.beginPoint.x)*self.speed,
-                                                 (self.endPoint.y-self.beginPoint.y)*self.speed);
+        self.physicsBody.velocity = CGVectorMake((self.endPoint.x - self.beginPoint.x) * self.speed,
+                                                 (self.endPoint.y - self.beginPoint.y) * self.speed);
     }
     else
     {
-        self.physicsBody.velocity = CGVectorMake((self.beginPoint.x-self.endPoint.x)*self.speed,
-                                                 (self.beginPoint.y-self.endPoint.y)*self.speed);
+        self.physicsBody.velocity = CGVectorMake((self.beginPoint.x - self.endPoint.x) * self.speed,
+                                                 (self.beginPoint.y - self.endPoint.y) * self.speed);
     }
 }
 

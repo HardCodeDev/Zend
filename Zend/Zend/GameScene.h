@@ -8,11 +8,15 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "PlatformFactory.h"
+#import "CharacterFactory.h"
+#import "PlayerControl.h"
 
 @interface GameScene : SKScene {
 
     SKNode *world;
+    CharacterFactory *cFactory;
     PlatformFactory *pFactory;
+    PlayerControl *plControl;
 
 }
 
