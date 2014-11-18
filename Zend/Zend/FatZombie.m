@@ -10,10 +10,19 @@
 
 @implementation FatZombie
 
-- (Character *)cloneWithType:(NSString *)characterType {
+- (Character *)cloneWithType:(CharacterType)cType {
     Character *newFatZombie = [[FatZombie alloc] initWithImageNamed:@"FatZombieTexture"];
-    [newFatZombie assignType:characterType];
+    type = cType;
+    newFatZombie.name = @"FatZombie";
+    [newFatZombie initDefaultPhysicsProperties];
+    [newFatZombie initPhysicsBody];
     return newFatZombie;
+}
+
+- (void)initPhysicsBody {
+    self.physicsBody.categoryBitMask = ZOMBIE;
+    self.physicsBody.collisionBitMask = 1;
+    self.physicsBody.contactTestBitMask = PLATFORM | HUMAN;
 }
 
 @end

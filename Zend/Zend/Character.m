@@ -10,20 +10,18 @@
 
 @implementation Character
 
-- (Character *)cloneWithType:(NSString *)characterType {
+- (Character *)cloneWithType:(CharacterType)cType {
     return nil;
 }
 
-- (void)assignType:(NSString *)characterType {
-    if ([characterType isEqualToString:@"Player"]) {
-        type = PLAYER;
-    }
-    else if ([characterType isEqualToString:@"Friend"]) {
-        type = FRIEND;
-    }
-    else if ([characterType isEqualToString:@"Zombie"]) {
-        type = ZOMBIE;
-    }
+- (void)initDefaultPhysicsProperties {
+    self.physicsBody.restitution = 0;
+    self.physicsBody.friction = 1000;
+    self.physicsBody.allowsRotation = NO;
+}
+
+- (void)initPhysicsBody {
+    
 }
 
 @end

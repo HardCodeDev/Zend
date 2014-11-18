@@ -10,10 +10,19 @@
 
 @implementation SkinnyZombie
 
-- (Character *)cloneWithType:(NSString *)characterType {
+- (Character *)cloneWithType:(CharacterType)cType {
     Character *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombieTexture"];
-    [newSkinnyZombie assignType:characterType];
+    newSkinnyZombie.name = @"SkinnyZombie";
+    type = cType;
+    [newSkinnyZombie initDefaultPhysicsProperties];
+    [newSkinnyZombie initPhysicsBody];
     return newSkinnyZombie;
+}
+
+- (void)initPhysicsBody {
+    self.physicsBody.categoryBitMask = ZOMBIE;
+    self.physicsBody.collisionBitMask = 1;
+    self.physicsBody.contactTestBitMask = PLATFORM | HUMAN;
 }
 
 @end

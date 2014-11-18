@@ -17,7 +17,6 @@
 }
 
 - (id)init;
-- (Character *)spawnCharacter:(NSString *)characterName
-                     withType:(NSString *)characterType;
+- (Character *)createCharacter:(CharacterType)cType;
 
 @end

@@ -10,6 +10,7 @@
 
 @interface Human : Character
 
-- (Character *)cloneWithType:(NSString *)characterType;
+- (Character *)cloneWithType:(CharacterType)type;
+- (void)initPhysicsBody;
 
 @end
