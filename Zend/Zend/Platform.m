@@ -26,7 +26,7 @@
 {
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.restitution = 0;
-    self.physicsBody.friction = 1000.0;
+    self.physicsBody.friction = 10.0;
     self.physicsBody.allowsRotation = NO;
     self.physicsBody.affectedByGravity = NO;
     self.physicsBody.categoryBitMask = 1;

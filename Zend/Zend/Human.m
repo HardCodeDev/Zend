@@ -14,28 +14,32 @@
     Character *newHuman;
     
     if (cType == PLAYER) {
-        newHuman = [[Human alloc] initWithImageNamed:@"PlayerTexture"];
-        newHuman.name = @"Player";
+        newHuman = [[Human alloc] initWithImageNamed:@"boyCharacter.png"];
     }
     else if (cType == FRIEND) {
         newHuman = [[Human alloc] initWithImageNamed:@"FriendTexture"];
-        newHuman.name = @"Friend";
     }
     else {
         newHuman = [[Human alloc] init];
     }
     
-    type = cType;
-    [newHuman initDefaultPhysicsProperties];
+    newHuman.type = cType;
+    newHuman.speedX = 500;
+    newHuman.speedY = 750;
     [newHuman initPhysicsBody];
     
     return newHuman;
 }
 
 - (void)initPhysicsBody {
+    [super initPhysicsBody];
     self.physicsBody.categoryBitMask = HUMAN;
     self.physicsBody.collisionBitMask = 1;
     self.physicsBody.contactTestBitMask = PLATFORM | ZOMBIE;
+}
+- (void) update
+{
+    [super update];
 }
 
 @end

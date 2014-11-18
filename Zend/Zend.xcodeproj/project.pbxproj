@@ -15,6 +15,7 @@
 		3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D631A1919860036F9C7 /* Images.xcassets */; };
 		3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D651A1919860036F9C7 /* MainMenu.xib */; };
 		3A1C7D731A1919860036F9C7 /* ZendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D721A1919860036F9C7 /* ZendTests.m */; };
+		3AC15A741A1B2012001AE7C7 /* boyCharacter.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC15A731A1B2012001AE7C7 /* boyCharacter.png */; };
 		3ADECE6E1A19F36100179646 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE6D1A19F36100179646 /* Platform.m */; };
 		3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE701A19F3B100179646 /* PlatformFactory.m */; };
 		3ADECE751A1A3A2A00179646 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ADECE741A1A3A2A00179646 /* ground.png */; };
@@ -54,6 +55,7 @@
 		3A1C7D6C1A1919860036F9C7 /* ZendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D711A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D721A1919860036F9C7 /* ZendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTests.m; sourceTree = "<group>"; };
+		3AC15A731A1B2012001AE7C7 /* boyCharacter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boyCharacter.png; path = Zend/boyCharacter.png; sourceTree = "<group>"; };
 		3ADECE6C1A19F36100179646 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = Zend/Platform.h; sourceTree = "<group>"; };
 		3ADECE6D1A19F36100179646 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = Zend/Platform.m; sourceTree = "<group>"; };
 		3ADECE6F1A19F3B100179646 /* PlatformFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlatformFactory.h; path = Zend/PlatformFactory.h; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				3ADECE741A1A3A2A00179646 /* ground.png */,
+				3AC15A731A1B2012001AE7C7 /* boyCharacter.png */,
 				3AE3FB1A1A1AB3CB00B2F287 /* player.png */,
 				3AE3FB181A1AB02900B2F287 /* Background.png */,
 				3ADECE6B1A19F25E00179646 /* World */,
@@ -283,6 +286,7 @@
 				3AE3FB191A1AB02900B2F287 /* Background.png in Resources */,
 				3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
+				3AC15A741A1B2012001AE7C7 /* boyCharacter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

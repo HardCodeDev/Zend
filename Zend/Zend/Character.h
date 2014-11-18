@@ -25,10 +25,21 @@ typedef enum {
     CharacterType type;
     NSUInteger level;
     NSUInteger damage;
+    CGFloat speedX, speedY;
+    NSInteger direction;
+    BOOL isRunning, isJumping;
 }
 
+@property CharacterType type;
+@property CGFloat speedX, speedY;
+
 - (Character *)cloneWithType:(CharacterType)cType;
-- (void)initDefaultPhysicsProperties;
+- (id)initWithImageNamed:(NSString *) imageName;
 - (void)initPhysicsBody;
+- (void)update;
+- (void)run;
+- (void)stop;
+- (void)jump;
+- (void)setDirection:(NSInteger) dir;
 
 @end

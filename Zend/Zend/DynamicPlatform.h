@@ -13,12 +13,12 @@
     CGPoint beginPoint, endPoint;
     CGFloat speed;
     CGFloat speedX, speedY;
-    bool isMovingForward, isInCheckpoint;
+    BOOL isMovingForward, isInCheckpoint;
 }
 
 @property CGPoint beginPoint, endPoint;
 @property CGFloat speed;
-@property bool isMovingForward, isInCheckpoint;
+@property BOOL isMovingForward, isInCheckpoint;
 
 + (instancetype)platformWithImageNamed:(NSString *)imageName;
 - (void)update;

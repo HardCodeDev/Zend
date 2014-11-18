@@ -12,14 +12,13 @@
 
 - (Character *)cloneWithType:(CharacterType)cType {
     Character *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombieTexture"];
-    newSkinnyZombie.name = @"SkinnyZombie";
-    type = cType;
-    [newSkinnyZombie initDefaultPhysicsProperties];
+    newSkinnyZombie.type = cType;
     [newSkinnyZombie initPhysicsBody];
     return newSkinnyZombie;
 }
 
-- (void)initPhysicsBody {
+- (void)initPhysicsBody{
+    [super initPhysicsBody];
     self.physicsBody.categoryBitMask = ZOMBIE;
     self.physicsBody.collisionBitMask = 1;
     self.physicsBody.contactTestBitMask = PLATFORM | HUMAN;

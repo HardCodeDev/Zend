@@ -12,10 +12,15 @@
 @interface PlayerControl : NSObject
 {
     Character *character;
+    BOOL leftKeyPressed, rightKeyPressed;
     
 }
-@property Character * character;
 
+@property Character * character;
+@property BOOL leftKeyPressed, rightKeyPressed;
+
+- (id)init;
 - (void)setPosition:(CGPoint)position;
+- (void)setDirection:(NSInteger) direction;
 
 @end

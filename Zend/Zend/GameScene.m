@@ -26,19 +26,19 @@
     
     
     Platform *platform = [pFactory createPlatformWithImageNamed:@"ground.png" atPosition:CGPointMake(400, 100)];
+    //[world addChild:[pFactory createPlatformWithImageNamed:@"ground.png" atPosition:CGPointMake(400, 400)]];
     
-    /*Platform *dynPlatform = [pFactory createDynamicPlatformWithImageNamed:@"ground.png"
+    Platform *dynPlatform = [pFactory createDynamicPlatformWithImageNamed:@"ground.png"
                                                             beginPosition:CGPointMake(800, 300)
-                                                              endPosition:CGPointMake(200, 300) speed:1];
-    [world addChild:[pFactory createDynamicPlatformWithImageNamed:@"ground.png"
-                                                    beginPosition:CGPointMake(400, 500)
-                                                      endPosition:CGPointMake(400, 100) speed:1]];*/
+                                                              endPosition:CGPointMake(500, 300) speed:0.5];
+    /*[world addChild:[pFactory createDynamicPlatformWithImageNamed:@"ground.png"
+                                                    beginPosition:CGPointMake(400, 100)
+                                                      endPosition:CGPointMake(400, 500) speed:1]];*/
     [world addChild:platform];
-    //[world addChild:dynPlatform];
+    [world addChild:dynPlatform];
     
-    
-    plControl.character = [cFactory spawnCharacter:@"Player" withType:@"Player"];
-    [plControl.character setPosition:CGPointMake(300, 300)];
+    plControl.character = [cFactory createCharacter:PLAYER];
+    [plControl.character setPosition:CGPointMake(300, 200)];
     [world addChild:plControl.character];
     
     /*SKSpriteNode *spriteA = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
@@ -72,6 +72,73 @@
 
 }
 
+- (void) keyUp:(NSEvent *)theEvent
+{
+    NSString*   const   character   =   [theEvent charactersIgnoringModifiers];
+    unichar     const   code        =   [character characterAtIndex:0];
+    
+    switch (code)
+    {
+        case NSUpArrowFunctionKey:
+        {
+            [plControl.character jump];
+            break;
+        }
+        case NSLeftArrowFunctionKey:
+        {
+            plControl.leftKeyPressed = 0;
+            if(plControl.rightKeyPressed)
+            {
+                [plControl setDirection: 1];
+                [plControl.character run];
+            }
+            else
+            {
+                [plControl setDirection: 0];
+                [plControl.character stop];
+            }
+            break;
+        }
+        case NSRightArrowFunctionKey:
+        {
+            plControl.rightKeyPressed = 0;
+            if(plControl.leftKeyPressed)
+            {
+                [plControl setDirection: -1];
+                [plControl.character run];
+            }
+            else
+            {
+                [plControl setDirection: 0];
+                [plControl.character stop];
+            }
+            break;
+        }
+    }
+}
+- (void) keyDown:(NSEvent *)theEvent
+{
+    unichar const code = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
+    
+    switch (code)
+    {
+        case NSLeftArrowFunctionKey:
+        {
+            plControl.leftKeyPressed = 1;
+            [plControl setDirection: -1];
+            [plControl.character run];
+            break;
+        }
+        case NSRightArrowFunctionKey:
+        {
+            plControl.rightKeyPressed = 1;
+            [plControl setDirection:1];
+            [plControl.character run];
+            break;
+        }
+    }
+}
+
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
     NSArray *ns = [world children];
@@ -83,10 +150,10 @@
             DynamicPlatform *platform = (DynamicPlatform *)node;
             [platform update];
         }
-        else if([node.name isEqualToString:@"Player"])
+        else if([node.name isEqualToString:@"Character"])
         {
-            if(!(rand()%1007))
-                node.physicsBody.velocity = CGVectorMake(0, 500);
+            Character *character = (Character*)node;
+            [character update];
         }
     }
 }

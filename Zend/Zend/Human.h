@@ -12,5 +12,5 @@
 
 - (Character *)cloneWithType:(CharacterType)type;
 - (void)initPhysicsBody;
-
+- (void) update;
 @end
