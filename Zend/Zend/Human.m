@@ -10,22 +10,32 @@
 
 @implementation Human
 
-- (Character *)cloneWithType:(NSString *)characterType {
+- (Character *)cloneWithType:(CharacterType)cType {
     Character *newHuman;
     
-    if ([characterType isEqualToString:@"Player"]) {
+    if (cType == PLAYER) {
         newHuman = [[Human alloc] initWithImageNamed:@"PlayerTexture"];
+        newHuman.name = @"Player";
     }
-    else if ([characterType isEqualToString:@"Friend"]) {
+    else if (cType == FRIEND) {
         newHuman = [[Human alloc] initWithImageNamed:@"FriendTexture"];
+        newHuman.name = @"Friend";
     }
     else {
         newHuman = [[Human alloc] init];
     }
     
-    [newHuman assignType:characterType];
+    type = cType;
+    [newHuman initDefaultPhysicsProperties];
+    [newHuman initPhysicsBody];
     
     return newHuman;
+}
+
+- (void)initPhysicsBody {
+    self.physicsBody.categoryBitMask = HUMAN;
+    self.physicsBody.collisionBitMask = 1;
+    self.physicsBody.contactTestBitMask = PLATFORM | ZOMBIE;
 }
 
 @end

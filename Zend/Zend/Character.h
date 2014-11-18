@@ -8,18 +8,27 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+typedef enum {
+    PLAYER,
+    FRIEND,
+    SZOMBIE,
+    FZOMBIE
+} CharacterType;
+
+typedef enum {
+    PLATFORM = 1,
+    HUMAN = 2,
+    ZOMBIE = 4
+} BitMask;
+
 @interface Character : SKSpriteNode {
-    enum CharacterType {
-        PLAYER,
-        FRIEND,
-        ZOMBIE
-    };
-    NSUInteger type;
+    CharacterType type;
     NSUInteger level;
     NSUInteger damage;
 }
 
-- (Character *)cloneWithType:(NSString *)characterType;
-- (void)assignType:(NSString *)characterType;
+- (Character *)cloneWithType:(CharacterType)cType;
+- (void)initDefaultPhysicsProperties;
+- (void)initPhysicsBody;
 
 @end

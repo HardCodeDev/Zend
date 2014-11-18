@@ -25,26 +25,25 @@
     return self;
 }
 
-- (Character *)spawnCharacter:(NSString *)characterName
-                     withType:(NSString *)characterType {
+- (Character *)createCharacter:(CharacterType)cType {
     
-    if ([characterName isEqualToString:@"Player"]) {
-        Character *newCharacter = [[prototypes objectAtIndex:0] cloneWithType:characterType];
+    if (cType == PLAYER) {
+        Character *newCharacter = [[prototypes objectAtIndex:0] cloneWithType:cType];
         return newCharacter;
     }
     
-    else if ([characterName isEqualToString:@"Friend"]) {
-        Character *newCharacter = [[prototypes objectAtIndex:0] cloneWithType:characterType];
+    else if (cType == FRIEND) {
+        Character *newCharacter = [[prototypes objectAtIndex:0] cloneWithType:cType];
         return newCharacter;
     }
     
-    else if ([characterName isEqualToString:@"SkinnyZombie"]) {
-        Character *newCharacter = [[prototypes objectAtIndex:1] cloneWithType:characterType];
+    else if (cType == SZOMBIE) {
+        Character *newCharacter = [[prototypes objectAtIndex:1] cloneWithType:cType];
         return newCharacter;
     }
     
-    else if ([characterName isEqualToString:@"FatZombie"]) {
-        Character *newCharacter = [[prototypes objectAtIndex:2] cloneWithType:characterType];
+    else if (cType == FZOMBIE) {
+        Character *newCharacter = [[prototypes objectAtIndex:2] cloneWithType:cType];
         return newCharacter;
     }
     
