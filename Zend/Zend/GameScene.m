@@ -26,50 +26,35 @@
     
     
     Platform *platform = [pFactory createPlatformWithImageNamed:@"ground.png" atPosition:CGPointMake(400, 100)];
-    //[world addChild:[pFactory createPlatformWithImageNamed:@"ground.png" atPosition:CGPointMake(400, 400)]];
     
     Platform *dynPlatform = [pFactory createDynamicPlatformWithImageNamed:@"ground.png"
                                                             beginPosition:CGPointMake(800, 300)
                                                               endPosition:CGPointMake(500, 300) speed:0.5];
-    /*[world addChild:[pFactory createDynamicPlatformWithImageNamed:@"ground.png"
-                                                    beginPosition:CGPointMake(400, 100)
-                                                      endPosition:CGPointMake(400, 500) speed:1]];*/
+
     [world addChild:platform];
     [world addChild:dynPlatform];
     
     plControl.character = [cFactory createCharacter:PLAYER];
     [plControl.character setPosition:CGPointMake(300, 200)];
     [world addChild:plControl.character];
-    
-    /*SKSpriteNode *spriteA = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-    SKSpriteNode *spriteB = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-    spriteA.scale = 0.5;
-    spriteB.scale = 0.5;
-    spriteA.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spriteA.frame.size];
-    spriteB.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:spriteB.frame.size];
-    spriteA.physicsBody.allowsRotation = NO;
-    spriteB.physicsBody.allowsRotation = NO;
-    int x = 500;
-    spriteA.position = CGPointMake(x-300, 600);
-    spriteB.position = CGPointMake(x+100, 600);
-    spriteA.physicsBody.restitution = 0;
-    spriteB.physicsBody.restitution = 0;
-
-    //[world addChild:spriteA];
-    //[world addChild:spriteB];
-
-    spriteA.physicsBody.categoryBitMask = 2;
-    spriteA.physicsBody.collisionBitMask = 3;
-    spriteA.physicsBody.contactTestBitMask = 1;
-    
-    spriteB.physicsBody.categoryBitMask = 2;
-    spriteB.physicsBody.collisionBitMask = 3;
-    spriteB.physicsBody.contactTestBitMask = 1;*/
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
      /* Called when a mouse click occurs */
+    CGPoint clickPosition = [theEvent locationInNode:world];
+    Character *zombie;
+    if(clickPosition.x > self.frame.size.width / 2) {
+        zombie = [cFactory createCharacter:SZOMBIE];
+    }
+    else {
+        zombie = [cFactory createCharacter:FZOMBIE];
+    }
+    zombie.position = clickPosition;
+    [world addChild:zombie];
+}
 
+- (void)didSimulatePhysics {
+    world.position = CGPointMake(-(plControl.character.position.x - self.size.width / 2), -(plControl.character.position.y - self.size.height / 2));
 }
 
 - (void) keyUp:(NSEvent *)theEvent

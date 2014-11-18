@@ -20,7 +20,6 @@
         SkinnyZombie *baseSkinnyZombie = [[SkinnyZombie alloc] init];
         FatZombie *baseFatZombie =[[FatZombie alloc] init];
         prototypes = [NSArray arrayWithObjects:baseHuman, baseSkinnyZombie, baseFatZombie, nil];
-        
     }
     return self;
 }

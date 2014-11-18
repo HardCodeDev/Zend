@@ -17,7 +17,7 @@
         newHuman = [[Human alloc] initWithImageNamed:@"boyCharacter.png"];
     }
     else if (cType == FRIEND) {
-        newHuman = [[Human alloc] initWithImageNamed:@"FriendTexture"];
+        newHuman = [[Human alloc] initWithImageNamed:@"player.png"];
     }
     else {
         newHuman = [[Human alloc] init];
@@ -34,7 +34,7 @@
 - (void)initPhysicsBody {
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask = HUMAN;
-    self.physicsBody.collisionBitMask = 1;
+    self.physicsBody.collisionBitMask = PLATFORM | ZOMBIE;
     self.physicsBody.contactTestBitMask = PLATFORM | ZOMBIE;
 }
 - (void) update

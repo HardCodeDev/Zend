@@ -11,7 +11,7 @@
 @implementation SkinnyZombie
 
 - (Character *)cloneWithType:(CharacterType)cType {
-    Character *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombieTexture"];
+    Character *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombie.png"];
     newSkinnyZombie.type = cType;
     [newSkinnyZombie initPhysicsBody];
     return newSkinnyZombie;
@@ -20,8 +20,10 @@
 - (void)initPhysicsBody{
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask = ZOMBIE;
-    self.physicsBody.collisionBitMask = 1;
+    self.physicsBody.collisionBitMask = PLATFORM | HUMAN;
     self.physicsBody.contactTestBitMask = PLATFORM | HUMAN;
+    self.physicsBody.friction = 1;
+    self.physicsBody.mass = 1;
 }
 
 @end
