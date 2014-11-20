@@ -12,12 +12,11 @@
 @interface PlayerControl : NSObject
 {
     Character *character;
-    BOOL leftKeyPressed, rightKeyPressed;
+    BOOL leftKeyPressed, rightKeyPressed, readyToJump;
     
 }
 
 @property Character * character;
-@property BOOL leftKeyPressed, rightKeyPressed;
 
 - (id)init;
 - (void)setPosition:(CGPoint)position;

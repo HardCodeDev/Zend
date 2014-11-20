@@ -30,7 +30,7 @@ typedef enum {
     CGFloat runSpeed, jumpSpeed;
     CGFloat speedX, speedY;
     NSInteger direction;
-    BOOL isRunning, isJumping;
+    BOOL isRunning, isJumping, onGround;
     Platform *platform;
 }
 
@@ -38,6 +38,7 @@ typedef enum {
 @property CGFloat speedX, speedY;
 @property CGFloat runSpeed, jumpSpeed;
 @property Platform * platform;
+@property BOOL onGround;
 
 - (Character *)cloneWithType:(CharacterType)cType;
 - (id)initWithImageNamed:(NSString *) imageName;

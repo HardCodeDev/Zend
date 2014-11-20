@@ -33,8 +33,8 @@
                                                                     speed:0.5
                                                                 zRotation:0];
     [world addChild:[pFactory createDynamicPlatformWithImageNamed:@"ground.png"
-                                                    beginPosition:CGPointMake(0, 0)
-                                                      endPosition:CGPointMake(0, 500)
+                                                    beginPosition:CGPointMake(0, 500)
+                                                      endPosition:CGPointMake(0, 1000)
                                                             speed:0.5
                                                         zRotation:0] ];
     [world addChild:[pFactory createDynamicPlatformWithImageNamed:@"ground.png"
@@ -129,15 +129,25 @@
     SKPhysicsBody *firstBody = contact.bodyA;
     SKPhysicsBody *secondBody = contact.bodyB;
     NSLog(@"Begin contact: %@ %@", firstBody.node.className, secondBody.node.className);
-    if(firstBody.categoryBitMask == PLATFORM && [secondBody.node.name isEqualToString:@"Character"])
-        [(Character*)secondBody.node setPlatform:(Platform *)firstBody.node];
+    uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
+    if((contactBitMask & (PLATFORM | HUMAN | ZOMBIE)) == contactBitMask)
+    {
+        Character *character = (Character*)secondBody.node;
+        Platform *platform = (Platform *)firstBody.node;
+        [character setPlatform:platform];
+    }
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact {
     SKPhysicsBody *firstBody = contact.bodyA;
     SKPhysicsBody *secondBody = contact.bodyB;
     NSLog(@"End contact: %@ %@", firstBody.node.className, secondBody.node.className);
-    if(firstBody.categoryBitMask == PLATFORM && [secondBody.node.name isEqualToString:@"Character"])
-        [(Character*)secondBody.node setPlatform:nil];
+    uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
+    if((contactBitMask & (PLATFORM | HUMAN | ZOMBIE)) == contactBitMask)
+    {
+        Character *character = (Character*)secondBody.node;
+        //Platform *platform = (Platform *)firstBody.node;
+        [character setPlatform:nil];
+    }
 }
 @end

@@ -14,6 +14,7 @@
 @synthesize speedX, speedY;
 @synthesize runSpeed, jumpSpeed;
 @synthesize platform;
+@synthesize onGround;
 
 - (Character *)cloneWithType:(CharacterType)cType {
     return nil;
@@ -33,23 +34,26 @@
     if(self != nil)
     {
         self.name = @"Character";
-        self.speedX = 0;
-        self.speedY = 0;
+        speedX = 0;
+        speedY = 0;
         [self setDirection:0];
+        onGround = NO;
     }
     return self;
 }
 
 - (void)update
 {
-    if(platform != nil && self.position.y-self.frame.size.height/2 + 1>= platform.position.y+platform.frame.size.height/2)
+    if(platform != nil && self.position.y-self.frame.size.height/2 + 1 >= platform.position.y+platform.frame.size.height/2)
     {
         self.physicsBody.velocity = CGVectorMake(self.speedX+platform.physicsBody.velocity.dx,
                                                  platform.physicsBody.velocity.dy);
+        onGround = YES;
     }
     else
     {
         self.physicsBody.velocity = CGVectorMake(self.speedX, self.physicsBody.velocity.dy);
+        onGround = NO;
     }
 }
 
@@ -68,7 +72,8 @@
 
 - (void)jump
 {
-    self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
+    if(onGround)
+        self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
 }
 
 - (void)setDirection:(NSInteger) dir

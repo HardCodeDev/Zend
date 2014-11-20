@@ -11,15 +11,15 @@
 @implementation PlayerControl
 
 @synthesize character;
-@synthesize leftKeyPressed, rightKeyPressed;
 
 - (id)init
 {
     self = [super init];
     if(self != nil)
     {
-        self.leftKeyPressed = 0;
-        self.rightKeyPressed = 0;
+        leftKeyPressed = NO;
+        rightKeyPressed = NO;
+        readyToJump = YES;
     }
     return self;
 }
@@ -39,7 +39,7 @@
     {
         case NSUpArrowFunctionKey:
         {
-            [character jump];
+            readyToJump = YES;
             break;
         }
         case NSLeftArrowFunctionKey:
@@ -89,6 +89,13 @@
             rightKeyPressed = 1;
             [self setDirection:1];
             [character run];
+            break;
+        }
+        case NSUpArrowFunctionKey:
+        {
+            if(readyToJump)
+                [character jump];
+            readyToJump = NO;
             break;
         }
     }
