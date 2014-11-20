@@ -10,9 +10,10 @@
 
 @interface PlatformFactory : NSObject
 
-- (Platform *) createPlatformWithImageNamed:(NSString *)imageName atPosition:(CGPoint)point;
+- (Platform *) createPlatformWithImageNamed:(NSString *)imageName atPosition:(CGPoint)point zRotation:(CGFloat)angle;
 - (Platform *) createDynamicPlatformWithImageNamed:(NSString *)imageName
                                      beginPosition:(CGPoint)beginPoint
                                        endPosition:(CGPoint)endPoint
-                                             speed:(CGFloat)speed;
+                                             speed:(CGFloat)speed
+                                         zRotation:(CGFloat)angle;
 @end

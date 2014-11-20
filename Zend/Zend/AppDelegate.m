@@ -45,7 +45,7 @@
     
     self.skView.showsFPS = YES;
     self.skView.showsNodeCount = YES;
-    
+    scene.physicsWorld.contactDelegate = scene;
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {

@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Platform.h"
 
 typedef enum {
     PLAYER,
@@ -25,13 +26,18 @@ typedef enum {
     CharacterType type;
     NSUInteger level;
     NSUInteger damage;
+    NSUInteger health;
+    CGFloat runSpeed, jumpSpeed;
     CGFloat speedX, speedY;
     NSInteger direction;
     BOOL isRunning, isJumping;
+    Platform *platform;
 }
 
 @property CharacterType type;
 @property CGFloat speedX, speedY;
+@property CGFloat runSpeed, jumpSpeed;
+@property Platform * platform;
 
 - (Character *)cloneWithType:(CharacterType)cType;
 - (id)initWithImageNamed:(NSString *) imageName;

@@ -14,15 +14,17 @@
     Character *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombie.png"];
     newSkinnyZombie.type = cType;
     [newSkinnyZombie initPhysicsBody];
+    newSkinnyZombie.jumpSpeed = 750;
+    newSkinnyZombie.runSpeed = 100;
     return newSkinnyZombie;
 }
 
 - (void)initPhysicsBody{
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask = ZOMBIE;
-    self.physicsBody.collisionBitMask = PLATFORM | HUMAN;
-    self.physicsBody.contactTestBitMask = PLATFORM | HUMAN;
-    self.physicsBody.friction = 1;
+    self.physicsBody.collisionBitMask = PLATFORM;// | HUMAN;
+    self.physicsBody.contactTestBitMask = PLATFORM | HUMAN | ZOMBIE;
+    self.physicsBody.friction = 0;
     self.physicsBody.mass = 1;
 }
 

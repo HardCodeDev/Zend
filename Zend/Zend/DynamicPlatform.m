@@ -18,7 +18,7 @@
     DynamicPlatform *platform = [[DynamicPlatform alloc] initWithImageNamed:imageName];
     platform.isMovingForward = YES;
     platform.isInCheckpoint = YES;
-    platform.name = @"dynamicPlatform";
+    platform.name = @"DynamicPlatform";
     return platform;
 }
 

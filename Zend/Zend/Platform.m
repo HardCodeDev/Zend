@@ -13,6 +13,7 @@
 + (instancetype)platformWithImageNamed:(NSString *)imageName
 {
     Platform *platform = [[Platform alloc] initWithImageNamed:imageName];
+    platform.name = @"Platform";
     return platform;
 }
 
@@ -26,11 +27,13 @@
 {
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.restitution = 0;
-    self.physicsBody.friction = 10.0;
+    self.physicsBody.friction = 0.0;
     self.physicsBody.allowsRotation = NO;
     self.physicsBody.affectedByGravity = NO;
+    self.physicsBody.dynamic = YES;
     self.physicsBody.categoryBitMask = 1;
     self.physicsBody.collisionBitMask = 0;
+    self.physicsBody.contactTestBitMask = 6;
 }
 
 - (void)update

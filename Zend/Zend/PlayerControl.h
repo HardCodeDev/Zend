@@ -22,5 +22,7 @@
 - (id)init;
 - (void)setPosition:(CGPoint)position;
 - (void)setDirection:(NSInteger) direction;
+- (void) keyUp:(unichar const)code;
+- (void) keyDown:(unichar const)code;
 
 @end

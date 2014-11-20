@@ -33,5 +33,65 @@
 {
     character.direction = direction;
 }
+- (void) keyUp:(unichar const)code {
+    
+    switch (code)
+    {
+        case NSUpArrowFunctionKey:
+        {
+            [character jump];
+            break;
+        }
+        case NSLeftArrowFunctionKey:
+        {
+            leftKeyPressed = 0;
+            if(rightKeyPressed)
+            {
+                [self setDirection: 1];
+                [character run];
+            }
+            else
+            {
+                [self setDirection: 0];
+                [character stop];
+            }
+            break;
+        }
+        case NSRightArrowFunctionKey:
+        {
+            rightKeyPressed = 0;
+            if(leftKeyPressed)
+            {
+                [self setDirection: -1];
+                [character run];
+            }
+            else
+            {
+                [self setDirection: 0];
+                [character stop];
+            }
+            break;
+        }
+    }
+}
+- (void) keyDown:(unichar const)code {
+    switch (code)
+    {
+        case NSLeftArrowFunctionKey:
+        {
+            leftKeyPressed = 1;
+            [self setDirection: -1];
+            [character run];
+            break;
+        }
+        case NSRightArrowFunctionKey:
+        {
+            rightKeyPressed = 1;
+            [self setDirection:1];
+            [character run];
+            break;
+        }
+    }
+}
 
 @end

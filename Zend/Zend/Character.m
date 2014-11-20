@@ -12,6 +12,8 @@
 
 @synthesize type;
 @synthesize speedX, speedY;
+@synthesize runSpeed, jumpSpeed;
+@synthesize platform;
 
 - (Character *)cloneWithType:(CharacterType)cType {
     return nil;
@@ -20,8 +22,9 @@
 - (void)initPhysicsBody {
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.restitution = 0;
-    self.physicsBody.friction = 10.0;
+    self.physicsBody.friction = 0.0;
     self.physicsBody.allowsRotation = NO;
+    self.physicsBody.dynamic = YES;
 }
 
 -(id)initWithImageNamed:(NSString *) imageName
@@ -30,30 +33,39 @@
     if(self != nil)
     {
         self.name = @"Character";
+        self.speedX = 0;
+        self.speedY = 0;
+        [self setDirection:0];
     }
     return self;
 }
 
 - (void)update
 {
-    if(isRunning)
-        self.physicsBody.velocity = CGVectorMake(self.speedX*direction, self.physicsBody.velocity.dy);
+    CGFloat platformSpeedX;
+    if(platform != nil)
+        platformSpeedX = platform.physicsBody.velocity.dx;
+    else
+        platformSpeedX = 0;
+    self.physicsBody.velocity = CGVectorMake(self.speedX+platformSpeedX, self.physicsBody.velocity.dy);
 }
 
 - (void)run
 {
     isRunning = YES;
+    speedX = runSpeed*direction;
 }
 
 - (void)stop
 {
     isRunning = NO;
+    speedX = 0;
+    self.physicsBody.velocity = CGVectorMake(0, self.physicsBody.velocity.dy);
 }
 
 - (void)jump
 {
-    //if(self.phy)
-    self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.speedY);
+    self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
 }
 
 - (void)setDirection:(NSInteger) dir

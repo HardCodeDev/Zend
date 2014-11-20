@@ -14,15 +14,16 @@
     Character *newFatZombie = [[FatZombie alloc] initWithImageNamed:@"FatZombie.png"];
     newFatZombie.type = cType;
     [newFatZombie initPhysicsBody];
+    newFatZombie.runSpeed = 100;
     return newFatZombie;
 }
 
 - (void)initPhysicsBody {
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask = ZOMBIE;
-    self.physicsBody.collisionBitMask = PLATFORM | HUMAN;
-    self.physicsBody.contactTestBitMask = PLATFORM | HUMAN;
-    self.physicsBody.friction = 1;
+    self.physicsBody.collisionBitMask = PLATFORM;// | HUMAN;
+    self.physicsBody.contactTestBitMask = PLATFORM | HUMAN | ZOMBIE;
+    self.physicsBody.friction = 0;
     self.physicsBody.mass = 1;
 }
 

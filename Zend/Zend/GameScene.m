@@ -25,17 +25,28 @@
     [world addChild:background];
     
     
-    Platform *platform = [pFactory createPlatformWithImageNamed:@"ground.png" atPosition:CGPointMake(400, 100)];
+    Platform *platform = [pFactory createPlatformWithImageNamed:@"ground.png" atPosition:CGPointMake(700, 500) zRotation:1];
     
     Platform *dynPlatform = [pFactory createDynamicPlatformWithImageNamed:@"ground.png"
-                                                            beginPosition:CGPointMake(800, 300)
-                                                              endPosition:CGPointMake(500, 300) speed:0.5];
-
+                                                            beginPosition:CGPointMake(800, 1000)
+                                                              endPosition:CGPointMake(800, 1000)
+                                                                    speed:0.5
+                                                                zRotation:0];
+    [world addChild:[pFactory createDynamicPlatformWithImageNamed:@"ground.png"
+                                                    beginPosition:CGPointMake(0, 0)
+                                                      endPosition:CGPointMake(0, 500)
+                                                            speed:0.5
+                                                        zRotation:0] ];
+    [world addChild:[pFactory createDynamicPlatformWithImageNamed:@"ground.png"
+                                                    beginPosition:CGPointMake(1200, 500)
+                                                      endPosition:CGPointMake(2000, 1000)
+                                                            speed:0.5
+                                                        zRotation:0] ];
     [world addChild:platform];
     [world addChild:dynPlatform];
     
     plControl.character = [cFactory createCharacter:PLAYER];
-    [plControl.character setPosition:CGPointMake(300, 200)];
+    [plControl.character setPosition:CGPointMake(800, 600)];
     [world addChild:plControl.character];
 }
 
@@ -55,73 +66,37 @@
 
 - (void)didSimulatePhysics {
     world.position = CGPointMake(-(plControl.character.position.x - self.size.width / 2), -(plControl.character.position.y - self.size.height / 2));
+    NSArray *ns = [world children];
+    for(int i=0; i<ns.count; ++i)
+    {
+        SKNode *node = [ns objectAtIndex:i];
+        if([node.name isEqualToString:@"DynamicPlatform"])
+        {
+            DynamicPlatform *platform = (DynamicPlatform *)node;
+            [platform update];
+        }
+        else if([node.name isEqualToString:@"Character"])
+        {
+            Character *character = (Character*)node;
+            if((character.type == SZOMBIE || character.type == FZOMBIE) && !(rand()%77))
+            {
+
+            }
+            [character update];
+        }
+    }
 }
 
 - (void) keyUp:(NSEvent *)theEvent
 {
     NSString*   const   character   =   [theEvent charactersIgnoringModifiers];
     unichar     const   code        =   [character characterAtIndex:0];
-    
-    switch (code)
-    {
-        case NSUpArrowFunctionKey:
-        {
-            [plControl.character jump];
-            break;
-        }
-        case NSLeftArrowFunctionKey:
-        {
-            plControl.leftKeyPressed = 0;
-            if(plControl.rightKeyPressed)
-            {
-                [plControl setDirection: 1];
-                [plControl.character run];
-            }
-            else
-            {
-                [plControl setDirection: 0];
-                [plControl.character stop];
-            }
-            break;
-        }
-        case NSRightArrowFunctionKey:
-        {
-            plControl.rightKeyPressed = 0;
-            if(plControl.leftKeyPressed)
-            {
-                [plControl setDirection: -1];
-                [plControl.character run];
-            }
-            else
-            {
-                [plControl setDirection: 0];
-                [plControl.character stop];
-            }
-            break;
-        }
-    }
+    [plControl keyUp:code];
 }
 - (void) keyDown:(NSEvent *)theEvent
 {
     unichar const code = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
-    
-    switch (code)
-    {
-        case NSLeftArrowFunctionKey:
-        {
-            plControl.leftKeyPressed = 1;
-            [plControl setDirection: -1];
-            [plControl.character run];
-            break;
-        }
-        case NSRightArrowFunctionKey:
-        {
-            plControl.rightKeyPressed = 1;
-            [plControl setDirection:1];
-            [plControl.character run];
-            break;
-        }
-    }
+    [plControl keyDown:code];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -130,17 +105,39 @@
     for(int i=0; i<ns.count; ++i)
     {
         SKNode *node = [ns objectAtIndex:i];
-        if([node.name isEqualToString:@"dynamicPlatform"])
+        if([node.name isEqualToString:@"DynamicPlatform"])
         {
-            DynamicPlatform *platform = (DynamicPlatform *)node;
-            [platform update];
+            //DynamicPlatform *platform = (DynamicPlatform *)node;
+
         }
         else if([node.name isEqualToString:@"Character"])
         {
             Character *character = (Character*)node;
-            [character update];
+            if((character.type == SZOMBIE || character.type == FZOMBIE))
+            {
+                NSInteger direction = plControl.character.position.x-character.position.x;
+                if(direction)
+                    direction = direction/abs((int)direction);
+                [character setDirection:direction];
+                [character run];
+            }
         }
     }
 }
 
+- (void)didBeginContact:(SKPhysicsContact *)contact {
+    SKPhysicsBody *firstBody = contact.bodyA;
+    SKPhysicsBody *secondBody = contact.bodyB;
+    NSLog(@"Begin contact: %@ %@", firstBody.node.className, secondBody.node.className);
+    if(firstBody.categoryBitMask == PLATFORM && [secondBody.node.name isEqualToString:@"Character"])
+        [(Character*)secondBody.node setPlatform:(Platform *)firstBody.node];
+}
+
+- (void)didEndContact:(SKPhysicsContact *)contact {
+    SKPhysicsBody *firstBody = contact.bodyA;
+    SKPhysicsBody *secondBody = contact.bodyB;
+    NSLog(@"End contact: %@ %@", firstBody.node.className, secondBody.node.className);
+    if(firstBody.categoryBitMask == PLATFORM && [secondBody.node.name isEqualToString:@"Character"])
+        [(Character*)secondBody.node setPlatform:nil];
+}
 @end

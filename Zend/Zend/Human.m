@@ -24,8 +24,8 @@
     }
     
     newHuman.type = cType;
-    newHuman.speedX = 500;
-    newHuman.speedY = 750;
+    newHuman.runSpeed = 500;
+    newHuman.jumpSpeed = 750;
     [newHuman initPhysicsBody];
     
     return newHuman;
@@ -34,7 +34,7 @@
 - (void)initPhysicsBody {
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask = HUMAN;
-    self.physicsBody.collisionBitMask = PLATFORM | ZOMBIE;
+    self.physicsBody.collisionBitMask = PLATFORM;// | ZOMBIE;
     self.physicsBody.contactTestBitMask = PLATFORM | ZOMBIE;
 }
 - (void) update
