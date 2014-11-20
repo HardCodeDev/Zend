@@ -10,14 +10,14 @@
 #import "PlatformFactory.h"
 #import "CharacterFactory.h"
 #import "PlayerControl.h"
+#import "Level.h"
 
 @interface GameScene : SKScene {
-
     SKNode *world;
     CharacterFactory *cFactory;
     PlatformFactory *pFactory;
     PlayerControl *plControl;
-
+    Level *level;
 }
 
 @end

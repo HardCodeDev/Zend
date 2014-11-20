@@ -10,7 +10,8 @@
 
 @interface Human : Character
 
-- (Character *)cloneWithType:(CharacterType)type;
+- (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (void)initPhysicsBody;
 - (void) update;
+
 @end

@@ -12,11 +12,10 @@
 #import "FatZombie.h"
 
 @interface CharacterFactory : NSObject {
-    @private
     NSArray *prototypes;
 }
 
 - (id)init;
-- (Character *)createCharacter:(CharacterType)cType;
+- (Character *)createCharacter:(CharacterType)cType atPosition:(CGPoint)position;
 
 @end

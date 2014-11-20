@@ -18,8 +18,8 @@ typedef enum {
 
 typedef enum {
     PLATFORM = 1,
-    HUMAN = 2,
-    ZOMBIE = 4
+    HUMAN    = 2,
+    ZOMBIE   = 4
 } BitMask;
 
 @interface Character : SKSpriteNode {
@@ -37,15 +37,15 @@ typedef enum {
 @property CharacterType type;
 @property CGFloat speedX, speedY;
 @property CGFloat runSpeed, jumpSpeed;
-@property Platform * platform;
+@property Platform *platform;
 
-- (Character *)cloneWithType:(CharacterType)cType;
-- (id)initWithImageNamed:(NSString *) imageName;
+- (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
+- (id)initWithImageNamed:(NSString *)imageName;
 - (void)initPhysicsBody;
 - (void)update;
 - (void)run;
 - (void)stop;
 - (void)jump;
-- (void)setDirection:(NSInteger) dir;
+- (void)setDirection:(NSInteger)dir;
 
 @end

@@ -10,22 +10,23 @@
 
 @implementation SkinnyZombie
 
-- (Character *)cloneWithType:(CharacterType)cType {
+- (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     Character *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombie.png"];
-    newSkinnyZombie.type = cType;
     [newSkinnyZombie initPhysicsBody];
+    newSkinnyZombie.type      = cType;
     newSkinnyZombie.jumpSpeed = 750;
-    newSkinnyZombie.runSpeed = 100;
+    newSkinnyZombie.runSpeed  = 100;
+    newSkinnyZombie.position  = position;
     return newSkinnyZombie;
 }
 
 - (void)initPhysicsBody{
     [super initPhysicsBody];
-    self.physicsBody.categoryBitMask = ZOMBIE;
-    self.physicsBody.collisionBitMask = PLATFORM;// | HUMAN;
+    self.physicsBody.categoryBitMask    = ZOMBIE;
+    self.physicsBody.collisionBitMask   = PLATFORM;
     self.physicsBody.contactTestBitMask = PLATFORM | HUMAN | ZOMBIE;
     self.physicsBody.friction = 0;
-    self.physicsBody.mass = 1;
+    self.physicsBody.mass     = 1;
 }
 
 @end
