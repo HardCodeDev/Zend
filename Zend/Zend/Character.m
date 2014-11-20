@@ -42,12 +42,15 @@
 
 - (void)update
 {
-    CGFloat platformSpeedX;
-    if(platform != nil)
-        platformSpeedX = platform.physicsBody.velocity.dx;
+    if(platform != nil && self.position.y-self.frame.size.height/2 + 1>= platform.position.y+platform.frame.size.height/2)
+    {
+        self.physicsBody.velocity = CGVectorMake(self.speedX+platform.physicsBody.velocity.dx,
+                                                 platform.physicsBody.velocity.dy);
+    }
     else
-        platformSpeedX = 0;
-    self.physicsBody.velocity = CGVectorMake(self.speedX+platformSpeedX, self.physicsBody.velocity.dy);
+    {
+        self.physicsBody.velocity = CGVectorMake(self.speedX, self.physicsBody.velocity.dy);
+    }
 }
 
 - (void)run

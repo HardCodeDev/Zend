@@ -25,7 +25,7 @@
     [world addChild:background];
     
     
-    Platform *platform = [pFactory createPlatformWithImageNamed:@"ground.png" atPosition:CGPointMake(700, 500) zRotation:1];
+    Platform *platform = [pFactory createPlatformWithImageNamed:@"ground.png" atPosition:CGPointMake(700, 500) zRotation:0];
     
     Platform *dynPlatform = [pFactory createDynamicPlatformWithImageNamed:@"ground.png"
                                                             beginPosition:CGPointMake(800, 1000)
