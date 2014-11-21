@@ -14,9 +14,10 @@
     Character *newFatZombie = [[FatZombie alloc] initWithImageNamed:@"FatZombie.png"];
     [newFatZombie initPhysicsBody];
     newFatZombie.type      = cType;
-    newFatZombie.jumpSpeed = 700;
+    newFatZombie.jumpSpeed = 500;
     newFatZombie.runSpeed  = 100;
     newFatZombie.position  = position;
+    [newFatZombie run];
     return newFatZombie;
 }
 

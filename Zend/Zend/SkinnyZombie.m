@@ -14,9 +14,10 @@
     Character *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombie.png"];
     [newSkinnyZombie initPhysicsBody];
     newSkinnyZombie.type      = cType;
-    newSkinnyZombie.jumpSpeed = 750;
+    newSkinnyZombie.jumpSpeed = 500;
     newSkinnyZombie.runSpeed  = 100;
     newSkinnyZombie.position  = position;
+    [newSkinnyZombie run];
     return newSkinnyZombie;
 }
 

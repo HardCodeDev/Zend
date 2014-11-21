@@ -35,27 +35,26 @@
         self.speedX = 0;
         self.speedY = 0;
         [self setDirection:0];
-        onGround = NO;
+        onGround = YES;
     }
     return self;
 }
 
 - (void)update {
-    if(platform != nil && self.position.y - self.frame.size.height/2 + 1 >= platform.position.y+platform.frame.size.height / 2) {
+    if(platform != nil && self.position.y - self.frame.size.height / 2 + 1 >= platform.position.y + platform.frame.size.height / 2) {
         self.physicsBody.velocity = CGVectorMake(self.speedX+platform.physicsBody.velocity.dx,
                                                  platform.physicsBody.velocity.dy);
         onGround = YES;
     }
-    else
-    {
+    else {
         self.physicsBody.velocity = CGVectorMake(self.speedX, self.physicsBody.velocity.dy);
         onGround = NO;
     }
+    
 }
 
 - (void)run {
     isRunning = YES;
-    speedX = runSpeed * direction;
 }
 
 - (void)stop {
@@ -73,12 +72,8 @@
 
 - (void)setDirection:(NSInteger)dir {
     direction = dir;
-    if (dir > 0) {
-        if (self.xScale < 0)
-            self.xScale *= -1;
-    }
-    else if (dir < 0) {
-        if (self.xScale > 0)
+    speedX = runSpeed * direction;
+    if ((dir > 0 && self.xScale < 0) || (dir < 0 && self.xScale > 0)) {
             self.xScale *= -1;
     }
 }

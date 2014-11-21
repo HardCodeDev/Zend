@@ -1,32 +1,22 @@
 {
-	"platformsCount": 4,
+	"platformsCount": 3,
 	"platforms": [
 	{
 		"type": "static",
         "texture": "ground.png",
         "angle": 0,
 		"positionX": 700,
-		"positionY": 500,
+		"positionY": 100,
 		
 	},
 	{
 		"type": "dynamic",
 		"texture": "ground.png",
 		"angle": 0,
-		"positionX": 800,
-		"positionY": 1000,
-		"endPositionX": 800,
-		"endPositionY": 1000,
-		"speed": 0.5,
-	},
-	{
-		"type": "dynamic",
-		"texture": "ground.png",
-		"angle": 0,
 		"positionX": 0,
-		"positionY": 500,
+		"positionY": 100,
 		"endPositionX": 0,
-		"endPositionY": 1000,
+		"endPositionY": 600,
 		"speed": 0.5,
 	},
 	{
@@ -34,9 +24,9 @@
 		"texture": "ground.png",
 		"angle": 0,
 		"positionX": 1200,
-		"positionY": 500,
+		"positionY": 100,
 		"endPositionX": 2000,
-		"endPositionY": 1000,
+		"endPositionY": 100,
 		"speed": 0.5,
 	}
 	]

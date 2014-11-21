@@ -8,8 +8,6 @@
 
 #import "GameScene.h"
 
-#define GREEN [NSColor colorWithCalibratedRed:0 green:1.0f blue:0 alpha:1.0f]
-
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
@@ -21,7 +19,7 @@
     self.physicsWorld.gravity = CGVectorMake(0, -8);
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"Background.png"];
     background.zPosition = -1;
-    background.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+    background.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
     background.size = self.size;
     [self addChild:world];
     [world addChild:background];
@@ -29,8 +27,7 @@
     level = [[Level alloc] initWithLevel:0];
     [level buildOn:world];
     
-    plControl.character = [cFactory createCharacter:PLAYER atPosition:CGPointMake(800, 600)];
-    //[plControl.character setPosition:CGPointMake(800, 600)];
+    plControl.character = [cFactory createCharacter:PLAYER atPosition:CGPointMake(800, 250)];
     [world addChild:plControl.character];
 }
 
@@ -48,7 +45,7 @@
 }
 
 - (void)didSimulatePhysics {
-    world.position = CGPointMake(-(plControl.character.position.x - self.size.width / 2), -(plControl.character.position.y - self.size.height / 2));
+    world.position = CGPointMake(-(plControl.character.position.x - self.size.width / 2), 0);// -(plControl.character.position.y - self.size.height / 2));
     NSArray *ns = [world children];
     for(int i=0; i<ns.count; ++i)
     {
@@ -61,11 +58,11 @@
         else if([node.name isEqualToString:@"Character"])
         {
             Character *character = (Character*)node;
-            if((character.type == SZOMBIE || character.type == FZOMBIE) && !(rand()%77))
-            {
-
-            }
             [character update];
+            if((character.type == SZOMBIE || character.type == FZOMBIE))
+            {
+                [character jump];
+            }
         }
     }
 }
@@ -102,7 +99,7 @@
                 if(direction)
                     direction = direction/abs((int)direction);
                 [character setDirection:direction];
-                [character run];
+                //[character run];
             }
         }
     }
@@ -113,11 +110,24 @@
     SKPhysicsBody *secondBody = contact.bodyB;
     NSLog(@"Begin contact: %@ %@", firstBody.node.className, secondBody.node.className);
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
-    if((contactBitMask & (PLATFORM | HUMAN | ZOMBIE)) == contactBitMask)
+    if((firstBody.categoryBitMask & PLATFORM) && secondBody.categoryBitMask & (HUMAN | ZOMBIE))
     {
         Character *character = (Character*)secondBody.node;
         Platform *platform = (Platform *)firstBody.node;
         [character setPlatform:platform];
+    }
+    else if(contactBitMask  == (HUMAN | ZOMBIE))
+    {
+        Character *zombie;
+        if(firstBody.categoryBitMask == ZOMBIE)
+        {
+            zombie = (Character *)firstBody.node;
+        }
+        else
+        {
+            zombie = (Character *)secondBody.node;
+        }
+        [zombie stop];
     }
 }
 
@@ -126,11 +136,24 @@
     SKPhysicsBody *secondBody = contact.bodyB;
     NSLog(@"End contact: %@ %@", firstBody.node.className, secondBody.node.className);
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
-    if((contactBitMask & (PLATFORM | HUMAN | ZOMBIE)) == contactBitMask)
+    if((firstBody.categoryBitMask & PLATFORM) && secondBody.categoryBitMask & (HUMAN | ZOMBIE))
     {
         Character *character = (Character*)secondBody.node;
         //Platform *platform = (Platform *)firstBody.node;
         [character setPlatform:nil];
+    }
+    else if(contactBitMask  == (HUMAN | ZOMBIE))
+    {
+        Character *zombie;
+        if(firstBody.categoryBitMask == ZOMBIE)
+        {
+            zombie = (Character *)firstBody.node;
+        }
+        else
+        {
+            zombie = (Character *)secondBody.node;
+        }
+        [zombie run];
     }
 }
 @end
