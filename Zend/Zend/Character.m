@@ -16,7 +16,7 @@
 @synthesize platform;
 @synthesize onGround;
 
-- (Character *)cloneWithType:(CharacterType)cType {
+- (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;
 }
 
@@ -28,24 +28,20 @@
     self.physicsBody.dynamic = YES;
 }
 
--(id)initWithImageNamed:(NSString *) imageName
-{
+-(id)initWithImageNamed:(NSString *)imageName {
     self = [super initWithImageNamed:imageName];
-    if(self != nil)
-    {
-        self.name = @"Character";
-        speedX = 0;
-        speedY = 0;
+    if (self) {
+        self.name   = @"Character";
+        self.speedX = 0;
+        self.speedY = 0;
         [self setDirection:0];
         onGround = NO;
     }
     return self;
 }
 
-- (void)update
-{
-    if(platform != nil && self.position.y-self.frame.size.height/2 + 1 >= platform.position.y+platform.frame.size.height/2)
-    {
+- (void)update {
+    if(platform != nil && self.position.y - self.frame.size.height/2 + 1 >= platform.position.y+platform.frame.size.height / 2) {
         self.physicsBody.velocity = CGVectorMake(self.speedX+platform.physicsBody.velocity.dx,
                                                  platform.physicsBody.velocity.dy);
         onGround = YES;
@@ -57,36 +53,32 @@
     }
 }
 
-- (void)run
-{
+- (void)run {
     isRunning = YES;
-    speedX = runSpeed*direction;
+    speedX = runSpeed * direction;
 }
 
-- (void)stop
-{
+- (void)stop {
     isRunning = NO;
     speedX = 0;
     self.physicsBody.velocity = CGVectorMake(0, self.physicsBody.velocity.dy);
 }
 
-- (void)jump
-{
+- (void)jump {
     if(onGround)
+    {
         self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
+    }
 }
 
-- (void)setDirection:(NSInteger) dir
-{
+- (void)setDirection:(NSInteger)dir {
     direction = dir;
-    if(dir>0)
-    {
-        if(self.xScale<0)
+    if (dir > 0) {
+        if (self.xScale < 0)
             self.xScale *= -1;
     }
-    else if(dir<0)
-    {
-        if(self.xScale>0)
+    else if (dir < 0) {
+        if (self.xScale > 0)
             self.xScale *= -1;
     }
 }

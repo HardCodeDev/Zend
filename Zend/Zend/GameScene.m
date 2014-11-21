@@ -7,7 +7,9 @@
 //
 
 #import "GameScene.h"
+
 #define GREEN [NSColor colorWithCalibratedRed:0 green:1.0f blue:0 alpha:1.0f]
+
 @implementation GameScene
 
 -(void)didMoveToView:(SKView *)view {
@@ -24,29 +26,11 @@
     [self addChild:world];
     [world addChild:background];
     
+    level = [[Level alloc] initWithLevel:0];
+    [level buildOn:world];
     
-    Platform *platform = [pFactory createPlatformWithImageNamed:@"ground.png" atPosition:CGPointMake(700, 500) zRotation:0];
-    
-    Platform *dynPlatform = [pFactory createDynamicPlatformWithImageNamed:@"ground.png"
-                                                            beginPosition:CGPointMake(800, 1000)
-                                                              endPosition:CGPointMake(800, 1000)
-                                                                    speed:0.5
-                                                                zRotation:0];
-    [world addChild:[pFactory createDynamicPlatformWithImageNamed:@"ground.png"
-                                                    beginPosition:CGPointMake(0, 500)
-                                                      endPosition:CGPointMake(0, 1000)
-                                                            speed:0.5
-                                                        zRotation:0] ];
-    [world addChild:[pFactory createDynamicPlatformWithImageNamed:@"ground.png"
-                                                    beginPosition:CGPointMake(1200, 500)
-                                                      endPosition:CGPointMake(2000, 1000)
-                                                            speed:0.5
-                                                        zRotation:0] ];
-    [world addChild:platform];
-    [world addChild:dynPlatform];
-    
-    plControl.character = [cFactory createCharacter:PLAYER];
-    [plControl.character setPosition:CGPointMake(800, 600)];
+    plControl.character = [cFactory createCharacter:PLAYER atPosition:CGPointMake(800, 600)];
+    //[plControl.character setPosition:CGPointMake(800, 600)];
     [world addChild:plControl.character];
 }
 
@@ -55,12 +39,11 @@
     CGPoint clickPosition = [theEvent locationInNode:world];
     Character *zombie;
     if(clickPosition.x > self.frame.size.width / 2) {
-        zombie = [cFactory createCharacter:SZOMBIE];
+        zombie = [cFactory createCharacter:SZOMBIE atPosition:clickPosition];
     }
     else {
-        zombie = [cFactory createCharacter:FZOMBIE];
+        zombie = [cFactory createCharacter:FZOMBIE atPosition:clickPosition];
     }
-    zombie.position = clickPosition;
     [world addChild:zombie];
 }
 

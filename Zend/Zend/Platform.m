@@ -10,21 +10,18 @@
 
 @implementation Platform
 
-+ (instancetype)platformWithImageNamed:(NSString *)imageName
-{
++ (instancetype)platformWithImageNamed:(NSString *)imageName {
     Platform *platform = [[Platform alloc] initWithImageNamed:imageName];
     platform.name = @"Platform";
     return platform;
 }
 
-- (void)setSpriteSize:(CGFloat) size
-{
+- (void)setSpriteSize:(CGFloat)size {
     self.scale = size;
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
 }
 
-- (void)initPhysicsBody
-{
+- (void)initPhysicsBody {
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.restitution = 0;
     self.physicsBody.friction = 0.0;
@@ -36,8 +33,7 @@
     self.physicsBody.contactTestBitMask = 6;
 }
 
-- (void)update
-{
+- (void)update {
 
 }
 

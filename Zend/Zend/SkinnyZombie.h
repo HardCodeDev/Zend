@@ -10,7 +10,7 @@
 
 @interface SkinnyZombie : Character
 
-- (Character *)cloneWithType:(CharacterType)cType;
+- (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (void)initPhysicsBody;
 
 @end

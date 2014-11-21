@@ -15,6 +15,8 @@
 		3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D631A1919860036F9C7 /* Images.xcassets */; };
 		3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D651A1919860036F9C7 /* MainMenu.xib */; };
 		3A1C7D731A1919860036F9C7 /* ZendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D721A1919860036F9C7 /* ZendTests.m */; };
+		3A59C9991A1EBB59003988DF /* platforms.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A59C9971A1EBB59003988DF /* platforms.json */; };
+		3A59C99A1A1EBB59003988DF /* zombies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A59C9981A1EBB59003988DF /* zombies.json */; };
 		3AC15A741A1B2012001AE7C7 /* boyCharacter.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC15A731A1B2012001AE7C7 /* boyCharacter.png */; };
 		3ADECE6E1A19F36100179646 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE6D1A19F36100179646 /* Platform.m */; };
 		3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE701A19F3B100179646 /* PlatformFactory.m */; };
@@ -27,6 +29,9 @@
 		3AE3FB171A1AAF3D00B2F287 /* PlayerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB161A1AAF3D00B2F287 /* PlayerControl.m */; };
 		3AE3FB191A1AB02900B2F287 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3FB181A1AB02900B2F287 /* Background.png */; };
 		3AE3FB1B1A1AB3CB00B2F287 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE3FB1A1A1AB3CB00B2F287 /* player.png */; };
+		453DD9161A1E5CBA001349DC /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD9151A1E5CBA001349DC /* Level.m */; };
+		453DD9191A1E7738001349DC /* platforms.json in Resources */ = {isa = PBXBuildFile; fileRef = 453DD9181A1E7738001349DC /* platforms.json */; };
+		453DD91B1A1E9288001349DC /* zombies.json in Resources */ = {isa = PBXBuildFile; fileRef = 453DD91A1A1E9288001349DC /* zombies.json */; };
 		455E32621A1B3A170047A0EC /* SkinnyZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 455E32611A1B3A170047A0EC /* SkinnyZombie.png */; };
 		455E32641A1B3D9A0047A0EC /* FatZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 455E32631A1B3D9A0047A0EC /* FatZombie.png */; };
 /* End PBXBuildFile section */
@@ -57,6 +62,8 @@
 		3A1C7D6C1A1919860036F9C7 /* ZendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D711A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D721A1919860036F9C7 /* ZendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTests.m; sourceTree = "<group>"; };
+		3A59C9971A1EBB59003988DF /* platforms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = platforms.json; sourceTree = "<group>"; };
+		3A59C9981A1EBB59003988DF /* zombies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zombies.json; sourceTree = "<group>"; };
 		3AC15A731A1B2012001AE7C7 /* boyCharacter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boyCharacter.png; path = Zend/boyCharacter.png; sourceTree = "<group>"; };
 		3ADECE6C1A19F36100179646 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = Zend/Platform.h; sourceTree = "<group>"; };
 		3ADECE6D1A19F36100179646 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = Zend/Platform.m; sourceTree = "<group>"; };
@@ -77,6 +84,10 @@
 		3AE3FB161A1AAF3D00B2F287 /* PlayerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerControl.m; path = Zend/PlayerControl.m; sourceTree = "<group>"; };
 		3AE3FB181A1AB02900B2F287 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Zend/Background.png; sourceTree = "<group>"; };
 		3AE3FB1A1A1AB3CB00B2F287 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player.png; path = Zend/player.png; sourceTree = "<group>"; };
+		453DD9141A1E5CBA001349DC /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Level.h; path = Zend/Level.h; sourceTree = "<group>"; };
+		453DD9151A1E5CBA001349DC /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Level.m; path = Zend/Level.m; sourceTree = "<group>"; };
+		453DD9181A1E7738001349DC /* platforms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = platforms.json; path = Zend/Levels/Level0/platforms.json; sourceTree = "<group>"; };
+		453DD91A1A1E9288001349DC /* zombies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = zombies.json; path = Zend/Levels/Level0/zombies.json; sourceTree = "<group>"; };
 		455E32611A1B3A170047A0EC /* SkinnyZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SkinnyZombie.png; path = Zend/SkinnyZombie.png; sourceTree = "<group>"; };
 		455E32631A1B3D9A0047A0EC /* FatZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FatZombie.png; path = Zend/FatZombie.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +113,8 @@
 		3A1C7D4B1A1919860036F9C7 = {
 			isa = PBXGroup;
 			children = (
+				3A59C9951A1EBB59003988DF /* Levels */,
+				453DD9171A1E5CE2001349DC /* Level */,
 				455E32661A1B40830047A0EC /* Images */,
 				3ADECE6B1A19F25E00179646 /* World */,
 				3ADECE641A19E8F500179646 /* Character */,
@@ -162,6 +175,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3A59C9951A1EBB59003988DF /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				3A59C9961A1EBB59003988DF /* Level0 */,
+			);
+			name = Levels;
+			path = Zend/Levels;
+			sourceTree = "<group>";
+		};
+		3A59C9961A1EBB59003988DF /* Level0 */ = {
+			isa = PBXGroup;
+			children = (
+				3A59C9971A1EBB59003988DF /* platforms.json */,
+				3A59C9981A1EBB59003988DF /* zombies.json */,
+			);
+			path = Level0;
+			sourceTree = "<group>";
+		};
 		3ADECE641A19E8F500179646 /* Character */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +230,17 @@
 				3AE3FB161A1AAF3D00B2F287 /* PlayerControl.m */,
 			);
 			name = Player;
+			sourceTree = "<group>";
+		};
+		453DD9171A1E5CE2001349DC /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				453DD9141A1E5CBA001349DC /* Level.h */,
+				453DD9151A1E5CBA001349DC /* Level.m */,
+				453DD9181A1E7738001349DC /* platforms.json */,
+				453DD91A1A1E9288001349DC /* zombies.json */,
+			);
+			name = Level;
 			sourceTree = "<group>";
 		};
 		455E32661A1B40830047A0EC /* Images */ = {
@@ -294,14 +336,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453DD9191A1E7738001349DC /* platforms.json in Resources */,
 				3ADECE751A1A3A2A00179646 /* ground.png in Resources */,
 				3A1C7D621A1919860036F9C7 /* GameScene.sks in Resources */,
 				3AE3FB1B1A1AB3CB00B2F287 /* player.png in Resources */,
 				3AE3FB191A1AB02900B2F287 /* Background.png in Resources */,
 				3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */,
+				3A59C9991A1EBB59003988DF /* platforms.json in Resources */,
+				3A59C99A1A1EBB59003988DF /* zombies.json in Resources */,
 				455E32621A1B3A170047A0EC /* SkinnyZombie.png in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
 				3AC15A741A1B2012001AE7C7 /* boyCharacter.png in Resources */,
+				453DD91B1A1E9288001349DC /* zombies.json in Resources */,
 				455E32641A1B3D9A0047A0EC /* FatZombie.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +377,7 @@
 				3AE3FB0F1A1AAA7A00B2F287 /* FatZombie.m in Sources */,
 				3AE3FB101A1AAA7A00B2F287 /* Human.m in Sources */,
 				3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */,
+				453DD9161A1E5CBA001349DC /* Level.m in Sources */,
 				3A1C7D5B1A1919860036F9C7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

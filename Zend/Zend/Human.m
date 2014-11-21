@@ -10,7 +10,7 @@
 
 @implementation Human
 
-- (Character *)cloneWithType:(CharacterType)cType {
+- (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     Character *newHuman;
     
     if (cType == PLAYER) {
@@ -23,22 +23,22 @@
         newHuman = [[Human alloc] init];
     }
     
-    newHuman.type = cType;
-    newHuman.runSpeed = 500;
-    newHuman.jumpSpeed = 750;
     [newHuman initPhysicsBody];
+    newHuman.type      = cType;
+    newHuman.runSpeed  = 500;
+    newHuman.jumpSpeed = 750;
+    newHuman.position  = position;
     
     return newHuman;
 }
 
 - (void)initPhysicsBody {
     [super initPhysicsBody];
-    self.physicsBody.categoryBitMask = HUMAN;
-    self.physicsBody.collisionBitMask = PLATFORM;// | ZOMBIE;
+    self.physicsBody.categoryBitMask    = HUMAN;
+    self.physicsBody.collisionBitMask   = PLATFORM;
     self.physicsBody.contactTestBitMask = PLATFORM | ZOMBIE;
 }
-- (void) update
-{
+- (void) update {
     [super update];
 }
 

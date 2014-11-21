@@ -8,8 +8,7 @@
 
 #import "Platform.h"
 
-@interface DynamicPlatform : Platform
-{
+@interface DynamicPlatform : Platform {
     CGPoint beginPoint, endPoint;
     CGFloat speed;
     CGFloat speedX, speedY;
