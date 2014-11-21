@@ -64,6 +64,7 @@
 		3A1C7D721A1919860036F9C7 /* ZendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTests.m; sourceTree = "<group>"; };
 		3A59C9971A1EBB59003988DF /* platforms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = platforms.json; sourceTree = "<group>"; };
 		3A59C9981A1EBB59003988DF /* zombies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zombies.json; sourceTree = "<group>"; };
+		3A91B9771A1FA20000654946 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Enums.h; path = Zend/Enums.h; sourceTree = "<group>"; };
 		3AC15A731A1B2012001AE7C7 /* boyCharacter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boyCharacter.png; path = Zend/boyCharacter.png; sourceTree = "<group>"; };
 		3ADECE6C1A19F36100179646 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = Zend/Platform.h; sourceTree = "<group>"; };
 		3ADECE6D1A19F36100179646 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = Zend/Platform.m; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		3A1C7D4B1A1919860036F9C7 = {
 			isa = PBXGroup;
 			children = (
+				3A91B9771A1FA20000654946 /* Enums.h */,
 				3A59C9951A1EBB59003988DF /* Levels */,
 				453DD9171A1E5CE2001349DC /* Level */,
 				455E32661A1B40830047A0EC /* Images */,

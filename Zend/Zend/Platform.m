@@ -28,9 +28,22 @@
     self.physicsBody.allowsRotation = NO;
     self.physicsBody.affectedByGravity = NO;
     self.physicsBody.dynamic = YES;
-    self.physicsBody.categoryBitMask = 1;
+    self.physicsBody.categoryBitMask = PLATFORM;
     self.physicsBody.collisionBitMask = 0;
-    self.physicsBody.contactTestBitMask = 6;
+    self.physicsBody.contactTestBitMask = HUMAN | ZOMBIE;
+    SKNode *ground = [[SKNode alloc] init]; // TODO сделать отдельный класс Ground
+    CGPoint groundPoint1 = CGPointMake(-(self.frame.size.width / 2) + 5, self.frame.size.height / 2);
+    CGPoint groundPoint2 = CGPointMake((self.frame.size.width / 2) - 5, self.frame.size.height / 2);
+    ground.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:groundPoint1 toPoint:groundPoint2];
+    ground.physicsBody.restitution = 0;
+    ground.physicsBody.friction = 0.0;
+    ground.physicsBody.allowsRotation = NO;
+    ground.physicsBody.affectedByGravity = NO;
+    ground.physicsBody.dynamic = YES;
+    ground.physicsBody.categoryBitMask = GROUND;
+    ground.physicsBody.collisionBitMask = 0;
+    ground.physicsBody.contactTestBitMask = HUMAN | ZOMBIE;
+    [self addChild:ground];
 }
 
 - (void)update {

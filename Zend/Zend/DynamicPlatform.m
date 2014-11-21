@@ -21,6 +21,10 @@
     platform.name = @"DynamicPlatform";
     return platform;
 }
+- (void)initPhysicsBody {
+    [super initPhysicsBody];
+    self.physicsBody.categoryBitMask = DYNAMIC_PLATFORM;
+}
 
 - (void)update {
     
@@ -51,6 +55,9 @@
         self.physicsBody.velocity = CGVectorMake((self.beginPoint.x - self.endPoint.x) * self.speed,
                                                  (self.beginPoint.y - self.endPoint.y) * self.speed);
     }
+    NSArray *children = [self children];
+    SKNode *ground = [children objectAtIndex:0];
+    ground.physicsBody.velocity = self.physicsBody.velocity;
 }
 
 @end

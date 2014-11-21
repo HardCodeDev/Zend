@@ -8,19 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "Platform.h"
-
-typedef enum {
-    PLAYER,
-    FRIEND,
-    SZOMBIE,
-    FZOMBIE
-} CharacterType;
-
-typedef enum {
-    PLATFORM = 1,
-    HUMAN    = 2,
-    ZOMBIE   = 4
-} BitMask;
+#import "Enums.h"
 
 @interface Character : SKSpriteNode {
     CharacterType type;
@@ -32,6 +20,7 @@ typedef enum {
     NSInteger direction;
     BOOL isRunning, isJumping, onGround;
     Platform *platform;
+    NSUInteger groundContacts;
 }
 
 @property CharacterType type;
@@ -48,5 +37,7 @@ typedef enum {
 - (void)stop;
 - (void)jump;
 - (void)setDirection:(NSInteger)dir;
+- (void)incGroundContacts;
+- (void)decGroundContacts;
 
 @end

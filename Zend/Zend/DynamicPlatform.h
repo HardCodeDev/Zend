@@ -20,6 +20,7 @@
 @property BOOL isMovingForward, isInCheckpoint;
 
 + (instancetype)platformWithImageNamed:(NSString *)imageName;
+- (void)initPhysicsBody;
 - (void)update;
 
 @end

@@ -61,7 +61,7 @@
             [character update];
             if((character.type == SZOMBIE || character.type == FZOMBIE))
             {
-                [character jump];
+                //[character jump];
             }
         }
     }
@@ -99,44 +99,64 @@
                 if(direction)
                     direction = direction/abs((int)direction);
                 [character setDirection:direction];
-                //[character run];
             }
         }
     }
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact {
-    SKPhysicsBody *firstBody = contact.bodyA;
-    SKPhysicsBody *secondBody = contact.bodyB;
+    SKPhysicsBody *firstBody, *secondBody;
+    if(contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask)
+    {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+    else
+    {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    }
     NSLog(@"Begin contact: %@ %@", firstBody.node.className, secondBody.node.className);
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
-    if((firstBody.categoryBitMask & PLATFORM) && secondBody.categoryBitMask & (HUMAN | ZOMBIE))
+    if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER)
     {
-        Character *character = (Character*)secondBody.node;
+    /*    Character *character = (Character*)secondBody.node;
         Platform *platform = (Platform *)firstBody.node;
-        [character setPlatform:platform];
+        [character setPlatform:platform];*/
     }
     else if(contactBitMask  == (HUMAN | ZOMBIE))
     {
-        Character *zombie;
-        if(firstBody.categoryBitMask == ZOMBIE)
-        {
-            zombie = (Character *)firstBody.node;
-        }
-        else
-        {
-            zombie = (Character *)secondBody.node;
-        }
+        Character *zombie = (Character *)secondBody.node;
         [zombie stop];
+    }
+    else if((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & CHARACTER)
+    {
+        Platform *platform = (Platform *)firstBody.node.parent;
+        Character *character = (Character*)secondBody.node;
+        if(platform.physicsBody.categoryBitMask == DYNAMIC_PLATFORM)
+        {
+            [character setPlatform:platform];
+            NSLog(@"lalka");
+        }
+        [character incGroundContacts];
     }
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact {
-    SKPhysicsBody *firstBody = contact.bodyA;
-    SKPhysicsBody *secondBody = contact.bodyB;
+    SKPhysicsBody *firstBody, *secondBody;
+    if(contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask)
+    {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+    else
+    {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    }
     NSLog(@"End contact: %@ %@", firstBody.node.className, secondBody.node.className);
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
-    if((firstBody.categoryBitMask & PLATFORM) && secondBody.categoryBitMask & (HUMAN | ZOMBIE))
+    if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER)
     {
         Character *character = (Character*)secondBody.node;
         //Platform *platform = (Platform *)firstBody.node;
@@ -144,16 +164,13 @@
     }
     else if(contactBitMask  == (HUMAN | ZOMBIE))
     {
-        Character *zombie;
-        if(firstBody.categoryBitMask == ZOMBIE)
-        {
-            zombie = (Character *)firstBody.node;
-        }
-        else
-        {
-            zombie = (Character *)secondBody.node;
-        }
+        Character *zombie = (Character *)secondBody.node;
         [zombie run];
+    }
+    else if((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & CHARACTER)
+    {
+        Character *character = (Character*)secondBody.node;
+        [character decGroundContacts];
     }
 }
 @end

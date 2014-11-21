@@ -35,8 +35,8 @@
 - (void)initPhysicsBody {
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask    = HUMAN;
-    self.physicsBody.collisionBitMask   = PLATFORM;
-    self.physicsBody.contactTestBitMask = PLATFORM | ZOMBIE;
+    self.physicsBody.collisionBitMask   = PLATFORM | DYNAMIC_PLATFORM;
+    self.physicsBody.contactTestBitMask = GROUND | PLATFORM | DYNAMIC_PLATFORM | ZOMBIE;
 }
 - (void) update {
     [super update];

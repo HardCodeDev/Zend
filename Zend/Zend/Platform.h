@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Enums.h"
 
 @interface Platform : SKSpriteNode
 

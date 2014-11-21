@@ -24,8 +24,8 @@
 - (void)initPhysicsBody {
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask    = ZOMBIE;
-    self.physicsBody.collisionBitMask   = PLATFORM;
-    self.physicsBody.contactTestBitMask = PLATFORM | HUMAN | ZOMBIE;
+    self.physicsBody.collisionBitMask   = PLATFORM | DYNAMIC_PLATFORM;
+    self.physicsBody.contactTestBitMask = GROUND | PLATFORM | DYNAMIC_PLATFORM | HUMAN | ZOMBIE;
     self.physicsBody.friction = 0;
     self.physicsBody.mass     = 1;
 }
