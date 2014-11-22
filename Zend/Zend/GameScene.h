@@ -16,7 +16,7 @@
     SKNode *world;
     CharacterFactory *cFactory;
     PlatformFactory *pFactory;
-    PlayerControl *plControl, *pl2Control;
+    PlayerControl *pl1Control, *pl2Control;
     Level *level;
 }
 

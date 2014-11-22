@@ -14,7 +14,7 @@
     /* Setup your scene here */
     pFactory = [[PlatformFactory alloc] init];
     cFactory = [[CharacterFactory alloc] init];
-    plControl = [[PlayerControl alloc] init];
+    pl1Control = [[PlayerControl alloc] init];
     pl2Control = [[PlayerControl alloc] init];
     world = [[SKNode alloc] init];
     self.physicsWorld.gravity = CGVectorMake(0, -8);
@@ -27,11 +27,11 @@
     
     level = [[Level alloc] initWithLevel:0];
     [level buildOn:world];
-    [plControl setKeySet:0];
+    [pl1Control setKeySet:0];
     [pl2Control setKeySet:1];
-    plControl.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
+    pl1Control.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
     pl2Control.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
-    [world addChild:plControl.playerChar];
+    [world addChild:pl1Control.playerChar];
     [world addChild:pl2Control.playerChar];
 }
 
@@ -49,7 +49,25 @@
 }
 
 - (void)didSimulatePhysics {
-    world.position = CGPointMake(-(plControl.playerChar.position.x - self.size.width / 2), 0);// -(plControl.character.position.y - self.size.height / 2));
+    CGPoint pl1Pos = [self convertPoint:pl1Control.playerChar.position fromNode:world];
+    CGPoint pl2Pos = [self convertPoint:pl2Control.playerChar.position fromNode:world];
+    if(pl1Pos.x > (3 * self.frame.size.width) / 4)
+    {
+        world.position = CGPointMake(-(pl1Control.playerChar.position.x - (3 * self.size.width) / 4), 0);
+    }
+    else if(pl1Pos.x < self.frame.size.width / 4)
+    {
+        world.position = CGPointMake(-(pl1Control.playerChar.position.x - self.size.width / 4), 0);
+    }
+    if(pl2Pos.x > (3 * self.frame.size.width) / 4)
+    {
+        world.position = CGPointMake(-(pl2Control.playerChar.position.x - (3 * self.size.width) / 4), 0);
+    }
+    else if(pl2Pos.x < self.frame.size.width / 4)
+    {
+        world.position = CGPointMake(-(pl2Control.playerChar.position.x - self.size.width / 4), 0);
+    }
+    //world.position = CGPointMake(-(pl1Control.playerChar.position.x - self.size.width / 2), 0);// -(plControl.character.position.y - self.size.height / 2));
     NSArray *ns = [world children];
     for(int i=0; i<ns.count; ++i)
     {
@@ -75,14 +93,14 @@
 {
     NSString *  const   character   =   [theEvent charactersIgnoringModifiers];
     unichar     const   code        =   [character characterAtIndex:0];
-    [plControl keyUp:character];
+    [pl1Control keyUp:character];
     [pl2Control keyUp:character];
 }
 - (void) keyDown:(NSEvent *)theEvent
 {
     NSString * const    character   =   [theEvent charactersIgnoringModifiers];
     unichar const code = [character characterAtIndex:0];
-    [plControl keyDown:character];
+    [pl1Control keyDown:character];
     [pl2Control keyDown:character];
 }
 
@@ -102,7 +120,7 @@
             Character *character = (Character*)node;
             if((character.type == SZOMBIE || character.type == FZOMBIE))
             {
-                NSInteger direction = plControl.playerChar.position.x-character.position.x;
+                NSInteger direction = pl1Control.playerChar.position.x-character.position.x;
                 if(direction)
                     direction = direction/abs((int)direction);
                 [character setDirection:direction];
