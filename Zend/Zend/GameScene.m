@@ -51,23 +51,41 @@
 - (void)didSimulatePhysics {
     CGPoint pl1Pos = [self convertPoint:pl1Control.playerChar.position fromNode:world];
     CGPoint pl2Pos = [self convertPoint:pl2Control.playerChar.position fromNode:world];
-    if(pl1Pos.x > (3 * self.frame.size.width) / 4)
+    CGFloat player1X = pl1Control.playerChar.position.x;
+    CGFloat player2X = pl2Control.playerChar.position.x;
+    NSInteger player1Dir = [pl1Control.playerChar getDirection];
+    NSInteger player2Dir = [pl2Control.playerChar getDirection];
+    /*if(abs(pl1Pos.x - pl2Pos.x) < self.frame.size.width/2)
     {
-        world.position = CGPointMake(-(pl1Control.playerChar.position.x - (3 * self.size.width) / 4), 0);
-    }
-    else if(pl1Pos.x < self.frame.size.width / 4)
+        if(pl1Pos.x > (3 * self.frame.size.width) / 4)
+        {
+            world.position = CGPointMake(-(pl1Control.playerChar.position.x - (3 * self.size.width) / 4), 0);
+        }
+        else if(pl1Pos.x < self.frame.size.width / 4)
+        {
+            world.position = CGPointMake(-(pl1Control.playerChar.position.x - self.size.width / 4), 0);
+        }
+        if(pl2Pos.x > (3 * self.frame.size.width) / 4)
+        {
+            world.position = CGPointMake(-(pl2Control.playerChar.position.x - (3 * self.size.width) / 4), 0);
+        }
+        else if(pl2Pos.x < self.frame.size.width / 4)
+        {
+            world.position = CGPointMake(-(pl2Control.playerChar.position.x - self.size.width / 4), 0);
+        }
+   }*/
+    if(abs(player1X - player2X) > self.frame.size.width * 7 / 8)
     {
-        world.position = CGPointMake(-(pl1Control.playerChar.position.x - self.size.width / 4), 0);
+        if((player1X > player2X && player1Dir == 1) || (player1X < player2X && player1Dir == -1))
+        {
+            [pl1Control.playerChar stop];
+        }
+        if((player2X > player1X && player2Dir == 1) || (player2X < player1X && player2Dir == -1))
+        {
+            [pl2Control.playerChar stop];
+        }
     }
-    if(pl2Pos.x > (3 * self.frame.size.width) / 4)
-    {
-        world.position = CGPointMake(-(pl2Control.playerChar.position.x - (3 * self.size.width) / 4), 0);
-    }
-    else if(pl2Pos.x < self.frame.size.width / 4)
-    {
-        world.position = CGPointMake(-(pl2Control.playerChar.position.x - self.size.width / 4), 0);
-    }
-    //world.position = CGPointMake(-(pl1Control.playerChar.position.x - self.size.width / 2), 0);// -(plControl.character.position.y - self.size.height / 2));
+    world.position = CGPointMake(-((pl1Control.playerChar.position.x + pl2Control.playerChar.position.x) / 2 - self.size.width / 2), -(pl1Control.playerChar.position.y + pl2Control.playerChar.position.y) / 2 + self.size.height / 2);// -(plControl.character.position.y - self.size.height / 2));
     NSArray *ns = [world children];
     for(int i=0; i<ns.count; ++i)
     {
@@ -161,7 +179,6 @@
         if(platform.physicsBody.categoryBitMask == DYNAMIC_PLATFORM)
         {
             [character setPlatform:platform];
-            NSLog(@"lalka");
         }
         [character incGroundContacts];
     }

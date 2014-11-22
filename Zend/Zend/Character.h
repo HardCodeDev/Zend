@@ -36,6 +36,7 @@
 - (void)run;
 - (void)stop;
 - (void)jump;
+- (NSInteger)getDirection;
 - (void)setDirection:(NSInteger)dir;
 - (void)incGroundContacts;
 - (void)decGroundContacts;

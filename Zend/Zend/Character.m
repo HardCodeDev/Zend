@@ -70,6 +70,10 @@
     }
 }
 
+- (NSInteger)getDirection {
+    return direction;
+}
+
 - (void)setDirection:(NSInteger)dir {
     direction = dir;
     if(isRunning)
