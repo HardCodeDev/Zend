@@ -10,7 +10,7 @@
 
 @implementation PlayerControl
 
-@synthesize character;
+@synthesize playerChar;
 
 - (id)init {
     self = [super init];
@@ -18,78 +18,90 @@
         leftKeyPressed = 0;
         rightKeyPressed = 0;
         readyToJump = YES;
+        keySet = 0;
     }
     return self;
 }
 
+- (void)setKeySet:(NSUInteger)keyS {
+    keySet = keyS;
+    if(keyS == 0)
+    {
+        keys[up] = 'w';
+        keys[left] = 'a';
+        keys[down] = 's';
+        keys[right] = 'd';
+    }
+    else if(keyS == 1)
+    {
+        keys[up] = NSUpArrowFunctionKey;
+        keys[left] = NSLeftArrowFunctionKey;
+        keys[down] = NSDownArrowFunctionKey;
+        keys[right] = NSRightArrowFunctionKey;
+    }
+}
+
 - (void)setPosition:(CGPoint)position {
-    self.character.position = position;
+    self.playerChar.position = position;
 }
 
 - (void)setDirection:(NSInteger)direction {
-    character.direction = direction;
+    playerChar.direction = direction;
 }
 
-- (void)keyUp:(unichar const)code {
-    
-    switch (code)
-    {
-        case NSUpArrowFunctionKey:
+- (void)keyUp:(NSString * const)characters {
+    for (int s = 0; s<[characters length]; s++) {
+        unichar character = [characters characterAtIndex:s];
+        if(character == keys[up])
         {
             readyToJump = YES;
-            break;
         }
-        case NSLeftArrowFunctionKey:
+        else if(character == keys[left])
         {
             leftKeyPressed = 0;
             if (rightKeyPressed) {
                 [self setDirection: 1];
-                [character run];
+                [playerChar run];
             }
             else {
                 [self setDirection: 0];
-                [character stop];
+                [playerChar stop];
             }
-            break;
         }
-        case NSRightArrowFunctionKey:
+        else if(character == keys[right])
         {
             rightKeyPressed = 0;
             if (leftKeyPressed) {
                 [self setDirection: -1];
-                [character run];
+                [playerChar run];
             }
             else {
                 [self setDirection: 0];
-                [character stop];
+                [playerChar stop];
             }
-            break;
         }
     }
 }
-- (void)keyDown:(unichar const)code {
-    switch (code)
-    {
-        case NSLeftArrowFunctionKey:
+- (void)keyDown:(NSString * const)characters {
+    for (int s = 0; s<[characters length]; s++) {
+        unichar character = [characters characterAtIndex:s];
+        if(character == keys[left])
         {
             leftKeyPressed = 1;
             [self setDirection: -1];
-            [character run];
-            break;
+            [playerChar run];
         }
-        case NSRightArrowFunctionKey:
+        else if(character == keys[right])
         {
             rightKeyPressed = 1;
             [self setDirection:1];
-            [character run];
-            break;
+            [playerChar run];
         }
-        case NSUpArrowFunctionKey:
+        else if(character == keys[up])
         {
             if(readyToJump)
-                [character jump];
+                [playerChar jump];
             readyToJump = NO;
-            break;
         }
     }
 }

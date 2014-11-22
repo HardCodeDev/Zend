@@ -44,10 +44,10 @@
 - (void)update {
     if(platform != nil) {
         self.physicsBody.velocity = CGVectorMake(self.speedX+platform.physicsBody.velocity.dx,
-                                                 platform.physicsBody.velocity.dy);
+                                                 platform.physicsBody.velocity.dy + self.speedY);
     }
     else {
-        self.physicsBody.velocity = CGVectorMake(self.speedX, self.physicsBody.velocity.dy);
+        self.physicsBody.velocity = CGVectorMake(self.speedX, self.physicsBody.velocity.dy + self.speedY);
     }
     
 }

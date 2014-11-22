@@ -25,10 +25,10 @@
     
     [newHuman initPhysicsBody];
     newHuman.type      = cType;
-    newHuman.runSpeed  = 500;
+    newHuman.runSpeed  = 350;
     newHuman.jumpSpeed = 750;
     newHuman.position  = position;
-    
+    newHuman.zPosition = 100;
     return newHuman;
 }
 

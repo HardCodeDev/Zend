@@ -15,6 +15,7 @@
     pFactory = [[PlatformFactory alloc] init];
     cFactory = [[CharacterFactory alloc] init];
     plControl = [[PlayerControl alloc] init];
+    pl2Control = [[PlayerControl alloc] init];
     world = [[SKNode alloc] init];
     self.physicsWorld.gravity = CGVectorMake(0, -8);
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"Background.png"];
@@ -26,9 +27,12 @@
     
     level = [[Level alloc] initWithLevel:0];
     [level buildOn:world];
-    
-    plControl.character = [cFactory createCharacter:PLAYER atPosition:CGPointMake(800, 250)];
-    [world addChild:plControl.character];
+    [plControl setKeySet:0];
+    [pl2Control setKeySet:1];
+    plControl.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
+    pl2Control.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
+    [world addChild:plControl.playerChar];
+    [world addChild:pl2Control.playerChar];
 }
 
 -(void)mouseDown:(NSEvent *)theEvent {
@@ -45,7 +49,7 @@
 }
 
 - (void)didSimulatePhysics {
-    world.position = CGPointMake(-(plControl.character.position.x - self.size.width / 2), 0);// -(plControl.character.position.y - self.size.height / 2));
+    world.position = CGPointMake(-(plControl.playerChar.position.x - self.size.width / 2), 0);// -(plControl.character.position.y - self.size.height / 2));
     NSArray *ns = [world children];
     for(int i=0; i<ns.count; ++i)
     {
@@ -69,14 +73,17 @@
 
 - (void) keyUp:(NSEvent *)theEvent
 {
-    NSString*   const   character   =   [theEvent charactersIgnoringModifiers];
+    NSString *  const   character   =   [theEvent charactersIgnoringModifiers];
     unichar     const   code        =   [character characterAtIndex:0];
-    [plControl keyUp:code];
+    [plControl keyUp:character];
+    [pl2Control keyUp:character];
 }
 - (void) keyDown:(NSEvent *)theEvent
 {
-    unichar const code = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
-    [plControl keyDown:code];
+    NSString * const    character   =   [theEvent charactersIgnoringModifiers];
+    unichar const code = [character characterAtIndex:0];
+    [plControl keyDown:character];
+    [pl2Control keyDown:character];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -95,7 +102,7 @@
             Character *character = (Character*)node;
             if((character.type == SZOMBIE || character.type == FZOMBIE))
             {
-                NSInteger direction = plControl.character.position.x-character.position.x;
+                NSInteger direction = plControl.playerChar.position.x-character.position.x;
                 if(direction)
                     direction = direction/abs((int)direction);
                 [character setDirection:direction];

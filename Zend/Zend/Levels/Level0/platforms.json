@@ -1,14 +1,21 @@
 {
-	"platformsCount": 3,
 	"platforms": [
 	{
 		"type": "static",
         "texture": "ground.png",
-        "angle": 0,
-		"positionX": 700,
-		"positionY": 100,
+        "angle": 20,
+		"positionX": 625,
+		"positionY": 187,
 		
 	},
+    {
+        "type": "static",
+        "texture": "ground.png",
+        "angle": 0,
+        "positionX": 1110,
+        "positionY": 272,
+      
+    },
     {
         "type": "static",
         "texture": "ground.png",

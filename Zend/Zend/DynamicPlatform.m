@@ -19,6 +19,7 @@
     platform.isMovingForward = YES;
     platform.isInCheckpoint = YES;
     platform.name = @"DynamicPlatform";
+    [platform initGroundLine];
     return platform;
 }
 - (void)initPhysicsBody {
@@ -55,8 +56,6 @@
         self.physicsBody.velocity = CGVectorMake((self.beginPoint.x - self.endPoint.x) * self.speed,
                                                  (self.beginPoint.y - self.endPoint.y) * self.speed);
     }
-    NSArray *children = [self children];
-    SKNode *ground = [children objectAtIndex:0];
     ground.physicsBody.velocity = self.physicsBody.velocity;
 }
 

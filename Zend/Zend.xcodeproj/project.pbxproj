@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */; };
+		3A0F16E21A2068430085C8A0 /* GroundLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F16E11A2068430085C8A0 /* GroundLine.m */; };
 		3A1C7D5B1A1919860036F9C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5A1A1919860036F9C7 /* AppDelegate.m */; };
 		3A1C7D5D1A1919860036F9C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5C1A1919860036F9C7 /* main.m */; };
 		3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5F1A1919860036F9C7 /* GameScene.m */; };
@@ -49,6 +50,8 @@
 /* Begin PBXFileReference section */
 		3A0B936C1A1A6A79002CE2FB /* DynamicPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicPlatform.h; path = Zend/DynamicPlatform.h; sourceTree = "<group>"; };
 		3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicPlatform.m; path = Zend/DynamicPlatform.m; sourceTree = "<group>"; };
+		3A0F16E01A2068430085C8A0 /* GroundLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroundLine.h; path = Zend/GroundLine.h; sourceTree = "<group>"; };
+		3A0F16E11A2068430085C8A0 /* GroundLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroundLine.m; path = Zend/GroundLine.m; sourceTree = "<group>"; };
 		3A1C7D541A1919860036F9C7 /* Zend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D581A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D591A1919860036F9C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 				3ADECE701A19F3B100179646 /* PlatformFactory.m */,
 				3A0B936C1A1A6A79002CE2FB /* DynamicPlatform.h */,
 				3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */,
+				3A0F16E01A2068430085C8A0 /* GroundLine.h */,
+				3A0F16E11A2068430085C8A0 /* GroundLine.m */,
 			);
 			name = World;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 			files = (
 				3AE3FB171A1AAF3D00B2F287 /* PlayerControl.m in Sources */,
 				3A1C7D5D1A1919860036F9C7 /* main.m in Sources */,
+				3A0F16E21A2068430085C8A0 /* GroundLine.m in Sources */,
 				3AE3FB0D1A1AAA7A00B2F287 /* Character.m in Sources */,
 				3AE3FB0E1A1AAA7A00B2F287 /* CharacterFactory.m in Sources */,
 				3AE3FB111A1AAA7A00B2F287 /* SkinnyZombie.m in Sources */,
