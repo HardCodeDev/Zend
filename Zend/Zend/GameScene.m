@@ -74,48 +74,39 @@
             world.position = CGPointMake(-(pl2Control.playerChar.position.x - self.size.width / 4), 0);
         }
    }*/
-    if(abs(player1X - player2X) > self.frame.size.width * 7 / 8)
-    {
-        if((player1X > player2X && player1Dir == 1) || (player1X < player2X && player1Dir == -1))
-        {
+    if(abs(player1X - player2X) > self.frame.size.width * 7 / 8) {
+        if((player1X > player2X && player1Dir == 1) || (player1X < player2X && player1Dir == -1)) {
             [pl1Control.playerChar stop];
         }
-        if((player2X > player1X && player2Dir == 1) || (player2X < player1X && player2Dir == -1))
-        {
+        if((player2X > player1X && player2Dir == 1) || (player2X < player1X && player2Dir == -1)) {
             [pl2Control.playerChar stop];
         }
     }
     world.position = CGPointMake(-((pl1Control.playerChar.position.x + pl2Control.playerChar.position.x) / 2 - self.size.width / 2), -(pl1Control.playerChar.position.y + pl2Control.playerChar.position.y) / 2 + self.size.height / 2);// -(plControl.character.position.y - self.size.height / 2));
     NSArray *ns = [world children];
-    for(int i=0; i<ns.count; ++i)
-    {
+    for(int i=0; i<ns.count; ++i) {
         SKNode *node = [ns objectAtIndex:i];
-        if([node.name isEqualToString:@"DynamicPlatform"])
-        {
+        if([node.name isEqualToString:@"DynamicPlatform"]) {
             DynamicPlatform *platform = (DynamicPlatform *)node;
             [platform update];
         }
-        else if([node.name isEqualToString:@"Character"])
-        {
+        else if([node.name isEqualToString:@"Character"]) {
             Character *character = (Character*)node;
             [character update];
-            if((character.type == SZOMBIE || character.type == FZOMBIE))
-            {
+            if((character.type == SZOMBIE || character.type == FZOMBIE)) {
                 //[character jump];
             }
         }
     }
 }
 
-- (void) keyUp:(NSEvent *)theEvent
-{
+- (void) keyUp:(NSEvent *)theEvent {
     NSString *  const   character   =   [theEvent charactersIgnoringModifiers];
     unichar     const   code        =   [character characterAtIndex:0];
     [pl1Control keyUp:character];
     [pl2Control keyUp:character];
 }
-- (void) keyDown:(NSEvent *)theEvent
-{
+- (void) keyDown:(NSEvent *)theEvent {
     NSString * const    character   =   [theEvent charactersIgnoringModifiers];
     unichar const code = [character characterAtIndex:0];
     [pl1Control keyDown:character];
@@ -125,19 +116,15 @@
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
     NSArray *ns = [world children];
-    for(int i=0; i<ns.count; ++i)
-    {
+    for(int i=0; i<ns.count; ++i) {
         SKNode *node = [ns objectAtIndex:i];
-        if([node.name isEqualToString:@"DynamicPlatform"])
-        {
+        if([node.name isEqualToString:@"DynamicPlatform"]) {
             //DynamicPlatform *platform = (DynamicPlatform *)node;
 
         }
-        else if([node.name isEqualToString:@"Character"])
-        {
+        else if([node.name isEqualToString:@"Character"]) {
             Character *character = (Character*)node;
-            if((character.type == SZOMBIE || character.type == FZOMBIE))
-            {
+            if((character.type == SZOMBIE || character.type == FZOMBIE)) {
                 NSInteger direction = pl1Control.playerChar.position.x-character.position.x;
                 if(direction)
                     direction = direction/abs((int)direction);
@@ -149,35 +136,29 @@
 
 - (void)didBeginContact:(SKPhysicsContact *)contact {
     SKPhysicsBody *firstBody, *secondBody;
-    if(contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask)
-    {
+    if(contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
         firstBody = contact.bodyB;
         secondBody = contact.bodyA;
     }
-    else
-    {
+    else {
         firstBody = contact.bodyA;
         secondBody = contact.bodyB;
     }
     NSLog(@"Begin contact: %@ %@", firstBody.node.className, secondBody.node.className);
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
-    if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER)
-    {
+    if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER) {
     /*    Character *character = (Character*)secondBody.node;
         Platform *platform = (Platform *)firstBody.node;
         [character setPlatform:platform];*/
     }
-    else if(contactBitMask  == (HUMAN | ZOMBIE))
-    {
+    else if(contactBitMask  == (HUMAN | ZOMBIE)) {
         Character *zombie = (Character *)secondBody.node;
         [zombie stop];
     }
-    else if((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & CHARACTER)
-    {
+    else if((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & CHARACTER) {
         Platform *platform = (Platform *)firstBody.node.parent;
         Character *character = (Character*)secondBody.node;
-        if(platform.physicsBody.categoryBitMask == DYNAMIC_PLATFORM)
-        {
+        if(platform.physicsBody.categoryBitMask == DYNAMIC_PLATFORM) {
             [character setPlatform:platform];
         }
         [character incGroundContacts];
@@ -186,31 +167,26 @@
 
 - (void)didEndContact:(SKPhysicsContact *)contact {
     SKPhysicsBody *firstBody, *secondBody;
-    if(contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask)
-    {
+    if(contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
         firstBody = contact.bodyB;
         secondBody = contact.bodyA;
     }
-    else
-    {
+    else {
         firstBody = contact.bodyA;
         secondBody = contact.bodyB;
     }
     NSLog(@"End contact: %@ %@", firstBody.node.className, secondBody.node.className);
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
-    if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER)
-    {
+    if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER) {
         Character *character = (Character*)secondBody.node;
         //Platform *platform = (Platform *)firstBody.node;
         [character setPlatform:nil];
     }
-    else if(contactBitMask  == (HUMAN | ZOMBIE))
-    {
+    else if(contactBitMask  == (HUMAN | ZOMBIE)) {
         Character *zombie = (Character *)secondBody.node;
         [zombie run];
     }
-    else if((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & CHARACTER)
-    {
+    else if((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & CHARACTER) {
         Character *character = (Character*)secondBody.node;
         [character decGroundContacts];
     }

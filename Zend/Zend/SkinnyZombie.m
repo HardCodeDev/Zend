@@ -21,7 +21,7 @@
     return newSkinnyZombie;
 }
 
-- (void)initPhysicsBody{
+- (void)initPhysicsBody {
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask    = ZOMBIE;
     self.physicsBody.collisionBitMask   = PLATFORM | DYNAMIC_PLATFORM;
