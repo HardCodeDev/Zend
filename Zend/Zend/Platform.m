@@ -22,11 +22,14 @@
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
 }
 
+<<<<<<< HEAD
 - (void)initGroundLine {
     ground = [[GroundLine alloc] initFromRectWithWidth:self.frame.size.width height:self.frame.size.height];
     [self addChild:ground];
 }
 
+=======
+>>>>>>> quiz
 - (void)initPhysicsBody {
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.restitution = 0;

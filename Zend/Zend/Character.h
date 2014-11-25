@@ -8,13 +8,26 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "Platform.h"
+<<<<<<< HEAD
 #import "Enums.h"
+=======
+
+typedef enum {
+    PLAYER,
+    FRIEND,
+    SZOMBIE,
+    FZOMBIE
+} CharacterType;
+
+typedef enum {
+    PLATFORM = 1,
+    HUMAN    = 2,
+    ZOMBIE   = 4
+} BitMask;
+>>>>>>> quiz
 
 @interface Character : SKSpriteNode {
     CharacterType type;
-    NSUInteger level;
-    NSUInteger damage;
-    NSUInteger health;
     CGFloat runSpeed, jumpSpeed;
     CGFloat speedX, speedY;
     NSInteger direction;
@@ -27,7 +40,10 @@
 @property CGFloat speedX, speedY;
 @property CGFloat runSpeed, jumpSpeed;
 @property Platform *platform;
+<<<<<<< HEAD
 @property BOOL onGround;
+=======
+>>>>>>> quiz
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (id)initWithImageNamed:(NSString *)imageName;
@@ -36,9 +52,13 @@
 - (void)run;
 - (void)stop;
 - (void)jump;
+<<<<<<< HEAD
 - (NSInteger)getDirection;
 - (void)setDirection:(NSInteger)dir;
 - (void)incGroundContacts;
 - (void)decGroundContacts;
+=======
+- (void)setDirection:(NSInteger)dir;
+>>>>>>> quiz
 
 @end

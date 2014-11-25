@@ -16,5 +16,9 @@
 + (instancetype)platformWithImageNamed:(NSString *)imageName;
 - (void)update;
 - (void)initPhysicsBody;
+<<<<<<< HEAD
 - (void)initGroundLine;
+=======
+
+>>>>>>> quiz
 @end

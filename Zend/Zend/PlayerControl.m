@@ -15,14 +15,20 @@
 - (id)init {
     self = [super init];
     if (self) {
+<<<<<<< HEAD
         leftKeyPressed = 0;
         rightKeyPressed = 0;
         readyToJump = YES;
         keySet = 0;
+=======
+        self.leftKeyPressed = 0;
+        self.rightKeyPressed = 0;
+>>>>>>> quiz
     }
     return self;
 }
 
+<<<<<<< HEAD
 - (void)setKeySet:(NSUInteger)keyS {
     keySet = keyS;
     if(keyS == 0)
@@ -54,6 +60,24 @@
         unichar character = [characters characterAtIndex:s];
         if(character == keys[up]) {
             readyToJump = YES;
+=======
+- (void)setPosition:(CGPoint)position {
+    self.character.position = position;
+}
+
+- (void)setDirection:(NSInteger)direction {
+    character.direction = direction;
+}
+
+- (void)keyUp:(unichar const)code {
+    
+    switch (code)
+    {
+        case NSUpArrowFunctionKey:
+        {
+            [character jump];
+            break;
+>>>>>>> quiz
         }
         else if(character == keys[left]) {
             leftKeyPressed = 0;
@@ -79,10 +103,18 @@
         }
     }
 }
+<<<<<<< HEAD
 - (void)keyDown:(NSString * const)characters {
     for (int s = 0; s<[characters length]; s++) {
         unichar character = [characters characterAtIndex:s];
         if(character == keys[left]) {
+=======
+- (void)keyDown:(unichar const)code {
+    switch (code)
+    {
+        case NSLeftArrowFunctionKey:
+        {
+>>>>>>> quiz
             leftKeyPressed = 1;
             [self setDirection: -1];
             [playerChar run];
@@ -96,6 +128,10 @@
             if(readyToJump)
                 [playerChar jump];
             readyToJump = NO;
+        }
+        case 53: // ESC button for pause
+        {
+            
         }
     }
 }
