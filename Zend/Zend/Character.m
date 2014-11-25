@@ -42,7 +42,6 @@
 }
 
 - (void)update {
-<<<<<<< HEAD
     if(platform != nil) {
         self.physicsBody.velocity = CGVectorMake(self.speedX+platform.physicsBody.velocity.dx,
                                                  platform.physicsBody.velocity.dy + self.speedY);
@@ -51,16 +50,6 @@
         self.physicsBody.velocity = CGVectorMake(self.speedX, self.physicsBody.velocity.dy + self.speedY);
     }
     
-=======
-    CGFloat platformSpeedX;
-    if (platform != nil) {
-        platformSpeedX = platform.physicsBody.velocity.dx;
-    }
-    else {
-        platformSpeedX = 0;
-    }
-    self.physicsBody.velocity = CGVectorMake(self.speedX + platformSpeedX, self.physicsBody.velocity.dy);
->>>>>>> quiz
 }
 
 - (void)run {
@@ -75,7 +64,6 @@
 }
 
 - (void)jump {
-<<<<<<< HEAD
     if(groundContacts > 0)
     {
         self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
@@ -84,25 +72,15 @@
 
 - (NSInteger)getDirection {
     return direction;
-=======
-    self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
->>>>>>> quiz
 }
 
 - (void)setDirection:(NSInteger)dir {
     direction = dir;
-<<<<<<< HEAD
     if(isRunning)
         speedX = runSpeed * direction;
     if ((dir > 0 && self.xScale < 0) || (dir < 0 && self.xScale > 0)) {
-=======
-    if (dir > 0) {
-        if (self.xScale < 0) {
->>>>>>> quiz
             self.xScale *= -1;
-        }
     }
-<<<<<<< HEAD
 }
 
 - (void)incGroundContacts {
@@ -115,12 +93,6 @@
     if(groundContacts == 0)
     {
         onGround = NO;
-=======
-    else if (dir < 0) {
-        if (self.xScale > 0) {
-            self.xScale *= -1;
-        }
->>>>>>> quiz
     }
 }
 

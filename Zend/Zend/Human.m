@@ -25,30 +25,18 @@
     
     [newHuman initPhysicsBody];
     newHuman.type      = cType;
-<<<<<<< HEAD
     newHuman.runSpeed  = 350;
     newHuman.jumpSpeed = 750;
     newHuman.position  = position;
     newHuman.zPosition = 100;
-=======
-    newHuman.runSpeed  = 500;
-    newHuman.jumpSpeed = 750;
-    newHuman.position  = position;
-    
->>>>>>> quiz
     return newHuman;
 }
 
 - (void)initPhysicsBody {
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask    = HUMAN;
-<<<<<<< HEAD
     self.physicsBody.collisionBitMask   = PLATFORM | DYNAMIC_PLATFORM;
     self.physicsBody.contactTestBitMask = GROUND | PLATFORM | DYNAMIC_PLATFORM | ZOMBIE;
-=======
-    self.physicsBody.collisionBitMask   = PLATFORM;
-    self.physicsBody.contactTestBitMask = PLATFORM | ZOMBIE;
->>>>>>> quiz
 }
 - (void) update {
     [super update];

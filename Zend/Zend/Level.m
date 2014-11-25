@@ -14,12 +14,8 @@
     self = [super init];
     if (self) {
         level = lvl;
-<<<<<<< HEAD
         //pathToLevels = @"/Users/air/Documents/Object Oriented Programming/ZendGame/quiz/Zend/Zend/Levels/Level";
         pathToLevels = @"Levels/Level";
-=======
-        pathToLevels = @"/Users/air/Documents/Object Oriented Programming/ZendGame/quiz/Zend/Zend/Levels/Level";
->>>>>>> quiz
         pathToLevels = [pathToLevels stringByAppendingString:[@(lvl) stringValue]];
         
         platforms = [NSMutableArray array];
@@ -35,10 +31,6 @@
 - (void)loadPlatforms {
     NSError  *error;
     NSString *path = [pathToLevels stringByAppendingString:@"/platforms.json"];
-<<<<<<< HEAD
-    NSLog(@"%@", path);
-=======
->>>>>>> quiz
     NSURL    *url = [NSURL fileURLWithPath:path];
     NSData   *jsonPlatformsData = [NSData dataWithContentsOfURL:url];
     NSDictionary *jsonPlatformsDict = [NSJSONSerialization JSONObjectWithData:jsonPlatformsData

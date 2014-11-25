@@ -8,17 +8,6 @@
 
 #import "GameScene.h"
 
-<<<<<<< HEAD
-@implementation GameScene
-
--(void)didMoveToView:(SKView *)view {
-    /* Setup your scene here */
-    pFactory = [[PlatformFactory alloc] init];
-    cFactory = [[CharacterFactory alloc] init];
-    pl1Control = [[PlayerControl alloc] init];
-    pl2Control = [[PlayerControl alloc] init];
-    world = [[SKNode alloc] init];
-=======
 //#define SHOW_DEBUG_INFO 1
 
 @implementation GameScene
@@ -48,39 +37,27 @@
     
     [startMenu removeFromParent];
     
->>>>>>> quiz
     self.physicsWorld.gravity = CGVectorMake(0, -8);
     
     pFactory  = [[PlatformFactory alloc] init];
     cFactory  = [[CharacterFactory alloc] init];
-    plControl = [[PlayerControl alloc] init];
+    pl1Control = [[PlayerControl alloc] init];
+    pl2Control = [[PlayerControl alloc] init];
     
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"CyanBackground"];
     background.zPosition = -1;
-<<<<<<< HEAD
-    background.position = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
-    background.size = self.size;
-    [self addChild:world];
-    [world addChild:background];
-    
-    level = [[Level alloc] initWithLevel:0];
-    [level buildOn:world];
-    [pl1Control setKeySet:0];
-    [pl2Control setKeySet:1];
-    pl1Control.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
-    pl2Control.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
-    [world addChild:pl1Control.playerChar];
-    [world addChild:pl2Control.playerChar];
-=======
     background.position  = screenCenter;
     [world addChild:background];
     
     level = [[Level alloc] initWithLevel:selectedLevel];
     [level buildOn:world];
     
-    plControl.character = [cFactory createCharacter:PLAYER atPosition:CGPointMake(800, 600)];
-    [world addChild:plControl.character];
->>>>>>> quiz
+    [pl1Control setKeySet:0];
+    [pl2Control setKeySet:1];
+    pl1Control.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
+    pl2Control.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
+    [world addChild:pl1Control.playerChar];
+    [world addChild:pl2Control.playerChar];
 }
 
 - (void)exitGame {
@@ -123,18 +100,30 @@
 - (void)mouseDown:(NSEvent *)theEvent {
      /* Called when a mouse click occurs */
     CGPoint clickPosition = [theEvent locationInNode:world];
-<<<<<<< HEAD
-    Character *zombie;
-    if(clickPosition.x > self.frame.size.width / 2) {
-        zombie = [cFactory createCharacter:SZOMBIE atPosition:clickPosition];
+    if (gameStarted) {
+        Character *zombie;
+        if(clickPosition.x > self.frame.size.width / 2) {
+            zombie = [cFactory createCharacter:SZOMBIE atPosition:clickPosition];
+        }
+        else {
+            zombie = [cFactory createCharacter:FZOMBIE atPosition:clickPosition];
+        }
+        [world addChild:zombie];
     }
     else {
-        zombie = [cFactory createCharacter:FZOMBIE atPosition:clickPosition];
+        if (CGRectContainsPoint(playButton, clickPosition)) {
+            [self startGame];
+        }
+        else if (CGRectContainsPoint(exitButton, clickPosition)) {
+            [self exitGame];
+        }
     }
-    [world addChild:zombie];
 }
 
 - (void)didSimulatePhysics {
+    if (!gameStarted) {
+        return;
+    }
     CGPoint pl1Pos = [self convertPoint:pl1Control.playerChar.position fromNode:world];
     CGPoint pl2Pos = [self convertPoint:pl2Control.playerChar.position fromNode:world];
     CGFloat player1X = pl1Control.playerChar.position.x;
@@ -181,74 +170,11 @@
             [character update];
             if((character.type == SZOMBIE || character.type == FZOMBIE)) {
                 //[character jump];
-=======
-    if (gameStarted) {
-        Character *zombie;
-        if(clickPosition.x > self.frame.size.width / 2) {
-            zombie = [cFactory createCharacter:SZOMBIE atPosition:clickPosition];
-        }
-        else {
-            zombie = [cFactory createCharacter:FZOMBIE atPosition:clickPosition];
-        }
-        [world addChild:zombie];
-    }
-    else {
-        if (CGRectContainsPoint(playButton, clickPosition)) {
-            [self startGame];
-        }
-        else if (CGRectContainsPoint(exitButton, clickPosition)) {
-            [self exitGame];
-        }
-    }
-}
-
-- (void)didSimulatePhysics {
-    if (gameStarted) {
-        world.position = CGPointMake(-(plControl.character.position.x - self.size.width / 2), -(plControl.character.position.y - self.size.height / 2));
-        NSArray *ns = [world children];
-        for (int i = 0; i < ns.count; ++i) {
-            SKNode *node = [ns objectAtIndex:i];
-            if ([node.name isEqualToString:@"DynamicPlatform"]) {
-                DynamicPlatform *platform = (DynamicPlatform *)node;
-                [platform update];
-            }
-            else if ([node.name isEqualToString:@"Character"]) {
-                Character *character = (Character*)node;
-                if((character.type == SZOMBIE || character.type == FZOMBIE) && !(rand()%77)) {
-
-                }
-                [character update];
             }
         }
     }
 }
 
-- (void)update:(CFTimeInterval)currentTime {
-    /* Called before each frame is rendered */
-    if (gameStarted) {
-        NSArray *ns = [world children];
-        for (int i = 0; i < ns.count; ++i) {
-            SKNode *node = [ns objectAtIndex:i];
-            if ([node.name isEqualToString:@"DynamicPlatform"]) {
-                //DynamicPlatform *platform = (DynamicPlatform *)node;
-            }
-            else if ([node.name isEqualToString:@"Character"]) {
-                Character *character = (Character*)node;
-                if ((character.type == SZOMBIE || character.type == FZOMBIE)) {
-                    NSInteger direction = plControl.character.position.x-character.position.x;
-                    if(direction) {
-                        direction = direction/abs((int)direction);
-                    }
-                    [character setDirection:direction];
-                    [character run];
-                }
->>>>>>> quiz
-            }
-        }
-    }
-}
-
-<<<<<<< HEAD
 - (void) keyUp:(NSEvent *)theEvent {
     NSString *  const   character   =   [theEvent charactersIgnoringModifiers];
     unichar     const   code        =   [character characterAtIndex:0];
@@ -293,7 +219,9 @@
         firstBody = contact.bodyA;
         secondBody = contact.bodyB;
     }
+#ifdef SHOW_DEBUG_INFO
     NSLog(@"Begin contact: %@ %@", firstBody.node.className, secondBody.node.className);
+#endif
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
     if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER) {
     /*    Character *character = (Character*)secondBody.node;
@@ -324,7 +252,9 @@
         firstBody = contact.bodyA;
         secondBody = contact.bodyB;
     }
+#ifdef SHOW_DEBUG_INFO
     NSLog(@"End contact: %@ %@", firstBody.node.className, secondBody.node.className);
+#endif
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
     if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER) {
         Character *character = (Character*)secondBody.node;
@@ -339,40 +269,5 @@
         Character *character = (Character*)secondBody.node;
         [character decGroundContacts];
     }
-=======
-- (void)keyUp:(NSEvent *)theEvent {
-    NSString * const character = [theEvent charactersIgnoringModifiers];
-    unichar    const code      = [character characterAtIndex:0];
-    [plControl keyUp:code];
-}
-
-- (void)keyDown:(NSEvent *)theEvent {
-    unichar const code = [[theEvent charactersIgnoringModifiers] characterAtIndex:0];
-    [plControl keyDown:code];
-}
-
-- (void)didBeginContact:(SKPhysicsContact *)contact {
-    SKPhysicsBody *firstBody = contact.bodyA;
-    SKPhysicsBody *secondBody = contact.bodyB;
-    
-#ifdef SHOW_DEBUG_INFO
-    NSLog(@"Begin contact: %@ %@", firstBody.node.className, secondBody.node.className);
-#endif
-    
-    if(firstBody.categoryBitMask == PLATFORM && [secondBody.node.name isEqualToString:@"Character"])
-        [(Character*)secondBody.node setPlatform:(Platform *)firstBody.node];
-}
-
-- (void)didEndContact:(SKPhysicsContact *)contact {
-    SKPhysicsBody *firstBody = contact.bodyA;
-    SKPhysicsBody *secondBody = contact.bodyB;
-    
-#ifdef SHOW_DEBUG_INFO
-    NSLog(@"End contact: %@ %@", firstBody.node.className, secondBody.node.className);
-#endif
-    
-    if(firstBody.categoryBitMask == PLATFORM && [secondBody.node.name isEqualToString:@"Character"])
-        [(Character*)secondBody.node setPlatform:nil];
->>>>>>> quiz
 }
 @end

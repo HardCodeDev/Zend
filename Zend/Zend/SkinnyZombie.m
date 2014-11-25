@@ -14,29 +14,18 @@
     Character *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombie.png"];
     [newSkinnyZombie initPhysicsBody];
     newSkinnyZombie.type      = cType;
-<<<<<<< HEAD
     newSkinnyZombie.jumpSpeed = 500;
     newSkinnyZombie.runSpeed  = 100;
     newSkinnyZombie.position  = position;
     [newSkinnyZombie run];
-=======
-    newSkinnyZombie.jumpSpeed = 750;
-    newSkinnyZombie.runSpeed  = 100;
-    newSkinnyZombie.position  = position;
->>>>>>> quiz
     return newSkinnyZombie;
 }
 
 - (void)initPhysicsBody {
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask    = ZOMBIE;
-<<<<<<< HEAD
     self.physicsBody.collisionBitMask   = PLATFORM | DYNAMIC_PLATFORM;
     self.physicsBody.contactTestBitMask = GROUND | PLATFORM | DYNAMIC_PLATFORM | HUMAN | ZOMBIE;
-=======
-    self.physicsBody.collisionBitMask   = PLATFORM;
-    self.physicsBody.contactTestBitMask = PLATFORM | HUMAN | ZOMBIE;
->>>>>>> quiz
     self.physicsBody.friction = 0;
     self.physicsBody.mass     = 1;
 }

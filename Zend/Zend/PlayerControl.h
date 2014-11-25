@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Character.h"
 
-<<<<<<< HEAD
 typedef enum {
     up, left, down, right
 } KeySet;
@@ -22,26 +21,12 @@ typedef enum {
 }
 
 @property Character *playerChar;
-=======
-@interface PlayerControl : NSObject {
-    Character *character;
-    BOOL leftKeyPressed, rightKeyPressed;
-}
-
-@property Character *character;
-@property BOOL leftKeyPressed, rightKeyPressed;
->>>>>>> quiz
 
 - (id)init;
 - (void)setPosition:(CGPoint)position;
 - (void)setDirection:(NSInteger)direction;
-<<<<<<< HEAD
 - (void)keyUp:(NSString * const)characters;
 - (void)keyDown:(NSString * const)characters;
 - (void)setKeySet:(NSUInteger)keyS;
-=======
-- (void)keyUp:(unichar const)code;
-- (void)keyDown:(unichar const)code;
->>>>>>> quiz
 
 @end

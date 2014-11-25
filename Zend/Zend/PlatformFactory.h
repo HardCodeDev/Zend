@@ -11,16 +11,6 @@
 @interface PlatformFactory : NSObject
 
 - (Platform *)createPlatformWithImageNamed:(NSString *)imageName
-<<<<<<< HEAD
-                                 atPosition:(CGPoint)point
-                                  zRotation:(CGFloat)angle;
-
-- (Platform *)createDynamicPlatformWithImageNamed:(NSString *)imageName
-                                     beginPosition:(CGPoint)beginPoint
-                                       endPosition:(CGPoint)endPoint
-                                             speed:(CGFloat)speed
-                                         zRotation:(CGFloat)angle;
-=======
                                 atPosition:(CGPoint)point
                                 zRotation:(CGFloat)angle;
 
@@ -30,5 +20,4 @@
                                             speed:(CGFloat)speed
                                         zRotation:(CGFloat)angle;
 
->>>>>>> quiz
 @end

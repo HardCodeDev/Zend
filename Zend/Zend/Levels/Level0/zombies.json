@@ -1,19 +1,9 @@
-<<<<<<< HEAD
 /*{
-=======
-{
->>>>>>> quiz
 	"zombiesCount": 1,
 	"zombies": [
 	{
 		"type": "skinny",
 		"positionX": 500,
-<<<<<<< HEAD
 		"positionY": 250,
 	}]
 }*/
-=======
-		"positionY": 600,
-	}]
-}
->>>>>>> quiz

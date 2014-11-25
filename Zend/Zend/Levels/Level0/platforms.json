@@ -1,9 +1,8 @@
 {
-<<<<<<< HEAD
 	"platforms": [
 	{
 		"type": "static",
-        "texture": "ground.png",
+        "texture": "Ground",
         "angle": 20,
 		"positionX": 625,
 		"positionY": 187,
@@ -11,7 +10,7 @@
 	},
     {
         "type": "static",
-        "texture": "ground.png",
+        "texture": "Ground",
         "angle": 0,
         "positionX": 1110,
         "positionY": 272,
@@ -19,7 +18,7 @@
     },
     {
         "type": "static",
-        "texture": "ground.png",
+        "texture": "Ground",
         "angle": 0,
         "positionX": 600,
         "positionY": 600,
@@ -27,7 +26,7 @@
     },
     {
         "type": "static",
-        "texture": "ground.png",
+        "texture": "Ground",
         "angle": 0,
         "positionX": 1200,
         "positionY": 600,
@@ -35,61 +34,22 @@
     },
 	{
 		"type": "dynamic",
-		"texture": "ground.png",
+		"texture": "Ground",
 		"angle": 0,
 		"positionX": 0,
 		"positionY": 100,
 		"endPositionX": 0,
 		"endPositionY": 600,
-=======
-	"platformsCount": 4,
-	"platforms": [
-	{
-		"type": "static",
-        "texture": "Ground",
-        "angle": 1,
-		"positionX": 700,
-		"positionY": 500,
-		
-	},
-	{
-		"type": "dynamic",
-		"texture": "Ground",
-		"angle": 0,
-		"positionX": 800,
-		"positionY": 1000,
-		"endPositionX": 800,
-		"endPositionY": 1000,
 		"speed": 0.5,
 	},
 	{
 		"type": "dynamic",
 		"texture": "Ground",
-		"angle": 0,
-		"positionX": 0,
-		"positionY": 0,
-		"endPositionX": 0,
-		"endPositionY": 500,
->>>>>>> quiz
-		"speed": 0.5,
-	},
-	{
-		"type": "dynamic",
-<<<<<<< HEAD
-		"texture": "ground.png",
 		"angle": 0,
 		"positionX": 1200,
 		"positionY": 100,
 		"endPositionX": 2000,
 		"endPositionY": 100,
-=======
-		"texture": "Ground",
-		"angle": 0,
-		"positionX": 1200,
-		"positionY": 500,
-		"endPositionX": 2000,
-		"endPositionY": 1000,
->>>>>>> quiz
 		"speed": 0.5,
 	}
 	]
