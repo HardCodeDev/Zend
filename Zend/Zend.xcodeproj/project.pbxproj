@@ -33,6 +33,8 @@
 		453DD9161A1E5CBA001349DC /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD9151A1E5CBA001349DC /* Level.m */; };
 		453DD9191A1E7738001349DC /* platforms.json in Resources */ = {isa = PBXBuildFile; fileRef = 453DD9181A1E7738001349DC /* platforms.json */; };
 		453DD91B1A1E9288001349DC /* zombies.json in Resources */ = {isa = PBXBuildFile; fileRef = 453DD91A1A1E9288001349DC /* zombies.json */; };
+		454387081A25336F00C256E1 /* BoyCharacter.png in Resources */ = {isa = PBXBuildFile; fileRef = 454387061A25336F00C256E1 /* BoyCharacter.png */; };
+		454387091A25336F00C256E1 /* Ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 454387071A25336F00C256E1 /* Ground.png */; };
 		455E32621A1B3A170047A0EC /* SkinnyZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 455E32611A1B3A170047A0EC /* SkinnyZombie.png */; };
 		455E32641A1B3D9A0047A0EC /* FatZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 455E32631A1B3D9A0047A0EC /* FatZombie.png */; };
 /* End PBXBuildFile section */
@@ -90,6 +92,8 @@
 		453DD9151A1E5CBA001349DC /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Level.m; path = Zend/Level.m; sourceTree = "<group>"; };
 		453DD9181A1E7738001349DC /* platforms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = platforms.json; path = Zend/Levels/Level0/platforms.json; sourceTree = "<group>"; };
 		453DD91A1A1E9288001349DC /* zombies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = zombies.json; path = Zend/Levels/Level0/zombies.json; sourceTree = "<group>"; };
+		454387061A25336F00C256E1 /* BoyCharacter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BoyCharacter.png; path = Zend/BoyCharacter.png; sourceTree = "<group>"; };
+		454387071A25336F00C256E1 /* Ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ground.png; path = Zend/Ground.png; sourceTree = "<group>"; };
 		455E32611A1B3A170047A0EC /* SkinnyZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SkinnyZombie.png; path = Zend/SkinnyZombie.png; sourceTree = "<group>"; };
 		455E32631A1B3D9A0047A0EC /* FatZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FatZombie.png; path = Zend/FatZombie.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,6 +233,8 @@
 		455E32661A1B40830047A0EC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				454387061A25336F00C256E1 /* BoyCharacter.png */,
+				454387071A25336F00C256E1 /* Ground.png */,
 				452480191A250C6200D4F4BE /* GreenPlayer.png */,
 				455E32631A1B3D9A0047A0EC /* FatZombie.png */,
 				455E32611A1B3A170047A0EC /* SkinnyZombie.png */,
@@ -331,8 +337,10 @@
 				4524801D1A250C6200D4F4BE /* GreenPlayer.png in Resources */,
 				455E32621A1B3A170047A0EC /* SkinnyZombie.png in Resources */,
 				452480121A24FB1A00D4F4BE /* MenuScreen.png in Resources */,
+				454387081A25336F00C256E1 /* BoyCharacter.png in Resources */,
 				452480131A24FB1A00D4F4BE /* WelcomeScreenLight.png in Resources */,
 				4524801F1A250C6200D4F4BE /* PauseScreenText.png in Resources */,
+				454387091A25336F00C256E1 /* Ground.png in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
 				453DD91B1A1E9288001349DC /* zombies.json in Resources */,
 				455E32641A1B3D9A0047A0EC /* FatZombie.png in Resources */,
