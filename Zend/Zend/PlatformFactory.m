@@ -24,8 +24,8 @@
 - (Platform *)createDynamicPlatformWithImageNamed:(NSString *)imageName
                                     beginPosition:(CGPoint)beginPoint
                                       endPosition:(CGPoint)endPoint
-                                             speed:(CGFloat)speed
-                                         zRotation:(CGFloat)angle
+                                            speed:(CGFloat)speed
+                                        zRotation:(CGFloat)angle
 {
     DynamicPlatform *platform = [DynamicPlatform platformWithImageNamed:imageName];
     [platform initPhysicsBody];

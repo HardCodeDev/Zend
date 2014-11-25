@@ -14,7 +14,7 @@
     BOOL leftKeyPressed, rightKeyPressed;
 }
 
-@property Character * character;
+@property Character *character;
 @property BOOL leftKeyPressed, rightKeyPressed;
 
 - (id)init;

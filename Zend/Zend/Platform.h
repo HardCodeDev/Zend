@@ -13,4 +13,5 @@
 + (instancetype)platformWithImageNamed:(NSString *)imageName;
 - (void)update;
 - (void)initPhysicsBody;
+
 @end

@@ -3,7 +3,7 @@
 	"platforms": [
 	{
 		"type": "static",
-        "texture": "ground.png",
+        "texture": "Ground",
         "angle": 1,
 		"positionX": 700,
 		"positionY": 500,
@@ -11,7 +11,7 @@
 	},
 	{
 		"type": "dynamic",
-		"texture": "ground.png",
+		"texture": "Ground",
 		"angle": 0,
 		"positionX": 800,
 		"positionY": 1000,
@@ -21,7 +21,7 @@
 	},
 	{
 		"type": "dynamic",
-		"texture": "ground.png",
+		"texture": "Ground",
 		"angle": 0,
 		"positionX": 0,
 		"positionY": 0,
@@ -31,7 +31,7 @@
 	},
 	{
 		"type": "dynamic",
-		"texture": "ground.png",
+		"texture": "Ground",
 		"angle": 0,
 		"positionX": 1200,
 		"positionY": 500,

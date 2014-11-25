@@ -30,7 +30,6 @@
 - (void)loadPlatforms {
     NSError  *error;
     NSString *path = [pathToLevels stringByAppendingString:@"/platforms.json"];
-    NSLog(@"%@", path);
     NSURL    *url = [NSURL fileURLWithPath:path];
     NSData   *jsonPlatformsData = [NSData dataWithContentsOfURL:url];
     NSDictionary *jsonPlatformsDict = [NSJSONSerialization JSONObjectWithData:jsonPlatformsData

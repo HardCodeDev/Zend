@@ -14,10 +14,10 @@
     Character *newHuman;
     
     if (cType == PLAYER) {
-        newHuman = [[Human alloc] initWithImageNamed:@"boyCharacter.png"];
+        newHuman = [[Human alloc] initWithImageNamed:@"BoyCharacter.png"];
     }
     else if (cType == FRIEND) {
-        newHuman = [[Human alloc] initWithImageNamed:@"player.png"];
+        newHuman = [[Human alloc] initWithImageNamed:@"GreenPlayer.png"];
     }
     else {
         newHuman = [[Human alloc] init];

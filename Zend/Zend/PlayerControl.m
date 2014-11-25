@@ -84,6 +84,10 @@
             [character run];
             break;
         }
+        case 53: // ESC button for pause
+        {
+            
+        }
     }
 }
 

@@ -24,9 +24,6 @@ typedef enum {
 
 @interface Character : SKSpriteNode {
     CharacterType type;
-    NSUInteger level;
-    NSUInteger damage;
-    NSUInteger health;
     CGFloat runSpeed, jumpSpeed;
     CGFloat speedX, speedY;
     NSInteger direction;

@@ -40,10 +40,12 @@
 
 - (void)update {
     CGFloat platformSpeedX;
-    if (platform != nil)
+    if (platform != nil) {
         platformSpeedX = platform.physicsBody.velocity.dx;
-    else
+    }
+    else {
         platformSpeedX = 0;
+    }
     self.physicsBody.velocity = CGVectorMake(self.speedX + platformSpeedX, self.physicsBody.velocity.dy);
 }
 
@@ -65,12 +67,14 @@
 - (void)setDirection:(NSInteger)dir {
     direction = dir;
     if (dir > 0) {
-        if (self.xScale < 0)
+        if (self.xScale < 0) {
             self.xScale *= -1;
+        }
     }
     else if (dir < 0) {
-        if (self.xScale > 0)
+        if (self.xScale > 0) {
             self.xScale *= -1;
+        }
     }
 }
 
