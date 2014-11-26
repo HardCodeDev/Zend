@@ -28,8 +28,8 @@
     screenSize   = self.frame.size;
     screenCenter = CGPointMake(screenSize.width / 2, screenSize.height / 2);
     
-    playButton = CGRectMake(1260, 0, 180, 100);
-    exitButton = CGRectMake(0, 0, 180, 100);
+    playButton = CGRectMake(1260, 0, 0, 0);
+    exitButton = CGRectMake(0, 0, 0, 0);
 }
 
 - (void)startGame {
@@ -76,7 +76,7 @@
     welcomeScreen.position = screenCenter;
     welcomeScreen.size = screenSize;
     
-    SKAction *wait   = [SKAction waitForDuration:5.0f];
+    SKAction *wait   = [SKAction waitForDuration:0.0f]; // 5 or more for presentation
     SKAction *fadeIn = [SKAction fadeOutWithDuration:1.0f];
     
     startMenu = [SKSpriteNode spriteNodeWithImageNamed:@"MenuScreen"];
@@ -88,12 +88,14 @@
     pauseMenu.zPosition = 1;
     pauseMenu.position  = screenCenter;
     pauseMenu.size      = screenSize;
-    
-    [world addChild:welcomeScreen];
-    [world addChild:startMenu];
+    welcomeScreen.zPosition = 101;
+    [self addChild:welcomeScreen];
+    [self addChild:startMenu];
     
     [welcomeScreen runAction:wait completion:^{
         [welcomeScreen runAction:fadeIn];
+        playButton = CGRectMake(1260, 0, 180, 100);
+        exitButton = CGRectMake(0, 0, 180, 100);
     }];
 }
 
