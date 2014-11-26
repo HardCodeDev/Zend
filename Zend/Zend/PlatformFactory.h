@@ -12,7 +12,7 @@
 
 - (Platform *)createPlatformWithImageNamed:(NSString *)imageName
                                 atPosition:(CGPoint)point
-                                zRotation:(CGFloat)angle;
+                                 zRotation:(CGFloat)angle;
 
 - (Platform *)createDynamicPlatformWithImageNamed:(NSString *)imageName
                                     beginPosition:(CGPoint)beginPoint

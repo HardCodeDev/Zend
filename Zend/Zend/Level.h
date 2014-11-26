@@ -13,18 +13,17 @@
 
 @interface Level : NSObject {
     NSInteger level;
-    NSString *pathToLevels;
+    NSString  *pathToLevels;
     
     NSMutableArray *platforms;
     NSMutableArray *zombies;
     NSMutableArray *stages;
     
     PlatformFactory  *pFactory;
-
     CharacterFactory *cFactory;
 }
 
-- (id)initWithLevel:(NSInteger)lvl;
+- (id)initWithLevel:(NSInteger)selectedLevel;
 
 - (void)loadPlatforms;
 - (void)loadZombies;

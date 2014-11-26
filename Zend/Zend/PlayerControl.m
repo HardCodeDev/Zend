@@ -25,15 +25,13 @@
 
 - (void)setKeySet:(NSUInteger)keyS {
     keySet = keyS;
-    if(keyS == 0)
-    {
+    if(keyS == 0) {
         keys[up]    = 'w';
         keys[left]  = 'a';
         keys[down]  = 's';
         keys[right] = 'd';
     }
-    else if(keyS == 1)
-    {
+    else if(keyS == 1) {
         keys[up]    = NSUpArrowFunctionKey;
         keys[left]  = NSLeftArrowFunctionKey;
         keys[down]  = NSDownArrowFunctionKey;
@@ -50,12 +48,12 @@
 }
 
 - (void)keyUp:(NSString * const)characters {
-    for (int s = 0; s<[characters length]; s++) {
+    for (int s = 0; s < [characters length]; s++) {
         unichar character = [characters characterAtIndex:s];
-        if(character == keys[up]) {
+        if (character == keys[up]) {
             readyToJump = YES;
         }
-        else if(character == keys[left]) {
+        else if (character == keys[left]) {
             leftKeyPressed = 0;
             if (rightKeyPressed) {
                 [self setDirection: 1];
@@ -66,7 +64,7 @@
                 [playerChar stop];
             }
         }
-        else if(character == keys[right]) {
+        else if (character == keys[right]) {
             rightKeyPressed = 0;
             if (leftKeyPressed) {
                 [self setDirection: -1];
@@ -83,23 +81,21 @@
 - (void)keyDown:(NSString * const)characters {
     for (int s = 0; s<[characters length]; s++) {
         unichar character = [characters characterAtIndex:s];
-        if(character == keys[left]) {
+        if (character == keys[left]) {
             leftKeyPressed = 1;
             [self setDirection: -1];
             [playerChar run];
         }
-        else if(character == keys[right]) {
+        else if (character == keys[right]) {
             rightKeyPressed = 1;
             [self setDirection:1];
             [playerChar run];
         }
-        else if(character == keys[up]) {
-            if(readyToJump)
+        else if (character == keys[up]) {
+            if(readyToJump) {
                 [playerChar jump];
+            }
             readyToJump = NO;
-        }
-        else if(character == 53) { // ESC button for pause
-            
         }
     }
 }

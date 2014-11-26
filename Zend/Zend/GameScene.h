@@ -20,8 +20,9 @@
     SKSpriteNode *pauseMenu;
     
     CharacterFactory *cFactory;
-    PlatformFactory *pFactory;
-    PlayerControl *pl1Control, *pl2Control;
+    PlatformFactory  *pFactory;
+    PlayerControl    *pl1Control;
+    PlayerControl    *pl2Control;
 }
 
 @property CGPoint   screenCenter;

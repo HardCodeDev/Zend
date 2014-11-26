@@ -64,8 +64,7 @@
 }
 
 - (void)jump {
-    if(groundContacts > 0)
-    {
+    if(groundContacts > 0) {
         self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
     }
 }
@@ -76,8 +75,9 @@
 
 - (void)setDirection:(NSInteger)dir {
     direction = dir;
-    if(isRunning)
+    if(isRunning) {
         speedX = runSpeed * direction;
+    }
     if ((dir > 0 && self.xScale < 0) || (dir < 0 && self.xScale > 0)) {
             self.xScale *= -1;
     }
@@ -90,8 +90,7 @@
 
 - (void)decGroundContacts {
     --groundContacts;
-    if(groundContacts == 0)
-    {
+    if(groundContacts == 0) {
         onGround = NO;
     }
 }
