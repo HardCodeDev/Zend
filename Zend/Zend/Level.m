@@ -10,12 +10,12 @@
 
 @implementation Level
 
-- (id)initWithLevel:(NSInteger)lvl {
+- (id)initWithLevel:(NSInteger)selectedLevel {
     self = [super init];
     if (self) {
-        level = lvl;
-        pathToLevels = @"/Users/air/Documents/Object Oriented Programming/ZendGame/quiz/Zend/Zend/Levels/Level";
-        pathToLevels = [pathToLevels stringByAppendingString:[@(lvl) stringValue]];
+        level = selectedLevel;
+        pathToLevels = @"Levels/Level";
+        pathToLevels = [pathToLevels stringByAppendingString:[@(level) stringValue]];
         
         platforms = [NSMutableArray array];
         zombies   = [NSMutableArray array];

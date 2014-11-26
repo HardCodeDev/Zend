@@ -23,7 +23,7 @@
     CharacterFactory *cFactory;
 }
 
-- (id)initWithLevel:(NSInteger)lvl;
+- (id)initWithLevel:(NSInteger)selectedLevel;
 
 - (void)loadPlatforms;
 - (void)loadZombies;

@@ -28,8 +28,8 @@
     screenSize   = self.frame.size;
     screenCenter = CGPointMake(screenSize.width / 2, screenSize.height / 2);
     
-    playButton = CGRectMake(1260, 0, 180, 100);
-    exitButton = CGRectMake(0, 0, 180, 100);
+    playButton = CGRectMake(1260, 0, 0, 0);
+    exitButton = CGRectMake(0, 0, 0, 0);
 }
 
 - (void)startGame {
@@ -89,6 +89,8 @@
     
     [welcomeScreen runAction:wait completion:^{
         [welcomeScreen runAction:fadeIn];
+        playButton = CGRectMake(1260, 0, 180, 100);
+        exitButton = CGRectMake(0, 0, 180, 100);
     }];
 }
 
