@@ -19,7 +19,12 @@
     platform.isMovingForward = YES;
     platform.isInCheckpoint = YES;
     platform.name = @"DynamicPlatform";
+    [platform initGroundLine];
     return platform;
+}
+- (void)initPhysicsBody {
+    [super initPhysicsBody];
+    self.physicsBody.categoryBitMask = DYNAMIC_PLATFORM;
 }
 
 - (void)update {
@@ -51,6 +56,7 @@
         self.physicsBody.velocity = CGVectorMake((self.beginPoint.x - self.endPoint.x) * self.speed,
                                                  (self.beginPoint.y - self.endPoint.y) * self.speed);
     }
+    ground.physicsBody.velocity = self.physicsBody.velocity;
 }
 
 @end

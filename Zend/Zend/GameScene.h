@@ -12,7 +12,7 @@
 #import "PlayerControl.h"
 #import "Level.h"
 
-@interface GameScene : SKScene {
+@interface GameScene : SKScene <SKPhysicsContactDelegate> {
     SKNode *world;
     Level  *level;
     
@@ -21,7 +21,8 @@
     
     CharacterFactory *cFactory;
     PlatformFactory  *pFactory;
-    PlayerControl    *plControl;
+    PlayerControl    *pl1Control;
+    PlayerControl    *pl2Control;
 }
 
 @property CGPoint   screenCenter;

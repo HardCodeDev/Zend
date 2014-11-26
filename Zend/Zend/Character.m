@@ -14,6 +14,7 @@
 @synthesize speedX, speedY;
 @synthesize runSpeed, jumpSpeed;
 @synthesize platform;
+@synthesize onGround;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;
@@ -34,19 +35,21 @@
         self.speedX = 0;
         self.speedY = 0;
         [self setDirection:0];
+        onGround = YES;
+        groundContacts = 0;
     }
     return self;
 }
 
 - (void)update {
-    CGFloat platformSpeedX;
-    if (platform != nil) {
-        platformSpeedX = platform.physicsBody.velocity.dx;
+    if(platform != nil) {
+        self.physicsBody.velocity = CGVectorMake(self.speedX+platform.physicsBody.velocity.dx,
+                                                 platform.physicsBody.velocity.dy + self.speedY);
     }
     else {
-        platformSpeedX = 0;
+        self.physicsBody.velocity = CGVectorMake(self.speedX, self.physicsBody.velocity.dy + self.speedY);
     }
-    self.physicsBody.velocity = CGVectorMake(self.speedX + platformSpeedX, self.physicsBody.velocity.dy);
+    
 }
 
 - (void)run {
@@ -61,20 +64,34 @@
 }
 
 - (void)jump {
-    self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
+    if(groundContacts > 0) {
+        self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
+    }
+}
+
+- (NSInteger)getDirection {
+    return direction;
 }
 
 - (void)setDirection:(NSInteger)dir {
     direction = dir;
-    if (dir > 0) {
-        if (self.xScale < 0) {
-            self.xScale *= -1;
-        }
+    if(isRunning) {
+        speedX = runSpeed * direction;
     }
-    else if (dir < 0) {
-        if (self.xScale > 0) {
+    if ((dir > 0 && self.xScale < 0) || (dir < 0 && self.xScale > 0)) {
             self.xScale *= -1;
-        }
+    }
+}
+
+- (void)incGroundContacts {
+    ++groundContacts;
+    onGround = YES;
+}
+
+- (void)decGroundContacts {
+    --groundContacts;
+    if(groundContacts == 0) {
+        onGround = NO;
     }
 }
 

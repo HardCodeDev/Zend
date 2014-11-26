@@ -7,11 +7,16 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Enums.h"
+#import "GroundLine.h"
 
-@interface Platform : SKSpriteNode
+@interface Platform : SKSpriteNode {
+    GroundLine *ground;
+}
 
 + (instancetype)platformWithImageNamed:(NSString *)imageName;
 - (void)update;
 - (void)initPhysicsBody;
+- (void)initGroundLine;
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */; };
+		3A0F16E21A2068430085C8A0 /* GroundLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F16E11A2068430085C8A0 /* GroundLine.m */; };
 		3A1C7D5B1A1919860036F9C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5A1A1919860036F9C7 /* AppDelegate.m */; };
 		3A1C7D5D1A1919860036F9C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5C1A1919860036F9C7 /* main.m */; };
 		3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5F1A1919860036F9C7 /* GameScene.m */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		3A0B936C1A1A6A79002CE2FB /* DynamicPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicPlatform.h; path = Zend/DynamicPlatform.h; sourceTree = "<group>"; };
 		3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicPlatform.m; path = Zend/DynamicPlatform.m; sourceTree = "<group>"; };
+		3A0F16E01A2068430085C8A0 /* GroundLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroundLine.h; path = Zend/GroundLine.h; sourceTree = "<group>"; };
+		3A0F16E11A2068430085C8A0 /* GroundLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroundLine.m; path = Zend/GroundLine.m; sourceTree = "<group>"; };
 		3A1C7D541A1919860036F9C7 /* Zend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D581A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D591A1919860036F9C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 		3A1C7D6C1A1919860036F9C7 /* ZendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D711A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D721A1919860036F9C7 /* ZendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTests.m; sourceTree = "<group>"; };
+		3A91B9771A1FA20000654946 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Enums.h; path = Zend/Enums.h; sourceTree = "<group>"; };
 		3ADECE6C1A19F36100179646 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = Zend/Platform.h; sourceTree = "<group>"; };
 		3ADECE6D1A19F36100179646 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = Zend/Platform.m; sourceTree = "<group>"; };
 		3ADECE6F1A19F3B100179646 /* PlatformFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlatformFactory.h; path = Zend/PlatformFactory.h; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 		3A1C7D4B1A1919860036F9C7 = {
 			isa = PBXGroup;
 			children = (
+				3A91B9771A1FA20000654946 /* Enums.h */,
 				453DD9171A1E5CE2001349DC /* Level */,
 				455E32661A1B40830047A0EC /* Images */,
 				3ADECE6B1A19F25E00179646 /* World */,
@@ -180,6 +185,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3A59C9951A1EBB59003988DF /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				3A59C9961A1EBB59003988DF /* Level0 */,
+			);
+			name = Levels;
+			path = Zend/Levels;
+			sourceTree = "<group>";
+		};
+		3A59C9961A1EBB59003988DF /* Level0 */ = {
+			isa = PBXGroup;
+			children = (
+				3A59C9971A1EBB59003988DF /* platforms.json */,
+				3A59C9981A1EBB59003988DF /* zombies.json */,
+			);
+			path = Level0;
+			sourceTree = "<group>";
+		};
 		3ADECE641A19E8F500179646 /* Character */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +229,8 @@
 				3ADECE701A19F3B100179646 /* PlatformFactory.m */,
 				3A0B936C1A1A6A79002CE2FB /* DynamicPlatform.h */,
 				3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */,
+				3A0F16E01A2068430085C8A0 /* GroundLine.h */,
+				3A0F16E11A2068430085C8A0 /* GroundLine.m */,
 			);
 			name = World;
 			sourceTree = "<group>";
@@ -363,6 +388,7 @@
 			files = (
 				3AE3FB171A1AAF3D00B2F287 /* PlayerControl.m in Sources */,
 				3A1C7D5D1A1919860036F9C7 /* main.m in Sources */,
+				3A0F16E21A2068430085C8A0 /* GroundLine.m in Sources */,
 				3AE3FB0D1A1AAA7A00B2F287 /* Character.m in Sources */,
 				3AE3FB0E1A1AAA7A00B2F287 /* CharacterFactory.m in Sources */,
 				3AE3FB111A1AAA7A00B2F287 /* SkinnyZombie.m in Sources */,

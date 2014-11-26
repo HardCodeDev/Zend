@@ -13,7 +13,7 @@
 
 @interface Level : NSObject {
     NSInteger level;
-    NSString *pathToLevels;
+    NSString  *pathToLevels;
     
     NSMutableArray *platforms;
     NSMutableArray *zombies;

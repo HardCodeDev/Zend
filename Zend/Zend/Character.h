@@ -8,33 +8,23 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "Platform.h"
-
-typedef enum {
-    PLAYER,
-    FRIEND,
-    SZOMBIE,
-    FZOMBIE
-} CharacterType;
-
-typedef enum {
-    PLATFORM = 1,
-    HUMAN    = 2,
-    ZOMBIE   = 4
-} BitMask;
+#import "Enums.h"
 
 @interface Character : SKSpriteNode {
     CharacterType type;
     CGFloat runSpeed, jumpSpeed;
     CGFloat speedX, speedY;
     NSInteger direction;
-    BOOL isRunning, isJumping;
+    BOOL isRunning, isJumping, onGround;
     Platform *platform;
+    NSUInteger groundContacts;
 }
 
 @property CharacterType type;
 @property CGFloat speedX, speedY;
 @property CGFloat runSpeed, jumpSpeed;
 @property Platform *platform;
+@property BOOL onGround;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (id)initWithImageNamed:(NSString *)imageName;
@@ -43,6 +33,9 @@ typedef enum {
 - (void)run;
 - (void)stop;
 - (void)jump;
+- (NSInteger)getDirection;
 - (void)setDirection:(NSInteger)dir;
+- (void)incGroundContacts;
+- (void)decGroundContacts;
 
 @end

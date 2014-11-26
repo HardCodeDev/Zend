@@ -13,12 +13,18 @@
 + (instancetype)platformWithImageNamed:(NSString *)imageName {
     Platform *platform = [[Platform alloc] initWithImageNamed:imageName];
     platform.name = @"Platform";
+    [platform initGroundLine];
     return platform;
 }
 
 - (void)setSpriteSize:(CGFloat)size {
     self.scale = size;
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
+}
+
+- (void)initGroundLine {
+    ground = [[GroundLine alloc] initFromRectWithWidth:self.frame.size.width height:self.frame.size.height];
+    [self addChild:ground];
 }
 
 - (void)initPhysicsBody {
@@ -28,9 +34,9 @@
     self.physicsBody.allowsRotation = NO;
     self.physicsBody.affectedByGravity = NO;
     self.physicsBody.dynamic = YES;
-    self.physicsBody.categoryBitMask = 1;
+    self.physicsBody.categoryBitMask = PLATFORM;
     self.physicsBody.collisionBitMask = 0;
-    self.physicsBody.contactTestBitMask = 6;
+    self.physicsBody.contactTestBitMask = HUMAN | ZOMBIE;
 }
 
 - (void)update {
