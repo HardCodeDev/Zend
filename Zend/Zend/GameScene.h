@@ -16,6 +16,8 @@
     SKNode *world;
     Level  *level;
     
+    SKSpriteNode *welcomeScreen;
+    
     SKSpriteNode *startMenu;
     SKSpriteNode *pauseMenu;
     
@@ -32,6 +34,7 @@
 @property BOOL      gameStarted;
 
 @property CGRect    playButton;
+@property CGRect    continueButton;
 @property CGRect    exitButton;
 
 @end

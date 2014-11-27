@@ -19,6 +19,7 @@
 @synthesize gameStarted;
 
 @synthesize playButton;
+@synthesize continueButton;
 @synthesize exitButton;
 
 - (void)initProperties {
@@ -28,14 +29,31 @@
     screenSize   = self.frame.size;
     screenCenter = CGPointMake(screenSize.width / 2, screenSize.height / 2);
     
-    playButton = CGRectMake(1260, 0, 0, 0);
-    exitButton = CGRectMake(0, 0, 0, 0);
+    playButton     = CGRectMake(1260, 0, 0, 0);
+    continueButton = CGRectMake(1200, 0, 240, 100);
+    exitButton     = CGRectMake(0, 0, 0, 0);
+    
+    startMenu = [SKSpriteNode spriteNodeWithImageNamed:@"MenuScreen"];
+    startMenu.zPosition = 2;
+    startMenu.position  = screenCenter;
+    startMenu.size      = screenSize;
+    
+    welcomeScreen = [SKSpriteNode spriteNodeWithImageNamed:@"WelcomeScreenLight"];
+    welcomeScreen.zPosition = 3;
+    welcomeScreen.position  = screenCenter;
+    welcomeScreen.size      = screenSize;
+    
+    pauseMenu = [SKSpriteNode spriteNodeWithImageNamed:@"PauseScreen"];
+    pauseMenu.zPosition = 100;
+    pauseMenu.position  = screenCenter;
+    pauseMenu.size      = screenSize;
 }
 
 - (void)startGame {
     gameStarted = YES;
     
     [startMenu removeFromParent];
+    [welcomeScreen removeFromParent];
     
     self.physicsWorld.gravity = CGVectorMake(0, -8);
     
@@ -60,6 +78,25 @@
     [world addChild:pl2Control.playerChar];
 }
 
+- (void)pauseGame {
+    SKAction *pauseAddChildAction = [SKAction runBlock:^{
+        [self addChild:pauseMenu];
+    }];
+    
+    SKAction *pauseSceneAction = [SKAction runBlock:^{
+        self.scene.view.paused = YES;
+    }];
+    
+    SKAction *pauseSequence = [SKAction sequence:@[pauseAddChildAction, pauseSceneAction]];
+    
+    [self runAction:pauseSequence];
+}
+
+- (void)continueGame {
+    [pauseMenu removeFromParent];
+    self.scene.view.paused = NO;
+}
+
 - (void)exitGame {
     [[NSApplication sharedApplication] terminate:self];
 }
@@ -71,26 +108,11 @@
     world = [[SKNode alloc] init];
     [self addChild:world];
     
-    SKSpriteNode *welcomeScreen = [SKSpriteNode spriteNodeWithImageNamed:@"WelcomeScreenLight"];
-    welcomeScreen.zPosition = 2;
-    welcomeScreen.position = screenCenter;
-    welcomeScreen.size = screenSize;
-    
-    SKAction *wait   = [SKAction waitForDuration:5.0f];
+    SKAction *wait   = [SKAction waitForDuration:7.0f];
     SKAction *fadeIn = [SKAction fadeOutWithDuration:1.0f];
     
-    startMenu = [SKSpriteNode spriteNodeWithImageNamed:@"MenuScreen"];
-    startMenu.zPosition = 1;
-    startMenu.position  = screenCenter;
-    startMenu.size      = screenSize;
-    
-    pauseMenu = [SKSpriteNode spriteNodeWithImageNamed:@"PauseScreen"];
-    pauseMenu.zPosition = 1;
-    pauseMenu.position  = screenCenter;
-    pauseMenu.size      = screenSize;
-    
-    [world addChild:welcomeScreen];
-    [world addChild:startMenu];
+    [self addChild:welcomeScreen];
+    [self addChild:startMenu];
     
     [welcomeScreen runAction:wait completion:^{
         [welcomeScreen runAction:fadeIn];
@@ -102,7 +124,18 @@
 - (void)mouseDown:(NSEvent *)theEvent {
      /* Called when a mouse click occurs */
     CGPoint clickPosition = [theEvent locationInNode:world];
-    if (gameStarted) {
+    CGPoint menuClick     = [theEvent locationInNode:self];
+    
+    if (self.scene.view.paused) {
+        if (CGRectContainsPoint(continueButton, menuClick)) {
+            [self continueGame];
+            NSLog(@"continue pressed");
+        }
+        else if (CGRectContainsPoint(exitButton, menuClick)) {
+            [self exitGame];
+        }
+    }
+    else if (gameStarted) {
         Character *zombie;
         if(clickPosition.x > self.frame.size.width / 2) {
             zombie = [cFactory createCharacter:SZOMBIE atPosition:clickPosition];
@@ -113,10 +146,10 @@
         [world addChild:zombie];
     }
     else {
-        if (CGRectContainsPoint(playButton, clickPosition)) {
+        if (CGRectContainsPoint(playButton, menuClick)) {
             [self startGame];
         }
-        else if (CGRectContainsPoint(exitButton, clickPosition)) {
+        else if (CGRectContainsPoint(exitButton, menuClick)) {
             [self exitGame];
         }
     }
@@ -180,12 +213,20 @@
 - (void)keyUp:(NSEvent *)theEvent {
     NSString * const character = [theEvent charactersIgnoringModifiers];
     unichar    const code      = [character characterAtIndex:0];
+    
     [pl1Control keyUp:character];
     [pl2Control keyUp:character];
 }
+
 - (void)keyDown:(NSEvent *)theEvent {
     NSString * const character = [theEvent charactersIgnoringModifiers];
     unichar    const code      = [character characterAtIndex:0];
+    
+    if (gameStarted == YES && self.scene.view.paused == NO && code == 27) { // ESC button
+        [self pauseGame];
+        return;
+    }
+    
     [pl1Control keyDown:character];
     [pl2Control keyDown:character];
 }
@@ -201,9 +242,9 @@
         else if ([node.name isEqualToString:@"Character"]) {
             Character *character = (Character*)node;
             if ((character.type == SZOMBIE || character.type == FZOMBIE)) {
-                NSInteger direction = pl1Control.playerChar.position.x-character.position.x;
+                NSInteger direction = pl1Control.playerChar.position.x - character.position.x;
                 if (direction) {
-                    direction = direction/abs((int)direction);
+                    direction = direction / abs((int)direction);
                 }
                 [character setDirection:direction];
             }
