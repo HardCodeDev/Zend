@@ -22,7 +22,12 @@ typedef enum {
     GROUND   = 4,
     HUMAN    = 8,
     ZOMBIE   = 16,
-    CHARACTER = HUMAN | ZOMBIE
+    CHARACTER = HUMAN | ZOMBIE,
+    BULLET   = 32
 } BitMask;
+
+typedef enum {
+    PISTOL
+} WeaponType;
 
 #endif

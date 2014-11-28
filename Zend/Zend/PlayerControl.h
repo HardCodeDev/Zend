@@ -10,14 +10,14 @@
 #import "Character.h"
 
 typedef enum {
-    up, left, down, right
+    up, left, down, right, fire
 } KeySet;
 
 @interface PlayerControl : NSObject {
     Character *playerChar;
     BOOL leftKeyPressed, rightKeyPressed, readyToJump;
     NSUInteger keySet;
-    int keys[4];
+    int keys[10];
 }
 
 @property Character *playerChar;

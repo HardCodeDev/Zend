@@ -15,6 +15,7 @@
 @synthesize runSpeed, jumpSpeed;
 @synthesize platform;
 @synthesize onGround;
+@synthesize weapon;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;
@@ -37,6 +38,8 @@
         [self setDirection:0];
         onGround = YES;
         groundContacts = 0;
+        weapon = [[Weapon alloc] init];
+        [self.parent addChild:weapon];
     }
     return self;
 }
@@ -93,6 +96,10 @@
     if(groundContacts == 0) {
         onGround = NO;
     }
+}
+
+- (void)fire {
+    [weapon fire];
 }
 
 @end
