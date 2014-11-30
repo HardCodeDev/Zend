@@ -10,20 +10,17 @@
 
 @implementation Weapon
 
-- (id)initAndSetOwner:(SKNode *)node {
+- (id)init {
     self = [super init];
     if (self) {
         firstGun = nil;
         secondGun = nil;
         count = 0;
-        owner = node;
-        self.zPosition = 1000;
     }
     return self;
 }
 
 - (void)fire {
-    self.position = owner.position;
     if (firstGun) {
         [firstGun fire];
     }
@@ -36,6 +33,5 @@
     firstGun = [[WeaponUnit alloc] init];
     [self addChild:firstGun];
 }
-
 
 @end

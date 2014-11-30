@@ -8,7 +8,7 @@
 
 #import "GameScene.h"
 
-//#define SHOW_DEBUG_INFO 1
+#define SHOW_DEBUG_INFO 1
 
 @implementation GameScene
 
@@ -58,6 +58,8 @@
     pl2Control.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
     [world addChild:pl1Control.playerChar];
     [world addChild:pl2Control.playerChar];
+    [pl1Control.playerChar.weapon setFirstSlotWeaponType:PISTOL];
+    [pl2Control.playerChar.weapon setFirstSlotWeaponType:PISTOL];
 }
 
 - (void)exitGame {
@@ -145,6 +147,8 @@
     CGPoint pl2Pos = [self convertPoint:pl2Control.playerChar.position fromNode:world];
     CGFloat player1X = pl1Control.playerChar.position.x;
     CGFloat player2X = pl2Control.playerChar.position.x;
+    CGFloat player1XSpeed = pl1Control.playerChar.physicsBody.velocity.dx;
+    CGFloat player2XSpeed = pl2Control.playerChar.physicsBody.velocity.dx;
     NSInteger player1Dir = [pl1Control.playerChar getDirection];
     NSInteger player2Dir = [pl2Control.playerChar getDirection];
     /*if(abs(pl1Pos.x - pl2Pos.x) < self.frame.size.width/2)
@@ -166,11 +170,11 @@
      world.position = CGPointMake(-(pl2Control.playerChar.position.x - self.size.width / 4), 0);
      }
      }*/
-    if(abs(player1X - player2X) > self.frame.size.width * 7 / 8) {
-        if((player1X > player2X && player1Dir != -1) || (player1X < player2X && player1Dir != 1)) {
+    if(abs(player1X - player2X) > self.frame.size.width * 15 / 16) {
+        if((player1X > player2X && player1XSpeed > 0) || (player1X < player2X && player1XSpeed < 0)) {
             [pl1Control.playerChar stop];
         }
-        if((player2X > player1X && player2Dir != -1) || (player2X < player1X && player2Dir != 1)) {
+        if((player2X > player1X && player2XSpeed > 0) || (player2X < player1X && player2XSpeed < 0)) {
             [pl2Control.playerChar stop];
         }
     }
@@ -225,7 +229,7 @@
     NSLog(@"Begin contact: %@ %@", firstBody.node.className, secondBody.node.className);
 #endif
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
-    if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER) {
+    if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
     /*    Character *character = (Character*)secondBody.node;
         Platform *platform = (Platform *)firstBody.node;
         [character setPlatform:platform];*/
@@ -234,13 +238,21 @@
         Character *zombie = (Character *)secondBody.node;
         [zombie stop];
     }
-    else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & CHARACTER) {
+    else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
         Platform *platform = (Platform *)firstBody.node.parent;
         Character *character = (Character*)secondBody.node;
         if (platform.physicsBody.categoryBitMask == DYNAMIC_PLATFORM) {
             [character setPlatform:platform];
         }
         [character incGroundContacts];
+    }
+    else if ((firstBody.categoryBitMask | secondBody.categoryBitMask) == (ZOMBIE | BULLET)) {
+        Character *zombie = (Character *)firstBody.node;
+        if (zombie.isAlive) {
+            Bullet *bullet = (Bullet *)secondBody.node;
+            [bullet removeFromParent];
+            [zombie applyDamage:bullet.damage];
+        }
     }
 }
 
@@ -260,7 +272,7 @@
 #endif
     
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
-    if ((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER) {
+    if ((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
         Character *character = (Character*)secondBody.node;
         //Platform *platform = (Platform *)firstBody.node;
         [character setPlatform:nil];
@@ -269,8 +281,12 @@
         Character *zombie = (Character *)secondBody.node;
         [zombie run];
     }
-    else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & CHARACTER) {
+    else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
+        Platform *platform = (Platform *)firstBody.node.parent;
         Character *character = (Character*)secondBody.node;
+        if (platform.physicsBody.categoryBitMask == DYNAMIC_PLATFORM) {
+            [character setPlatform:nil];
+        }
         [character decGroundContacts];
     }
 }

@@ -14,10 +14,11 @@
     NSUInteger count;
     WeaponUnit *firstGun;
     WeaponUnit *secondGun;
-    SKNode *owner;
+    SKNode *world;
 }
 
-- (id)initAndSetOwner:(SKNode *)node;
+
+- (id)init;
 - (void)fire;
 - (void)setFirstSlotWeaponType:(WeaponType)wType;
 

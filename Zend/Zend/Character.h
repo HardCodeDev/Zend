@@ -20,6 +20,8 @@
     Platform *platform;
     NSUInteger groundContacts;
     Weapon *weapon;
+    BOOL isAlive;
+    CGFloat health;
 }
 
 @property CharacterType type;
@@ -28,6 +30,8 @@
 @property Platform *platform;
 @property BOOL onGround;
 @property Weapon *weapon;
+@property CGFloat health;
+@property BOOL isAlive;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (id)initWithImageNamed:(NSString *)imageName;
@@ -41,6 +45,7 @@
 - (void)incGroundContacts;
 - (void)decGroundContacts;
 - (void)fire;
-//- (void)giveWeapon:
+- (void)die;
+- (void)applyDamage:(CGFloat)damage;
 
 @end

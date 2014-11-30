@@ -17,6 +17,7 @@
     newFatZombie.jumpSpeed = 500;
     newFatZombie.runSpeed  = 100;
     newFatZombie.position  = position;
+    newFatZombie.health = 3;
     [newFatZombie run];
     return newFatZombie;
 }

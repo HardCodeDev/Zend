@@ -50,6 +50,7 @@
 }
 
 - (void)keyUp:(NSString * const)characters {
+    NSLog(@"%i", [characters length]);
     for (int s = 0; s < [characters length]; s++) {
         unichar character = [characters characterAtIndex:s];
         if (character == keys[up]) {

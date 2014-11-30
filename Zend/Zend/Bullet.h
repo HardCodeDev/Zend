@@ -14,6 +14,8 @@
     CGFloat speed;
 }
 
--(id)initWithImageNamed:(NSString *)imageName;
+@property CGFloat damage;
+
+- (id)initWithImageNamed:(NSString *)imageName;
 
 @end

@@ -16,6 +16,8 @@
 @synthesize platform;
 @synthesize onGround;
 @synthesize weapon;
+@synthesize health;
+@synthesize isAlive;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;
@@ -38,8 +40,10 @@
         [self setDirection:0];
         onGround = YES;
         groundContacts = 0;
+        isAlive = YES;
         weapon = [[Weapon alloc] init];
-        [self.parent addChild:weapon];
+        [self addChild:weapon];
+        health = 100;
     }
     return self;
 }
@@ -56,17 +60,26 @@
 }
 
 - (void)run {
+    if (!isAlive) {
+        return;
+    }
     isRunning = YES;
     speedX = runSpeed * direction;
 }
 
 - (void)stop {
+    if (!isAlive) {
+        return;
+    }
     isRunning = NO;
     speedX = 0;
     self.physicsBody.velocity = CGVectorMake(0, self.physicsBody.velocity.dy);
 }
 
 - (void)jump {
+    if (!isAlive) {
+        return;
+    }
     if(groundContacts > 0) {
         self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
     }
@@ -77,6 +90,9 @@
 }
 
 - (void)setDirection:(NSInteger)dir {
+    if (!isAlive) {
+        return;
+    }
     direction = dir;
     if(isRunning) {
         speedX = runSpeed * direction;
@@ -89,17 +105,51 @@
 - (void)incGroundContacts {
     ++groundContacts;
     onGround = YES;
+    self.physicsBody.affectedByGravity = NO;
 }
 
 - (void)decGroundContacts {
     --groundContacts;
     if(groundContacts == 0) {
         onGround = NO;
+        self.physicsBody.affectedByGravity = YES;
     }
 }
 
 - (void)fire {
+    if (!isAlive) {
+        return;
+    }
     [weapon fire];
 }
+
+- (void)die {
+    [self stop];
+    isAlive = NO;
+    self.physicsBody.categoryBitMask = CORPSE;
+    CGFloat angle;
+    if (self.xScale >= 0) {
+        angle = M_PI_2;
+    }
+    else {
+        angle = -M_PI_2;
+    }
+    SKAction *dying = [SKAction sequence:@[
+                                           [SKAction rotateByAngle:angle duration:0.5],
+                                           [SKAction waitForDuration:0.5],
+                                           [SKAction runBlock:^{[self removeFromParent];}]
+                                           ]];
+    [self runAction:dying];
+}
+
+- (void)applyDamage:(CGFloat)damage {
+    health -= damage;
+    if (health <= 0) {
+        health = 0;
+        [self die];
+    }
+}
+
+//- (void)si
 
 @end
