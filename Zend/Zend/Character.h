@@ -22,6 +22,9 @@
     Weapon *weapon;
     BOOL isAlive;
     CGFloat health;
+    BOOL onAttack;
+    Character *target;
+    BOOL collidingWithTarget;
 }
 
 @property CharacterType type;
@@ -32,6 +35,9 @@
 @property Weapon *weapon;
 @property CGFloat health;
 @property BOOL isAlive;
+@property BOOL onAttack;
+@property Character *target;
+@property BOOL collidingWithTarget;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (id)initWithImageNamed:(NSString *)imageName;
@@ -47,5 +53,6 @@
 - (void)fire;
 - (void)die;
 - (void)applyDamage:(CGFloat)damage;
+- (void)attackTarget:(Character *)character;
 
 @end

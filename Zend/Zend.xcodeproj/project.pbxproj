@@ -21,6 +21,8 @@
 		3A7462111A286CAD00235972 /* WeaponUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462101A286CAD00235972 /* WeaponUnit.m */; };
 		3A7462141A286F3900235972 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462131A286F3900235972 /* Bullet.m */; };
 		3A7462161A28895100235972 /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7462151A28895100235972 /* Bullet.png */; };
+		3A7462191A2B9AFC00235972 /* MeleeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462181A2B9AFC00235972 /* MeleeWeapon.m */; };
+		3A74621C1A2B9B0F00235972 /* RangeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74621B1A2B9B0F00235972 /* RangeWeapon.m */; };
 		3ADECE6E1A19F36100179646 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE6D1A19F36100179646 /* Platform.m */; };
 		3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE701A19F3B100179646 /* PlatformFactory.m */; };
 		3AE3FB0D1A1AAA7A00B2F287 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB041A1AAA7A00B2F287 /* Character.m */; };
@@ -81,6 +83,10 @@
 		3A7462121A286F3900235972 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = Zend/Bullet.h; sourceTree = "<group>"; };
 		3A7462131A286F3900235972 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bullet.m; path = Zend/Bullet.m; sourceTree = "<group>"; };
 		3A7462151A28895100235972 /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bullet.png; path = Zend/Bullet.png; sourceTree = "<group>"; };
+		3A7462171A2B9AFC00235972 /* MeleeWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeleeWeapon.h; path = Zend/MeleeWeapon.h; sourceTree = "<group>"; };
+		3A7462181A2B9AFC00235972 /* MeleeWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeleeWeapon.m; path = Zend/MeleeWeapon.m; sourceTree = "<group>"; };
+		3A74621A1A2B9B0F00235972 /* RangeWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RangeWeapon.h; path = Zend/RangeWeapon.h; sourceTree = "<group>"; };
+		3A74621B1A2B9B0F00235972 /* RangeWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RangeWeapon.m; path = Zend/RangeWeapon.m; sourceTree = "<group>"; };
 		3A91B9771A1FA20000654946 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Enums.h; path = Zend/Enums.h; sourceTree = "<group>"; };
 		3ADECE6C1A19F36100179646 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = Zend/Platform.h; sourceTree = "<group>"; };
 		3ADECE6D1A19F36100179646 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = Zend/Platform.m; sourceTree = "<group>"; };
@@ -207,6 +213,10 @@
 				3A7462011A2665DC00235972 /* Weapon.m */,
 				3A74620F1A286CAD00235972 /* WeaponUnit.h */,
 				3A7462101A286CAD00235972 /* WeaponUnit.m */,
+				3A74621A1A2B9B0F00235972 /* RangeWeapon.h */,
+				3A74621B1A2B9B0F00235972 /* RangeWeapon.m */,
+				3A7462171A2B9AFC00235972 /* MeleeWeapon.h */,
+				3A7462181A2B9AFC00235972 /* MeleeWeapon.m */,
 				3A7462121A286F3900235972 /* Bullet.h */,
 				3A7462131A286F3900235972 /* Bullet.m */,
 			);
@@ -413,8 +423,10 @@
 				3AE3FB0F1A1AAA7A00B2F287 /* FatZombie.m in Sources */,
 				3AE3FB101A1AAA7A00B2F287 /* Human.m in Sources */,
 				3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */,
+				3A74621C1A2B9B0F00235972 /* RangeWeapon.m in Sources */,
 				3A7462021A2665DC00235972 /* Weapon.m in Sources */,
 				453DD9161A1E5CBA001349DC /* Level.m in Sources */,
+				3A7462191A2B9AFC00235972 /* MeleeWeapon.m in Sources */,
 				3A1C7D5B1A1919860036F9C7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

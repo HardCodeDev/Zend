@@ -23,6 +23,8 @@
     PlatformFactory  *pFactory;
     PlayerControl    *pl1Control;
     PlayerControl    *pl2Control;
+    
+    NSUInteger playersCount;
 }
 
 @property CGPoint   screenCenter;

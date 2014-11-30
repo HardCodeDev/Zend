@@ -16,6 +16,14 @@
     self = [super initWithImageNamed:imageName];
     if (self) {
         self.name   = @"Bullet";
+        self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.frame.size.height/2];
+        self.physicsBody.allowsRotation = NO;
+        self.physicsBody.affectedByGravity = NO;
+        self.physicsBody.dynamic = YES;
+        self.physicsBody.categoryBitMask = BULLET;
+        self.physicsBody.contactTestBitMask = ZOMBIE | PLATFORM | DYNAMIC_PLATFORM;
+        self.physicsBody.collisionBitMask = 0;
+        self.zPosition = 100500;
     }
     return self;
 }

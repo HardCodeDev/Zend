@@ -11,9 +11,11 @@
 
 @interface WeaponUnit : SKNode {
     NSInteger damage;
+    CGFloat shotInterval;
+    BOOL isReady;
 }
 
 - (id)init;
-- (void)fire;
+- (CGFloat)fire;
 
 @end

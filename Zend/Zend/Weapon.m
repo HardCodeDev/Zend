@@ -20,17 +20,24 @@
     return self;
 }
 
-- (void)fire {
+- (CGFloat)fire {
+    CGFloat damage = 0;
     if (firstGun) {
-        [firstGun fire];
+        damage += [firstGun fire];
     }
     if(secondGun) {
-        [secondGun fire];
+        damage += [secondGun fire];
     }
+    return damage;
 }
 
 - (void)setFirstSlotWeaponType:(WeaponType)wType {
-    firstGun = [[WeaponUnit alloc] init];
+    if (wType == PISTOL) {
+        firstGun = [[RangeWeapon alloc] init];
+    }
+    else if (wType == MELEE) {
+        firstGun = [[MeleeWeapon alloc] init];
+    }
     [self addChild:firstGun];
 }
 

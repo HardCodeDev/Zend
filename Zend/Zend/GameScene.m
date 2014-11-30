@@ -8,7 +8,7 @@
 
 #import "GameScene.h"
 
-#define SHOW_DEBUG_INFO 1
+//#define SHOW_DEBUG_INFO 1
 
 @implementation GameScene
 
@@ -56,6 +56,7 @@
     [pl2Control setKeySet:1];
     pl1Control.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
     pl2Control.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
+    playersCount = 2;
     [world addChild:pl1Control.playerChar];
     [world addChild:pl2Control.playerChar];
     [pl1Control.playerChar.weapon setFirstSlotWeaponType:PISTOL];
@@ -143,33 +144,10 @@
             }
         }
     }
-    CGPoint pl1Pos = [self convertPoint:pl1Control.playerChar.position fromNode:world];
-    CGPoint pl2Pos = [self convertPoint:pl2Control.playerChar.position fromNode:world];
     CGFloat player1X = pl1Control.playerChar.position.x;
     CGFloat player2X = pl2Control.playerChar.position.x;
     CGFloat player1XSpeed = pl1Control.playerChar.physicsBody.velocity.dx;
     CGFloat player2XSpeed = pl2Control.playerChar.physicsBody.velocity.dx;
-    NSInteger player1Dir = [pl1Control.playerChar getDirection];
-    NSInteger player2Dir = [pl2Control.playerChar getDirection];
-    /*if(abs(pl1Pos.x - pl2Pos.x) < self.frame.size.width/2)
-     {
-     if(pl1Pos.x > (3 * self.frame.size.width) / 4)
-     {
-     world.position = CGPointMake(-(pl1Control.playerChar.position.x - (3 * self.size.width) / 4), 0);
-     }
-     else if(pl1Pos.x < self.frame.size.width / 4)
-     {
-     world.position = CGPointMake(-(pl1Control.playerChar.position.x - self.size.width / 4), 0);
-     }
-     if(pl2Pos.x > (3 * self.frame.size.width) / 4)
-     {
-     world.position = CGPointMake(-(pl2Control.playerChar.position.x - (3 * self.size.width) / 4), 0);
-     }
-     else if(pl2Pos.x < self.frame.size.width / 4)
-     {
-     world.position = CGPointMake(-(pl2Control.playerChar.position.x - self.size.width / 4), 0);
-     }
-     }*/
     if(abs(player1X - player2X) > self.frame.size.width * 15 / 16) {
         if((player1X > player2X && player1XSpeed > 0) || (player1X < player2X && player1XSpeed < 0)) {
             [pl1Control.playerChar stop];
@@ -204,12 +182,32 @@
         }
         else if ([node.name isEqualToString:@"Character"]) {
             Character *character = (Character*)node;
-            if ((character.type == SZOMBIE || character.type == FZOMBIE)) {
-                NSInteger direction = pl1Control.playerChar.position.x-character.position.x;
-                if (direction) {
-                    direction = direction/abs((int)direction);
+            if (character.physicsBody.categoryBitMask == ZOMBIE) {
+                if (!character.target) {
+                    if (playersCount == 1) {
+                        if (pl1Control.playerChar.isAlive) {
+                            [character attackTarget:pl1Control.playerChar];
+                        }
+                    }
+                    else if(playersCount == 2){
+                        CGFloat distance1 = abs(character.position.x - pl1Control.playerChar.position.x);
+                        CGFloat distance2 = abs(character.position.x - pl2Control.playerChar.position.x);
+                        if ((!pl2Control.playerChar.isAlive || distance1 < distance2) && pl1Control.playerChar.isAlive) {
+                            [character attackTarget:pl1Control.playerChar];
+                        }
+                        else if (pl2Control.playerChar.isAlive){
+                            [character attackTarget:pl2Control.playerChar];
+                        }
+                    }
                 }
-                [character setDirection:direction];
+            }
+        }
+        else if ([node.name isEqualToString:@"Bullet"]) {
+            Bullet *bullet = (Bullet *)node;
+            CGPoint bulletPos = [self convertPoint:bullet.position fromNode:world];
+            if (bulletPos.x < 0 || bulletPos.x > self.frame.size.width
+             || bulletPos.y < 0 || bulletPos.y > self.frame.size.height) {
+                [bullet removeFromParent];
             }
         }
     }
@@ -235,8 +233,12 @@
         [character setPlatform:platform];*/
     }
     else if (contactBitMask  == (HUMAN | ZOMBIE)) {
+        Character *human  = (Character *)firstBody.node;
         Character *zombie = (Character *)secondBody.node;
         [zombie stop];
+        if (human == zombie.target) {
+            zombie.collidingWithTarget = YES;
+        }
     }
     else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
         Platform *platform = (Platform *)firstBody.node.parent;
@@ -253,6 +255,10 @@
             [bullet removeFromParent];
             [zombie applyDamage:bullet.damage];
         }
+    }
+    else if ((firstBody.categoryBitMask & (PLATFORM | DYNAMIC_PLATFORM)) && (secondBody.categoryBitMask & BULLET)) {
+        Bullet *bullet = (Bullet *)secondBody.node;
+        [bullet removeFromParent];
     }
 }
 
@@ -278,8 +284,12 @@
         [character setPlatform:nil];
     }
     else if (contactBitMask  == (HUMAN | ZOMBIE)) {
+        Character *human  = (Character *)firstBody.node;
         Character *zombie = (Character *)secondBody.node;
         [zombie run];
+        if (human == zombie.target) {
+            zombie.collidingWithTarget = NO;
+        }
     }
     else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
         Platform *platform = (Platform *)firstBody.node.parent;

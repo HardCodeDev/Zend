@@ -8,6 +8,8 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "WeaponUnit.h"
+#import "RangeWeapon.h"
+#import "MeleeWeapon.h"
 #import "Enums.h"
 
 @interface Weapon : SKNode {
@@ -19,7 +21,7 @@
 
 
 - (id)init;
-- (void)fire;
+- (CGFloat)fire;
 - (void)setFirstSlotWeaponType:(WeaponType)wType;
 
 @end

@@ -77,6 +77,9 @@
                 [playerChar stop];
             }
         }
+        else if (character == keys[fire]) {
+            [playerChar setOnAttack:NO];
+        }
     }
 }
             
@@ -100,7 +103,7 @@
             readyToJump = NO;
         }
         else if (character == keys[fire]) {
-            [playerChar fire];
+            [playerChar setOnAttack:YES];
         }
     }
 }

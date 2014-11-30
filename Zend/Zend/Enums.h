@@ -28,7 +28,8 @@ typedef enum {
 } BitMask;
 
 typedef enum {
-    PISTOL
+    PISTOL,
+    MELEE
 } WeaponType;
 
 #endif

@@ -18,13 +18,25 @@
 @synthesize weapon;
 @synthesize health;
 @synthesize isAlive;
+@synthesize onAttack;
+@synthesize target;
+@synthesize collidingWithTarget;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;
 }
 
 - (void)initPhysicsBody {
-    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, -40, 80);
+    CGPathAddLineToPoint(path, NULL, 40, 80);
+    CGPathAddLineToPoint(path, NULL, 40, -75);
+    CGPathAddLineToPoint(path, NULL, 30, -80);
+    CGPathAddLineToPoint(path, NULL, -30, -80);
+    CGPathAddLineToPoint(path, NULL, -40, -75);
+    
+    CGPathCloseSubpath(path);
+    self.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
     self.physicsBody.restitution = 0;
     self.physicsBody.friction = 0.0;
     self.physicsBody.allowsRotation = NO;
@@ -41,20 +53,43 @@
         onGround = YES;
         groundContacts = 0;
         isAlive = YES;
+        onAttack = NO;
         weapon = [[Weapon alloc] init];
         [self addChild:weapon];
         health = 100;
+        target = nil;
+        collidingWithTarget = NO;
     }
     return self;
 }
 
 - (void)update {
-    if(platform != nil) {
+    if (onAttack) {
+        [self fire];
+    }
+    if(platform) {
         self.physicsBody.velocity = CGVectorMake(self.speedX+platform.physicsBody.velocity.dx,
                                                  platform.physicsBody.velocity.dy + self.speedY);
     }
     else {
         self.physicsBody.velocity = CGVectorMake(self.speedX, self.physicsBody.velocity.dy + self.speedY);
+    }
+    
+    if (target) {
+        if (!target.isAlive) {
+            target = nil;
+            [self stop];
+            onAttack = NO;
+        }
+        else {
+            CGFloat dir = target.position.x-self.position.x;
+            if (dir > 0) {
+                [self setDirection:1];
+            }
+            else {
+                [self setDirection:-1];
+            }
+        }
     }
     
 }
@@ -120,7 +155,10 @@
     if (!isAlive) {
         return;
     }
-    [weapon fire];
+    CGFloat damage = [weapon fire];
+    if (collidingWithTarget) {
+        [target applyDamage:damage];
+    }
 }
 
 - (void)die {
@@ -143,6 +181,9 @@
 }
 
 - (void)applyDamage:(CGFloat)damage {
+    if (!isAlive) {
+        return;
+    }
     health -= damage;
     if (health <= 0) {
         health = 0;
@@ -150,6 +191,10 @@
     }
 }
 
-//- (void)si
+- (void)attackTarget:(Character *)character {
+    target = character;
+    onAttack = YES;
+    [self run];
+}
 
 @end
