@@ -20,7 +20,6 @@
 @synthesize isAlive;
 @synthesize onAttack;
 @synthesize target;
-@synthesize collidingWithTarget;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;
@@ -203,6 +202,16 @@
     target = character;
     onAttack = YES;
     [self run];
+}
+
+- (void)setCollidingWithTarget:(BOOL)isColliding {
+    collidingWithTarget = isColliding;
+    if (collidingWithTarget) {
+        [self stop];
+    }
+    else {
+        [self run];
+    }
 }
 
 @end

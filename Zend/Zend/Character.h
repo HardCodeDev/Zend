@@ -37,7 +37,6 @@
 @property BOOL isAlive;
 @property BOOL onAttack;
 @property Character *target;
-@property BOOL collidingWithTarget;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (id)initWithImageNamed:(NSString *)imageName;
@@ -54,5 +53,6 @@
 - (void)die;
 - (void)applyDamage:(CGFloat)damage;
 - (void)attackTarget:(Character *)character;
+- (void)setCollidingWithTarget:(BOOL)isColliding;
 
 @end

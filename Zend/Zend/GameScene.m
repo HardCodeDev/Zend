@@ -316,7 +316,6 @@
     else if (contactBitMask  == (HUMAN | ZOMBIE)) {
         Character *human  = (Character *)firstBody.node;
         Character *zombie = (Character *)secondBody.node;
-        [zombie stop];
         if (human == zombie.target) {
             zombie.collidingWithTarget = YES;
         }
@@ -367,7 +366,6 @@
     else if (contactBitMask  == (HUMAN | ZOMBIE)) {
         Character *human  = (Character *)firstBody.node;
         Character *zombie = (Character *)secondBody.node;
-        [zombie run];
         if (human == zombie.target) {
             zombie.collidingWithTarget = NO;
         }
