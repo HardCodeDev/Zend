@@ -184,6 +184,14 @@
     if (!isAlive) {
         return;
     }
+    if (damage > 0) {
+        SKAction *pulseRed = [SKAction sequence:@[
+                                  [SKAction colorizeWithColor:[SKColor redColor] colorBlendFactor:1.0 duration:0.15],
+                                  [SKAction waitForDuration:0.1],
+                                  [SKAction colorizeWithColorBlendFactor:0.0 duration:0.15]]];
+        [self runAction: pulseRed];
+
+    }
     health -= damage;
     if (health <= 0) {
         health = 0;
