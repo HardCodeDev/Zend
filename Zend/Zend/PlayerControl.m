@@ -84,7 +84,7 @@
 }
             
 - (void)keyDown:(NSString * const)characters {
-    for (int s = 0; s<[characters length]; s++) {
+    for (int s = 0; s < [characters length]; s++) {
         unichar character = [characters characterAtIndex:s];
         if (character == keys[left]) {
             leftKeyPressed = 1;

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D4792D3D-3FC4-497C-B0E3-8304B136CEC7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Zend</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1DDBA0B547A416108E8C7A12F5D28D65E6BA16B9</key>
+		<string>https://github.com/HardCodeDev/ZendTesting.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Zend/Zend.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1DDBA0B547A416108E8C7A12F5D28D65E6BA16B9</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/HardCodeDev/ZendTesting.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1DDBA0B547A416108E8C7A12F5D28D65E6BA16B9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1DDBA0B547A416108E8C7A12F5D28D65E6BA16B9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ZendTesting</string>
+		</dict>
+	</array>
+</dict>
+</plist>
