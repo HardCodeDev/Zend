@@ -12,55 +12,91 @@
 
 @implementation GameScene
 
-@synthesize screenCenter;
-@synthesize screenSize;
+@synthesize world;
+@synthesize level;
+
+@synthesize cFactory;
+@synthesize pFactory;
+
+@synthesize controller1;
+@synthesize controller2;
+
+@synthesize welcomeScreen;
+@synthesize startScreen;
+@synthesize pauseScreen;
 
 @synthesize selectedLevel;
 @synthesize gameStarted;
 
+@synthesize screenCenter;
+@synthesize screenSize;
+
 @synthesize playButton;
 @synthesize continueButton;
+@synthesize restartButton;
 @synthesize exitButton;
 
 - (void)initProperties {
-    gameStarted   = NO;
+
+    gameStarted = NO;
     selectedLevel = 0;
     
     screenSize   = self.frame.size;
     screenCenter = CGPointMake(screenSize.width / 2, screenSize.height / 2);
     
-    playButton     = CGRectMake(1260, 0, 0, 0);
-    continueButton = CGRectMake(1200, 0, 240, 100);
-    exitButton     = CGRectMake(0, 0, 0, 0);
+    playButton     = CGRectMake(1275, 30, 0, 0);
+    continueButton = CGRectMake(1115, 30, 275, 50);
+    restartButton  = CGRectMake(690, 20, 60, 70);
+    exitButton     = CGRectMake(50, 30, 0, 0);
     
-    startMenu = [SKSpriteNode spriteNodeWithImageNamed:@"MenuScreen"];
-    startMenu.zPosition = 2;
-    startMenu.position  = screenCenter;
-    startMenu.size      = screenSize;
-    
-    welcomeScreen = [SKSpriteNode spriteNodeWithImageNamed:@"WelcomeScreenLight"];
+    welcomeScreen = [SKSpriteNode spriteNodeWithImageNamed:@"WelcomeScreen"];
     welcomeScreen.zPosition = 3;
     welcomeScreen.position  = screenCenter;
     welcomeScreen.size      = screenSize;
     
-    pauseMenu = [SKSpriteNode spriteNodeWithImageNamed:@"PauseScreen"];
-    pauseMenu.zPosition = 100;
-    pauseMenu.position  = screenCenter;
-    pauseMenu.size      = screenSize;
+    startScreen = [SKSpriteNode spriteNodeWithImageNamed:@"StartScreen"];
+    startScreen.zPosition = 2;
+    startScreen.position  = screenCenter;
+    startScreen.size      = screenSize;
+    
+    pauseScreen = [SKSpriteNode spriteNodeWithImageNamed:@"PauseScreen"];
+    pauseScreen.zPosition = 100;
+    pauseScreen.position  = screenCenter;
+    pauseScreen.size      = screenSize;
+    
+    world = [[SKNode alloc] init];
+    
+    cFactory  = [[CharacterFactory alloc] init];
+    controller1 = [[PlayerControl alloc] init];
+    controller2 = [[PlayerControl alloc] init];
+    
+    self.physicsWorld.gravity = CGVectorMake(0, -8);
+}
+
+- (void)didMoveToView:(SKView *)view {
+    /* Setup menu screen */
+    [self initProperties];
+    [self showWelcomeScreen];
+}
+
+- (void)showWelcomeScreen {
+    SKAction *wait   = [SKAction waitForDuration:0.0f]; // 7
+    SKAction *fadeIn = [SKAction fadeOutWithDuration:0.0f]; // 1
+    
+    [self addChild:welcomeScreen];
+    [self addChild:startScreen];
+    
+    [welcomeScreen runAction:wait completion:^{
+        [welcomeScreen runAction:fadeIn];
+        playButton = CGRectMake(1275, 30, 140, 50);
+        exitButton = CGRectMake(50, 30, 100, 50);
+    }];
 }
 
 - (void)startGame {
-    gameStarted = YES;
+    [self setGameStarted:YES];
     
-    [startMenu removeFromParent];
-    [welcomeScreen removeFromParent];
-    
-    self.physicsWorld.gravity = CGVectorMake(0, -8);
-    
-    pFactory  = [[PlatformFactory alloc] init];
-    cFactory  = [[CharacterFactory alloc] init];
-    pl1Control = [[PlayerControl alloc] init];
-    pl2Control = [[PlayerControl alloc] init];
+    [self addChild:world];
     
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"CyanBackground"];
     background.zPosition = -1;
@@ -70,55 +106,41 @@
     level = [[Level alloc] initWithLevel:selectedLevel];
     [level buildOn:world];
     
-    [pl1Control setKeySet:0];
-    [pl2Control setKeySet:1];
-    pl1Control.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
-    pl2Control.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
-    [world addChild:pl1Control.playerChar];
-    [world addChild:pl2Control.playerChar];
+    [controller1 setKeySet:0];
+    [controller2 setKeySet:1];
+    
+    controller1.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
+    controller2.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
+    
+    [world addChild:controller1.playerChar];
+    [world addChild:controller2.playerChar];
 }
 
 - (void)pauseGame {
-    SKAction *pauseAddChildAction = [SKAction runBlock:^{
-        [self addChild:pauseMenu];
-    }];
-    
-    SKAction *pauseSceneAction = [SKAction runBlock:^{
-        self.scene.view.paused = YES;
-    }];
-    
+    SKAction *pauseAddChildAction = [SKAction runBlock:^{[self addChild:pauseScreen];}];
+    SKAction *pauseSceneAction = [SKAction runBlock:^{self.scene.view.paused = YES;}];
     SKAction *pauseSequence = [SKAction sequence:@[pauseAddChildAction, pauseSceneAction]];
     
+    [self runAction:[SKAction scaleTo:1 duration:0.0f]];
     [self runAction:pauseSequence];
 }
 
 - (void)continueGame {
-    [pauseMenu removeFromParent];
+    [pauseScreen removeFromParent];
     self.scene.view.paused = NO;
+}
+
+- (void)restartGame {
+    [world removeAllChildren];
+    [self removeAllChildren];
+    
+    self.scene.view.paused = NO;
+    
+    [self startGame];
 }
 
 - (void)exitGame {
     [[NSApplication sharedApplication] terminate:self];
-}
-
--(void)didMoveToView:(SKView *)view {
-    /* Setup menu screen */
-    [self initProperties];
-    
-    world = [[SKNode alloc] init];
-    [self addChild:world];
-    
-    SKAction *wait   = [SKAction waitForDuration:7.0f];
-    SKAction *fadeIn = [SKAction fadeOutWithDuration:1.0f];
-    
-    [self addChild:welcomeScreen];
-    [self addChild:startMenu];
-    
-    [welcomeScreen runAction:wait completion:^{
-        [welcomeScreen runAction:fadeIn];
-        playButton = CGRectMake(1260, 0, 180, 100);
-        exitButton = CGRectMake(0, 0, 180, 100);
-    }];
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
@@ -129,12 +151,15 @@
     if (self.scene.view.paused) {
         if (CGRectContainsPoint(continueButton, menuClick)) {
             [self continueGame];
-            NSLog(@"continue pressed");
         }
         else if (CGRectContainsPoint(exitButton, menuClick)) {
             [self exitGame];
         }
+        else if (CGRectContainsPoint(restartButton, menuClick)) {
+            [self restartGame];
+        }
     }
+    
     else if (gameStarted) {
         Character *zombie;
         if(clickPosition.x > self.frame.size.width / 2) {
@@ -145,8 +170,11 @@
         }
         [world addChild:zombie];
     }
+    
     else {
         if (CGRectContainsPoint(playButton, menuClick)) {
+            [startScreen removeFromParent];
+            [welcomeScreen removeFromParent];
             [self startGame];
         }
         else if (CGRectContainsPoint(exitButton, menuClick)) {
@@ -159,43 +187,30 @@
     if (!gameStarted) {
         return;
     }
-    CGPoint pl1Pos = [self convertPoint:pl1Control.playerChar.position fromNode:world];
-    CGPoint pl2Pos = [self convertPoint:pl2Control.playerChar.position fromNode:world];
-    CGFloat player1X = pl1Control.playerChar.position.x;
-    CGFloat player2X = pl2Control.playerChar.position.x;
-    NSInteger player1Dir = [pl1Control.playerChar getDirection];
-    NSInteger player2Dir = [pl2Control.playerChar getDirection];
-    /*if(abs(pl1Pos.x - pl2Pos.x) < self.frame.size.width/2)
-    {
-        if(pl1Pos.x > (3 * self.frame.size.width) / 4)
-        {
-            world.position = CGPointMake(-(pl1Control.playerChar.position.x - (3 * self.size.width) / 4), 0);
+    
+    CGPoint player1Position = controller1.playerChar.position;
+    CGPoint player2Position = controller2.playerChar.position;
+    
+    NSInteger player1Dir = [controller1.playerChar getDirection];
+    NSInteger player2Dir = [controller2.playerChar getDirection];
+
+    if (abs(player1Position.x - player2Position.x) > self.frame.size.width * 7 / 8) {
+        if ((player1Position.x > player2Position.x && player1Dir == 1)
+         || (player1Position.x < player2Position.x && player1Dir == -1)) {
+            [controller1.playerChar stop];
         }
-        else if(pl1Pos.x < self.frame.size.width / 4)
-        {
-            world.position = CGPointMake(-(pl1Control.playerChar.position.x - self.size.width / 4), 0);
-        }
-        if(pl2Pos.x > (3 * self.frame.size.width) / 4)
-        {
-            world.position = CGPointMake(-(pl2Control.playerChar.position.x - (3 * self.size.width) / 4), 0);
-        }
-        else if(pl2Pos.x < self.frame.size.width / 4)
-        {
-            world.position = CGPointMake(-(pl2Control.playerChar.position.x - self.size.width / 4), 0);
-        }
-   }*/
-    if (abs(player1X - player2X) > self.frame.size.width * 7 / 8) {
-        if ((player1X > player2X && player1Dir == 1) || (player1X < player2X && player1Dir == -1)) {
-            [pl1Control.playerChar stop];
-        }
-        if ((player2X > player1X && player2Dir == 1) || (player2X < player1X && player2Dir == -1)) {
-            [pl2Control.playerChar stop];
+        if ((player2Position.x > player1Position.x && player2Dir == 1)
+         || (player2Position.x < player1Position.x && player2Dir == -1)) {
+            [controller2.playerChar stop];
         }
     }
-    world.position = CGPointMake(-((pl1Control.playerChar.position.x + pl2Control.playerChar.position.x) / 2 - self.size.width / 2), -(pl1Control.playerChar.position.y + pl2Control.playerChar.position.y) / 2 + self.size.height / 2);// -(plControl.character.position.y - self.size.height / 2));
-    NSArray *ns = [world children];
-    for (int i = 0; i < ns.count; ++i) {
-        SKNode *node = [ns objectAtIndex:i];
+    
+    world.position = CGPointMake(-((player1Position.x + player2Position.x) / 2 - self.size.width / 2),
+                                  -(player1Position.y + player2Position.y) / 2 + self.size.height / 2);
+    
+    NSArray *worldChilds = [world children];
+    
+    for (SKNode *node in worldChilds) {
         if ([node.name isEqualToString:@"DynamicPlatform"]) {
             DynamicPlatform *platform = (DynamicPlatform *)node;
             [platform update];
@@ -214,8 +229,8 @@
     NSString * const character = [theEvent charactersIgnoringModifiers];
     unichar    const code      = [character characterAtIndex:0];
     
-    [pl1Control keyUp:character];
-    [pl2Control keyUp:character];
+    [controller1 keyUp:character];
+    [controller2 keyUp:character];
 }
 
 - (void)keyDown:(NSEvent *)theEvent {
@@ -227,22 +242,22 @@
         return;
     }
     
-    [pl1Control keyDown:character];
-    [pl2Control keyDown:character];
+    [controller1 keyDown:character];
+    [controller2 keyDown:character];
 }
 
 - (void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
-    NSArray *ns = [world children];
-    for(int i = 0; i < ns.count; ++i) {
-        SKNode *node = [ns objectAtIndex:i];
+    NSArray *worldChilds = [world children];
+    
+    for (SKNode *node in worldChilds) {
         if ([node.name isEqualToString:@"DynamicPlatform"]) {
             //DynamicPlatform *platform = (DynamicPlatform *)node;
         }
         else if ([node.name isEqualToString:@"Character"]) {
             Character *character = (Character*)node;
             if ((character.type == SZOMBIE || character.type == FZOMBIE)) {
-                NSInteger direction = pl1Control.playerChar.position.x - character.position.x;
+                NSInteger direction = controller1.playerChar.position.x - character.position.x;
                 if (direction) {
                     direction = direction / abs((int)direction);
                 }
@@ -262,9 +277,11 @@
         firstBody = contact.bodyA;
         secondBody = contact.bodyB;
     }
+    
 #ifdef SHOW_DEBUG_INFO
     NSLog(@"Begin contact: %@ %@", firstBody.node.className, secondBody.node.className);
 #endif
+    
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
     if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER) {
     /*    Character *character = (Character*)secondBody.node;
@@ -315,4 +332,5 @@
         [character decGroundContacts];
     }
 }
+
 @end
