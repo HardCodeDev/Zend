@@ -204,10 +204,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-=======
 
->>>>>>> quiz
 		3A7461FF1A26648000235972 /* Weapon */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,12 +277,9 @@
 		455E32661A1B40830047A0EC /* Images */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-=======
 				455A3B4F1A2B680700D8B44A /* PauseScreen.png */,
 				455A3B501A2B680700D8B44A /* StartScreen.png */,
 				455A3B511A2B680700D8B44A /* WelcomeScreen.png */,
->>>>>>> quiz
 				3A7462151A28895100235972 /* Bullet.png */,
 				454387061A25336F00C256E1 /* BoyCharacter.png */,
 				452480191A250C6200D4F4BE /* GreenPlayer.png */,
@@ -378,11 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				452480211A250CA000D4F4BE /* PauseScreen.png in Resources */,
-=======
 				455A3B521A2B680700D8B44A /* PauseScreen.png in Resources */,
->>>>>>> quiz
 				3A7462161A28895100235972 /* Bullet.png in Resources */,
 				453DD9191A1E7738001349DC /* platforms.json in Resources */,
 				4524800D1A24DF4800D4F4BE /* DesertBackground.png in Resources */,

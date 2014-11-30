@@ -107,58 +107,17 @@
     level = [[Level alloc] initWithLevel:selectedLevel];
     [level buildOn:world];
     
-<<<<<<< HEAD
-    [pl1Control setKeySet:0];
-    [pl2Control setKeySet:1];
-    pl1Control.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
-    pl2Control.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
-    playersCount = 2;
-    [world addChild:pl1Control.playerChar];
-    [world addChild:pl2Control.playerChar];
-    [pl1Control.playerChar.weapon setFirstSlotWeaponType:PISTOL];
-    [pl2Control.playerChar.weapon setFirstSlotWeaponType:PISTOL];
-}
-
-- (void)exitGame {
-    [[NSApplication sharedApplication] terminate:self];
-}
-
--(void)didMoveToView:(SKView *)view {
-    /* Setup menu screen */
-    [self initProperties];
-    
-    world = [[SKNode alloc] init];
-    [self addChild:world];
-    
-    SKSpriteNode *welcomeScreen = [SKSpriteNode spriteNodeWithImageNamed:@"WelcomeScreenLight"];
-    welcomeScreen.zPosition = 2;
-    welcomeScreen.position = screenCenter;
-    welcomeScreen.size = screenSize;
-    
-    SKAction *wait   = [SKAction waitForDuration:0.0f]; // 5 or more for presentation
-    SKAction *fadeIn = [SKAction fadeOutWithDuration:1.0f];
-=======
     [controller1 setKeySet:0];
     [controller2 setKeySet:1];
     
     controller1.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
     controller2.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
->>>>>>> quiz
     
     [world addChild:controller1.playerChar];
     [world addChild:controller2.playerChar];
 
     playersCount = 2;
     
-<<<<<<< HEAD
-    pauseMenu = [SKSpriteNode spriteNodeWithImageNamed:@"PauseScreen"];
-    pauseMenu.zPosition = 1;
-    pauseMenu.position  = screenCenter;
-    pauseMenu.size      = screenSize;
-    welcomeScreen.zPosition = 101;
-    [self addChild:welcomeScreen];
-    [self addChild:startMenu];
-=======
     [controller1.playerChar.weapon setFirstSlotWeaponType:PISTOL];
     [controller2.playerChar.weapon setFirstSlotWeaponType:PISTOL];
 }
@@ -181,7 +140,6 @@
     [world removeAllChildren];
     [self removeAllChildren];
     [self startGame];
->>>>>>> quiz
     
     self.scene.view.paused = NO;
 }
@@ -234,11 +192,6 @@
     if (!gameStarted) {
         return;
     }
-<<<<<<< HEAD
-    NSArray *ns = [world children];
-    for (int i = 0; i < ns.count; ++i) {
-        SKNode *node = [ns objectAtIndex:i];
-=======
     
     CGPoint player1Position = controller1.playerChar.position;
     CGPoint player2Position = controller2.playerChar.position;
@@ -263,7 +216,6 @@
     NSArray *worldChilds = [world children];
     
     for (SKNode *node in worldChilds) {
->>>>>>> quiz
         if ([node.name isEqualToString:@"DynamicPlatform"]) {
             DynamicPlatform *platform = (DynamicPlatform *)node;
             [platform update];
@@ -276,19 +228,6 @@
             }
         }
     }
-    CGFloat player1X = pl1Control.playerChar.position.x;
-    CGFloat player2X = pl2Control.playerChar.position.x;
-    CGFloat player1XSpeed = pl1Control.playerChar.physicsBody.velocity.dx;
-    CGFloat player2XSpeed = pl2Control.playerChar.physicsBody.velocity.dx;
-    if(abs(player1X - player2X) > self.frame.size.width * 15 / 16) {
-        if((player1X > player2X && player1XSpeed > 0) || (player1X < player2X && player1XSpeed < 0)) {
-            [pl1Control.playerChar stop];
-        }
-        if((player2X > player1X && player2XSpeed > 0) || (player2X < player1X && player2XSpeed < 0)) {
-            [pl2Control.playerChar stop];
-        }
-    }
-    world.position = CGPointMake(-((pl1Control.playerChar.position.x + pl2Control.playerChar.position.x) / 2 - self.size.width / 2), -(pl1Control.playerChar.position.y + pl2Control.playerChar.position.y) / 2 + self.size.height / 2);// -(plControl.character.position.y - self.size.height / 2));
 }
 
 - (void)keyUp:(NSEvent *)theEvent {
@@ -325,20 +264,6 @@
             if (character.physicsBody.categoryBitMask == ZOMBIE) {
                 if (!character.target) {
                     if (playersCount == 1) {
-<<<<<<< HEAD
-                        if (pl1Control.playerChar.isAlive) {
-                            [character attackTarget:pl1Control.playerChar];
-                        }
-                    }
-                    else if(playersCount == 2){
-                        CGFloat distance1 = abs(character.position.x - pl1Control.playerChar.position.x);
-                        CGFloat distance2 = abs(character.position.x - pl2Control.playerChar.position.x);
-                        if ((!pl2Control.playerChar.isAlive || distance1 < distance2) && pl1Control.playerChar.isAlive) {
-                            [character attackTarget:pl1Control.playerChar];
-                        }
-                        else if (pl2Control.playerChar.isAlive){
-                            [character attackTarget:pl2Control.playerChar];
-=======
                         if (controller1.playerChar.isAlive) {
                             [character attackTarget:controller1.playerChar];
                         }
@@ -351,7 +276,6 @@
                         }
                         else if (controller2.playerChar.isAlive){
                             [character attackTarget:controller2.playerChar];
->>>>>>> quiz
                         }
                     }
                 }
@@ -361,11 +285,7 @@
             Bullet *bullet = (Bullet *)node;
             CGPoint bulletPos = [self convertPoint:bullet.position fromNode:world];
             if (bulletPos.x < 0 || bulletPos.x > self.frame.size.width
-<<<<<<< HEAD
-             || bulletPos.y < 0 || bulletPos.y > self.frame.size.height) {
-=======
                 || bulletPos.y < 0 || bulletPos.y > self.frame.size.height) {
->>>>>>> quiz
                 [bullet removeFromParent];
             }
         }
