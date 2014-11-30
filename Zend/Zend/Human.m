@@ -29,6 +29,8 @@
     newHuman.jumpSpeed = 750;
     newHuman.position  = position;
     newHuman.zPosition = 100;
+    newHuman.health = 5;
+    
     return newHuman;
 }
 

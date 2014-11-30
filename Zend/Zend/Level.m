@@ -14,9 +14,10 @@
     self = [super init];
     if (self) {
         level = selectedLevel;
-        pathToLevels = @"Levels/Level";
+        NSBundle *bundle = [NSBundle mainBundle];
+        pathToLevels = bundle.resourcePath;
+        pathToLevels = [pathToLevels stringByAppendingString:@"/Levels/Level"];
         pathToLevels = [pathToLevels stringByAppendingString:[@(level) stringValue]];
-        
         platforms = [NSMutableArray array];
         zombies   = [NSMutableArray array];
         stages    = [NSMutableArray array];

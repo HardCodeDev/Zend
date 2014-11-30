@@ -27,8 +27,9 @@
 @property SKSpriteNode *startScreen;
 @property SKSpriteNode *pauseScreen;
 
-@property NSInteger selectedLevel;
-@property BOOL      gameStarted;
+@property NSUInteger playersCount;
+@property NSInteger  selectedLevel;
+@property BOOL       gameStarted;
 
 @property CGPoint screenCenter;
 @property CGSize  screenSize;
@@ -45,6 +46,5 @@
 - (void)continueGame;
 - (void)restartGame;
 - (void)exitGame;
-
 
 @end

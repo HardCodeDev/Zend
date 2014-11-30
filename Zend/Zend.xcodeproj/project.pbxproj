@@ -16,6 +16,13 @@
 		3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D631A1919860036F9C7 /* Images.xcassets */; };
 		3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D651A1919860036F9C7 /* MainMenu.xib */; };
 		3A1C7D731A1919860036F9C7 /* ZendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D721A1919860036F9C7 /* ZendTests.m */; };
+		3A7462021A2665DC00235972 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462011A2665DC00235972 /* Weapon.m */; };
+		3A74620E1A28688A00235972 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 3A74620D1A28688A00235972 /* Levels */; };
+		3A7462111A286CAD00235972 /* WeaponUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462101A286CAD00235972 /* WeaponUnit.m */; };
+		3A7462141A286F3900235972 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462131A286F3900235972 /* Bullet.m */; };
+		3A7462161A28895100235972 /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7462151A28895100235972 /* Bullet.png */; };
+		3A7462191A2B9AFC00235972 /* MeleeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462181A2B9AFC00235972 /* MeleeWeapon.m */; };
+		3A74621C1A2B9B0F00235972 /* RangeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74621B1A2B9B0F00235972 /* RangeWeapon.m */; };
 		3ADECE6E1A19F36100179646 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE6D1A19F36100179646 /* Platform.m */; };
 		3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE701A19F3B100179646 /* PlatformFactory.m */; };
 		3AE3FB0D1A1AAA7A00B2F287 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB041A1AAA7A00B2F287 /* Character.m */; };
@@ -67,6 +74,18 @@
 		3A1C7D6C1A1919860036F9C7 /* ZendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D711A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D721A1919860036F9C7 /* ZendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTests.m; sourceTree = "<group>"; };
+		3A7462001A2665DC00235972 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Weapon.h; path = Zend/Weapon.h; sourceTree = "<group>"; };
+		3A7462011A2665DC00235972 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Weapon.m; path = Zend/Weapon.m; sourceTree = "<group>"; };
+		3A74620D1A28688A00235972 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Levels; path = Zend/Levels; sourceTree = "<group>"; };
+		3A74620F1A286CAD00235972 /* WeaponUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeaponUnit.h; path = Zend/WeaponUnit.h; sourceTree = "<group>"; };
+		3A7462101A286CAD00235972 /* WeaponUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeaponUnit.m; path = Zend/WeaponUnit.m; sourceTree = "<group>"; };
+		3A7462121A286F3900235972 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = Zend/Bullet.h; sourceTree = "<group>"; };
+		3A7462131A286F3900235972 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bullet.m; path = Zend/Bullet.m; sourceTree = "<group>"; };
+		3A7462151A28895100235972 /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bullet.png; path = Zend/Bullet.png; sourceTree = "<group>"; };
+		3A7462171A2B9AFC00235972 /* MeleeWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeleeWeapon.h; path = Zend/MeleeWeapon.h; sourceTree = "<group>"; };
+		3A7462181A2B9AFC00235972 /* MeleeWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeleeWeapon.m; path = Zend/MeleeWeapon.m; sourceTree = "<group>"; };
+		3A74621A1A2B9B0F00235972 /* RangeWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RangeWeapon.h; path = Zend/RangeWeapon.h; sourceTree = "<group>"; };
+		3A74621B1A2B9B0F00235972 /* RangeWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RangeWeapon.m; path = Zend/RangeWeapon.m; sourceTree = "<group>"; };
 		3A91B9771A1FA20000654946 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Enums.h; path = Zend/Enums.h; sourceTree = "<group>"; };
 		3ADECE6C1A19F36100179646 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = Zend/Platform.h; sourceTree = "<group>"; };
 		3ADECE6D1A19F36100179646 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = Zend/Platform.m; sourceTree = "<group>"; };
@@ -121,7 +140,9 @@
 		3A1C7D4B1A1919860036F9C7 = {
 			isa = PBXGroup;
 			children = (
+				3A74620D1A28688A00235972 /* Levels */,
 				3A91B9771A1FA20000654946 /* Enums.h */,
+				3A7461FF1A26648000235972 /* Weapon */,
 				453DD9171A1E5CE2001349DC /* Level */,
 				455E32661A1B40830047A0EC /* Images */,
 				3ADECE6B1A19F25E00179646 /* World */,
@@ -183,6 +204,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+
+		3A7461FF1A26648000235972 /* Weapon */ = {
+			isa = PBXGroup;
+			children = (
+				3A7462001A2665DC00235972 /* Weapon.h */,
+				3A7462011A2665DC00235972 /* Weapon.m */,
+				3A74620F1A286CAD00235972 /* WeaponUnit.h */,
+				3A7462101A286CAD00235972 /* WeaponUnit.m */,
+				3A74621A1A2B9B0F00235972 /* RangeWeapon.h */,
+				3A74621B1A2B9B0F00235972 /* RangeWeapon.m */,
+				3A7462171A2B9AFC00235972 /* MeleeWeapon.h */,
+				3A7462181A2B9AFC00235972 /* MeleeWeapon.m */,
+				3A7462121A286F3900235972 /* Bullet.h */,
+				3A7462131A286F3900235972 /* Bullet.m */,
+			);
+			name = Weapon;
+			sourceTree = "<group>";
+		};
 		3ADECE641A19E8F500179646 /* Character */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +280,7 @@
 				455A3B4F1A2B680700D8B44A /* PauseScreen.png */,
 				455A3B501A2B680700D8B44A /* StartScreen.png */,
 				455A3B511A2B680700D8B44A /* WelcomeScreen.png */,
+				3A7462151A28895100235972 /* Bullet.png */,
 				454387061A25336F00C256E1 /* BoyCharacter.png */,
 				452480191A250C6200D4F4BE /* GreenPlayer.png */,
 				455E32631A1B3D9A0047A0EC /* FatZombie.png */,
@@ -333,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				455A3B521A2B680700D8B44A /* PauseScreen.png in Resources */,
+				3A7462161A28895100235972 /* Bullet.png in Resources */,
 				453DD9191A1E7738001349DC /* platforms.json in Resources */,
 				4524800D1A24DF4800D4F4BE /* DesertBackground.png in Resources */,
 				4524800C1A24DF4800D4F4BE /* CyanBackground.png in Resources */,
@@ -345,6 +386,7 @@
 				454387081A25336F00C256E1 /* BoyCharacter.png in Resources */,
 				454387091A25336F00C256E1 /* Ground.png in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
+				3A74620E1A28688A00235972 /* Levels in Resources */,
 				453DD91B1A1E9288001349DC /* zombies.json in Resources */,
 				455E32641A1B3D9A0047A0EC /* FatZombie.png in Resources */,
 			);
@@ -365,18 +407,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AE3FB171A1AAF3D00B2F287 /* PlayerControl.m in Sources */,
+				3A7462111A286CAD00235972 /* WeaponUnit.m in Sources */,
 				3A1C7D5D1A1919860036F9C7 /* main.m in Sources */,
 				3A0F16E21A2068430085C8A0 /* GroundLine.m in Sources */,
 				3AE3FB0D1A1AAA7A00B2F287 /* Character.m in Sources */,
 				3AE3FB0E1A1AAA7A00B2F287 /* CharacterFactory.m in Sources */,
 				3AE3FB111A1AAA7A00B2F287 /* SkinnyZombie.m in Sources */,
+				3A7462141A286F3900235972 /* Bullet.m in Sources */,
 				3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */,
 				3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */,
 				3ADECE6E1A19F36100179646 /* Platform.m in Sources */,
 				3AE3FB0F1A1AAA7A00B2F287 /* FatZombie.m in Sources */,
 				3AE3FB101A1AAA7A00B2F287 /* Human.m in Sources */,
 				3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */,
+				3A74621C1A2B9B0F00235972 /* RangeWeapon.m in Sources */,
+				3A7462021A2665DC00235972 /* Weapon.m in Sources */,
 				453DD9161A1E5CBA001349DC /* Level.m in Sources */,
+				3A7462191A2B9AFC00235972 /* MeleeWeapon.m in Sources */,
 				3A1C7D5B1A1919860036F9C7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

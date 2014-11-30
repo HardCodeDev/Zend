@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "Platform.h"
+#import "Weapon.h"
 #import "Enums.h"
 
 @interface Character : SKSpriteNode {
@@ -18,6 +19,12 @@
     BOOL isRunning, isJumping, onGround;
     Platform *platform;
     NSUInteger groundContacts;
+    Weapon *weapon;
+    BOOL isAlive;
+    CGFloat health;
+    BOOL onAttack;
+    Character *target;
+    BOOL collidingWithTarget;
 }
 
 @property CharacterType type;
@@ -25,6 +32,12 @@
 @property CGFloat runSpeed, jumpSpeed;
 @property Platform *platform;
 @property BOOL onGround;
+@property Weapon *weapon;
+@property CGFloat health;
+@property BOOL isAlive;
+@property BOOL onAttack;
+@property Character *target;
+@property BOOL collidingWithTarget;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (id)initWithImageNamed:(NSString *)imageName;
@@ -37,5 +50,9 @@
 - (void)setDirection:(NSInteger)dir;
 - (void)incGroundContacts;
 - (void)decGroundContacts;
+- (void)fire;
+- (void)die;
+- (void)applyDamage:(CGFloat)damage;
+- (void)attackTarget:(Character *)character;
 
 @end

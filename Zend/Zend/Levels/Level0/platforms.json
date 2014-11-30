@@ -32,6 +32,22 @@
         "positionY": 600,
       
     },
+    {
+        "type": "static",
+        "texture": "Ground",
+        "angle": 0,
+        "positionX": 2000,
+        "positionY": 600,
+                  
+    },
+    {
+        "type": "static",
+        "texture": "Ground",
+        "angle": 0,
+        "positionX": 2512,
+        "positionY": 600,
+                  
+    },
 	{
 		"type": "dynamic",
 		"texture": "Ground",

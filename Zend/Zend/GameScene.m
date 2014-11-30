@@ -28,6 +28,7 @@
 @synthesize selectedLevel;
 @synthesize gameStarted;
 
+@synthesize playersCount;
 @synthesize screenCenter;
 @synthesize screenSize;
 
@@ -114,6 +115,11 @@
     
     [world addChild:controller1.playerChar];
     [world addChild:controller2.playerChar];
+
+    playersCount = 2;
+    
+    [controller1.playerChar.weapon setFirstSlotWeaponType:PISTOL];
+    [controller2.playerChar.weapon setFirstSlotWeaponType:PISTOL];
 }
 
 - (void)pauseGame {
@@ -133,10 +139,9 @@
 - (void)restartGame {
     [world removeAllChildren];
     [self removeAllChildren];
+    [self startGame];
     
     self.scene.view.paused = NO;
-    
-    [self startGame];
 }
 
 - (void)exitGame {
@@ -256,12 +261,32 @@
         }
         else if ([node.name isEqualToString:@"Character"]) {
             Character *character = (Character*)node;
-            if ((character.type == SZOMBIE || character.type == FZOMBIE)) {
-                NSInteger direction = controller1.playerChar.position.x - character.position.x;
-                if (direction) {
-                    direction = direction / abs((int)direction);
+            if (character.physicsBody.categoryBitMask == ZOMBIE) {
+                if (!character.target) {
+                    if (playersCount == 1) {
+                        if (controller1.playerChar.isAlive) {
+                            [character attackTarget:controller1.playerChar];
+                        }
+                    }
+                    else if (playersCount == 2){
+                        CGFloat distance1 = abs(character.position.x - controller1.playerChar.position.x);
+                        CGFloat distance2 = abs(character.position.x - controller2.playerChar.position.x);
+                        if ((!controller2.playerChar.isAlive || distance1 < distance2) && controller1.playerChar.isAlive) {
+                            [character attackTarget:controller1.playerChar];
+                        }
+                        else if (controller2.playerChar.isAlive){
+                            [character attackTarget:controller2.playerChar];
+                        }
+                    }
                 }
-                [character setDirection:direction];
+            }
+        }
+        else if ([node.name isEqualToString:@"Bullet"]) {
+            Bullet *bullet = (Bullet *)node;
+            CGPoint bulletPos = [self convertPoint:bullet.position fromNode:world];
+            if (bulletPos.x < 0 || bulletPos.x > self.frame.size.width
+                || bulletPos.y < 0 || bulletPos.y > self.frame.size.height) {
+                [bullet removeFromParent];
             }
         }
     }
@@ -283,22 +308,38 @@
 #endif
     
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
-    if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER) {
+    if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
     /*    Character *character = (Character*)secondBody.node;
         Platform *platform = (Platform *)firstBody.node;
         [character setPlatform:platform];*/
     }
     else if (contactBitMask  == (HUMAN | ZOMBIE)) {
+        Character *human  = (Character *)firstBody.node;
         Character *zombie = (Character *)secondBody.node;
         [zombie stop];
+        if (human == zombie.target) {
+            zombie.collidingWithTarget = YES;
+        }
     }
-    else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & CHARACTER) {
+    else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
         Platform *platform = (Platform *)firstBody.node.parent;
         Character *character = (Character*)secondBody.node;
         if (platform.physicsBody.categoryBitMask == DYNAMIC_PLATFORM) {
             [character setPlatform:platform];
         }
         [character incGroundContacts];
+    }
+    else if ((firstBody.categoryBitMask | secondBody.categoryBitMask) == (ZOMBIE | BULLET)) {
+        Character *zombie = (Character *)firstBody.node;
+        if (zombie.isAlive) {
+            Bullet *bullet = (Bullet *)secondBody.node;
+            [bullet removeFromParent];
+            [zombie applyDamage:bullet.damage];
+        }
+    }
+    else if ((firstBody.categoryBitMask & (PLATFORM | DYNAMIC_PLATFORM)) && (secondBody.categoryBitMask & BULLET)) {
+        Bullet *bullet = (Bullet *)secondBody.node;
+        [bullet removeFromParent];
     }
 }
 
@@ -318,17 +359,25 @@
 #endif
     
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
-    if ((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & CHARACTER) {
+    if ((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
         Character *character = (Character*)secondBody.node;
         //Platform *platform = (Platform *)firstBody.node;
         [character setPlatform:nil];
     }
     else if (contactBitMask  == (HUMAN | ZOMBIE)) {
+        Character *human  = (Character *)firstBody.node;
         Character *zombie = (Character *)secondBody.node;
         [zombie run];
+        if (human == zombie.target) {
+            zombie.collidingWithTarget = NO;
+        }
     }
-    else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & CHARACTER) {
+    else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
+        Platform *platform = (Platform *)firstBody.node.parent;
         Character *character = (Character*)secondBody.node;
+        if (platform.physicsBody.categoryBitMask == DYNAMIC_PLATFORM) {
+            [character setPlatform:nil];
+        }
         [character decGroundContacts];
     }
 }

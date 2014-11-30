@@ -13,8 +13,12 @@
 - (id)initFromRectWithWidth:(CGFloat)width height:(CGFloat)height {
     self = [super init];
     if(self) {
-        CGPoint groundPoint1 = CGPointMake(-(width / 2) + 5, height / 2);
-        CGPoint groundPoint2 = CGPointMake((width / 2) - 5, height / 2);
+        CGFloat edgeShift = 20;
+        if (width / 2 < 20) {
+            edgeShift = width / 2;
+        }
+        CGPoint groundPoint1 = CGPointMake(-(width / 2) + edgeShift, height / 2);
+        CGPoint groundPoint2 = CGPointMake((width / 2) - edgeShift, height / 2);
         self.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:groundPoint1 toPoint:groundPoint2];
         self.physicsBody.restitution = 0;
         self.physicsBody.friction = 0.0;

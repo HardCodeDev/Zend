@@ -30,12 +30,14 @@
         keys[left]  = 'a';
         keys[down]  = 's';
         keys[right] = 'd';
+        keys[fire]  = 'x';
     }
     else if(keyS == 1) {
         keys[up]    = NSUpArrowFunctionKey;
         keys[left]  = NSLeftArrowFunctionKey;
         keys[down]  = NSDownArrowFunctionKey;
         keys[right] = NSRightArrowFunctionKey;
+        keys[fire]  = '.';
     }
 }
 
@@ -75,6 +77,9 @@
                 [playerChar stop];
             }
         }
+        else if (character == keys[fire]) {
+            [playerChar setOnAttack:NO];
+        }
     }
 }
             
@@ -96,6 +101,9 @@
                 [playerChar jump];
             }
             readyToJump = NO;
+        }
+        else if (character == keys[fire]) {
+            [playerChar setOnAttack:YES];
         }
     }
 }
