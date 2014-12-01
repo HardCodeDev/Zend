@@ -15,7 +15,7 @@
     [newSkinnyZombie initPhysicsBody];
     newSkinnyZombie.type      = cType;
     newSkinnyZombie.jumpSpeed = 500;
-    newSkinnyZombie.runSpeed  = 380;
+    newSkinnyZombie.runSpeed  = 300;
     newSkinnyZombie.position  = position;
     newSkinnyZombie.health    = 2;
     [newSkinnyZombie.weapon setFirstSlotWeaponType:MELEE];
