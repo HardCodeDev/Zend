@@ -8,7 +8,7 @@
 
 #import "GameScene.h"
 
-#define SHOW_DEBUG_INFO 1
+//#define SHOW_DEBUG_INFO 1
 
 @implementation GameScene
 
@@ -348,7 +348,6 @@
             [character setPlatform:platform];
         }
         [character incGroundContacts];
-        NSLog(@"%i", character.groundContacts);
     }
     else if ((firstBody.categoryBitMask | secondBody.categoryBitMask) == (ZOMBIE | BULLET)) {
         Character *zombie = (Character *)firstBody.node;
@@ -403,7 +402,6 @@
             [character setPlatform:nil];
         }
         [character decGroundContacts];
-        NSLog(@"%i", character.groundContacts);
     }
 }
 
