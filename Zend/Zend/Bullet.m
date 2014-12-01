@@ -23,7 +23,7 @@
         self.physicsBody.categoryBitMask = BULLET;
         self.physicsBody.contactTestBitMask = ZOMBIE | PLATFORM | DYNAMIC_PLATFORM;
         self.physicsBody.collisionBitMask = 0;
-        self.zPosition = 100500;
+        self.zPosition = 30;
     }
     return self;
 }

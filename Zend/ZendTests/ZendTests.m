@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
+#import <SenTestingKit/SenTestingKit.h>
 
 @interface ZendTests : XCTestCase
 

@@ -13,31 +13,53 @@
 
 @interface Character : SKSpriteNode {
     CharacterType type;
-    CGFloat runSpeed, jumpSpeed;
+    
+    Character *target;
+    Weapon    *weapon;
+    Platform  *platform;
+    
+    CGFloat health;
     CGFloat speedX, speedY;
+    CGFloat runSpeed, jumpSpeed;
+    
     NSInteger direction;
+    NSInteger groundContacts;
+    
     BOOL isRunning, isJumping, onGround;
+<<<<<<< HEAD
     Platform *platform;
     NSInteger groundContacts;
     Weapon *weapon;
+=======
+>>>>>>> origin/quiz
     BOOL isAlive;
-    CGFloat health;
     BOOL onAttack;
-    Character *target;
     BOOL collidingWithTarget;
+    
+    SKAction *walk;
 }
 
 @property CharacterType type;
+
+@property Character *target;
+@property Weapon    *weapon;
+@property Platform  *platform;
+
+@property CGFloat health;
 @property CGFloat speedX, speedY;
 @property CGFloat runSpeed, jumpSpeed;
-@property Platform *platform;
+
 @property BOOL onGround;
-@property Weapon *weapon;
-@property CGFloat health;
 @property BOOL isAlive;
 @property BOOL onAttack;
+<<<<<<< HEAD
 @property Character *target;
 @property NSInteger groundContacts;
+=======
+@property BOOL collidingWithTarget;
+>>>>>>> origin/quiz
+
+@property SKAction *walk;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (id)initWithImageNamed:(NSString *)imageName;

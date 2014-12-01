@@ -19,6 +19,7 @@
     newSkinnyZombie.runSpeed  = 300;
     newSkinnyZombie.position  = position;
     newSkinnyZombie.health    = 2;
+    newSkinnyZombie.zPosition = 10;
     [newSkinnyZombie.weapon setFirstSlotWeaponType:MELEE];
     return newSkinnyZombie;
 }
