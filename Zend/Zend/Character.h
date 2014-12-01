@@ -18,7 +18,7 @@
     NSInteger direction;
     BOOL isRunning, isJumping, onGround;
     Platform *platform;
-    NSUInteger groundContacts;
+    NSInteger groundContacts;
     Weapon *weapon;
     BOOL isAlive;
     CGFloat health;
@@ -37,6 +37,7 @@
 @property BOOL isAlive;
 @property BOOL onAttack;
 @property Character *target;
+@property NSInteger groundContacts;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (id)initWithImageNamed:(NSString *)imageName;

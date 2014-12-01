@@ -20,6 +20,7 @@
 @synthesize isAlive;
 @synthesize onAttack;
 @synthesize target;
+@synthesize groundContacts;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;
@@ -137,14 +138,14 @@
 - (void)incGroundContacts {
     ++groundContacts;
     onGround = YES;
-    self.physicsBody.affectedByGravity = NO;
+    //self.physicsBody.affectedByGravity = NO;
 }
 
 - (void)decGroundContacts {
     --groundContacts;
-    if(groundContacts == 0) {
+    if(groundContacts <= 0) {
         onGround = NO;
-        self.physicsBody.affectedByGravity = YES;
+        //self.physicsBody.affectedByGravity = YES;
     }
 }
 
