@@ -10,6 +10,14 @@
 
 @implementation Human
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.walk = [self getAnimationFromAtlas:@"Dude" timePerFrame:0.04f];
+    }
+    return self;
+}
+
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     Character *newHuman;
     
@@ -32,27 +40,8 @@
     newHuman.health = 5;
     
     // init atlas
-   
-    NSMutableArray *walkFrames = [NSMutableArray array];
-    SKTextureAtlas *dudeAnimatedAtlas = [SKTextureAtlas atlasNamed:@"Dude"];
-    NSArray *textureNames = [dudeAnimatedAtlas textureNames];
-    textureNames = [textureNames sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
     
-    for (NSString *name in textureNames) {
-        SKTexture *temp = [dudeAnimatedAtlas textureNamed:name];
-        [walkFrames addObject:temp];
-    }
-    
-    NSArray *walkingDude = [[NSArray alloc] initWithArray:walkFrames];
-    
-    SKAction *walkAnimation = [SKAction animateWithTextures:walkingDude
-                                               timePerFrame:0.05f
-                                                     resize:NO
-                                                    restore:YES];
-    
-    SKAction *walkAction = [SKAction repeatActionForever:walkAnimation];
-    
-    newHuman.walk = walkAction;
+    newHuman.walk = self.walk;
     
     return newHuman;
 }
@@ -69,14 +58,18 @@
 }
 
 - (void)startWalking {
-    [self runAction:walk withKey:@"walking"];
+    if (walk) {
+        [self runAction:walk withKey:@"walking"];
+    }
 }
 
 - (void)stopWalking {
-    [self removeActionForKey:@"walking"];
+    if (walk) {
+        [self removeActionForKey:@"walking"];
+    }
 }
 
-- (void)run {
+/*- (void)run {
     if (!isAlive) {
         return;
     }
@@ -85,9 +78,9 @@
     }
     isRunning = YES;
     speedX = runSpeed * direction;
-}
+}*/
 
-- (void)stop {
+/*- (void)stop {
     if (!isAlive) {
         return;
     }
@@ -97,6 +90,6 @@
     isRunning = NO;
     speedX = 0;
     self.physicsBody.velocity = CGVectorMake(0, self.physicsBody.velocity.dy);
-}
+}*/
 
 @end

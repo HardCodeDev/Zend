@@ -67,5 +67,8 @@
 - (void)attackTarget:(Character *)character;
 - (void)setCollidingWithTarget:(BOOL)isColliding;
 - (void)stopAttack;
+- (SKAction *)getAnimationFromAtlas:(NSString *)atlasName timePerFrame:(CGFloat)time;
+- (void)startWalking;
+- (void)stopWalking;
 
 @end

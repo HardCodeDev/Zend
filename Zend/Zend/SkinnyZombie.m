@@ -10,8 +10,17 @@
 
 @implementation SkinnyZombie
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.walk  = [self getAnimationFromAtlas:@"Dude" timePerFrame:0.04f];
+        self.fight = [self getAnimationFromAtlas:@"Dude"   timePerFrame:0.04f];
+    }
+    return self;
+}
+
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
-    Character *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombie.png"];
+    Zombie *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombie.png"];
     newSkinnyZombie.scale = 1;
     [newSkinnyZombie initPhysicsBody];
     newSkinnyZombie.type      = cType;
@@ -21,6 +30,8 @@
     newSkinnyZombie.health    = 2;
     newSkinnyZombie.zPosition = 10;
     [newSkinnyZombie.weapon setFirstSlotWeaponType:MELEE];
+    //newSkinnyZombie.walk = walk;
+    newSkinnyZombie.fight = fight;
     return newSkinnyZombie;
 }
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 HardCode. All rights reserved.
 //
 
-#import "Character.h"
+#import "Zombie.h"
 
-@interface SkinnyZombie : Character
+@interface SkinnyZombie : Zombie
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (void)initPhysicsBody;

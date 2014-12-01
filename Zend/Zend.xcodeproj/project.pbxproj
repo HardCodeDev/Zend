@@ -16,6 +16,7 @@
 		3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D631A1919860036F9C7 /* Images.xcassets */; };
 		3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D651A1919860036F9C7 /* MainMenu.xib */; };
 		3A1C7D731A1919860036F9C7 /* ZendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D721A1919860036F9C7 /* ZendTests.m */; };
+		3A4D5F901A2CD3BA00C5D2CF /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D5F8F1A2CD3BA00C5D2CF /* Zombie.m */; };
 		3A7462021A2665DC00235972 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462011A2665DC00235972 /* Weapon.m */; };
 		3A74620E1A28688A00235972 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 3A74620D1A28688A00235972 /* Levels */; };
 		3A7462111A286CAD00235972 /* WeaponUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462101A286CAD00235972 /* WeaponUnit.m */; };
@@ -78,6 +79,8 @@
 		3A1C7D6C1A1919860036F9C7 /* ZendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D711A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D721A1919860036F9C7 /* ZendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTests.m; sourceTree = "<group>"; };
+		3A4D5F8E1A2CD3BA00C5D2CF /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Zombie.h; path = Zend/Zombie.h; sourceTree = "<group>"; };
+		3A4D5F8F1A2CD3BA00C5D2CF /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Zombie.m; path = Zend/Zombie.m; sourceTree = "<group>"; };
 		3A7462001A2665DC00235972 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Weapon.h; path = Zend/Weapon.h; sourceTree = "<group>"; };
 		3A7462011A2665DC00235972 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Weapon.m; path = Zend/Weapon.m; sourceTree = "<group>"; };
 		3A74620D1A28688A00235972 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Levels; path = Zend/Levels; sourceTree = "<group>"; };
@@ -238,10 +241,12 @@
 				3AE3FB041A1AAA7A00B2F287 /* Character.m */,
 				3AE3FB051A1AAA7A00B2F287 /* CharacterFactory.h */,
 				3AE3FB061A1AAA7A00B2F287 /* CharacterFactory.m */,
-				3AE3FB071A1AAA7A00B2F287 /* FatZombie.h */,
-				3AE3FB081A1AAA7A00B2F287 /* FatZombie.m */,
 				3AE3FB091A1AAA7A00B2F287 /* Human.h */,
 				3AE3FB0A1A1AAA7A00B2F287 /* Human.m */,
+				3A4D5F8E1A2CD3BA00C5D2CF /* Zombie.h */,
+				3A4D5F8F1A2CD3BA00C5D2CF /* Zombie.m */,
+				3AE3FB071A1AAA7A00B2F287 /* FatZombie.h */,
+				3AE3FB081A1AAA7A00B2F287 /* FatZombie.m */,
 				3AE3FB0B1A1AAA7A00B2F287 /* SkinnyZombie.h */,
 				3AE3FB0C1A1AAA7A00B2F287 /* SkinnyZombie.m */,
 			);
@@ -422,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A4D5F901A2CD3BA00C5D2CF /* Zombie.m in Sources */,
 				3AE3FB171A1AAF3D00B2F287 /* PlayerControl.m in Sources */,
 				3A7462111A286CAD00235972 /* WeaponUnit.m in Sources */,
 				3A1C7D5D1A1919860036F9C7 /* main.m in Sources */,
