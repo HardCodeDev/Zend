@@ -193,26 +193,6 @@
         return;
     }
     
-    CGPoint player1Position = controller1.playerChar.position;
-    CGPoint player2Position = controller2.playerChar.position;
-    
-    NSInteger player1Dir = [controller1.playerChar getDirection];
-    NSInteger player2Dir = [controller2.playerChar getDirection];
-
-    if (abs(player1Position.x - player2Position.x) > self.frame.size.width * 7 / 8) {
-        if ((player1Position.x > player2Position.x && player1Dir == 1)
-         || (player1Position.x < player2Position.x && player1Dir == -1)) {
-            [controller1.playerChar stop];
-        }
-        if ((player2Position.x > player1Position.x && player2Dir == 1)
-         || (player2Position.x < player1Position.x && player2Dir == -1)) {
-            [controller2.playerChar stop];
-        }
-    }
-    
-    world.position = CGPointMake(-((player1Position.x + player2Position.x) / 2 - self.size.width / 2),
-                                  -(player1Position.y + player2Position.y) / 2 + self.size.height / 2);
-    
     NSArray *worldChilds = [world children];
     
     for (SKNode *node in worldChilds) {
@@ -228,6 +208,45 @@
             }
         }
     }
+    if (playersCount == 2) {
+        Character *player1 = controller1.playerChar;
+        Character *player2 = controller2.playerChar;
+        
+        if (player1.isAlive && player2.isAlive) {
+            CGFloat player1X = player1.position.x;
+            CGFloat player2X = player2.position.x;
+            
+            CGFloat player1XSpeed = player1.physicsBody.velocity.dx;
+            CGFloat player2XSpeed = player2.physicsBody.velocity.dx;
+
+            if(abs(player1X - player2X) > self.frame.size.width * 15 / 16) {
+                if((player1X > player2X && player1XSpeed > 0) || (player1X < player2X && player1XSpeed < 0)) {
+                    [controller1.playerChar stop];
+                }
+                if((player2X > player1X && player2XSpeed > 0) || (player2X < player1X && player2XSpeed < 0)) {
+                    [controller2.playerChar stop];
+                }
+            }
+            
+            world.position = CGPointMake(-((player1.position.x + player2.position.x) / 2 - self.size.width / 2),
+                                          -(player1.position.y + player2.position.y) / 2 + self.size.height / 2);
+        }
+        else if(player1.isAlive) {
+            world.position = CGPointMake(-(player1.position.x - self.size.width / 2),
+                                         -player1.position.y + self.size.height / 2);
+        }
+        else if(player2.isAlive) {
+            world.position = CGPointMake(-(player2.position.x - self.size.width / 2),
+                                         -player2.position.y + self.size.height / 2);
+        }
+    }
+    else if (playersCount == 1) {
+        if (controller1.playerChar.isAlive) {
+            world.position = CGPointMake(-(controller1.playerChar.position.x - self.size.width / 2),
+                                         -controller1.playerChar.position.y + self.size.height / 2);
+        }
+    }
+    
 }
 
 - (void)keyUp:(NSEvent *)theEvent {
