@@ -16,6 +16,8 @@
 
 #define HEALTH_BAR_SIZE 200.0f
 
+#define HUD_DEFAULT_FONT @"Futura-CondensedMedium"
+
 #define HEALTH_BAR_1_DEFAULT_POSITION_X 140
 #define HEALTH_BAR_2_DEFAULT_POSITION_X 1300
 #define HEALTH_BAR_DEFAULT_POSITION_Y   screenSize.height - hud.size.height + hud.size.height / 2

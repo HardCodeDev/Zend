@@ -8,7 +8,7 @@
 
 #import "GameScene.h"
 
-//#define SHOW_DEBUG_INFO 1
+//#define SHOW_DEBUG_INFO YES
 
 @implementation GameScene
 
@@ -149,7 +149,7 @@
     
     hud = [[SKSpriteNode alloc] initWithColor:[SKColor whiteColor]
                                          size:CGSizeMake(screenSize.width, screenSize.height * 0.05)];
-    hud.alpha       = 0.5;
+    hud.alpha       = 0.2;
     hud.anchorPoint = CGPointMake(0, 0);
     hud.position    = CGPointMake(0, screenSize.height - hud.size.height);
     hud.zPosition   = 40;
@@ -157,19 +157,19 @@
     
     /* CREATE PLAYERS LABELS */
     
-    SKLabelNode *hudLabelPlayer1 = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    SKLabelNode *hudLabelPlayer1 = [SKLabelNode labelNodeWithFontNamed:HUD_DEFAULT_FONT];
     hudLabelPlayer1.text = @"Player 1";
     hudLabelPlayer1.fontSize = 25;
     hudLabelPlayer1.zPosition = 41;
-    hudLabelPlayer1.fontColor = [SKColor blackColor];
+    hudLabelPlayer1.fontColor = [SKColor whiteColor];
     hudLabelPlayer1.position = CGPointMake(HUD_LABEL_1_DEFAULT_POSITION_X,
                                            HUD_LABEL_DEFAULT_POSITION_Y);
     
-    SKLabelNode *hudLabelPlayer2 = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    SKLabelNode *hudLabelPlayer2 = [SKLabelNode labelNodeWithFontNamed:HUD_DEFAULT_FONT];
     hudLabelPlayer2.text = @"Player 2";
     hudLabelPlayer2.fontSize = 25;
     hudLabelPlayer2.zPosition = 41;
-    hudLabelPlayer2.fontColor = [SKColor blackColor];
+    hudLabelPlayer2.fontColor = [SKColor whiteColor];
     hudLabelPlayer2.position = CGPointMake(HUD_LABEL_2_DEFAULT_POSITION_X,
                                            HUD_LABEL_DEFAULT_POSITION_Y);
     
@@ -193,10 +193,10 @@
     
     /* CREATE SCORE COUNTER */
     
-    scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalduster"];
+    scoreLabel = [SKLabelNode labelNodeWithFontNamed:HUD_DEFAULT_FONT];
     scoreLabel.text = [NSString stringWithFormat:@"%zd", score];
     scoreLabel.fontSize  = 30;
-    scoreLabel.fontColor = [SKColor purpleColor];
+    scoreLabel.fontColor = [SKColor greenColor];
     scoreLabel.zPosition = 41;
     scoreLabel.position  = CGPointMake(SCORE_LABEL_DEFAULT_POSITION_X,
                                        SCORE_LABEL_DEFAULT_POSITION_Y);
