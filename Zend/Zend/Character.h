@@ -26,12 +26,6 @@
     NSInteger groundContacts;
     
     BOOL isRunning, isJumping, onGround;
-<<<<<<< HEAD
-    Platform *platform;
-    NSInteger groundContacts;
-    Weapon *weapon;
-=======
->>>>>>> origin/quiz
     BOOL isAlive;
     BOOL onAttack;
     BOOL collidingWithTarget;
@@ -52,12 +46,7 @@
 @property BOOL onGround;
 @property BOOL isAlive;
 @property BOOL onAttack;
-<<<<<<< HEAD
-@property Character *target;
 @property NSInteger groundContacts;
-=======
-@property BOOL collidingWithTarget;
->>>>>>> origin/quiz
 
 @property SKAction *walk;
 

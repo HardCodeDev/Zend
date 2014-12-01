@@ -19,6 +19,8 @@
     return self;
 }
 
-
+- (CGFloat)fire {
+    return 0;
+}
 
 @end

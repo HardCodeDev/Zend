@@ -20,12 +20,8 @@
 @synthesize isAlive;
 @synthesize onAttack;
 @synthesize target;
-<<<<<<< HEAD
 @synthesize groundContacts;
-=======
-@synthesize collidingWithTarget;
 @synthesize walk;
->>>>>>> origin/quiz
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;

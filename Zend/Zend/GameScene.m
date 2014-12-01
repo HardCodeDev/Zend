@@ -127,11 +127,9 @@
     level = [[Level alloc] initWithLevel:selectedLevel];
     [level buildOn:world];
     
-<<<<<<< HEAD
     [world addChild:[DeathLine lineWithFirstPoint:CGPointMake(-100500, 0) secondPoint:CGPointMake(100500, 0)]];
-=======
+    
     /* INIT PLAYERS */
->>>>>>> origin/quiz
     
     [controller1 setKeySet:0];
     [controller2 setKeySet:1];
@@ -292,29 +290,6 @@
         return;
     }
     
-<<<<<<< HEAD
-=======
-    CGPoint player1Position = controller1.playerChar.position;
-    CGPoint player2Position = controller2.playerChar.position;
-    
-    NSInteger player1Dir = [controller1.playerChar getDirection];
-    NSInteger player2Dir = [controller2.playerChar getDirection];
-
-    if (abs(player1Position.x - player2Position.x) > self.frame.size.width * 15 / 16) {
-        if ((player1Position.x > player2Position.x && player1Dir == 1)
-         || (player1Position.x < player2Position.x && player1Dir == -1)) {
-            [controller1.playerChar stop];
-        }
-        if ((player2Position.x > player1Position.x && player2Dir == 1)
-         || (player2Position.x < player1Position.x && player2Dir == -1)) {
-            [controller2.playerChar stop];
-        }
-    }
-    
-    world.position = CGPointMake(-((player1Position.x + player2Position.x) / 2 - self.size.width / 2),
-                                  -(player1Position.y + player2Position.y) / 2 + self.size.height / 2);
-    
->>>>>>> origin/quiz
     NSArray *worldChilds = [world children];
     
     for (SKNode *node in worldChilds) {
