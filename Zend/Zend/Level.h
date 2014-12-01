@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PlatformFactory.h"
 #import "CharacterFactory.h"
+#import "DeathLine.h"
 
 
 @interface Level : NSObject {

@@ -20,11 +20,12 @@ typedef enum {
     PLATFORM = 1,
     DYNAMIC_PLATFORM = 2,
     GROUND   = 4,
-    HUMAN    = 8,
-    ZOMBIE   = 16,
+    DEATH_LINE = 8,
+    HUMAN    = 16,
+    ZOMBIE   = 32,
     CHARACTER = HUMAN | ZOMBIE,
-    BULLET   = 32,
-    CORPSE   = 64
+    BULLET   = 64,
+    CORPSE   = 128
 } BitMask;
 
 typedef enum {

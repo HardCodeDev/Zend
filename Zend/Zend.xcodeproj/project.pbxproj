@@ -23,6 +23,7 @@
 		3A7462161A28895100235972 /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7462151A28895100235972 /* Bullet.png */; };
 		3A7462191A2B9AFC00235972 /* MeleeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462181A2B9AFC00235972 /* MeleeWeapon.m */; };
 		3A74621C1A2B9B0F00235972 /* RangeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74621B1A2B9B0F00235972 /* RangeWeapon.m */; };
+		3AC0E6A91A2C9A1F00263C6E /* DeathLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0E6A81A2C9A1F00263C6E /* DeathLine.m */; };
 		3ADECE6E1A19F36100179646 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE6D1A19F36100179646 /* Platform.m */; };
 		3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE701A19F3B100179646 /* PlatformFactory.m */; };
 		3AE3FB0D1A1AAA7A00B2F287 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB041A1AAA7A00B2F287 /* Character.m */; };
@@ -87,6 +88,8 @@
 		3A74621A1A2B9B0F00235972 /* RangeWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RangeWeapon.h; path = Zend/RangeWeapon.h; sourceTree = "<group>"; };
 		3A74621B1A2B9B0F00235972 /* RangeWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RangeWeapon.m; path = Zend/RangeWeapon.m; sourceTree = "<group>"; };
 		3A91B9771A1FA20000654946 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Enums.h; path = Zend/Enums.h; sourceTree = "<group>"; };
+		3AC0E6A71A2C9A1F00263C6E /* DeathLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeathLine.h; path = Zend/DeathLine.h; sourceTree = "<group>"; };
+		3AC0E6A81A2C9A1F00263C6E /* DeathLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeathLine.m; path = Zend/DeathLine.m; sourceTree = "<group>"; };
 		3ADECE6C1A19F36100179646 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = Zend/Platform.h; sourceTree = "<group>"; };
 		3ADECE6D1A19F36100179646 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = Zend/Platform.m; sourceTree = "<group>"; };
 		3ADECE6F1A19F3B100179646 /* PlatformFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlatformFactory.h; path = Zend/PlatformFactory.h; sourceTree = "<group>"; };
@@ -204,7 +207,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-
 		3A7461FF1A26648000235972 /* Weapon */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +252,8 @@
 				3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */,
 				3A0F16E01A2068430085C8A0 /* GroundLine.h */,
 				3A0F16E11A2068430085C8A0 /* GroundLine.m */,
+				3AC0E6A71A2C9A1F00263C6E /* DeathLine.h */,
+				3AC0E6A81A2C9A1F00263C6E /* DeathLine.m */,
 			);
 			name = World;
 			sourceTree = "<group>";
@@ -418,6 +422,7 @@
 				3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */,
 				3ADECE6E1A19F36100179646 /* Platform.m in Sources */,
 				3AE3FB0F1A1AAA7A00B2F287 /* FatZombie.m in Sources */,
+				3AC0E6A91A2C9A1F00263C6E /* DeathLine.m in Sources */,
 				3AE3FB101A1AAA7A00B2F287 /* Human.m in Sources */,
 				3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */,
 				3A74621C1A2B9B0F00235972 /* RangeWeapon.m in Sources */,

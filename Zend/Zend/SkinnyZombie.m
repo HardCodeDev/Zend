@@ -12,6 +12,7 @@
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     Character *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombie.png"];
+    newSkinnyZombie.scale = 1;
     [newSkinnyZombie initPhysicsBody];
     newSkinnyZombie.type      = cType;
     newSkinnyZombie.jumpSpeed = 500;

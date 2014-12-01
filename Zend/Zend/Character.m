@@ -27,13 +27,15 @@
 }
 
 - (void)initPhysicsBody {
+    CGFloat height = self.frame.size.height;
+    CGFloat width  = height / 3;
     CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, -40, 80);
-    CGPathAddLineToPoint(path, NULL, 40, 80);
-    CGPathAddLineToPoint(path, NULL, 40, -75);
-    CGPathAddLineToPoint(path, NULL, 30, -80);
-    CGPathAddLineToPoint(path, NULL, -30, -80);
-    CGPathAddLineToPoint(path, NULL, -40, -75);
+    CGPathMoveToPoint(path, NULL, -width / 2, height / 2);
+    CGPathAddLineToPoint(path, NULL, width / 2, height / 2);
+    CGPathAddLineToPoint(path, NULL, width / 2, -height / 2 + 5);
+    CGPathAddLineToPoint(path, NULL, width / 2 - 10, -height / 2);
+    CGPathAddLineToPoint(path, NULL, -width / 2 + 10, -height / 2);
+    CGPathAddLineToPoint(path, NULL, -width / 2, -height / 2 + 5);
     
     CGPathCloseSubpath(path);
     self.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
@@ -115,6 +117,7 @@
     }
     if(groundContacts > 0) {
         self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
+        groundContacts = 1;
     }
 }
 
@@ -163,6 +166,7 @@
 }
 
 - (void)die {
+    health = 0;
     [self stop];
     isAlive = NO;
     self.physicsBody.categoryBitMask = CORPSE;

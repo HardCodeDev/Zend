@@ -107,6 +107,8 @@
     level = [[Level alloc] initWithLevel:selectedLevel];
     [level buildOn:world];
     
+    [world addChild:[DeathLine lineWithFirstPoint:CGPointMake(-100500, 0) secondPoint:CGPointMake(100500, 0)]];
+    
     [controller1 setKeySet:0];
     [controller2 setKeySet:1];
     
@@ -359,6 +361,10 @@
     else if ((firstBody.categoryBitMask & (PLATFORM | DYNAMIC_PLATFORM)) && (secondBody.categoryBitMask & BULLET)) {
         Bullet *bullet = (Bullet *)secondBody.node;
         [bullet removeFromParent];
+    }
+    else if ((firstBody.categoryBitMask & DEATH_LINE) && (secondBody.categoryBitMask & CHARACTER)) {
+        Character *character = (Character *)secondBody.node;
+        [character die];
     }
 }
 
