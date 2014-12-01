@@ -30,7 +30,7 @@
     if (!node) {
         return 0;
     }
-    Bullet *bullet = [[Bullet alloc] initWithImageNamed:@"Bullet.png"];
+    Bullet *bullet = [[Bullet alloc] initWithImageNamed:@"Cat"];
     
     bullet.position = [node convertPoint:self.position fromNode:self];
     bullet.damage = damage;

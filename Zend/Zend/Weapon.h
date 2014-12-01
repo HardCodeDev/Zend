@@ -19,6 +19,7 @@
     SKNode *world;
 }
 
+@property WeaponUnit *firstGun;
 
 - (id)init;
 - (CGFloat)fire;

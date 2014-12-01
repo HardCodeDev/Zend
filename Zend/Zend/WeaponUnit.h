@@ -15,6 +15,10 @@
     BOOL isReady;
 }
 
+@property NSInteger damage;
+@property CGFloat   shotInterval;
+@property BOOL      isReady;
+
 - (id)init;
 - (CGFloat)fire;
 
