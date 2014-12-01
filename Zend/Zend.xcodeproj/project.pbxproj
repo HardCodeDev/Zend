@@ -49,6 +49,7 @@
 		455A3B5C1A2C6C5500D8B44A /* LifeBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A3B5B1A2C6C5500D8B44A /* LifeBar.png */; };
 		455E32621A1B3A170047A0EC /* SkinnyZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 455E32611A1B3A170047A0EC /* SkinnyZombie.png */; };
 		455E32641A1B3D9A0047A0EC /* FatZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 455E32631A1B3D9A0047A0EC /* FatZombie.png */; };
+		45F45E781A2CCC8B0024A4F5 /* Cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E771A2CCC8B0024A4F5 /* Cat.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		455A3B5B1A2C6C5500D8B44A /* LifeBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LifeBar.png; path = Zend/LifeBar.png; sourceTree = "<group>"; };
 		455E32611A1B3A170047A0EC /* SkinnyZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SkinnyZombie.png; path = Zend/SkinnyZombie.png; sourceTree = "<group>"; };
 		455E32631A1B3D9A0047A0EC /* FatZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FatZombie.png; path = Zend/FatZombie.png; sourceTree = "<group>"; };
+		45F45E771A2CCC8B0024A4F5 /* Cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat.png; path = Zend/Cat.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +295,7 @@
 		455E32661A1B40830047A0EC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				45F45E771A2CCC8B0024A4F5 /* Cat.png */,
 				455A3B5B1A2C6C5500D8B44A /* LifeBar.png */,
 				455A3B571A2BBE7A00D8B44A /* Dude.png */,
 				455A3B4F1A2B680700D8B44A /* PauseScreen.png */,
@@ -390,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45F45E781A2CCC8B0024A4F5 /* Cat.png in Resources */,
 				455A3B521A2B680700D8B44A /* PauseScreen.png in Resources */,
 				3A7462161A28895100235972 /* Bullet.png in Resources */,
 				453DD9191A1E7738001349DC /* platforms.json in Resources */,

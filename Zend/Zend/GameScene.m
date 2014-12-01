@@ -88,7 +88,7 @@
     cFactory  = [[CharacterFactory alloc] init];
     controller1 = [[PlayerControl alloc] init];
     controller2 = [[PlayerControl alloc] init];
-    
+
 }
 
 - (void)didMoveToView:(SKView *)view {
@@ -202,6 +202,7 @@
                                        SCORE_LABEL_DEFAULT_POSITION_Y);
     
     [self addChild:scoreLabel];
+    
 }
 
 - (void)updateHud {

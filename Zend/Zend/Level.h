@@ -24,6 +24,8 @@
     CharacterFactory *cFactory;
 }
 
+@property NSMutableArray *platforms;
+
 - (id)initWithLevel:(NSInteger)selectedLevel;
 
 - (void)loadPlatforms;

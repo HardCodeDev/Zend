@@ -10,6 +10,8 @@
 
 @implementation Level
 
+@synthesize platforms;
+
 - (id)initWithLevel:(NSInteger)selectedLevel {
     self = [super init];
     if (self) {

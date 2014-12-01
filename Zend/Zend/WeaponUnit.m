@@ -10,6 +10,10 @@
 
 @implementation WeaponUnit
 
+@synthesize damage;
+@synthesize shotInterval;
+@synthesize isReady;
+
 - (id)init {
     self = [super init];
     if (self) {

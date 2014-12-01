@@ -10,6 +10,8 @@
 
 @implementation Weapon
 
+@synthesize firstGun;
+
 - (id)init {
     self = [super init];
     if (self) {
