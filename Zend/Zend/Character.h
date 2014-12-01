@@ -54,5 +54,6 @@
 - (void)applyDamage:(CGFloat)damage;
 - (void)attackTarget:(Character *)character;
 - (void)setCollidingWithTarget:(BOOL)isColliding;
+- (void)stopAttack;
 
 @end

@@ -76,9 +76,7 @@
     
     if (target) {
         if (!target.isAlive) {
-            target = nil;
-            [self stop];
-            onAttack = NO;
+            [self stopAttack];
         }
         else {
             CGFloat dir = target.position.x-self.position.x;
@@ -157,6 +155,9 @@
     CGFloat damage = [weapon fire];
     if (collidingWithTarget) {
         [target applyDamage:damage];
+        if (!target.isAlive) {
+            [self stopAttack];
+        }
     }
 }
 
@@ -202,6 +203,13 @@
     target = character;
     onAttack = YES;
     [self run];
+}
+
+- (void)stopAttack {
+    target = nil;
+    onAttack = NO;
+    collidingWithTarget = NO;
+    [self stop];
 }
 
 - (void)setCollidingWithTarget:(BOOL)isColliding {
