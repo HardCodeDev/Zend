@@ -15,15 +15,13 @@
 @synthesize world;
 @synthesize level;
 
+@synthesize score;
+
 @synthesize cFactory;
 @synthesize pFactory;
 
 @synthesize controller1;
 @synthesize controller2;
-
-@synthesize welcomeScreen;
-@synthesize startScreen;
-@synthesize pauseScreen;
 
 @synthesize selectedLevel;
 @synthesize gameStarted;
@@ -32,18 +30,32 @@
 @synthesize screenCenter;
 @synthesize screenSize;
 
+@synthesize welcomeScreen;
+@synthesize startScreen;
+@synthesize pauseScreen;
+
 @synthesize playButton;
 @synthesize continueButton;
 @synthesize restartButton;
 @synthesize exitButton;
 
-- (void)initProperties {
+@synthesize hud;
+@synthesize healthBarPlayer1;
+@synthesize healthBarPlayer2;
+@synthesize scoreLabel;
 
+- (void)initProperties {
+    
+    /* INIT BASIC PROPERTIES */
+    
     gameStarted = NO;
     selectedLevel = 0;
+    score = 0;
     
     screenSize   = self.frame.size;
     screenCenter = CGPointMake(screenSize.width / 2, screenSize.height / 2);
+    
+    /* CREATE MENU ELEMENTS */
     
     playButton     = CGRectMake(1275, 30, 0, 0);
     continueButton = CGRectMake(1115, 30, 275, 50);
@@ -51,27 +63,32 @@
     exitButton     = CGRectMake(50, 30, 0, 0);
     
     welcomeScreen = [SKSpriteNode spriteNodeWithImageNamed:@"WelcomeScreen"];
-    welcomeScreen.zPosition = 3;
+    welcomeScreen.zPosition = 51;
     welcomeScreen.position  = screenCenter;
     welcomeScreen.size      = screenSize;
     
     startScreen = [SKSpriteNode spriteNodeWithImageNamed:@"StartScreen"];
-    startScreen.zPosition = 2;
+    startScreen.zPosition = 50;
     startScreen.position  = screenCenter;
     startScreen.size      = screenSize;
     
     pauseScreen = [SKSpriteNode spriteNodeWithImageNamed:@"PauseScreen"];
-    pauseScreen.zPosition = 100;
+    pauseScreen.zPosition = 50;
     pauseScreen.position  = screenCenter;
     pauseScreen.size      = screenSize;
     
+    /* INIT PHYSICS WORLD */
+    
     world = [[SKNode alloc] init];
+    
+    self.physicsWorld.gravity = CGVectorMake(0, -8);
+    
+    /* PREPARE PLAYERS AND ZOMBIES */
     
     cFactory  = [[CharacterFactory alloc] init];
     controller1 = [[PlayerControl alloc] init];
     controller2 = [[PlayerControl alloc] init];
     
-    self.physicsWorld.gravity = CGVectorMake(0, -8);
 }
 
 - (void)didMoveToView:(SKView *)view {
@@ -79,7 +96,7 @@
     [self initProperties];
     [self showWelcomeScreen];
 }
-
+            
 - (void)showWelcomeScreen {
     SKAction *wait   = [SKAction waitForDuration:0.0f]; // 7
     SKAction *fadeIn = [SKAction fadeOutWithDuration:0.0f]; // 1
@@ -95,17 +112,22 @@
 }
 
 - (void)startGame {
-    [self setGameStarted:YES];
     
+    [self setGameStarted:YES];
     [self addChild:world];
+    [self setScore:0];
+    
+    /* INIT CURRENT LEVEL PROPERTIES */
     
     SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"CyanBackground"];
-    background.zPosition = -1;
+    background.zPosition = -10;
     background.position  = screenCenter;
     [world addChild:background];
     
     level = [[Level alloc] initWithLevel:selectedLevel];
     [level buildOn:world];
+    
+    /* INIT PLAYERS */
     
     [controller1 setKeySet:0];
     [controller2 setKeySet:1];
@@ -120,6 +142,79 @@
     
     [controller1.playerChar.weapon setFirstSlotWeaponType:PISTOL];
     [controller2.playerChar.weapon setFirstSlotWeaponType:PISTOL];
+    
+    /* CREATE HUD */
+    
+    hud = [[SKSpriteNode alloc] initWithColor:[SKColor whiteColor]
+                                         size:CGSizeMake(screenSize.width, screenSize.height * 0.05)];
+    hud.alpha       = 0.5;
+    hud.anchorPoint = CGPointMake(0, 0);
+    hud.position    = CGPointMake(0, screenSize.height - hud.size.height);
+    hud.zPosition   = 40;
+    [self addChild:hud];
+    
+    /* CREATE PLAYERS LABELS */
+    
+    SKLabelNode *hudLabelPlayer1 = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    hudLabelPlayer1.text = @"Player 1";
+    hudLabelPlayer1.fontSize = 25;
+    hudLabelPlayer1.zPosition = 41;
+    hudLabelPlayer1.fontColor = [SKColor blackColor];
+    hudLabelPlayer1.position = CGPointMake(HUD_LABEL_1_DEFAULT_POSITION_X,
+                                           HUD_LABEL_DEFAULT_POSITION_Y);
+    
+    SKLabelNode *hudLabelPlayer2 = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    hudLabelPlayer2.text = @"Player 2";
+    hudLabelPlayer2.fontSize = 25;
+    hudLabelPlayer2.zPosition = 41;
+    hudLabelPlayer2.fontColor = [SKColor blackColor];
+    hudLabelPlayer2.position = CGPointMake(HUD_LABEL_2_DEFAULT_POSITION_X,
+                                           HUD_LABEL_DEFAULT_POSITION_Y);
+    
+    [self addChild:hudLabelPlayer1];
+    [self addChild:hudLabelPlayer2];
+    
+    /* CREATE HEALTH BARS */
+    
+    healthBarPlayer1 = [SKSpriteNode spriteNodeWithImageNamed:@"LifeBar"];
+    healthBarPlayer1.position = CGPointMake(HEALTH_BAR_1_DEFAULT_POSITION_X,
+                                            HEALTH_BAR_DEFAULT_POSITION_Y);
+    healthBarPlayer1.zPosition = 41;
+    
+    healthBarPlayer2 = [SKSpriteNode spriteNodeWithImageNamed:@"LifeBar"];
+    healthBarPlayer2.position = CGPointMake(HEALTH_BAR_2_DEFAULT_POSITION_X,
+                                            HEALTH_BAR_DEFAULT_POSITION_Y);
+    healthBarPlayer2.zPosition = 41;
+    
+    [self addChild:healthBarPlayer1];
+    [self addChild:healthBarPlayer2];
+    
+    /* CREATE SCORE COUNTER */
+    
+    scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalduster"];
+    scoreLabel.text = [NSString stringWithFormat:@"%zd", score];
+    scoreLabel.fontSize  = 30;
+    scoreLabel.fontColor = [SKColor purpleColor];
+    scoreLabel.zPosition = 41;
+    scoreLabel.position  = CGPointMake(SCORE_LABEL_DEFAULT_POSITION_X,
+                                       SCORE_LABEL_DEFAULT_POSITION_Y);
+    
+    [self addChild:scoreLabel];
+}
+
+- (void)updateHud {
+    CGFloat player1HealthRatio = controller1.playerChar.health / FULL_HEALTH;
+    CGFloat player2HealthRatio = controller2.playerChar.health / FULL_HEALTH;
+    
+    [healthBarPlayer1 setSize:CGSizeMake(HEALTH_BAR_SIZE * player1HealthRatio, healthBarPlayer1.size.height)];
+    [healthBarPlayer2 setSize:CGSizeMake(HEALTH_BAR_SIZE * player2HealthRatio, healthBarPlayer2.size.height)];
+    
+    healthBarPlayer1.position = CGPointMake(HEALTH_BAR_1_DEFAULT_POSITION_X + healthBarPlayer1.size.width / 2,
+                                            HEALTH_BAR_DEFAULT_POSITION_Y);
+    healthBarPlayer2.position = CGPointMake(HEALTH_BAR_2_DEFAULT_POSITION_X - healthBarPlayer2.size.width / 2,
+                                            HEALTH_BAR_DEFAULT_POSITION_Y);
+    
+    scoreLabel.text = [NSString stringWithFormat:@"%zd", score];
 }
 
 - (void)pauseGame {
@@ -199,7 +294,7 @@
     NSInteger player1Dir = [controller1.playerChar getDirection];
     NSInteger player2Dir = [controller2.playerChar getDirection];
 
-    if (abs(player1Position.x - player2Position.x) > self.frame.size.width * 7 / 8) {
+    if (abs(player1Position.x - player2Position.x) > self.frame.size.width * 15 / 16) {
         if ((player1Position.x > player2Position.x && player1Dir == 1)
          || (player1Position.x < player2Position.x && player1Dir == -1)) {
             [controller1.playerChar stop];
@@ -232,7 +327,7 @@
 
 - (void)keyUp:(NSEvent *)theEvent {
     NSString * const character = [theEvent charactersIgnoringModifiers];
-    unichar    const code      = [character characterAtIndex:0];
+    //unichar    const code      = [character characterAtIndex:0];
     
     [controller1 keyUp:character];
     [controller2 keyUp:character];
@@ -253,6 +348,8 @@
 
 - (void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    [self updateHud];
+    
     NSArray *worldChilds = [world children];
     
     for (SKNode *node in worldChilds) {
@@ -335,6 +432,9 @@
             Bullet *bullet = (Bullet *)secondBody.node;
             [bullet removeFromParent];
             [zombie applyDamage:bullet.damage];
+            if (!zombie.isAlive) {
+                score += 10;
+            }
         }
     }
     else if ((firstBody.categoryBitMask & (PLATFORM | DYNAMIC_PLATFORM)) && (secondBody.categoryBitMask & BULLET)) {

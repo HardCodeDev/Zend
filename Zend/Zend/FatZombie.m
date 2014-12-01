@@ -18,6 +18,7 @@
     newFatZombie.runSpeed  = 100;
     newFatZombie.position  = position;
     newFatZombie.health    = 3;
+    newFatZombie.zPosition = 10;
     [newFatZombie.weapon setFirstSlotWeaponType:MELEE];
     return newFatZombie;
 }

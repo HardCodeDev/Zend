@@ -21,6 +21,7 @@
 @synthesize onAttack;
 @synthesize target;
 @synthesize collidingWithTarget;
+@synthesize walk;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;

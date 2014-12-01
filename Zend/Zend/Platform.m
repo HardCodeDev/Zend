@@ -13,6 +13,7 @@
 + (instancetype)platformWithImageNamed:(NSString *)imageName {
     Platform *platform = [[Platform alloc] initWithImageNamed:imageName];
     platform.name = @"Platform";
+    platform.zPosition = 0;
     [platform initGroundLine];
     return platform;
 }

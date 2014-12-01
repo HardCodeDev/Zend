@@ -8,7 +8,7 @@
 
 #import "Character.h"
 
-@interface Human : Character
+@interface Human : Character;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (void)initPhysicsBody;
