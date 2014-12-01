@@ -437,6 +437,10 @@
         if (human == zombie.target) {
             zombie.collidingWithTarget = YES;
         }
+        else {
+            [zombie attackTarget:human];
+            zombie.collidingWithTarget = YES;
+        }
     }
     else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
         Platform *platform = (Platform *)firstBody.node.parent;
