@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
-#import <SenTestingKit/SenTestingKit.h>
 #import "GameScene.h"
 
 @interface ZendTests : XCTestCase
@@ -30,13 +29,6 @@
 - (void)testExample {
     // This is an example of a functional test case.
     XCTAssert(YES, @"Pass");
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
 }
 
 - (void)testCreateSkinnyZombie {
@@ -187,6 +179,25 @@
         [scene didMoveToView:view];
         [scene startGame];
     }];
+    
+}
+
+- (void)testZombiezJSONDataIsCorrect {
+    
+    NSInteger amountInZombiesJSON = 0;
+    NSInteger amountInStagesJSON  = 0;
+    
+    SKNode *world = [[SKNode alloc] init];
+    Level  *level = [[Level alloc] initWithLevel:0];
+    [level buildOn:world];
+    
+    amountInZombiesJSON = level.zombies.count;
+    
+    for (Stage *stage in level.stages) {
+        amountInStagesJSON += stage.amountOfZombies;
+    }
+    
+    XCTAssertEqual(amountInZombiesJSON, amountInStagesJSON, @"amounts should be equal");
     
 }
 

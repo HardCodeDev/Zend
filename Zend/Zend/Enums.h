@@ -25,7 +25,8 @@ typedef enum {
     ZOMBIE   = 32,
     CHARACTER = HUMAN | ZOMBIE,
     BULLET   = 64,
-    CORPSE   = 128
+    CORPSE   = 128,
+    STAGE    = 256
 } BitMask;
 
 typedef enum {

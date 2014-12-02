@@ -50,6 +50,7 @@
 		455E32621A1B3A170047A0EC /* SkinnyZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 455E32611A1B3A170047A0EC /* SkinnyZombie.png */; };
 		455E32641A1B3D9A0047A0EC /* FatZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 455E32631A1B3D9A0047A0EC /* FatZombie.png */; };
 		45F45E781A2CCC8B0024A4F5 /* Cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E771A2CCC8B0024A4F5 /* Cat.png */; };
+		45F45E7E1A2DAC7E0024A4F5 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F45E7D1A2DAC7E0024A4F5 /* Stage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,8 @@
 		455E32611A1B3A170047A0EC /* SkinnyZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SkinnyZombie.png; path = Zend/SkinnyZombie.png; sourceTree = "<group>"; };
 		455E32631A1B3D9A0047A0EC /* FatZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FatZombie.png; path = Zend/FatZombie.png; sourceTree = "<group>"; };
 		45F45E771A2CCC8B0024A4F5 /* Cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat.png; path = Zend/Cat.png; sourceTree = "<group>"; };
+		45F45E7C1A2DAC7E0024A4F5 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stage.h; path = Zend/Stage.h; sourceTree = "<group>"; };
+		45F45E7D1A2DAC7E0024A4F5 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stage.m; path = Zend/Stage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +287,8 @@
 		453DD9171A1E5CE2001349DC /* Level */ = {
 			isa = PBXGroup;
 			children = (
+				45F45E7C1A2DAC7E0024A4F5 /* Stage.h */,
+				45F45E7D1A2DAC7E0024A4F5 /* Stage.m */,
 				453DD9141A1E5CBA001349DC /* Level.h */,
 				453DD9151A1E5CBA001349DC /* Level.m */,
 				453DD9181A1E7738001349DC /* platforms.json */,
@@ -442,6 +447,7 @@
 				3A7462141A286F3900235972 /* Bullet.m in Sources */,
 				3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */,
 				3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */,
+				45F45E7E1A2DAC7E0024A4F5 /* Stage.m in Sources */,
 				3ADECE6E1A19F36100179646 /* Platform.m in Sources */,
 				3AE3FB0F1A1AAA7A00B2F287 /* FatZombie.m in Sources */,
 				3AC0E6A91A2C9A1F00263C6E /* DeathLine.m in Sources */,
