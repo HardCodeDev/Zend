@@ -10,26 +10,29 @@
 
 @implementation Zombie
 
-@synthesize fight;
+@synthesize fight, handsUp, beginWalk;
 
 - (id)init {
     self = [super init];
     if (self) {
         fight = nil;
+        handsUp = nil;
+        beginWalk = nil;
+        walk = nil;
     }
     return self;
 }
 
-- (void)setCollidingWithTarget:(BOOL)isColliding {
+/*- (void)setCollidingWithTarget:(BOOL)isColliding {
     [super setCollidingWithTarget:isColliding];
     if (isColliding) {
-        [self startFighting];
+        //[self startFighting];
     }
     else if (!isColliding) {
-        [self stopFighting];
+        //[self stopFighting];
     }
     
-}
+}*/
 
 - (void)startFighting {
     if (fight) {

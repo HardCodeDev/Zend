@@ -8,7 +8,11 @@
 
 #import "Zombie.h"
 
-@interface SkinnyZombie : Zombie
+@interface SkinnyZombie : Zombie {
+    BOOL isAwakening;
+}
+
+@property BOOL isAwakening;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (void)initPhysicsBody;

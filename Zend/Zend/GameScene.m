@@ -436,11 +436,11 @@
         Character *human  = (Character *)firstBody.node;
         Character *zombie = (Character *)secondBody.node;
         if (human == zombie.target) {
-            zombie.collidingWithTarget = YES;
+            [zombie beginCollidingWithTarget];
         }
         else {
             [zombie attackTarget:human];
-            zombie.collidingWithTarget = YES;
+            [zombie beginCollidingWithTarget];
         }
     }
     else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
@@ -497,7 +497,7 @@
         Character *human  = (Character *)firstBody.node;
         Character *zombie = (Character *)secondBody.node;
         if (human == zombie.target) {
-            zombie.collidingWithTarget = NO;
+            [zombie endCollidingWithTarget];
         }
     }
     else if ((firstBody.categoryBitMask & GROUND) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {

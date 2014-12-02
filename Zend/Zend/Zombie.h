@@ -9,9 +9,9 @@
 #import "Character.h"
 
 @interface Zombie : Character {
-    SKAction *fight;
+    SKAction *fight, *handsUp, *beginWalk;
 }
 
-@property SKAction *fight;
+@property SKAction *fight, *handsUp, *beginWalk;
 
 @end

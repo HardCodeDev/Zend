@@ -22,6 +22,7 @@
 @synthesize target;
 @synthesize groundContacts;
 @synthesize walk;
+@synthesize isReady;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;
@@ -63,6 +64,7 @@
         target = nil;
         collidingWithTarget = NO;
         walk = nil;
+        isReady = YES;
     }
     return self;
 }
@@ -97,11 +99,12 @@
 }
 
 - (void)run {
-    if (!isAlive) {
+    if (!isAlive || !isReady) {
         return;
     }
     if (!isRunning) {
         [self startWalking];
+        NSLog(@"begin walking");
     }
     isRunning = YES;
     speedX = runSpeed * direction;
@@ -113,6 +116,7 @@
     }
     if (isRunning) {
         [self stopWalking];
+        NSLog(@"end walking");
     }
     isRunning = NO;
     speedX = 0;
@@ -221,16 +225,20 @@
 - (void)stopAttack {
     target = nil;
     onAttack = NO;
-    [self setCollidingWithTarget:NO];
+    [self endCollidingWithTarget];
     [self stop];
 }
 
-- (void)setCollidingWithTarget:(BOOL)isColliding {
-    collidingWithTarget = isColliding;
-    if (collidingWithTarget) {
-        [self stop];
-    }
-    else {
+- (void)beginCollidingWithTarget {
+    NSLog(@"beginColliding");
+    collidingWithTarget = YES;
+    [self stop];
+}
+
+- (void)endCollidingWithTarget {
+    NSLog(@"endColliding");
+    collidingWithTarget = NO;
+    if (target) {
         [self run];
     }
 }
@@ -238,6 +246,7 @@
 - (SKAction *)getAnimationFromAtlas:(NSString *)atlasName timePerFrame:(CGFloat)time {
     NSMutableArray *walkFrames = [NSMutableArray array];
     SKTextureAtlas *animatedAtlas = [SKTextureAtlas atlasNamed:atlasName];
+    NSLog(@"%@", animatedAtlas);
     NSArray *textureNames = [animatedAtlas textureNames];
     textureNames = [textureNames sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
     
@@ -253,19 +262,27 @@
                                                      resize:NO
                                                     restore:YES];
     
-    SKAction *walkAction = [SKAction repeatActionForever:walkAnimation];
-    return walkAction;
+    return walkAnimation;
 }
+
+
 
 - (void)startWalking {
     if (walk) {
-        [self runAction:walk withKey:@"walking"];
+        [self runAction:[SKAction repeatActionForever:walk] withKey:@"walking"];
     }
 }
 
 - (void)stopWalking {
     if (walk) {
         [self removeActionForKey:@"walking"];
+    }
+}
+
+- (void)ready {
+    isReady = YES;
+    if (target) {
+        [self run];
     }
 }
 
