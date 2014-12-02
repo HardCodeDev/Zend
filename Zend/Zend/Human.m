@@ -22,10 +22,13 @@
     Character *newHuman;
     
     if (cType == PLAYER) {
-        newHuman = [[Human alloc] initWithImageNamed:@"Dude"];
+        newHuman = [[Human alloc] initWithImageNamed:@"Dude.png"];
+        newHuman.walk = [self getAnimationFromAtlas:@"Dude" timePerFrame:0.04f];
     }
     else if (cType == FRIEND) {
-        newHuman = [[Human alloc] initWithImageNamed:@"GreenPlayer"];
+        newHuman = [[Human alloc] initWithImageNamed:@"GreenPlayer.png"];
+        //newHuman.scale = 0.2;
+        newHuman.walk = self.walk;
     }
     else {
         newHuman = [[Human alloc] init];
@@ -41,8 +44,6 @@
     
     // init atlas
     
-    newHuman.walk = self.walk;
-    
     return newHuman;
 }
 
@@ -57,7 +58,7 @@
     [super update];
 }
 
-- (void)startWalking {
+/*- (void)startWalking {
     if (walk) {
         [self runAction:walk withKey:@"walking"];
     }
@@ -67,7 +68,7 @@
     if (walk) {
         [self removeActionForKey:@"walking"];
     }
-}
+}*/
 
 /*- (void)run {
     if (!isAlive) {

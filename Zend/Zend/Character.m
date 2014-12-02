@@ -104,7 +104,6 @@
     }
     if (!isRunning) {
         [self startWalking];
-        NSLog(@"begin walking");
     }
     isRunning = YES;
     speedX = runSpeed * direction;
@@ -116,7 +115,6 @@
     }
     if (isRunning) {
         [self stopWalking];
-        NSLog(@"end walking");
     }
     isRunning = NO;
     speedX = 0;
@@ -230,13 +228,11 @@
 }
 
 - (void)beginCollidingWithTarget {
-    NSLog(@"beginColliding");
     collidingWithTarget = YES;
     [self stop];
 }
 
 - (void)endCollidingWithTarget {
-    NSLog(@"endColliding");
     collidingWithTarget = NO;
     if (target) {
         [self run];
@@ -246,7 +242,6 @@
 - (SKAction *)getAnimationFromAtlas:(NSString *)atlasName timePerFrame:(CGFloat)time {
     NSMutableArray *walkFrames = [NSMutableArray array];
     SKTextureAtlas *animatedAtlas = [SKTextureAtlas atlasNamed:atlasName];
-    NSLog(@"%@", animatedAtlas);
     NSArray *textureNames = [animatedAtlas textureNames];
     textureNames = [textureNames sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
     
@@ -260,7 +255,7 @@
     SKAction *walkAnimation = [SKAction animateWithTextures:walkingDude
                                                timePerFrame:time
                                                      resize:NO
-                                                    restore:YES];
+                                                    restore:NO];
     
     return walkAnimation;
 }

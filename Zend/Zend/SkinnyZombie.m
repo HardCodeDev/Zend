@@ -15,17 +15,17 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.beginWalk = nil;//[self getAnimationFromAtlas:@"Dude" timePerFrame:0.04f];
-        self.walk      = nil;//[self getAnimationFromAtlas:@"Dude" timePerFrame:0.04f];
-        self.handsUp   = nil;//[self getAnimationFromAtlas:@"Dude" timePerFrame:0.04f];
-        self.fight = nil;
+        //self.beginWalk = [self getAnimationFromAtlas:@"WorkerBeginWalk" timePerFrame:0.04f];
+        //self.walk      = [self getAnimationFromAtlas:@"WorkerWalk" timePerFrame:0.04f];
+        //self.handsUp   = [self getAnimationFromAtlas:@"WorkerHandsUP" timePerFrame:0.04f];
+        //self.fight = nil;
     }
     return self;
 }
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     SkinnyZombie *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombie.png"];
-    newSkinnyZombie.scale = 1;
+    //newSkinnyZombie.scale = 0.2;
     [newSkinnyZombie initPhysicsBody];
     newSkinnyZombie.type      = cType;
     newSkinnyZombie.jumpSpeed = 500;

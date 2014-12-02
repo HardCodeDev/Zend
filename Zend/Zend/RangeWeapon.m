@@ -34,12 +34,19 @@
     
     bullet.position = [node convertPoint:self.position fromNode:self];
     bullet.damage = damage;
+    SKNode *owner = self.parent.parent;
     NSInteger dir;
-    if (self.parent.parent.xScale < 0) {
+    CGFloat xShift = 8;
+    CGFloat yShift = 38;
+    if (owner.xScale < 0) {
         dir = -1;
+        bullet.position = CGPointMake(bullet.position.x - owner.frame.size.width / 2 - xShift,
+                                      bullet.position.y + yShift);
     }
     else {
         dir = 1;
+        bullet.position = CGPointMake(bullet.position.x + owner.frame.size.width / 2 + xShift,
+                                      bullet.position.y + yShift);
     }
     bullet.physicsBody.velocity = CGVectorMake(1000*dir, 0);
     [node addChild:bullet];
