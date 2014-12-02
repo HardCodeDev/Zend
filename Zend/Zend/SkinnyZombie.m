@@ -15,17 +15,17 @@
 - (id)init {
     self = [super init];
     if (self) {
-        //self.beginWalk = [self getAnimationFromAtlas:@"WorkerBeginWalk" timePerFrame:0.04f];
-        //self.walk      = [self getAnimationFromAtlas:@"WorkerWalk" timePerFrame:0.04f];
-        //self.handsUp   = [self getAnimationFromAtlas:@"WorkerHandsUP" timePerFrame:0.04f];
+        self.beginWalk = [self getAnimationFromAtlas:@"WorkerBeginWalk" timePerFrame:0.04f];
+        self.walk      = [self getAnimationFromAtlas:@"WorkerWalk" timePerFrame:0.04f];
+        self.handsUp   = [self getAnimationFromAtlas:@"WorkerHandsUP" timePerFrame:0.04f];
         //self.fight = nil;
     }
     return self;
 }
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
-    SkinnyZombie *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"SkinnyZombie.png"];
-    //newSkinnyZombie.scale = 0.2;
+    SkinnyZombie *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"017.png"];
+    newSkinnyZombie.scale = 0.2;
     [newSkinnyZombie initPhysicsBody];
     newSkinnyZombie.type      = cType;
     newSkinnyZombie.jumpSpeed = 500;
@@ -38,8 +38,8 @@
     newSkinnyZombie.beginWalk = beginWalk;
     newSkinnyZombie.walk = walk;
     newSkinnyZombie.fight = fight;
-    //newSkinnyZombie.isReady = NO;
-    //newSkinnyZombie.isAwakening = NO;
+    newSkinnyZombie.isReady = NO;
+    newSkinnyZombie.isAwakening = NO;
     return newSkinnyZombie;
 }
 

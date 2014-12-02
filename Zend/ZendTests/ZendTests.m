@@ -26,10 +26,26 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+/* PERFORMANCE TEST */
+
+/*
+- (void)testGameLoadingPerformance {
+    
+    [self measureBlock:^{
+        CGSize screenSize = CGSizeMake(1440, 900);
+        
+        GameScene *scene = [[GameScene alloc] initWithSize:screenSize];
+        
+        SKView *view = [[SKView alloc] initWithFrame:NSMakeRect(0, 0, 1440, 900)];
+        
+        [scene didMoveToView:view];
+        [scene startGame];
+    }];
+    
 }
+ */
+
+/* FUNCTIONAL TESTING */
 
 - (void)testCreateSkinnyZombie {
     
@@ -66,7 +82,7 @@
     
     zombiePattern.type = SZOMBIE;
     zombiePattern.jumpSpeed = 500;
-    zombiePattern.runSpeed  = 380;
+    zombiePattern.runSpeed  = 300;
     zombiePattern.position  = spawnPosition;
     zombiePattern.health    = 2;
     zombiePattern.zPosition = 10;
@@ -165,21 +181,6 @@
     for (Platform *platform in level.platforms) {
         XCTAssertNotNil(platform, @"platform should not be nil");
     }
-}
-
-- (void)testGameLoadingPerformance {
-
-    [self measureBlock:^{
-        CGSize screenSize = CGSizeMake(1440, 900);
-        
-        GameScene *scene = [[GameScene alloc] initWithSize:screenSize];
-        
-        SKView *view = [[SKView alloc] initWithFrame:NSMakeRect(0, 0, 1440, 900)];
-        
-        [scene didMoveToView:view];
-        [scene startGame];
-    }];
-    
 }
 
 - (void)testZombiezJSONDataIsCorrect {

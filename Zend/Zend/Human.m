@@ -13,7 +13,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.walk = [self getAnimationFromAtlas:@"Dude" timePerFrame:0.04f];
+        self.walk = [self getAnimationFromAtlas:@"GrandmaWalk" timePerFrame:0.04f];
     }
     return self;
 }
@@ -21,18 +21,18 @@
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     Character *newHuman;
     
-    if (cType == PLAYER) {
+    /*if (cType == PLAYER) {
         newHuman = [[Human alloc] initWithImageNamed:@"Dude.png"];
         newHuman.walk = [self getAnimationFromAtlas:@"Dude" timePerFrame:0.04f];
     }
-    else if (cType == FRIEND) {
-        newHuman = [[Human alloc] initWithImageNamed:@"GreenPlayer.png"];
-        //newHuman.scale = 0.2;
+    else if (cType == FRIEND) {*/
+        newHuman = [[Human alloc] initWithImageNamed:@"001.png"];
+        newHuman.scale = 0.2;
         newHuman.walk = self.walk;
-    }
+    /*}
     else {
         newHuman = [[Human alloc] init];
-    }
+    }*/
     
     [newHuman initPhysicsBody];
     newHuman.type      = cType;
