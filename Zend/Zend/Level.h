@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PlatformFactory.h"
 #import "CharacterFactory.h"
+#import "Stage.h"
 
 
 @interface Level : NSObject {
@@ -23,7 +24,11 @@
     CharacterFactory *cFactory;
 }
 
+@property NSInteger currentZombie;
+
 @property NSMutableArray *platforms;
+@property NSMutableArray *zombies;
+@property NSMutableArray *stages;
 
 - (id)initWithLevel:(NSInteger)selectedLevel;
 
@@ -36,5 +41,6 @@
 - (void)createStagesOn:(SKNode *)node;
 
 - (void)buildOn:(SKNode *)node;
+- (void)createNextPackOfZombiesOn:(SKNode *)node fromStage:(Stage *)stage;
 
 @end

@@ -6,7 +6,6 @@
         "angle": 20,
 		"positionX": 625,
 		"positionY": 187,
-		
 	},
     {
         "type": "static",
@@ -14,7 +13,6 @@
         "angle": 0,
         "positionX": 1110,
         "positionY": 272,
-      
     },
     {
         "type": "static",
@@ -22,7 +20,6 @@
         "angle": 0,
         "positionX": 600,
         "positionY": 600,
-      
     },
     {
         "type": "static",
@@ -30,24 +27,49 @@
         "angle": 0,
         "positionX": 1200,
         "positionY": 600,
-      
     },
     {
         "type": "static",
         "texture": "Ground",
         "angle": 0,
         "positionX": 2000,
-        "positionY": 600,
-                  
+        "positionY": 600,     
     },
     {
         "type": "static",
         "texture": "Ground",
         "angle": 0,
         "positionX": 2512,
-        "positionY": 600,
-                  
+        "positionY": 600,       
     },
+    {
+		"type": "static",
+        "texture": "Ground",
+        "angle": 0,
+		"positionX": 3000,
+		"positionY": 600,
+	},
+	{
+		"type": "static",
+        "texture": "Ground",
+        "angle": 0,
+		"positionX": 3512,
+		"positionY": 600,
+	},
+	{
+		"type": "static",
+        "texture": "Ground",
+        "angle": 0,
+		"positionX": 4000,
+		"positionY": 300,
+	},
+	{
+		"type": "static",
+        "texture": "Ground",
+        "angle": 0,
+		"positionX": 4600,
+		"positionY": 200,
+	},
 	{
 		"type": "dynamic",
 		"texture": "Ground",

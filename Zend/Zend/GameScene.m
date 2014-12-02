@@ -406,6 +406,14 @@
 #endif
     
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
+    
+    /*
+    if ((firstBody.categoryBitMask & HUMAN) && (secondBody.categoryBitMask & STAGE)) {
+        NSLog(@"%@", world);
+        [level createNextPackOfZombiesOn:world fromStage:(Stage *)secondBody.node];
+    }
+     */
+    
     if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
     /*    Character *character = (Character*)secondBody.node;
         Platform *platform = (Platform *)firstBody.node;

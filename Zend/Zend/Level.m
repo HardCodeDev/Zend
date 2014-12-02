@@ -10,7 +10,8 @@
 
 @implementation Level
 
-@synthesize platforms;
+@synthesize platforms, zombies, stages;
+@synthesize currentZombie;
 
 - (id)initWithLevel:(NSInteger)selectedLevel {
     self = [super init];
@@ -26,6 +27,8 @@
         
         pFactory = [[PlatformFactory alloc] init];
         cFactory = [[CharacterFactory alloc] init];
+        
+        currentZombie = 0;
     }
     return self;
 }
@@ -106,7 +109,26 @@
 }
 
 - (void)loadStages {
-    
+    NSError  *error;
+    NSString *path = [pathToLevels stringByAppendingString:@"/stages.json"];
+    NSURL    *url = [NSURL fileURLWithPath:path];
+    NSData   *jsonStagesData = [NSData dataWithContentsOfURL:url];
+    NSDictionary *jsonStagesDict = [NSJSONSerialization JSONObjectWithData:jsonStagesData
+                                                                     options:0
+                                                                       error:&error];
+    if (jsonStagesDict) {
+        CGFloat position;
+        NSInteger amount;
+        for (id stagesDict in [jsonStagesDict objectForKey:@"stages"]) {
+            position = [[stagesDict objectForKey:@"position"] floatValue];
+            amount = [[stagesDict objectForKey:@"amount"] floatValue];
+            Stage *newStage = [[Stage alloc] initAndCreateAtPosition:position withZombiesAmount:amount];
+            [stages addObject:newStage];
+        }
+    }
+    else {
+        NSLog(@"Error from reading stages data.");
+    }
 }
 
 - (void)createPlatformsOn:(SKNode *)node {
@@ -130,8 +152,24 @@
 - (void)buildOn:(SKNode *)node {
     [self loadPlatforms];
     [self loadZombies];
+    [self loadStages];
+    
     [self createPlatformsOn:node];
+    //[self createStagesOn:node];
+    //Stage *startStage = [stages objectAtIndex:0];
+    //[self createNextPackOfZombiesOn:node fromStage:startStage];
+}
+
+- (void)createNextPackOfZombiesOn:(SKNode *)node fromStage:(Stage *)stage {
+    NSLog(@"%@", node);
     [self createZombiesOn:node];
+    /*for (NSInteger zombieNum = currentZombie; zombieNum < currentZombie + stage.amountOfZombies; zombieNum++) {
+        [node addChild:[zombies objectAtIndex:zombieNum]];
+        Character *g = [zombies objectAtIndex:zombieNum];
+        NSLog(@"load zzz %f", g.position.x);
+    }
+    currentZombie += stage.amountOfZombies;*/
+    [stage removeFromParent];
 }
 
 @end
