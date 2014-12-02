@@ -2,7 +2,7 @@
 //  ZendTests.m
 //  ZendTests
 //
-//  Created by Anton Yakimenko on 16.11.14.
+//  Created by Nikita Makarov on 16.11.14.
 //  Copyright (c) 2014 HardCode. All rights reserved.
 //
 
@@ -25,27 +25,6 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
-
-/* PERFORMANCE TEST */
-
-/*
-- (void)testGameLoadingPerformance {
-    
-    [self measureBlock:^{
-        CGSize screenSize = CGSizeMake(1440, 900);
-        
-        GameScene *scene = [[GameScene alloc] initWithSize:screenSize];
-        
-        SKView *view = [[SKView alloc] initWithFrame:NSMakeRect(0, 0, 1440, 900)];
-        
-        [scene didMoveToView:view];
-        [scene startGame];
-    }];
-    
-}
- */
-
-/* FUNCTIONAL TESTING */
 
 - (void)testCreateSkinnyZombie {
     

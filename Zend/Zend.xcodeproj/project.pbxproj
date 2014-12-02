@@ -51,12 +51,13 @@
 		455E32641A1B3D9A0047A0EC /* FatZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 455E32631A1B3D9A0047A0EC /* FatZombie.png */; };
 		45F45E781A2CCC8B0024A4F5 /* Cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E771A2CCC8B0024A4F5 /* Cat.png */; };
 		45F45E7E1A2DAC7E0024A4F5 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F45E7D1A2DAC7E0024A4F5 /* Stage.m */; };
-		45F45E821A2DB4F10024A4F5 /* WorkerBeginWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E7F1A2DB4F10024A4F5 /* WorkerBeginWalk.atlas */; };
-		45F45E831A2DB4F10024A4F5 /* WorkerHandsUP.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E801A2DB4F10024A4F5 /* WorkerHandsUP.atlas */; };
-		45F45E841A2DB4F10024A4F5 /* WorkerWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E811A2DB4F10024A4F5 /* WorkerWalk.atlas */; };
-		45F45E861A2DB5050024A4F5 /* GrandmaWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E851A2DB5050024A4F5 /* GrandmaWalk.atlas */; };
-		45F45E881A2DB5160024A4F5 /* 001.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E871A2DB5160024A4F5 /* 001.png */; };
-		45F45E8A1A2DB5210024A4F5 /* 017.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E891A2DB5210024A4F5 /* 017.png */; };
+		45F45E971A2DD4850024A4F5 /* GrandmaBeginWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E921A2DD4850024A4F5 /* GrandmaBeginWalk.atlas */; };
+		45F45E981A2DD4850024A4F5 /* GrandmaWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E931A2DD4850024A4F5 /* GrandmaWalk.atlas */; };
+		45F45E991A2DD4850024A4F5 /* WorkerBeginWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E941A2DD4850024A4F5 /* WorkerBeginWalk.atlas */; };
+		45F45E9A1A2DD4850024A4F5 /* WorkerHandsUP.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E951A2DD4850024A4F5 /* WorkerHandsUP.atlas */; };
+		45F45E9B1A2DD4850024A4F5 /* WorkerWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E961A2DD4850024A4F5 /* WorkerWalk.atlas */; };
+		45F45E9D1A2DD4B50024A4F5 /* 001.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E9C1A2DD4B50024A4F5 /* 001.png */; };
+		45F45E9F1A2DD4C10024A4F5 /* 017.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E9E1A2DD4C10024A4F5 /* 017.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,12 +141,13 @@
 		45F45E771A2CCC8B0024A4F5 /* Cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat.png; path = Zend/Cat.png; sourceTree = "<group>"; };
 		45F45E7C1A2DAC7E0024A4F5 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stage.h; path = Zend/Stage.h; sourceTree = "<group>"; };
 		45F45E7D1A2DAC7E0024A4F5 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stage.m; path = Zend/Stage.m; sourceTree = "<group>"; };
-		45F45E7F1A2DB4F10024A4F5 /* WorkerBeginWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WorkerBeginWalk.atlas; path = ../../../../Desktop/Images/Worker/WorkerBeginWalk.atlas; sourceTree = "<group>"; };
-		45F45E801A2DB4F10024A4F5 /* WorkerHandsUP.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WorkerHandsUP.atlas; path = ../../../../Desktop/Images/Worker/WorkerHandsUP.atlas; sourceTree = "<group>"; };
-		45F45E811A2DB4F10024A4F5 /* WorkerWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WorkerWalk.atlas; path = ../../../../Desktop/Images/Worker/WorkerWalk.atlas; sourceTree = "<group>"; };
-		45F45E851A2DB5050024A4F5 /* GrandmaWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = GrandmaWalk.atlas; path = ../../../../Desktop/Images/Grandma/GrandmaWalk.atlas; sourceTree = "<group>"; };
-		45F45E871A2DB5160024A4F5 /* 001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 001.png; path = ../../../../Desktop/Images/Grandma/GrandmaBeginWalk.atlas/001.png; sourceTree = "<group>"; };
-		45F45E891A2DB5210024A4F5 /* 017.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 017.png; path = ../../../../Desktop/Images/Worker/WorkerHandsUP.atlas/017.png; sourceTree = "<group>"; };
+		45F45E921A2DD4850024A4F5 /* GrandmaBeginWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = GrandmaBeginWalk.atlas; path = ../../../../Desktop/ZendWithEbotnya/Zend/Zend/Images/Atlases/GrandmaBeginWalk.atlas; sourceTree = "<group>"; };
+		45F45E931A2DD4850024A4F5 /* GrandmaWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = GrandmaWalk.atlas; path = ../../../../Desktop/ZendWithEbotnya/Zend/Zend/Images/Atlases/GrandmaWalk.atlas; sourceTree = "<group>"; };
+		45F45E941A2DD4850024A4F5 /* WorkerBeginWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WorkerBeginWalk.atlas; path = ../../../../Desktop/ZendWithEbotnya/Zend/Zend/Images/Atlases/WorkerBeginWalk.atlas; sourceTree = "<group>"; };
+		45F45E951A2DD4850024A4F5 /* WorkerHandsUP.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WorkerHandsUP.atlas; path = ../../../../Desktop/ZendWithEbotnya/Zend/Zend/Images/Atlases/WorkerHandsUP.atlas; sourceTree = "<group>"; };
+		45F45E961A2DD4850024A4F5 /* WorkerWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = WorkerWalk.atlas; path = ../../../../Desktop/ZendWithEbotnya/Zend/Zend/Images/Atlases/WorkerWalk.atlas; sourceTree = "<group>"; };
+		45F45E9C1A2DD4B50024A4F5 /* 001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 001.png; path = ../../../../Desktop/ZendWithEbotnya/Zend/Zend/Images/Atlases/GrandmaBeginWalk.atlas/001.png; sourceTree = "<group>"; };
+		45F45E9E1A2DD4C10024A4F5 /* 017.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 017.png; path = ../../../../Desktop/ZendWithEbotnya/Zend/Zend/Images/Atlases/WorkerHandsUP.atlas/017.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,12 +171,13 @@
 		3A1C7D4B1A1919860036F9C7 = {
 			isa = PBXGroup;
 			children = (
-				45F45E871A2DB5160024A4F5 /* 001.png */,
-				45F45E891A2DB5210024A4F5 /* 017.png */,
-				45F45E851A2DB5050024A4F5 /* GrandmaWalk.atlas */,
-				45F45E7F1A2DB4F10024A4F5 /* WorkerBeginWalk.atlas */,
-				45F45E801A2DB4F10024A4F5 /* WorkerHandsUP.atlas */,
-				45F45E811A2DB4F10024A4F5 /* WorkerWalk.atlas */,
+				45F45E9E1A2DD4C10024A4F5 /* 017.png */,
+				45F45E9C1A2DD4B50024A4F5 /* 001.png */,
+				45F45E921A2DD4850024A4F5 /* GrandmaBeginWalk.atlas */,
+				45F45E931A2DD4850024A4F5 /* GrandmaWalk.atlas */,
+				45F45E941A2DD4850024A4F5 /* WorkerBeginWalk.atlas */,
+				45F45E951A2DD4850024A4F5 /* WorkerHandsUP.atlas */,
+				45F45E961A2DD4850024A4F5 /* WorkerWalk.atlas */,
 				455A3B591A2BF0B300D8B44A /* Dude.atlas */,
 				3A74620D1A28688A00235972 /* Levels */,
 				3A91B9771A1FA20000654946 /* Enums.h */,
@@ -420,25 +423,26 @@
 				455A3B521A2B680700D8B44A /* PauseScreen.png in Resources */,
 				3A7462161A28895100235972 /* Bullet.png in Resources */,
 				453DD9191A1E7738001349DC /* platforms.json in Resources */,
-				45F45E861A2DB5050024A4F5 /* GrandmaWalk.atlas in Resources */,
-				45F45E841A2DB4F10024A4F5 /* WorkerWalk.atlas in Resources */,
 				4524800D1A24DF4800D4F4BE /* DesertBackground.png in Resources */,
 				4524800C1A24DF4800D4F4BE /* CyanBackground.png in Resources */,
-				45F45E831A2DB4F10024A4F5 /* WorkerHandsUP.atlas in Resources */,
-				45F45E821A2DB4F10024A4F5 /* WorkerBeginWalk.atlas in Resources */,
+				45F45E9F1A2DD4C10024A4F5 /* 017.png in Resources */,
+				45F45E9B1A2DD4850024A4F5 /* WorkerWalk.atlas in Resources */,
+				45F45E991A2DD4850024A4F5 /* WorkerBeginWalk.atlas in Resources */,
 				455A3B541A2B680700D8B44A /* WelcomeScreen.png in Resources */,
+				45F45E9D1A2DD4B50024A4F5 /* 001.png in Resources */,
 				3A1C7D621A1919860036F9C7 /* GameScene.sks in Resources */,
+				45F45E981A2DD4850024A4F5 /* GrandmaWalk.atlas in Resources */,
 				455A3B5C1A2C6C5500D8B44A /* LifeBar.png in Resources */,
 				3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */,
 				4524801D1A250C6200D4F4BE /* GreenPlayer.png in Resources */,
-				45F45E8A1A2DB5210024A4F5 /* 017.png in Resources */,
 				455E32621A1B3A170047A0EC /* SkinnyZombie.png in Resources */,
 				455A3B581A2BBE7A00D8B44A /* Dude.png in Resources */,
 				455A3B531A2B680700D8B44A /* StartScreen.png in Resources */,
 				455A3B5A1A2BF0B300D8B44A /* Dude.atlas in Resources */,
-				45F45E881A2DB5160024A4F5 /* 001.png in Resources */,
 				454387081A25336F00C256E1 /* BoyCharacter.png in Resources */,
 				454387091A25336F00C256E1 /* Ground.png in Resources */,
+				45F45E971A2DD4850024A4F5 /* GrandmaBeginWalk.atlas in Resources */,
+				45F45E9A1A2DD4850024A4F5 /* WorkerHandsUP.atlas in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
 				3A74620E1A28688A00235972 /* Levels in Resources */,
 				453DD91B1A1E9288001349DC /* zombies.json in Resources */,
