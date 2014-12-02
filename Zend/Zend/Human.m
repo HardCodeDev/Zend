@@ -10,14 +10,25 @@
 
 @implementation Human
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.walk = [self getAnimationFromAtlas:@"Dude" timePerFrame:0.04f];
+    }
+    return self;
+}
+
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     Character *newHuman;
     
     if (cType == PLAYER) {
-        newHuman = [[Human alloc] initWithImageNamed:@"Dude"];
+        newHuman = [[Human alloc] initWithImageNamed:@"Dude.png"];
+        newHuman.walk = [self getAnimationFromAtlas:@"Dude" timePerFrame:0.04f];
     }
     else if (cType == FRIEND) {
-        newHuman = [[Human alloc] initWithImageNamed:@"GreenPlayer"];
+        newHuman = [[Human alloc] initWithImageNamed:@"GreenPlayer.png"];
+        //newHuman.scale = 0.2;
+        newHuman.walk = self.walk;
     }
     else {
         newHuman = [[Human alloc] init];
@@ -32,27 +43,6 @@
     newHuman.health = 5;
     
     // init atlas
-   
-    NSMutableArray *walkFrames = [NSMutableArray array];
-    SKTextureAtlas *dudeAnimatedAtlas = [SKTextureAtlas atlasNamed:@"Dude"];
-    NSArray *textureNames = [dudeAnimatedAtlas textureNames];
-    textureNames = [textureNames sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
-    
-    for (NSString *name in textureNames) {
-        SKTexture *temp = [dudeAnimatedAtlas textureNamed:name];
-        [walkFrames addObject:temp];
-    }
-    
-    NSArray *walkingDude = [[NSArray alloc] initWithArray:walkFrames];
-    
-    SKAction *walkAnimation = [SKAction animateWithTextures:walkingDude
-                                               timePerFrame:0.05f
-                                                     resize:NO
-                                                    restore:YES];
-    
-    SKAction *walkAction = [SKAction repeatActionForever:walkAnimation];
-    
-    newHuman.walk = walkAction;
     
     return newHuman;
 }
@@ -68,15 +58,19 @@
     [super update];
 }
 
-- (void)startWalking {
-    [self runAction:walk withKey:@"walking"];
+/*- (void)startWalking {
+    if (walk) {
+        [self runAction:walk withKey:@"walking"];
+    }
 }
 
 - (void)stopWalking {
-    [self removeActionForKey:@"walking"];
-}
+    if (walk) {
+        [self removeActionForKey:@"walking"];
+    }
+}*/
 
-- (void)run {
+/*- (void)run {
     if (!isAlive) {
         return;
     }
@@ -85,9 +79,9 @@
     }
     isRunning = YES;
     speedX = runSpeed * direction;
-}
+}*/
 
-- (void)stop {
+/*- (void)stop {
     if (!isAlive) {
         return;
     }
@@ -97,6 +91,6 @@
     isRunning = NO;
     speedX = 0;
     self.physicsBody.velocity = CGVectorMake(0, self.physicsBody.velocity.dy);
-}
+}*/
 
 @end

@@ -20,21 +20,24 @@
 @synthesize isAlive;
 @synthesize onAttack;
 @synthesize target;
-@synthesize collidingWithTarget;
+@synthesize groundContacts;
 @synthesize walk;
+@synthesize isReady;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;
 }
 
 - (void)initPhysicsBody {
+    CGFloat height = self.frame.size.height;
+    CGFloat width  = height / 3;
     CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, -40, 80);
-    CGPathAddLineToPoint(path, NULL, 40, 80);
-    CGPathAddLineToPoint(path, NULL, 40, -75);
-    CGPathAddLineToPoint(path, NULL, 30, -80);
-    CGPathAddLineToPoint(path, NULL, -30, -80);
-    CGPathAddLineToPoint(path, NULL, -40, -75);
+    CGPathMoveToPoint(path, NULL, -width / 2, height / 2);
+    CGPathAddLineToPoint(path, NULL, width / 2, height / 2);
+    CGPathAddLineToPoint(path, NULL, width / 2, -height / 2 + 5);
+    CGPathAddLineToPoint(path, NULL, width / 2 - 10, -height / 2);
+    CGPathAddLineToPoint(path, NULL, -width / 2 + 10, -height / 2);
+    CGPathAddLineToPoint(path, NULL, -width / 2, -height / 2 + 5);
     
     CGPathCloseSubpath(path);
     self.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
@@ -60,6 +63,8 @@
         health = 100;
         target = nil;
         collidingWithTarget = NO;
+        walk = nil;
+        isReady = YES;
     }
     return self;
 }
@@ -78,9 +83,7 @@
     
     if (target) {
         if (!target.isAlive) {
-            target = nil;
-            [self stop];
-            onAttack = NO;
+            [self stopAttack];
         }
         else {
             CGFloat dir = target.position.x-self.position.x;
@@ -96,8 +99,11 @@
 }
 
 - (void)run {
-    if (!isAlive) {
+    if (!isAlive || !isReady) {
         return;
+    }
+    if (!isRunning) {
+        [self startWalking];
     }
     isRunning = YES;
     speedX = runSpeed * direction;
@@ -106,6 +112,9 @@
 - (void)stop {
     if (!isAlive) {
         return;
+    }
+    if (isRunning) {
+        [self stopWalking];
     }
     isRunning = NO;
     speedX = 0;
@@ -118,6 +127,7 @@
     }
     if(groundContacts > 0) {
         self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
+        groundContacts = 1;
     }
 }
 
@@ -141,14 +151,14 @@
 - (void)incGroundContacts {
     ++groundContacts;
     onGround = YES;
-    self.physicsBody.affectedByGravity = NO;
+    //self.physicsBody.affectedByGravity = NO;
 }
 
 - (void)decGroundContacts {
     --groundContacts;
-    if(groundContacts == 0) {
+    if(groundContacts <= 0) {
         onGround = NO;
-        self.physicsBody.affectedByGravity = YES;
+        //self.physicsBody.affectedByGravity = YES;
     }
 }
 
@@ -159,10 +169,14 @@
     CGFloat damage = [weapon fire];
     if (collidingWithTarget) {
         [target applyDamage:damage];
+        if (!target.isAlive) {
+            [self stopAttack];
+        }
     }
 }
 
 - (void)die {
+    health = 0;
     [self stop];
     isAlive = NO;
     self.physicsBody.categoryBitMask = CORPSE;
@@ -204,6 +218,67 @@
     target = character;
     onAttack = YES;
     [self run];
+}
+
+- (void)stopAttack {
+    target = nil;
+    onAttack = NO;
+    [self endCollidingWithTarget];
+    [self stop];
+}
+
+- (void)beginCollidingWithTarget {
+    collidingWithTarget = YES;
+    [self stop];
+}
+
+- (void)endCollidingWithTarget {
+    collidingWithTarget = NO;
+    if (target) {
+        [self run];
+    }
+}
+
+- (SKAction *)getAnimationFromAtlas:(NSString *)atlasName timePerFrame:(CGFloat)time {
+    NSMutableArray *walkFrames = [NSMutableArray array];
+    SKTextureAtlas *animatedAtlas = [SKTextureAtlas atlasNamed:atlasName];
+    NSArray *textureNames = [animatedAtlas textureNames];
+    textureNames = [textureNames sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
+    
+    for (NSString *name in textureNames) {
+        SKTexture *temp = [animatedAtlas textureNamed:name];
+        [walkFrames addObject:temp];
+    }
+    
+    NSArray *walkingDude = [[NSArray alloc] initWithArray:walkFrames];
+    
+    SKAction *walkAnimation = [SKAction animateWithTextures:walkingDude
+                                               timePerFrame:time
+                                                     resize:NO
+                                                    restore:NO];
+    
+    return walkAnimation;
+}
+
+
+
+- (void)startWalking {
+    if (walk) {
+        [self runAction:[SKAction repeatActionForever:walk] withKey:@"walking"];
+    }
+}
+
+- (void)stopWalking {
+    if (walk) {
+        [self removeActionForKey:@"walking"];
+    }
+}
+
+- (void)ready {
+    isReady = YES;
+    if (target) {
+        [self run];
+    }
 }
 
 @end

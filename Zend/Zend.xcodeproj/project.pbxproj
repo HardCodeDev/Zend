@@ -16,6 +16,7 @@
 		3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D631A1919860036F9C7 /* Images.xcassets */; };
 		3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D651A1919860036F9C7 /* MainMenu.xib */; };
 		3A1C7D731A1919860036F9C7 /* ZendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D721A1919860036F9C7 /* ZendTests.m */; };
+		3A4D5F901A2CD3BA00C5D2CF /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D5F8F1A2CD3BA00C5D2CF /* Zombie.m */; };
 		3A7462021A2665DC00235972 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462011A2665DC00235972 /* Weapon.m */; };
 		3A74620E1A28688A00235972 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 3A74620D1A28688A00235972 /* Levels */; };
 		3A7462111A286CAD00235972 /* WeaponUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462101A286CAD00235972 /* WeaponUnit.m */; };
@@ -23,6 +24,7 @@
 		3A7462161A28895100235972 /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7462151A28895100235972 /* Bullet.png */; };
 		3A7462191A2B9AFC00235972 /* MeleeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462181A2B9AFC00235972 /* MeleeWeapon.m */; };
 		3A74621C1A2B9B0F00235972 /* RangeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74621B1A2B9B0F00235972 /* RangeWeapon.m */; };
+		3AC0E6A91A2C9A1F00263C6E /* DeathLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0E6A81A2C9A1F00263C6E /* DeathLine.m */; };
 		3ADECE6E1A19F36100179646 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE6D1A19F36100179646 /* Platform.m */; };
 		3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE701A19F3B100179646 /* PlatformFactory.m */; };
 		3AE3FB0D1A1AAA7A00B2F287 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB041A1AAA7A00B2F287 /* Character.m */; };
@@ -79,6 +81,8 @@
 		3A1C7D6C1A1919860036F9C7 /* ZendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D711A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D721A1919860036F9C7 /* ZendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTests.m; sourceTree = "<group>"; };
+		3A4D5F8E1A2CD3BA00C5D2CF /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Zombie.h; path = Zend/Zombie.h; sourceTree = "<group>"; };
+		3A4D5F8F1A2CD3BA00C5D2CF /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Zombie.m; path = Zend/Zombie.m; sourceTree = "<group>"; };
 		3A7462001A2665DC00235972 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Weapon.h; path = Zend/Weapon.h; sourceTree = "<group>"; };
 		3A7462011A2665DC00235972 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Weapon.m; path = Zend/Weapon.m; sourceTree = "<group>"; };
 		3A74620D1A28688A00235972 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Levels; path = Zend/Levels; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		3A74621A1A2B9B0F00235972 /* RangeWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RangeWeapon.h; path = Zend/RangeWeapon.h; sourceTree = "<group>"; };
 		3A74621B1A2B9B0F00235972 /* RangeWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RangeWeapon.m; path = Zend/RangeWeapon.m; sourceTree = "<group>"; };
 		3A91B9771A1FA20000654946 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Enums.h; path = Zend/Enums.h; sourceTree = "<group>"; };
+		3AC0E6A71A2C9A1F00263C6E /* DeathLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeathLine.h; path = Zend/DeathLine.h; sourceTree = "<group>"; };
+		3AC0E6A81A2C9A1F00263C6E /* DeathLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeathLine.m; path = Zend/DeathLine.m; sourceTree = "<group>"; };
 		3ADECE6C1A19F36100179646 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = Zend/Platform.h; sourceTree = "<group>"; };
 		3ADECE6D1A19F36100179646 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = Zend/Platform.m; sourceTree = "<group>"; };
 		3ADECE6F1A19F3B100179646 /* PlatformFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlatformFactory.h; path = Zend/PlatformFactory.h; sourceTree = "<group>"; };
@@ -240,10 +246,12 @@
 				3AE3FB041A1AAA7A00B2F287 /* Character.m */,
 				3AE3FB051A1AAA7A00B2F287 /* CharacterFactory.h */,
 				3AE3FB061A1AAA7A00B2F287 /* CharacterFactory.m */,
-				3AE3FB071A1AAA7A00B2F287 /* FatZombie.h */,
-				3AE3FB081A1AAA7A00B2F287 /* FatZombie.m */,
 				3AE3FB091A1AAA7A00B2F287 /* Human.h */,
 				3AE3FB0A1A1AAA7A00B2F287 /* Human.m */,
+				3A4D5F8E1A2CD3BA00C5D2CF /* Zombie.h */,
+				3A4D5F8F1A2CD3BA00C5D2CF /* Zombie.m */,
+				3AE3FB071A1AAA7A00B2F287 /* FatZombie.h */,
+				3AE3FB081A1AAA7A00B2F287 /* FatZombie.m */,
 				3AE3FB0B1A1AAA7A00B2F287 /* SkinnyZombie.h */,
 				3AE3FB0C1A1AAA7A00B2F287 /* SkinnyZombie.m */,
 			);
@@ -261,6 +269,8 @@
 				3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */,
 				3A0F16E01A2068430085C8A0 /* GroundLine.h */,
 				3A0F16E11A2068430085C8A0 /* GroundLine.m */,
+				3AC0E6A71A2C9A1F00263C6E /* DeathLine.h */,
+				3AC0E6A81A2C9A1F00263C6E /* DeathLine.m */,
 			);
 			name = World;
 			sourceTree = "<group>";
@@ -426,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A4D5F901A2CD3BA00C5D2CF /* Zombie.m in Sources */,
 				3AE3FB171A1AAF3D00B2F287 /* PlayerControl.m in Sources */,
 				3A7462111A286CAD00235972 /* WeaponUnit.m in Sources */,
 				3A1C7D5D1A1919860036F9C7 /* main.m in Sources */,
@@ -439,6 +450,7 @@
 				45F45E7E1A2DAC7E0024A4F5 /* Stage.m in Sources */,
 				3ADECE6E1A19F36100179646 /* Platform.m in Sources */,
 				3AE3FB0F1A1AAA7A00B2F287 /* FatZombie.m in Sources */,
+				3AC0E6A91A2C9A1F00263C6E /* DeathLine.m in Sources */,
 				3AE3FB101A1AAA7A00B2F287 /* Human.m in Sources */,
 				3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */,
 				3A74621C1A2B9B0F00235972 /* RangeWeapon.m in Sources */,

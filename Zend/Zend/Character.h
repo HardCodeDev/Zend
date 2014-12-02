@@ -31,6 +31,8 @@
     BOOL collidingWithTarget;
     
     SKAction *walk;
+    
+    BOOL isReady;
 }
 
 @property CharacterType type;
@@ -46,9 +48,11 @@
 @property BOOL onGround;
 @property BOOL isAlive;
 @property BOOL onAttack;
-@property BOOL collidingWithTarget;
+@property NSInteger groundContacts;
 
 @property SKAction *walk;
+
+@property BOOL isReady;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (id)initWithImageNamed:(NSString *)imageName;
@@ -65,5 +69,13 @@
 - (void)die;
 - (void)applyDamage:(CGFloat)damage;
 - (void)attackTarget:(Character *)character;
+- (void)setCollidingWithTarget:(BOOL)isColliding;
+- (void)beginCollidingWithTarget;
+- (void)endCollidingWithTarget;
+- (void)stopAttack;
+- (SKAction *)getAnimationFromAtlas:(NSString *)atlasName timePerFrame:(CGFloat)time;
+- (void)startWalking;
+- (void)stopWalking;
+- (void)ready;
 
 @end

@@ -10,7 +10,7 @@
 #import "PlatformFactory.h"
 #import "CharacterFactory.h"
 #import "Stage.h"
-
+#import "DeathLine.h"
 
 @interface Level : NSObject {
     NSInteger level;
