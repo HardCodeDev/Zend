@@ -10,6 +10,10 @@
 
 @implementation RangeWeapon
 
+@synthesize shotInterval;
+@synthesize damage;
+@synthesize isReady;
+
 - (id)init {
     
     self = [super init];
