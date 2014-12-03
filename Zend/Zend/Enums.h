@@ -34,4 +34,11 @@ typedef enum {
     MELEE
 } WeaponType;
 
+typedef enum {
+    LAUNCHED = 0,
+    RUNNING,
+    PAUSED,
+    OVER,
+} GameState;
+
 #endif

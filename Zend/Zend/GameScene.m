@@ -24,15 +24,18 @@
 @synthesize controller2;
 
 @synthesize selectedLevel;
-@synthesize gameStarted;
+//@synthesize gameStarted;
 
 @synthesize playersCount;
 @synthesize screenCenter;
 @synthesize screenSize;
 
+@synthesize gameState;
+
 @synthesize welcomeScreen;
 @synthesize startScreen;
 @synthesize pauseScreen;
+@synthesize gameOverScreen;
 
 @synthesize playButton;
 @synthesize continueButton;
@@ -48,7 +51,7 @@
     
     /* INIT BASIC PROPERTIES */
     
-    gameStarted = NO;
+    //gameStarted = NO;
     selectedLevel = 0;
     score = 0;
     
@@ -77,6 +80,11 @@
     pauseScreen.position  = screenCenter;
     pauseScreen.size      = screenSize;
     
+    gameOverScreen = [SKSpriteNode spriteNodeWithImageNamed:@"GameOverScreen"];
+    gameOverScreen.zPosition = 50;
+    gameOverScreen.position  = screenCenter;
+    gameOverScreen.size      = screenSize;
+    
     /* INIT PHYSICS WORLD */
     
     world = [[SKNode alloc] init];
@@ -92,6 +100,7 @@
 }
 
 - (void)didMoveToView:(SKView *)view {
+    
     /* SETUP WELCOME SCREEN */
     
     [self initProperties];
@@ -101,25 +110,71 @@
             
 - (void)showWelcomeScreen {
     
-    SKAction *wait   = [SKAction waitForDuration:5.0f];     // 5 seconds looks good for presentation
-    SKAction *fadeIn = [SKAction fadeOutWithDuration:1.0f]; // and 1 second for this line
+    SKAction *wait    = [SKAction waitForDuration:0.0f];     // 5 seconds looks good for presentation
+    SKAction *fadeOut = [SKAction fadeOutWithDuration:0.0f]; // and 1 second for this line
     
     [self addChild:welcomeScreen];
     [self addChild:startScreen];
     
     [welcomeScreen runAction:wait completion:^{
-        [welcomeScreen runAction:fadeIn];
+        [welcomeScreen runAction:fadeOut];
         playButton = CGRectMake(1275, 30, 140, 50);
         exitButton = CGRectMake(50, 30, 100, 50);
     }];
     
+    gameState = LAUNCHED;
+    
+}
+
+- (void)debugConsole:(NSString *)method at:(NSString *)place withState:(NSInteger)state {
+    NSString *currState = [NSString string];
+    if (state == 0) {
+        currState = @"LAUNCHED";
+    }
+    else if (state == 1) {
+        currState = @"RUNNING";
+    }
+    else if (state == 2) {
+        currState = @"PAUSED";
+    }
+    else if (state == 3) {
+        currState = @"OVER";
+    }
+    else {
+        currState = @"WRONG STATE";
+    }
+    NSLog(@"running [%@] at [%@] with state = %@ (%zd)", method, place, currState, state);
+    NSLog(@" ----------------------------------------------------- ");
 }
 
 - (void)startGame {
     
+    [self debugConsole:@"startGame" at:@"begin" withState:gameState];
+    
     /* INIT CURRENT GAME GENERAL PROPERTIES */
     
-    [self setGameStarted:YES];
+    if (gameState == LAUNCHED) {
+        [startScreen runAction:[SKAction fadeOutWithDuration:0.8f] completion:^{
+            [startScreen removeFromParent];
+        }];
+    }
+    
+    else if (gameState == OVER) {
+        [self addChild:gameOverScreen];
+        [gameOverScreen runAction:[SKAction fadeOutWithDuration:0.8f] completion:^{
+            [gameOverScreen removeFromParent];
+        }];
+    }
+    
+    else if (gameState == PAUSED) {
+        [self addChild:pauseScreen];
+        [pauseScreen runAction:[SKAction fadeOutWithDuration:0.8f] completion:^{
+            [pauseScreen removeFromParent];
+        }];
+    }
+   
+    gameState = RUNNING;
+    
     [self addChild:world];
     [self setScore:0];
     
@@ -209,6 +264,92 @@
     
     [self addChild:scoreLabel];
     
+    [self debugConsole:@"startGame" at:@"end" withState:gameState];
+    
+}
+
+- (void)pauseGame {
+    
+    [self debugConsole:@"pauseGame" at:@"begin" withState:gameState];
+    
+    pauseScreen.alpha = 0.0f;
+    [self addChild:pauseScreen];
+    
+    SKAction *fadeIn     = [SKAction fadeInWithDuration:0.2f];
+    SKAction *pauseScene = [SKAction runBlock:^{self.scene.view.paused = YES;}];
+    
+    SKAction *pauseSequence = [SKAction sequence:@[pauseScene]];
+ 
+    [pauseScreen runAction:fadeIn completion:^{
+        [pauseScreen runAction:pauseSequence];
+    }];
+    
+    gameState = PAUSED;
+    
+    [self debugConsole:@"pauseGame" at:@"end" withState:gameState];
+    
+}
+
+- (void)continueGame {
+    
+    [self debugConsole:@"continueGame" at:@"begin" withState:gameState];
+    
+    self.scene.view.paused = NO;
+    
+    SKAction *fadeOut = [SKAction fadeOutWithDuration:0.2f];
+    
+    [pauseScreen runAction:fadeOut completion:^{
+        [pauseScreen removeFromParent];
+    }];
+    
+    gameState = RUNNING;
+    
+    [self debugConsole:@"continueGame" at:@"end" withState:gameState];
+    
+}
+
+- (void)restartGame {
+    
+    [self debugConsole:@"restartGame" at:@"begin" withState:gameState];
+    
+    [world removeAllChildren];
+    [self removeAllChildren];
+    [self startGame];
+    
+    self.scene.view.paused = NO;
+    
+    [self debugConsole:@"restartGame" at:@"end" withState:gameState];
+    
+}
+
+- (void)gameOver {
+    
+    [self debugConsole:@"gameOver" at:@"begin" withState:gameState];
+    
+    gameOverScreen.alpha = 0.0f;
+    [self addChild:gameOverScreen];
+    
+    SKAction *wait   = [SKAction waitForDuration:1.0f];
+    SKAction *fadeIn = [SKAction fadeInWithDuration:1.0f];
+    
+    SKAction *pauseScene        = [SKAction runBlock:^{self.scene.view.paused = YES;}];
+    SKAction *gameOverSequence  = [SKAction sequence:@[fadeIn, pauseScene]];
+    
+    [gameOverScreen runAction:wait completion:^{
+        [gameOverScreen runAction:fadeIn];
+        [gameOverScreen runAction:gameOverSequence];
+    }];
+    
+    gameState = OVER;
+    
+    [self debugConsole:@"gameOver" at:@"end" withState:gameState];
+    
+}
+
+- (void)exitGame {
+    
+    [[NSApplication sharedApplication] terminate:self];
+    
 }
 
 - (void)updateHud {
@@ -228,48 +369,39 @@
     
 }
 
-- (void)pauseGame {
-    
-    SKAction *pauseAddChildAction = [SKAction runBlock:^{[self addChild:pauseScreen];}];
-    SKAction *pauseSceneAction = [SKAction runBlock:^{self.scene.view.paused = YES;}];
-    SKAction *pauseSequence = [SKAction sequence:@[pauseAddChildAction, pauseSceneAction]];
-    
-    //[self runAction:[SKAction scaleTo:1 duration:0.0f]]; // not required
-    [self runAction:pauseSequence];
-    
-}
-
-- (void)continueGame {
-    
-    [pauseScreen removeFromParent];
-    self.scene.view.paused = NO;
-    
-}
-
-- (void)restartGame {
-    
-    [world removeAllChildren];
-    [self removeAllChildren];
-    [self startGame];
-    
-    self.scene.view.paused = NO;
-    
-}
-
-- (void)exitGame {
-    
-    [[NSApplication sharedApplication] terminate:self];
-    
-}
-
 - (void)mouseDown:(NSEvent *)theEvent {
 
     CGPoint clickPosition = [theEvent locationInNode:world];
     CGPoint menuClick     = [theEvent locationInNode:self];
     
+    /* CHECK CLICKS ON START SCREEN */
+    
+    if (gameState == LAUNCHED) {
+        if (CGRectContainsPoint(playButton, menuClick)) {
+            [welcomeScreen removeFromParent];
+            [self startGame];
+        }
+        else if (CGRectContainsPoint(exitButton, menuClick)) {
+            [self exitGame];
+        }
+    }
+    
+    /* CHECK CLICKS DURING GAME PROCESS */
+    
+    else if (gameState == RUNNING) {
+        Character *zombie;
+        if(clickPosition.x > self.frame.size.width / 2) {
+            zombie = [cFactory createCharacter:SZOMBIE atPosition:clickPosition];
+        }
+        else {
+            zombie = [cFactory createCharacter:FZOMBIE atPosition:clickPosition];
+        }
+        [world addChild:zombie];
+    }
+    
     /* CHECK CLICKS ON PAUSE SCREEN */
     
-    if (self.scene.view.paused) {
+    else if (gameState == PAUSED) {
         if (CGRectContainsPoint(continueButton, menuClick)) {
             [self continueGame];
         }
@@ -281,26 +413,9 @@
         }
     }
     
-    /* CHECK CLICKS DURING GAME PROCESS */
-    
-    else if (gameStarted) {
-        Character *zombie;
-        if(clickPosition.x > self.frame.size.width / 2) {
-            zombie = [cFactory createCharacter:SZOMBIE atPosition:clickPosition];
-        }
-        else {
-            zombie = [cFactory createCharacter:FZOMBIE atPosition:clickPosition];
-        }
-        [world addChild:zombie];
-    }
-    
-    /* CHECK CLICKS ON START SCREEN */
-    
-    else {
-        if (CGRectContainsPoint(playButton, menuClick)) {
-            [startScreen removeFromParent];
-            [welcomeScreen removeFromParent];
-            [self startGame];
+    else if (gameState == OVER) {
+        if (CGRectContainsPoint(restartButton, menuClick)) {
+            [self restartGame];
         }
         else if (CGRectContainsPoint(exitButton, menuClick)) {
             [self exitGame];
@@ -311,7 +426,7 @@
 
 - (void)didSimulatePhysics {
     
-    if (!gameStarted) {
+    if (gameState != RUNNING) {
         return;
     }
     
@@ -388,8 +503,12 @@
     
     /* CHECK ESC BUTTON PRESSED */
     
-    if (gameStarted == YES && self.scene.view.paused == NO && code == 27) {
+    if (gameState == RUNNING && code == 27) {
         [self pauseGame];
+        return;
+    }
+    else if (gameState == PAUSED && code == 27) {
+        [self continueGame];
         return;
     }
     
@@ -410,6 +529,12 @@
          || (controller2.playerChar.position.x >= nextStage.position)) {
             [level createNextPackOfZombiesOn:world];
         };
+    }
+    
+    /* CHECK GAME IS OVER */
+    
+    if (gameState == RUNNING && !controller1.playerChar.isAlive && !controller2.playerChar.isAlive) {
+        [self gameOver];
     }
     
     /* ?????????????????????? */

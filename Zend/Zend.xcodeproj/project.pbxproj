@@ -56,6 +56,7 @@
 		45B66A801A2E4F000078C5F5 /* HealthBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A6A1A2E4F000078C5F5 /* HealthBar.png */; };
 		45B66A811A2E4F000078C5F5 /* SkinnyZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A6B1A2E4F000078C5F5 /* SkinnyZombie.png */; };
 		45B66A821A2E4F000078C5F5 /* Worker.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A6C1A2E4F000078C5F5 /* Worker.png */; };
+		45E226FB1A2F57A000D0A951 /* GameOverScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E226FA1A2F57A000D0A951 /* GameOverScreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		45B66A6A1A2E4F000078C5F5 /* HealthBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HealthBar.png; sourceTree = "<group>"; };
 		45B66A6B1A2E4F000078C5F5 /* SkinnyZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SkinnyZombie.png; sourceTree = "<group>"; };
 		45B66A6C1A2E4F000078C5F5 /* Worker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Worker.png; sourceTree = "<group>"; };
+		45E226FA1A2F57A000D0A951 /* GameOverScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOverScreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +348,7 @@
 		45B66A5D1A2E4F000078C5F5 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				45E226FA1A2F57A000D0A951 /* GameOverScreen.png */,
 				45B66A5E1A2E4F000078C5F5 /* PauseScreen.png */,
 				45B66A5F1A2E4F000078C5F5 /* StartScreen.png */,
 				45B66A601A2E4F000078C5F5 /* WelcomeScreen.png */,
@@ -471,6 +474,7 @@
 				45B66A781A2E4F000078C5F5 /* BoyCharacter.png in Resources */,
 				45B66A7C1A2E4F000078C5F5 /* FatZombie.png in Resources */,
 				45B66A7A1A2E4F000078C5F5 /* Cat.png in Resources */,
+				45E226FB1A2F57A000D0A951 /* GameOverScreen.png in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
 				45B66A801A2E4F000078C5F5 /* HealthBar.png in Resources */,
 				3A74620E1A28688A00235972 /* Levels in Resources */,

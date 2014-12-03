@@ -44,16 +44,19 @@
 
 @property NSUInteger playersCount;
 @property NSInteger  selectedLevel;
-@property BOOL       gameStarted;
+//@property BOOL       gameStarted;
 
 @property CGPoint screenCenter;
 @property CGSize  screenSize;
 
 /* MENU ELEMENTS */
 
+@property NSUInteger gameState;
+
 @property SKSpriteNode *welcomeScreen;
 @property SKSpriteNode *startScreen;
 @property SKSpriteNode *pauseScreen;
+@property SKSpriteNode *gameOverScreen;
 
 @property CGRect playButton;
 @property CGRect continueButton;
@@ -74,6 +77,7 @@
 - (void)pauseGame;
 - (void)continueGame;
 - (void)restartGame;
+- (void)gameOver;
 - (void)exitGame;
 
 - (void)updateHud;
