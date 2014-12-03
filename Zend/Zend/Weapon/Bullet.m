@@ -13,7 +13,6 @@
 @synthesize damage;
 
 - (id)initWithImageNamed:(NSString *)imageName {
-    
     self = [super initWithImageNamed:imageName];
     if (self) {
         self.name   = @"Bullet";
@@ -27,7 +26,6 @@
         self.zPosition = 30;
     }
     return self;
-    
 }
 
 - (CGFloat)getDamage {

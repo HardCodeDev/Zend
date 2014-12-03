@@ -101,8 +101,8 @@
             
 - (void)showWelcomeScreen {
     
-    SKAction *wait   = [SKAction waitForDuration:0.0f];     // 5 seconds looks good for presentation
-    SKAction *fadeIn = [SKAction fadeOutWithDuration:0.0f]; // and 1 second for this line
+    SKAction *wait   = [SKAction waitForDuration:5.0f];     // 5 seconds looks good for presentation
+    SKAction *fadeIn = [SKAction fadeOutWithDuration:1.0f]; // and 1 second for this line
     
     [self addChild:welcomeScreen];
     [self addChild:startScreen];
