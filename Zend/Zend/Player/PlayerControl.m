@@ -13,6 +13,7 @@
 @synthesize playerChar;
 
 - (id)init {
+    
     self = [super init];
     if (self) {
         leftKeyPressed = 0;
@@ -21,9 +22,11 @@
         keySet = 0;
     }
     return self;
+    
 }
 
 - (void)setKeySet:(NSUInteger)keyS {
+    
     keySet = keyS;
     if(keyS == 0) {
         keys[up]    = 'w';
@@ -39,6 +42,7 @@
         keys[right] = NSRightArrowFunctionKey;
         keys[fire]  = '.';
     }
+    
 }
 
 - (void)setPosition:(CGPoint)position {
@@ -50,6 +54,7 @@
 }
 
 - (void)keyUp:(NSString * const)characters {
+    
     for (int s = 0; s < [characters length]; s++) {
         unichar character = [characters characterAtIndex:s];
         if (character == keys[up]) {
@@ -81,9 +86,11 @@
             [playerChar setOnAttack:NO];
         }
     }
+    
 }
             
 - (void)keyDown:(NSString * const)characters {
+    
     for (int s = 0; s < [characters length]; s++) {
         unichar character = [characters characterAtIndex:s];
         if (character == keys[left]) {
@@ -106,6 +113,7 @@
             [playerChar setOnAttack:YES];
         }
     }
+    
 }
 
 @end

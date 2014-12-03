@@ -11,6 +11,7 @@
 @implementation GroundLine
 
 - (id)initFromRectWithWidth:(CGFloat)width height:(CGFloat)height {
+    
     self = [super init];
     if(self) {
         CGFloat edgeShift = 16;
@@ -30,6 +31,7 @@
         self.physicsBody.contactTestBitMask = HUMAN | ZOMBIE;
     }
     return self;
+    
 }
 
 @end

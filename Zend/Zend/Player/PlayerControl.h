@@ -14,10 +14,11 @@ typedef enum {
 } KeySet;
 
 @interface PlayerControl : NSObject {
-    Character *playerChar;
+    
     BOOL leftKeyPressed, rightKeyPressed, readyToJump;
     NSUInteger keySet;
     int keys[10];
+    
 }
 
 @property Character *playerChar;

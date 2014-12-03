@@ -11,15 +11,18 @@
 @implementation MeleeWeapon
 
 - (id)init {
+    
     self = [super init];
     if (self) {
         shotInterval = 1;
         damage = 1;
     }
     return self;
+    
 }
 
 - (CGFloat)fire {
+    
     if (!isReady) {
         return 0;
     }
@@ -29,6 +32,7 @@
                                           [SKAction runBlock:^{isReady = YES;}]
                                           ]]];
     return damage;
+    
 }
 
 @end

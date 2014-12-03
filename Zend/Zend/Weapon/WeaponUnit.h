@@ -9,11 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "Bullet.h"
 
-@interface WeaponUnit : SKNode {
-    NSInteger damage;
-    CGFloat shotInterval;
-    BOOL isReady;
-}
+@interface WeaponUnit : SKNode
 
 @property NSInteger damage;
 @property CGFloat   shotInterval;

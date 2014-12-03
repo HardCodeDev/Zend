@@ -11,14 +11,17 @@
 @implementation Human
 
 - (id)init {
+    
     self = [super init];
     if (self) {
         self.walk = [self getAnimationFromAtlas:@"GrandmaWalk" timePerFrame:0.04f];
     }
     return self;
+    
 }
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
+    
     Character *newHuman;
     
     /*if (cType == PLAYER) {
@@ -42,17 +45,18 @@
     newHuman.zPosition = 20;
     newHuman.health = 5;
     
-    // init atlas
-    
     return newHuman;
+    
 }
 
 
 - (void)initPhysicsBody {
+    
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask    = HUMAN;
     self.physicsBody.collisionBitMask   = PLATFORM | DYNAMIC_PLATFORM;
     self.physicsBody.contactTestBitMask = GROUND | PLATFORM | DYNAMIC_PLATFORM | ZOMBIE;
+    
 }
 - (void) update {
     [super update];

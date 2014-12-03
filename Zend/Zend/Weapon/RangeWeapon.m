@@ -11,33 +11,40 @@
 @implementation RangeWeapon
 
 - (id)init {
+    
     self = [super init];
     if (self) {
         shotInterval = 0.004;
         damage = 2;
     }
     return self;
+    
 }
 
 - (CGFloat)fire {
+    
     if (!isReady) {
         return 0;
     }
+    
     SKNode *node = self.parent;
     for (int i = 0; node && i < 2; ++i) {
         node = node.parent;
     }
+    
     if (!node) {
         return 0;
     }
-    Bullet *bullet = [[Bullet alloc] initWithImageNamed:@"Cat"];
     
+    Bullet *bullet = [[Bullet alloc] initWithImageNamed:@"Cat"];
     bullet.position = [node convertPoint:self.position fromNode:self];
     bullet.damage = damage;
+    
     SKNode *owner = self.parent.parent;
     NSInteger dir;
     CGFloat xShift = 8;
     CGFloat yShift = 38;
+    
     if (owner.xScale < 0) {
         dir = -1;
         bullet.position = CGPointMake(bullet.position.x - owner.frame.size.width / 2 - xShift,
@@ -56,6 +63,7 @@
                                           [SKAction runBlock:^{isReady = YES;}]
                                           ]]];
     return 0;
+    
 }
 
 @end

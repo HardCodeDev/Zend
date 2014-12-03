@@ -10,8 +10,9 @@
 #import "Enums.h"
 
 @interface Bullet : SKSpriteNode {
-    CGFloat damage;
+    
     CGFloat speed;
+    
 }
 
 @property CGFloat damage;

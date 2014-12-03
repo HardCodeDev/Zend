@@ -11,14 +11,18 @@
 @implementation Character
 
 @synthesize type;
+
 @synthesize speedX, speedY;
 @synthesize runSpeed, jumpSpeed;
+
 @synthesize platform;
 @synthesize onGround;
 @synthesize weapon;
 @synthesize health;
+
 @synthesize isAlive;
 @synthesize onAttack;
+
 @synthesize target;
 @synthesize groundContacts;
 @synthesize walk;
@@ -29,6 +33,7 @@
 }
 
 - (void)initPhysicsBody {
+    
     CGFloat height = self.frame.size.height;
     CGFloat width  = height / 3;
     CGMutablePathRef path = CGPathCreateMutable();
@@ -45,9 +50,11 @@
     self.physicsBody.friction = 0.0;
     self.physicsBody.allowsRotation = NO;
     self.physicsBody.dynamic = YES;
+    
 }
 
 -(id)initWithImageNamed:(NSString *)imageName {
+    
     self = [super initWithImageNamed:imageName];
     if (self) {
         self.name   = @"Character";
@@ -67,9 +74,11 @@
         isReady = YES;
     }
     return self;
+    
 }
 
 - (void)update {
+    
     if (onAttack) {
         [self fire];
     }
@@ -99,6 +108,7 @@
 }
 
 - (void)run {
+    
     if (!isAlive || !isReady) {
         return;
     }
@@ -107,9 +117,11 @@
     }
     isRunning = YES;
     speedX = runSpeed * direction;
+    
 }
 
 - (void)stop {
+    
     if (!isAlive) {
         return;
     }
@@ -119,9 +131,11 @@
     isRunning = NO;
     speedX = 0;
     self.physicsBody.velocity = CGVectorMake(0, self.physicsBody.velocity.dy);
+    
 }
 
 - (void)jump {
+    
     if (!isAlive) {
         return;
     }
@@ -129,6 +143,7 @@
         self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, self.jumpSpeed);
         groundContacts = 1;
     }
+    
 }
 
 - (NSInteger)getDirection {
@@ -136,6 +151,7 @@
 }
 
 - (void)setDirection:(NSInteger)dir {
+    
     if (!isAlive) {
         return;
     }
@@ -146,23 +162,29 @@
     if ((dir > 0 && self.xScale < 0) || (dir < 0 && self.xScale > 0)) {
             self.xScale *= -1;
     }
+    
 }
 
 - (void)incGroundContacts {
+    
     ++groundContacts;
     onGround = YES;
     //self.physicsBody.affectedByGravity = NO;
+    
 }
 
 - (void)decGroundContacts {
+    
     --groundContacts;
     if(groundContacts <= 0) {
         onGround = NO;
         //self.physicsBody.affectedByGravity = YES;
     }
+    
 }
 
 - (void)fire {
+    
     if (!isAlive) {
         return;
     }
@@ -173,9 +195,11 @@
             [self stopAttack];
         }
     }
+    
 }
 
 - (void)die {
+    
     health = 0;
     [self stop];
     isAlive = NO;
@@ -193,9 +217,11 @@
                                            [SKAction runBlock:^{[self removeFromParent];}]
                                            ]];
     [self runAction:dying];
+    
 }
 
 - (void)applyDamage:(CGFloat)damage {
+    
     if (!isAlive) {
         return;
     }
@@ -212,19 +238,28 @@
         health = 0;
         [self die];
     }
+    
 }
 
 - (void)attackTarget:(Character *)character {
+    
     target = character;
     onAttack = YES;
     [self run];
+    
 }
 
 - (void)stopAttack {
+    
     target = nil;
     onAttack = NO;
     [self endCollidingWithTarget];
     [self stop];
+    
+}
+
+- (void)setCollidingWithTarget:(BOOL)isColliding {
+    return;
 }
 
 - (void)beginCollidingWithTarget {
@@ -240,6 +275,7 @@
 }
 
 - (SKAction *)getAnimationFromAtlas:(NSString *)atlasName timePerFrame:(CGFloat)time {
+    
     NSMutableArray *walkFrames = [NSMutableArray array];
     SKTextureAtlas *animatedAtlas = [SKTextureAtlas atlasNamed:atlasName];
     NSArray *textureNames = [animatedAtlas textureNames];

@@ -9,15 +9,17 @@
 #import "Platform.h"
 
 @interface DynamicPlatform : Platform {
-    CGPoint beginPoint, endPoint;
-    CGFloat speed;
+    
     CGFloat speedX, speedY;
-    BOOL isMovingForward, isInCheckpoint;
+    
 }
 
-@property CGPoint beginPoint, endPoint;
+@property CGPoint beginPoint;
+@property CGPoint endPoint;
 @property CGFloat speed;
-@property BOOL isMovingForward, isInCheckpoint;
+
+@property BOOL    isMovingForward;
+@property BOOL    isInCheckpoint;
 
 + (instancetype)platformWithImageNamed:(NSString *)imageName;
 - (void)initPhysicsBody;

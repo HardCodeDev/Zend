@@ -11,7 +11,9 @@
 #import "GroundLine.h"
 
 @interface Platform : SKSpriteNode {
+    
     GroundLine *ground;
+    
 }
 
 + (instancetype)platformWithImageNamed:(NSString *)imageName;

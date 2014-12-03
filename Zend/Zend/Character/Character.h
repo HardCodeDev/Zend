@@ -12,7 +12,10 @@
 #import "Enums.h"
 
 @interface Character : SKSpriteNode {
+    
     CharacterType type;
+    
+    SKAction *walk;
     
     Character *target;
     Weapon    *weapon;
@@ -30,9 +33,8 @@
     BOOL onAttack;
     BOOL collidingWithTarget;
     
-    SKAction *walk;
-    
     BOOL isReady;
+    
 }
 
 @property CharacterType type;
@@ -55,25 +57,32 @@
 @property BOOL isReady;
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
+- (SKAction *)getAnimationFromAtlas:(NSString *)atlasName timePerFrame:(CGFloat)time;
 - (id)initWithImageNamed:(NSString *)imageName;
 - (void)initPhysicsBody;
+
 - (void)update;
 - (void)run;
 - (void)stop;
 - (void)jump;
+
 - (NSInteger)getDirection;
 - (void)setDirection:(NSInteger)dir;
+
 - (void)incGroundContacts;
 - (void)decGroundContacts;
+
 - (void)fire;
 - (void)die;
 - (void)applyDamage:(CGFloat)damage;
 - (void)attackTarget:(Character *)character;
+
 - (void)setCollidingWithTarget:(BOOL)isColliding;
 - (void)beginCollidingWithTarget;
 - (void)endCollidingWithTarget;
+
 - (void)stopAttack;
-- (SKAction *)getAnimationFromAtlas:(NSString *)atlasName timePerFrame:(CGFloat)time;
+
 - (void)startWalking;
 - (void)stopWalking;
 - (void)ready;

@@ -10,21 +10,28 @@
 
 @implementation DynamicPlatform
 
-@synthesize beginPoint, endPoint;
+@synthesize beginPoint;
+@synthesize endPoint;
 @synthesize speed;
-@synthesize isMovingForward, isInCheckpoint;
+
+@synthesize isMovingForward;
+@synthesize isInCheckpoint;
 
 + (instancetype)platformWithImageNamed:(NSString *)imageName {
+    
     DynamicPlatform *platform = [[DynamicPlatform alloc] initWithImageNamed:imageName];
     platform.isMovingForward = YES;
     platform.isInCheckpoint = YES;
     platform.name = @"DynamicPlatform";
     [platform initGroundLine];
     return platform;
+    
 }
 - (void)initPhysicsBody {
+    
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask = DYNAMIC_PLATFORM;
+    
 }
 
 - (void)update {
@@ -57,6 +64,7 @@
                                                  (self.beginPoint.y - self.endPoint.y) * self.speed);
     }
     ground.physicsBody.velocity = self.physicsBody.velocity;
+    
 }
 
 @end

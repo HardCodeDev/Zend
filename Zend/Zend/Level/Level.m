@@ -16,13 +16,16 @@
 @synthesize stagesExist;
 
 - (id)initWithLevel:(NSInteger)selectedLevel {
+    
     self = [super init];
     if (self) {
         level = selectedLevel;
+        
         NSBundle *bundle = [NSBundle mainBundle];
         pathToLevels = bundle.resourcePath;
         pathToLevels = [pathToLevels stringByAppendingString:@"/Levels/Level"];
         pathToLevels = [pathToLevels stringByAppendingString:[@(level) stringValue]];
+        
         platforms = [NSMutableArray array];
         zombies   = [NSMutableArray array];
         stages    = [NSMutableArray array];
@@ -38,6 +41,7 @@
 }
 
 - (void)loadPlatforms {
+    
     NSError  *error;
     NSString *path = [pathToLevels stringByAppendingString:@"/platforms.json"];
     NSURL    *url = [NSURL fileURLWithPath:path];
@@ -46,7 +50,7 @@
                                                                      options:0
                                                                        error:&error];
     if (jsonPlatformsDict) {
-        NSString *type, *texture; //*action;
+        NSString *type, *texture; // add action
         CGFloat positionX, positionY, endPositionX, endPositionY;
         CGFloat angle, speed;
         for (id platformsDict in [jsonPlatformsDict objectForKey:@"platforms"]) {
@@ -80,9 +84,11 @@
     else {
         NSLog(@"Error from reading platforms data.");
     }
+    
 }
 
 - (void)loadZombies {
+    
     NSError  *error;
     NSString *path = [pathToLevels stringByAppendingString:@"/zombies.json"];
     NSURL    *url = [NSURL fileURLWithPath:path];
@@ -110,9 +116,11 @@
     else {
         NSLog(@"Error from reading zombies data.");
     }
+    
 }
 
 - (void)loadStages {
+    
     NSError  *error;
     NSString *path = [pathToLevels stringByAppendingString:@"/stages.json"];
     NSURL    *url = [NSURL fileURLWithPath:path];
@@ -133,20 +141,25 @@
     else {
         NSLog(@"Error from reading stages data.");
     }
+    
 }
 
 - (void)buildOn:(SKNode *)node {
+    
     [self loadPlatforms];
     [self loadZombies];
     [self loadStages];
     
     [self createPlatformsOn:node];
+    
 }
 
 - (void)createPlatformsOn:(SKNode *)node {
+    
     for (id platform in platforms) {
         [node addChild:platform];
     }
+    
 }
 
 - (void)createNextPackOfZombiesOn:(SKNode *)node {
@@ -161,6 +174,7 @@
     if (currentStage >= stages.count) {
         stagesExist = NO;
     }
+    
 }
 
 @end

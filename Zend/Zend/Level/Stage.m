@@ -14,12 +14,14 @@
 @synthesize amountOfZombies;
 
 - (id)initAtPosition:(CGFloat)pos withAmount:(NSInteger)amount {
+    
     self = [super init];
     if (self) {
         position = pos;
         amountOfZombies = amount;
     }
     return self;
+    
 }
 
 @end

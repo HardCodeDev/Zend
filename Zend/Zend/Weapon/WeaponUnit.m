@@ -15,12 +15,14 @@
 @synthesize isReady;
 
 - (id)init {
+    
     self = [super init];
     if (self) {
         isReady = YES;
         damage = 1;
     }
     return self;
+    
 }
 
 - (CGFloat)fire {

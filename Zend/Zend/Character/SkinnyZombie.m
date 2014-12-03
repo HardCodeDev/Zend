@@ -13,6 +13,7 @@
 @synthesize isAwakening;
 
 - (id)init {
+    
     self = [super init];
     if (self) {
         self.beginWalk = [self getAnimationFromAtlas:@"WorkerBeginWalk" timePerFrame:0.04f];
@@ -21,9 +22,11 @@
         //self.fight = nil;
     }
     return self;
+    
 }
 
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
+    
     SkinnyZombie *newSkinnyZombie = [[SkinnyZombie alloc] initWithImageNamed:@"Worker.png"];
     //newSkinnyZombie.scale = 0.2;
     [newSkinnyZombie initPhysicsBody];
@@ -41,15 +44,18 @@
     newSkinnyZombie.isReady = NO;
     newSkinnyZombie.isAwakening = NO;
     return newSkinnyZombie;
+    
 }
 
 - (void)initPhysicsBody {
+    
     [super initPhysicsBody];
     self.physicsBody.categoryBitMask    = ZOMBIE;
     self.physicsBody.collisionBitMask   = PLATFORM | DYNAMIC_PLATFORM;
     self.physicsBody.contactTestBitMask = GROUND | PLATFORM | DYNAMIC_PLATFORM | HUMAN | ZOMBIE;
     self.physicsBody.friction = 0;
     self.physicsBody.mass     = 1;
+    
 }
 
 - (void)update {
@@ -60,6 +66,7 @@
 }
 
 - (void)awakening {
+    
     isAwakening = YES;
     if (handsUp) {
         [self runAction:[SKAction sequence:@[
@@ -71,6 +78,7 @@
 
 
 - (void)startWalking {
+    
     if (beginWalk && walk) {
     [self runAction:[SKAction sequence:@[
                                          beginWalk,

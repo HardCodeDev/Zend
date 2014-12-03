@@ -13,6 +13,7 @@
 @synthesize firstGun;
 
 - (id)init {
+    
     self = [super init];
     if (self) {
         firstGun = nil;
@@ -20,9 +21,11 @@
         count = 0;
     }
     return self;
+    
 }
 
 - (CGFloat)fire {
+    
     CGFloat damage = 0;
     if (firstGun) {
         damage += [firstGun fire];
@@ -31,9 +34,11 @@
         damage += [secondGun fire];
     }
     return damage;
+    
 }
 
 - (void)setFirstSlotWeaponType:(WeaponType)wType {
+    
     if (wType == PISTOL) {
         firstGun = [[RangeWeapon alloc] init];
     }
@@ -41,6 +46,7 @@
         firstGun = [[MeleeWeapon alloc] init];
     }
     [self addChild:firstGun];
+    
 }
 
 @end

@@ -22,12 +22,12 @@
 #define HEALTH_BAR_2_DEFAULT_POSITION_X 1300
 #define HEALTH_BAR_DEFAULT_POSITION_Y   screenSize.height - hud.size.height + hud.size.height / 2
 
-#define SCORE_LABEL_DEFAULT_POSITION_X screenSize.width / 2
-#define SCORE_LABEL_DEFAULT_POSITION_Y screenSize.height - hud.size.height / 2 - 11
+#define SCORE_LABEL_DEFAULT_POSITION_X  screenSize.width / 2
+#define SCORE_LABEL_DEFAULT_POSITION_Y  screenSize.height - hud.size.height / 2 - 11
 
-#define HUD_LABEL_1_DEFAULT_POSITION_X 65
-#define HUD_LABEL_2_DEFAULT_POSITION_X 1375
-#define HUD_LABEL_DEFAULT_POSITION_Y   screenSize.height - hud.size.height + 15
+#define HUD_LABEL_1_DEFAULT_POSITION_X   65
+#define HUD_LABEL_2_DEFAULT_POSITION_X   1375
+#define HUD_LABEL_DEFAULT_POSITION_Y     screenSize.height - hud.size.height + 15
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate>
 

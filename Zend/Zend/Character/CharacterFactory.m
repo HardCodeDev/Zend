@@ -13,6 +13,7 @@
 @implementation CharacterFactory
 
 - (id)init {
+    
     self = [super init];
     if (self) {
         Human *baseHuman = [[Human alloc] init];
@@ -21,6 +22,7 @@
         prototypes = [NSArray arrayWithObjects:baseHuman, baseSkinnyZombie, baseFatZombie, nil];
     }
     return self;
+    
 }
 
 - (Character *)createCharacter:(CharacterType)cType atPosition:(CGPoint)position {

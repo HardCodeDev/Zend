@@ -13,10 +13,11 @@
 #import "Enums.h"
 
 @interface Weapon : SKNode {
+    
     NSUInteger count;
-    WeaponUnit *firstGun;
     WeaponUnit *secondGun;
     SKNode *world;
+    
 }
 
 @property WeaponUnit *firstGun;

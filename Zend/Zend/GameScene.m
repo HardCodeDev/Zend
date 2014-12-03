@@ -92,14 +92,17 @@
 }
 
 - (void)didMoveToView:(SKView *)view {
-    /* Setup menu screen */
+    /* SETUP WELCOME SCREEN */
+    
     [self initProperties];
     [self showWelcomeScreen];
+    
 }
             
 - (void)showWelcomeScreen {
-    SKAction *wait   = [SKAction waitForDuration:5.0f]; // 7
-    SKAction *fadeIn = [SKAction fadeOutWithDuration:1.0f]; // 1
+    
+    SKAction *wait   = [SKAction waitForDuration:0.0f];     // 5 seconds looks good for presentation
+    SKAction *fadeIn = [SKAction fadeOutWithDuration:0.0f]; // and 1 second for this line
     
     [self addChild:welcomeScreen];
     [self addChild:startScreen];
@@ -109,9 +112,12 @@
         playButton = CGRectMake(1275, 30, 140, 50);
         exitButton = CGRectMake(50, 30, 100, 50);
     }];
+    
 }
 
 - (void)startGame {
+    
+    /* INIT CURRENT GAME GENERAL PROPERTIES */
     
     [self setGameStarted:YES];
     [self addChild:world];
@@ -206,6 +212,7 @@
 }
 
 - (void)updateHud {
+    
     CGFloat player1HealthRatio = controller1.playerChar.health / FULL_HEALTH;
     CGFloat player2HealthRatio = controller2.playerChar.health / FULL_HEALTH;
     
@@ -218,38 +225,49 @@
                                             HEALTH_BAR_DEFAULT_POSITION_Y);
     
     scoreLabel.text = [NSString stringWithFormat:@"%zd", score];
+    
 }
 
 - (void)pauseGame {
+    
     SKAction *pauseAddChildAction = [SKAction runBlock:^{[self addChild:pauseScreen];}];
     SKAction *pauseSceneAction = [SKAction runBlock:^{self.scene.view.paused = YES;}];
     SKAction *pauseSequence = [SKAction sequence:@[pauseAddChildAction, pauseSceneAction]];
     
-    [self runAction:[SKAction scaleTo:1 duration:0.0f]];
+    //[self runAction:[SKAction scaleTo:1 duration:0.0f]]; // not required
     [self runAction:pauseSequence];
+    
 }
 
 - (void)continueGame {
+    
     [pauseScreen removeFromParent];
     self.scene.view.paused = NO;
+    
 }
 
 - (void)restartGame {
+    
     [world removeAllChildren];
     [self removeAllChildren];
     [self startGame];
     
     self.scene.view.paused = NO;
+    
 }
 
 - (void)exitGame {
+    
     [[NSApplication sharedApplication] terminate:self];
+    
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
-     /* Called when a mouse click occurs */
+
     CGPoint clickPosition = [theEvent locationInNode:world];
     CGPoint menuClick     = [theEvent locationInNode:self];
+    
+    /* CHECK CLICKS ON PAUSE SCREEN */
     
     if (self.scene.view.paused) {
         if (CGRectContainsPoint(continueButton, menuClick)) {
@@ -263,6 +281,8 @@
         }
     }
     
+    /* CHECK CLICKS DURING GAME PROCESS */
+    
     else if (gameStarted) {
         Character *zombie;
         if(clickPosition.x > self.frame.size.width / 2) {
@@ -274,6 +294,8 @@
         [world addChild:zombie];
     }
     
+    /* CHECK CLICKS ON START SCREEN */
+    
     else {
         if (CGRectContainsPoint(playButton, menuClick)) {
             [startScreen removeFromParent];
@@ -284,9 +306,11 @@
             [self exitGame];
         }
     }
+    
 }
 
 - (void)didSimulatePhysics {
+    
     if (!gameStarted) {
         return;
     }
@@ -348,28 +372,34 @@
 }
 
 - (void)keyUp:(NSEvent *)theEvent {
+    
     NSString * const character = [theEvent charactersIgnoringModifiers];
-    //unichar    const code      = [character characterAtIndex:0];
+    //unichar    const code      = [character characterAtIndex:0]; // for what?
     
     [controller1 keyUp:character];
     [controller2 keyUp:character];
+    
 }
 
 - (void)keyDown:(NSEvent *)theEvent {
+    
     NSString * const character = [theEvent charactersIgnoringModifiers];
     unichar    const code      = [character characterAtIndex:0];
     
-    if (gameStarted == YES && self.scene.view.paused == NO && code == 27) { // ESC button
+    /* CHECK ESC BUTTON PRESSED */
+    
+    if (gameStarted == YES && self.scene.view.paused == NO && code == 27) {
         [self pauseGame];
         return;
     }
     
     [controller1 keyDown:character];
     [controller2 keyDown:character];
+    
 }
 
 - (void)update:(CFTimeInterval)currentTime {
-    /* Called before each frame is rendered */
+    
     [self updateHud];
     
     /* CHECK STAGES CONTACT */
@@ -381,6 +411,8 @@
             [level createNextPackOfZombiesOn:world];
         };
     }
+    
+    /* ?????????????????????? */
     
     NSArray *worldChilds = [world children];
     
@@ -419,9 +451,13 @@
             }
         }
     }
+    
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact {
+    
+    /* MAKE CONTACTING OBJECTS ORDERED */
+    
     SKPhysicsBody *firstBody, *secondBody;
     if (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
         firstBody = contact.bodyB;
@@ -435,6 +471,8 @@
 #ifdef SHOW_DEBUG_INFO
     NSLog(@"Begin contact: %@ %@", firstBody.node.className, secondBody.node.className);
 #endif
+    
+    /* ANALYSE CONTACTING OBJECTS */
     
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
     
@@ -481,9 +519,11 @@
         Character *character = (Character *)secondBody.node;
         [character die];
     }
+    
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact {
+    
     SKPhysicsBody *firstBody, *secondBody;
     if (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
         firstBody = contact.bodyB;
@@ -519,6 +559,7 @@
         }
         [character decGroundContacts];
     }
+    
 }
 
 @end

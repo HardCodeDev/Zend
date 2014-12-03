@@ -13,6 +13,7 @@
 #import "DeathLine.h"
 
 @interface Level : NSObject {
+    
     NSInteger level;
     NSString  *pathToLevels;
     
@@ -22,6 +23,7 @@
     
     PlatformFactory  *pFactory;
     CharacterFactory *cFactory;
+    
 }
 
 @property NSInteger currentZombie;
