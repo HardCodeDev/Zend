@@ -98,8 +98,8 @@
 }
             
 - (void)showWelcomeScreen {
-    SKAction *wait   = [SKAction waitForDuration:0.0f]; // 7
-    SKAction *fadeIn = [SKAction fadeOutWithDuration:0.0f]; // 1
+    SKAction *wait   = [SKAction waitForDuration:5.0f]; // 7
+    SKAction *fadeIn = [SKAction fadeOutWithDuration:1.0f]; // 1
     
     [self addChild:welcomeScreen];
     [self addChild:startScreen];
@@ -178,12 +178,12 @@
     
     /* CREATE HEALTH BARS */
     
-    healthBarPlayer1 = [SKSpriteNode spriteNodeWithImageNamed:@"LifeBar"];
+    healthBarPlayer1 = [SKSpriteNode spriteNodeWithImageNamed:@"HealthBar"];
     healthBarPlayer1.position = CGPointMake(HEALTH_BAR_1_DEFAULT_POSITION_X,
                                             HEALTH_BAR_DEFAULT_POSITION_Y);
     healthBarPlayer1.zPosition = 41;
     
-    healthBarPlayer2 = [SKSpriteNode spriteNodeWithImageNamed:@"LifeBar"];
+    healthBarPlayer2 = [SKSpriteNode spriteNodeWithImageNamed:@"HealthBar"];
     healthBarPlayer2.position = CGPointMake(HEALTH_BAR_2_DEFAULT_POSITION_X,
                                             HEALTH_BAR_DEFAULT_POSITION_Y);
     healthBarPlayer2.zPosition = 41;
@@ -372,6 +372,16 @@
     /* Called before each frame is rendered */
     [self updateHud];
     
+    /* CHECK STAGES CONTACT */
+    
+    if (level.stagesExist) {
+        Stage *nextStage = [level.stages objectAtIndex:level.currentStage];
+        if ((controller1.playerChar.position.x >= nextStage.position)
+         || (controller2.playerChar.position.x >= nextStage.position)) {
+            [level createNextPackOfZombiesOn:world];
+        };
+    }
+    
     NSArray *worldChilds = [world children];
     
     for (SKNode *node in worldChilds) {
@@ -427,13 +437,6 @@
 #endif
     
     uint32_t contactBitMask = firstBody.categoryBitMask | secondBody.categoryBitMask;
-    
-    /*
-    if ((firstBody.categoryBitMask & HUMAN) && (secondBody.categoryBitMask & STAGE)) {
-        NSLog(@"%@", world);
-        [level createNextPackOfZombiesOn:world fromStage:(Stage *)secondBody.node];
-    }
-     */
     
     if((firstBody.categoryBitMask & DYNAMIC_PLATFORM) && secondBody.categoryBitMask & (CHARACTER | CORPSE)) {
     /*    Character *character = (Character*)secondBody.node;
