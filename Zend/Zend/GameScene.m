@@ -277,14 +277,15 @@
     
     SKAction *fadeIn     = [SKAction fadeInWithDuration:0.2f];
     SKAction *pauseScene = [SKAction runBlock:^{self.scene.view.paused = YES;}];
+    SKAction *switchState = [SKAction runBlock:^{gameState = PAUSED;}];
     
-    SKAction *pauseSequence = [SKAction sequence:@[pauseScene]];
+    SKAction *pauseSequence = [SKAction sequence:@[switchState, pauseScene]];
  
     [pauseScreen runAction:fadeIn completion:^{
         [pauseScreen runAction:pauseSequence];
     }];
     
-    gameState = PAUSED;
+    //gameState = PAUSED;
     
     [self debugConsole:@"pauseGame" at:@"end" withState:gameState];
     
@@ -297,12 +298,15 @@
     self.scene.view.paused = NO;
     
     SKAction *fadeOut = [SKAction fadeOutWithDuration:0.2f];
+    SKAction *switchState = [SKAction runBlock:^{gameState = RUNNING;}];
+    SKAction *switchSequence = [SKAction sequence:@[switchState]];
     
     [pauseScreen runAction:fadeOut completion:^{
         [pauseScreen removeFromParent];
+        [pauseScreen runAction:switchSequence];
     }];
     
-    gameState = RUNNING;
+    //gameState = RUNNING;
     
     [self debugConsole:@"continueGame" at:@"end" withState:gameState];
     
@@ -332,11 +336,10 @@
     SKAction *wait   = [SKAction waitForDuration:1.0f];
     SKAction *fadeIn = [SKAction fadeInWithDuration:1.0f];
     
-    SKAction *pauseScene        = [SKAction runBlock:^{self.scene.view.paused = YES;}];
-    SKAction *gameOverSequence  = [SKAction sequence:@[fadeIn, pauseScene]];
+    SKAction *pauseScene       = [SKAction runBlock:^{self.scene.view.paused = YES;}];
+    SKAction *gameOverSequence = [SKAction sequence:@[fadeIn, pauseScene]];
     
     [gameOverScreen runAction:wait completion:^{
-        [gameOverScreen runAction:fadeIn];
         [gameOverScreen runAction:gameOverSequence];
     }];
     
