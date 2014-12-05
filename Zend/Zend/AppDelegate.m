@@ -38,4 +38,14 @@
     return YES;
 }
 
+- (void)windowDidBecomeMain:(NSNotification *)notification
+{
+    static BOOL shouldGoFullScreen = YES;
+    if (shouldGoFullScreen) {
+        if (!([self.window styleMask] & NSFullScreenWindowMask))
+            [self.window toggleFullScreen:nil];
+        shouldGoFullScreen = NO;
+    }
+}
+
 @end

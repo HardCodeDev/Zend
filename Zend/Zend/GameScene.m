@@ -24,11 +24,12 @@
 @synthesize controller2;
 
 @synthesize selectedLevel;
-//@synthesize gameStarted;
 
 @synthesize playersCount;
 @synthesize screenCenter;
 @synthesize screenSize;
+
+@synthesize musicPlayer;
 
 @synthesize gameState;
 
@@ -51,7 +52,6 @@
     
     /* INIT BASIC PROPERTIES */
     
-    //gameStarted = NO;
     selectedLevel = 0;
     score = 0;
     
@@ -126,31 +126,20 @@
     
 }
 
-- (void)debugConsole:(NSString *)method at:(NSString *)place withState:(NSInteger)state {
-    NSString *currState = [NSString string];
-    if (state == 0) {
-        currState = @"LAUNCHED";
-    }
-    else if (state == 1) {
-        currState = @"RUNNING";
-    }
-    else if (state == 2) {
-        currState = @"PAUSED";
-    }
-    else if (state == 3) {
-        currState = @"OVER";
-    }
-    else {
-        currState = @"WRONG STATE";
-    }
-    NSLog(@"running [%@] at [%@] with state = %@ (%zd)", method, place, currState, state);
-    NSLog(@" ----------------------------------------------------- ");
-}
+
 
 - (void)startGame {
     
     [self debugConsole:@"startGame" at:@"begin" withState:gameState];
     
+    NSError *error;
+    NSURL   *soundURL = [[NSBundle mainBundle] URLForResource:@"EvilOnTheBeach" withExtension:@"mp3"];
+    
+    musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
+    [musicPlayer setVolume:1.0f];
+    [musicPlayer prepareToPlay];
+    [musicPlayer play];
+
     /* INIT CURRENT GAME GENERAL PROPERTIES */
     
     if (gameState == LAUNCHED) {
@@ -275,7 +264,7 @@
     pauseScreen.alpha = 0.0f;
     [self addChild:pauseScreen];
     
-    SKAction *fadeIn     = [SKAction fadeInWithDuration:0.2f];
+    SKAction *fadeIn     = [SKAction fadeInWithDuration:0.1f];
     SKAction *pauseScene = [SKAction runBlock:^{self.scene.view.paused = YES;}];
     SKAction *switchState = [SKAction runBlock:^{gameState = PAUSED;}];
     
@@ -297,7 +286,7 @@
     
     self.scene.view.paused = NO;
     
-    SKAction *fadeOut = [SKAction fadeOutWithDuration:0.2f];
+    SKAction *fadeOut = [SKAction fadeOutWithDuration:0.1f];
     SKAction *switchState = [SKAction runBlock:^{gameState = RUNNING;}];
     SKAction *switchSequence = [SKAction sequence:@[switchState]];
     
@@ -329,6 +318,15 @@
 - (void)gameOver {
     
     [self debugConsole:@"gameOver" at:@"begin" withState:gameState];
+    
+    NSError *error;
+    NSURL   *soundURL = [[NSBundle mainBundle] URLForResource:@"GameOver" withExtension:@"mp3"];
+    
+    [musicPlayer stop];
+    musicPlayer = [musicPlayer initWithContentsOfURL:soundURL error:&error];
+    [musicPlayer setVolume:0.3f];
+    [musicPlayer prepareToPlay];
+    [musicPlayer play];
     
     gameOverScreen.alpha = 0.0f;
     [self addChild:gameOverScreen];
@@ -645,6 +643,9 @@
     }
     else if ((firstBody.categoryBitMask & DEATH_LINE) && (secondBody.categoryBitMask & CHARACTER)) {
         Character *character = (Character *)secondBody.node;
+        if (character.physicsBody.categoryBitMask == HUMAN) {
+            [character runAction:[SKAction playSoundFileNamed:@"HumanFall.wav" waitForCompletion:NO]];
+        }
         [character die];
     }
     
@@ -688,6 +689,27 @@
         [character decGroundContacts];
     }
     
+}
+
+- (void)debugConsole:(NSString *)method at:(NSString *)place withState:(NSInteger)state {
+    NSString *currState = [NSString string];
+    if (state == 0) {
+        currState = @"LAUNCHED";
+    }
+    else if (state == 1) {
+        currState = @"RUNNING";
+    }
+    else if (state == 2) {
+        currState = @"PAUSED";
+    }
+    else if (state == 3) {
+        currState = @"OVER";
+    }
+    else {
+        currState = @"WRONG STATE";
+    }
+    NSLog(@"running [%@] at [%@] with state = %@ (%zd)", method, place, currState, state);
+    NSLog(@" ----------------------------------------------------- ");
 }
 
 @end

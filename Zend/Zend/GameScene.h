@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "PlatformFactory.h"
 #import "CharacterFactory.h"
 #import "PlayerControl.h"
@@ -44,10 +45,11 @@
 
 @property NSUInteger playersCount;
 @property NSInteger  selectedLevel;
-//@property BOOL       gameStarted;
 
 @property CGPoint screenCenter;
 @property CGSize  screenSize;
+
+@property AVAudioPlayer *musicPlayer;
 
 /* MENU ELEMENTS */
 
