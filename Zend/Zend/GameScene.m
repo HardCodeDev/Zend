@@ -104,14 +104,58 @@
     /* SETUP WELCOME SCREEN */
     
     [self initProperties];
-    [self showWelcomeScreen];
     
+    SKSpriteNode *logoBackground = [SKSpriteNode spriteNodeWithImageNamed:@"LogoBackground"];
+    [logoBackground setPosition:screenCenter];
+    [logoBackground setSize:screenSize];
+    [logoBackground setZPosition:90];
+    
+    SKSpriteNode *HardCodeLogo   = [SKSpriteNode spriteNodeWithImageNamed:@"HardCodeLogo"];
+    [HardCodeLogo setPosition:screenCenter];
+    [HardCodeLogo setZPosition:100];
+    [HardCodeLogo setScale:0.8f];
+    
+    SKSpriteNode *SpriteKitLogo  = [SKSpriteNode spriteNodeWithImageNamed:@"SpriteKitLogo"];
+    [SpriteKitLogo setPosition:screenCenter];
+    [SpriteKitLogo setZPosition:100];
+    [SpriteKitLogo setScale:0.8f];
+    
+    SKAction *runHardCode   = [SKAction runBlock:^{
+        [self addChild:HardCodeLogo];
+        [HardCodeLogo runAction:[SKAction scaleTo:1.0f duration:2.0f] completion:^{
+            [HardCodeLogo runAction:[SKAction fadeOutWithDuration:0.2f] completion:^{
+                [HardCodeLogo removeFromParent];
+            }];
+        }];
+    }];
+    
+    SKAction *runSpriteKit = [SKAction runBlock:^{
+        [self addChild:SpriteKitLogo];
+        [SpriteKitLogo runAction:[SKAction scaleTo:1.0f duration:2.0f] completion:^{
+            [SpriteKitLogo runAction:[SKAction fadeOutWithDuration:0.2f] completion:^{
+                [SpriteKitLogo removeFromParent];
+                [logoBackground removeFromParent];
+            }];
+        }];
+    }];
+    
+    [self addChild:logoBackground];
+    [self runAction:runHardCode];
+    [self runAction:[SKAction waitForDuration:2.2f] completion:^{
+        [self runAction:runSpriteKit];
+    }];
+    
+    
+    [self runAction:[SKAction waitForDuration:2.2f] completion:^{
+        [self showWelcomeScreen];
+    }];
+
 }
             
 - (void)showWelcomeScreen {
     
-    SKAction *wait    = [SKAction waitForDuration:0.0f];     // 5 seconds looks good for presentation
-    SKAction *fadeOut = [SKAction fadeOutWithDuration:0.0f]; // and 1 second for this line
+    SKAction *wait    = [SKAction waitForDuration:5.0f];     // 5 seconds looks good for presentation
+    SKAction *fadeOut = [SKAction fadeOutWithDuration:1.0f]; // and 1 second for this line
     
     [self addChild:welcomeScreen];
     [self addChild:startScreen];
@@ -125,8 +169,6 @@
     gameState = LAUNCHED;
     
 }
-
-
 
 - (void)startGame {
     
