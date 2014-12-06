@@ -21,6 +21,9 @@
     
     [[NSApplication sharedApplication] setPresentationOptions:NSFullScreenWindowMask];
     
+    /* Open app on full screen by default */
+    [[_window contentView] enterFullScreenMode:[NSScreen mainScreen] withOptions:nil];
+    
     /* Set the scale mode to scale to fit the window */
     scene.scaleMode = SKSceneScaleModeAspectFit;
     scene.backgroundColor = [SKColor blackColor];
@@ -31,6 +34,8 @@
     
     //self.skView.showsFPS = YES;
     //self.skView.showsNodeCount = YES;
+    //self.skView.showsDrawCount = YES;
+    
     scene.physicsWorld.contactDelegate = (id<SKPhysicsContactDelegate>)scene;
 }
 
