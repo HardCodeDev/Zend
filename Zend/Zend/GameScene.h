@@ -22,12 +22,12 @@
 #define HEALTH_BAR_2_DEFAULT_POSITION_X 1300
 #define HEALTH_BAR_DEFAULT_POSITION_Y   screenSize.height - hud.size.height + hud.size.height / 2
 
-#define SCORE_LABEL_DEFAULT_POSITION_X screenSize.width / 2
-#define SCORE_LABEL_DEFAULT_POSITION_Y screenSize.height - hud.size.height / 2 - 11
+#define SCORE_LABEL_DEFAULT_POSITION_X  screenSize.width / 2
+#define SCORE_LABEL_DEFAULT_POSITION_Y  screenSize.height - hud.size.height / 2 - 11
 
-#define HUD_LABEL_1_DEFAULT_POSITION_X 65
-#define HUD_LABEL_2_DEFAULT_POSITION_X 1375
-#define HUD_LABEL_DEFAULT_POSITION_Y   screenSize.height - hud.size.height + 15
+#define HUD_LABEL_1_DEFAULT_POSITION_X   65
+#define HUD_LABEL_2_DEFAULT_POSITION_X   1375
+#define HUD_LABEL_DEFAULT_POSITION_Y     screenSize.height - hud.size.height + 15
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate>
 
@@ -44,16 +44,19 @@
 
 @property NSUInteger playersCount;
 @property NSInteger  selectedLevel;
-@property BOOL       gameStarted;
+//@property BOOL       gameStarted;
 
 @property CGPoint screenCenter;
 @property CGSize  screenSize;
 
 /* MENU ELEMENTS */
 
+@property NSUInteger gameState;
+
 @property SKSpriteNode *welcomeScreen;
 @property SKSpriteNode *startScreen;
 @property SKSpriteNode *pauseScreen;
+@property SKSpriteNode *gameOverScreen;
 
 @property CGRect playButton;
 @property CGRect continueButton;
@@ -74,6 +77,7 @@
 - (void)pauseGame;
 - (void)continueGame;
 - (void)restartGame;
+- (void)gameOver;
 - (void)exitGame;
 
 - (void)updateHud;

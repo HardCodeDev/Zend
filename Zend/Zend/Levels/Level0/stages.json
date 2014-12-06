@@ -1,11 +1,11 @@
 {
 	"stages": [
 	{
-		"position": 0,
-		"amount":	0,	
+		"position": 1500,
+		"amount":	1,
 	},
 	{
-		"position": 1344,
-		"amount":   3,
+		"position": 2000,
+		"amount":   2,
 	}]
 }

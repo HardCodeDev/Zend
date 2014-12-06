@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */; };
-		3A0F16E21A2068430085C8A0 /* GroundLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0F16E11A2068430085C8A0 /* GroundLine.m */; };
 		3A1C7D5B1A1919860036F9C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5A1A1919860036F9C7 /* AppDelegate.m */; };
 		3A1C7D5D1A1919860036F9C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5C1A1919860036F9C7 /* main.m */; };
 		3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D5F1A1919860036F9C7 /* GameScene.m */; };
@@ -16,41 +14,49 @@
 		3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D631A1919860036F9C7 /* Images.xcassets */; };
 		3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D651A1919860036F9C7 /* MainMenu.xib */; };
 		3A1C7D731A1919860036F9C7 /* ZendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D721A1919860036F9C7 /* ZendTests.m */; };
-		3A4D5F901A2CD3BA00C5D2CF /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D5F8F1A2CD3BA00C5D2CF /* Zombie.m */; };
-		3A7462021A2665DC00235972 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462011A2665DC00235972 /* Weapon.m */; };
 		3A74620E1A28688A00235972 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 3A74620D1A28688A00235972 /* Levels */; };
-		3A7462111A286CAD00235972 /* WeaponUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462101A286CAD00235972 /* WeaponUnit.m */; };
-		3A7462141A286F3900235972 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462131A286F3900235972 /* Bullet.m */; };
-		3A7462161A28895100235972 /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7462151A28895100235972 /* Bullet.png */; };
-		3A7462191A2B9AFC00235972 /* MeleeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7462181A2B9AFC00235972 /* MeleeWeapon.m */; };
-		3A74621C1A2B9B0F00235972 /* RangeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A74621B1A2B9B0F00235972 /* RangeWeapon.m */; };
-		3AC0E6A91A2C9A1F00263C6E /* DeathLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0E6A81A2C9A1F00263C6E /* DeathLine.m */; };
-		3ADECE6E1A19F36100179646 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE6D1A19F36100179646 /* Platform.m */; };
-		3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADECE701A19F3B100179646 /* PlatformFactory.m */; };
-		3AE3FB0D1A1AAA7A00B2F287 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB041A1AAA7A00B2F287 /* Character.m */; };
-		3AE3FB0E1A1AAA7A00B2F287 /* CharacterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB061A1AAA7A00B2F287 /* CharacterFactory.m */; };
-		3AE3FB0F1A1AAA7A00B2F287 /* FatZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB081A1AAA7A00B2F287 /* FatZombie.m */; };
-		3AE3FB101A1AAA7A00B2F287 /* Human.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB0A1A1AAA7A00B2F287 /* Human.m */; };
-		3AE3FB111A1AAA7A00B2F287 /* SkinnyZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB0C1A1AAA7A00B2F287 /* SkinnyZombie.m */; };
-		3AE3FB171A1AAF3D00B2F287 /* PlayerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3FB161A1AAF3D00B2F287 /* PlayerControl.m */; };
-		4524800C1A24DF4800D4F4BE /* CyanBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 452480081A24DF4800D4F4BE /* CyanBackground.png */; };
-		4524800D1A24DF4800D4F4BE /* DesertBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 452480091A24DF4800D4F4BE /* DesertBackground.png */; };
-		4524801D1A250C6200D4F4BE /* GreenPlayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 452480191A250C6200D4F4BE /* GreenPlayer.png */; };
-		453DD9161A1E5CBA001349DC /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DD9151A1E5CBA001349DC /* Level.m */; };
-		453DD9191A1E7738001349DC /* platforms.json in Resources */ = {isa = PBXBuildFile; fileRef = 453DD9181A1E7738001349DC /* platforms.json */; };
-		453DD91B1A1E9288001349DC /* zombies.json in Resources */ = {isa = PBXBuildFile; fileRef = 453DD91A1A1E9288001349DC /* zombies.json */; };
-		454387081A25336F00C256E1 /* BoyCharacter.png in Resources */ = {isa = PBXBuildFile; fileRef = 454387061A25336F00C256E1 /* BoyCharacter.png */; };
-		454387091A25336F00C256E1 /* Ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 454387071A25336F00C256E1 /* Ground.png */; };
-		455A3B521A2B680700D8B44A /* PauseScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A3B4F1A2B680700D8B44A /* PauseScreen.png */; };
-		455A3B531A2B680700D8B44A /* StartScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A3B501A2B680700D8B44A /* StartScreen.png */; };
-		455A3B541A2B680700D8B44A /* WelcomeScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A3B511A2B680700D8B44A /* WelcomeScreen.png */; };
-		455A3B581A2BBE7A00D8B44A /* Dude.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A3B571A2BBE7A00D8B44A /* Dude.png */; };
-		455A3B5A1A2BF0B300D8B44A /* Dude.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 455A3B591A2BF0B300D8B44A /* Dude.atlas */; };
-		455A3B5C1A2C6C5500D8B44A /* LifeBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A3B5B1A2C6C5500D8B44A /* LifeBar.png */; };
-		455E32621A1B3A170047A0EC /* SkinnyZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 455E32611A1B3A170047A0EC /* SkinnyZombie.png */; };
-		455E32641A1B3D9A0047A0EC /* FatZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 455E32631A1B3D9A0047A0EC /* FatZombie.png */; };
-		45F45E781A2CCC8B0024A4F5 /* Cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F45E771A2CCC8B0024A4F5 /* Cat.png */; };
-		45F45E7E1A2DAC7E0024A4F5 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F45E7D1A2DAC7E0024A4F5 /* Stage.m */; };
+		45B66A211A2E4E150078C5F5 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A161A2E4E150078C5F5 /* Character.m */; };
+		45B66A221A2E4E150078C5F5 /* CharacterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A181A2E4E150078C5F5 /* CharacterFactory.m */; };
+		45B66A231A2E4E150078C5F5 /* FatZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A1A1A2E4E150078C5F5 /* FatZombie.m */; };
+		45B66A241A2E4E150078C5F5 /* Human.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A1C1A2E4E150078C5F5 /* Human.m */; };
+		45B66A251A2E4E150078C5F5 /* SkinnyZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A1E1A2E4E150078C5F5 /* SkinnyZombie.m */; };
+		45B66A261A2E4E150078C5F5 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A201A2E4E150078C5F5 /* Zombie.m */; };
+		45B66A2C1A2E4E250078C5F5 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A291A2E4E250078C5F5 /* Level.m */; };
+		45B66A2D1A2E4E250078C5F5 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A2B1A2E4E250078C5F5 /* Stage.m */; };
+		45B66A311A2E4E380078C5F5 /* PlayerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A301A2E4E380078C5F5 /* PlayerControl.m */; };
+		45B66A3D1A2E4E3F0078C5F5 /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A341A2E4E3F0078C5F5 /* Bullet.m */; };
+		45B66A3E1A2E4E3F0078C5F5 /* MeleeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A361A2E4E3F0078C5F5 /* MeleeWeapon.m */; };
+		45B66A3F1A2E4E3F0078C5F5 /* RangeWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A381A2E4E3F0078C5F5 /* RangeWeapon.m */; };
+		45B66A401A2E4E3F0078C5F5 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A3A1A2E4E3F0078C5F5 /* Weapon.m */; };
+		45B66A411A2E4E3F0078C5F5 /* WeaponUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A3C1A2E4E3F0078C5F5 /* WeaponUnit.m */; };
+		45B66A4D1A2E4E440078C5F5 /* DeathLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A441A2E4E440078C5F5 /* DeathLine.m */; };
+		45B66A4E1A2E4E440078C5F5 /* DynamicPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A461A2E4E440078C5F5 /* DynamicPlatform.m */; };
+		45B66A4F1A2E4E440078C5F5 /* GroundLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A481A2E4E440078C5F5 /* GroundLine.m */; };
+		45B66A501A2E4E440078C5F5 /* Platform.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A4A1A2E4E440078C5F5 /* Platform.m */; };
+		45B66A511A2E4E440078C5F5 /* PlatformFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A4C1A2E4E440078C5F5 /* PlatformFactory.m */; };
+		45B66A6D1A2E4F000078C5F5 /* Dude.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A541A2E4F000078C5F5 /* Dude.atlas */; };
+		45B66A6E1A2E4F000078C5F5 /* GrandmaBeginWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A551A2E4F000078C5F5 /* GrandmaBeginWalk.atlas */; };
+		45B66A6F1A2E4F000078C5F5 /* GrandmaWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A561A2E4F000078C5F5 /* GrandmaWalk.atlas */; };
+		45B66A701A2E4F000078C5F5 /* WorkerBeginWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A571A2E4F000078C5F5 /* WorkerBeginWalk.atlas */; };
+		45B66A711A2E4F000078C5F5 /* WorkerHandsUP.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A581A2E4F000078C5F5 /* WorkerHandsUP.atlas */; };
+		45B66A721A2E4F000078C5F5 /* WorkerWalk.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A591A2E4F000078C5F5 /* WorkerWalk.atlas */; };
+		45B66A731A2E4F000078C5F5 /* CyanBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A5B1A2E4F000078C5F5 /* CyanBackground.png */; };
+		45B66A741A2E4F000078C5F5 /* DesertBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A5C1A2E4F000078C5F5 /* DesertBackground.png */; };
+		45B66A751A2E4F000078C5F5 /* PauseScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A5E1A2E4F000078C5F5 /* PauseScreen.png */; };
+		45B66A761A2E4F000078C5F5 /* StartScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A5F1A2E4F000078C5F5 /* StartScreen.png */; };
+		45B66A771A2E4F000078C5F5 /* WelcomeScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A601A2E4F000078C5F5 /* WelcomeScreen.png */; };
+		45B66A781A2E4F000078C5F5 /* BoyCharacter.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A621A2E4F000078C5F5 /* BoyCharacter.png */; };
+		45B66A791A2E4F000078C5F5 /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A631A2E4F000078C5F5 /* Bullet.png */; };
+		45B66A7A1A2E4F000078C5F5 /* Cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A641A2E4F000078C5F5 /* Cat.png */; };
+		45B66A7B1A2E4F000078C5F5 /* Dude.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A651A2E4F000078C5F5 /* Dude.png */; };
+		45B66A7C1A2E4F000078C5F5 /* FatZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A661A2E4F000078C5F5 /* FatZombie.png */; };
+		45B66A7D1A2E4F000078C5F5 /* Grandma.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A671A2E4F000078C5F5 /* Grandma.png */; };
+		45B66A7E1A2E4F000078C5F5 /* GreenPlayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A681A2E4F000078C5F5 /* GreenPlayer.png */; };
+		45B66A7F1A2E4F000078C5F5 /* Ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A691A2E4F000078C5F5 /* Ground.png */; };
+		45B66A801A2E4F000078C5F5 /* HealthBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A6A1A2E4F000078C5F5 /* HealthBar.png */; };
+		45B66A811A2E4F000078C5F5 /* SkinnyZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A6B1A2E4F000078C5F5 /* SkinnyZombie.png */; };
+		45B66A821A2E4F000078C5F5 /* Worker.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A6C1A2E4F000078C5F5 /* Worker.png */; };
+		45E226FB1A2F57A000D0A951 /* GameOverScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E226FA1A2F57A000D0A951 /* GameOverScreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,10 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A0B936C1A1A6A79002CE2FB /* DynamicPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicPlatform.h; path = Zend/DynamicPlatform.h; sourceTree = "<group>"; };
-		3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicPlatform.m; path = Zend/DynamicPlatform.m; sourceTree = "<group>"; };
-		3A0F16E01A2068430085C8A0 /* GroundLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroundLine.h; path = Zend/GroundLine.h; sourceTree = "<group>"; };
-		3A0F16E11A2068430085C8A0 /* GroundLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroundLine.m; path = Zend/GroundLine.m; sourceTree = "<group>"; };
 		3A1C7D541A1919860036F9C7 /* Zend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D581A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D591A1919860036F9C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,59 +83,69 @@
 		3A1C7D6C1A1919860036F9C7 /* ZendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1C7D711A1919860036F9C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1C7D721A1919860036F9C7 /* ZendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTests.m; sourceTree = "<group>"; };
-		3A4D5F8E1A2CD3BA00C5D2CF /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Zombie.h; path = Zend/Zombie.h; sourceTree = "<group>"; };
-		3A4D5F8F1A2CD3BA00C5D2CF /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Zombie.m; path = Zend/Zombie.m; sourceTree = "<group>"; };
-		3A7462001A2665DC00235972 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Weapon.h; path = Zend/Weapon.h; sourceTree = "<group>"; };
-		3A7462011A2665DC00235972 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Weapon.m; path = Zend/Weapon.m; sourceTree = "<group>"; };
 		3A74620D1A28688A00235972 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Levels; path = Zend/Levels; sourceTree = "<group>"; };
-		3A74620F1A286CAD00235972 /* WeaponUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeaponUnit.h; path = Zend/WeaponUnit.h; sourceTree = "<group>"; };
-		3A7462101A286CAD00235972 /* WeaponUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeaponUnit.m; path = Zend/WeaponUnit.m; sourceTree = "<group>"; };
-		3A7462121A286F3900235972 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = Zend/Bullet.h; sourceTree = "<group>"; };
-		3A7462131A286F3900235972 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bullet.m; path = Zend/Bullet.m; sourceTree = "<group>"; };
-		3A7462151A28895100235972 /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bullet.png; path = Zend/Bullet.png; sourceTree = "<group>"; };
-		3A7462171A2B9AFC00235972 /* MeleeWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeleeWeapon.h; path = Zend/MeleeWeapon.h; sourceTree = "<group>"; };
-		3A7462181A2B9AFC00235972 /* MeleeWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeleeWeapon.m; path = Zend/MeleeWeapon.m; sourceTree = "<group>"; };
-		3A74621A1A2B9B0F00235972 /* RangeWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RangeWeapon.h; path = Zend/RangeWeapon.h; sourceTree = "<group>"; };
-		3A74621B1A2B9B0F00235972 /* RangeWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RangeWeapon.m; path = Zend/RangeWeapon.m; sourceTree = "<group>"; };
-		3A91B9771A1FA20000654946 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Enums.h; path = Zend/Enums.h; sourceTree = "<group>"; };
-		3AC0E6A71A2C9A1F00263C6E /* DeathLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeathLine.h; path = Zend/DeathLine.h; sourceTree = "<group>"; };
-		3AC0E6A81A2C9A1F00263C6E /* DeathLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeathLine.m; path = Zend/DeathLine.m; sourceTree = "<group>"; };
-		3ADECE6C1A19F36100179646 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Platform.h; path = Zend/Platform.h; sourceTree = "<group>"; };
-		3ADECE6D1A19F36100179646 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Platform.m; path = Zend/Platform.m; sourceTree = "<group>"; };
-		3ADECE6F1A19F3B100179646 /* PlatformFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlatformFactory.h; path = Zend/PlatformFactory.h; sourceTree = "<group>"; };
-		3ADECE701A19F3B100179646 /* PlatformFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlatformFactory.m; path = Zend/PlatformFactory.m; sourceTree = "<group>"; };
-		3AE3FB031A1AAA7A00B2F287 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Character.h; path = Zend/Character.h; sourceTree = "<group>"; };
-		3AE3FB041A1AAA7A00B2F287 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Character.m; path = Zend/Character.m; sourceTree = "<group>"; };
-		3AE3FB051A1AAA7A00B2F287 /* CharacterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterFactory.h; path = Zend/CharacterFactory.h; sourceTree = "<group>"; };
-		3AE3FB061A1AAA7A00B2F287 /* CharacterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharacterFactory.m; path = Zend/CharacterFactory.m; sourceTree = "<group>"; };
-		3AE3FB071A1AAA7A00B2F287 /* FatZombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FatZombie.h; path = Zend/FatZombie.h; sourceTree = "<group>"; };
-		3AE3FB081A1AAA7A00B2F287 /* FatZombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FatZombie.m; path = Zend/FatZombie.m; sourceTree = "<group>"; };
-		3AE3FB091A1AAA7A00B2F287 /* Human.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Human.h; path = Zend/Human.h; sourceTree = "<group>"; };
-		3AE3FB0A1A1AAA7A00B2F287 /* Human.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Human.m; path = Zend/Human.m; sourceTree = "<group>"; };
-		3AE3FB0B1A1AAA7A00B2F287 /* SkinnyZombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkinnyZombie.h; path = Zend/SkinnyZombie.h; sourceTree = "<group>"; };
-		3AE3FB0C1A1AAA7A00B2F287 /* SkinnyZombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SkinnyZombie.m; path = Zend/SkinnyZombie.m; sourceTree = "<group>"; };
-		3AE3FB151A1AAF3D00B2F287 /* PlayerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerControl.h; path = Zend/PlayerControl.h; sourceTree = "<group>"; };
-		3AE3FB161A1AAF3D00B2F287 /* PlayerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerControl.m; path = Zend/PlayerControl.m; sourceTree = "<group>"; };
-		452480081A24DF4800D4F4BE /* CyanBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CyanBackground.png; path = Zend/CyanBackground.png; sourceTree = "<group>"; };
-		452480091A24DF4800D4F4BE /* DesertBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DesertBackground.png; path = Zend/DesertBackground.png; sourceTree = "<group>"; };
-		452480191A250C6200D4F4BE /* GreenPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GreenPlayer.png; path = Zend/GreenPlayer.png; sourceTree = "<group>"; };
-		453DD9141A1E5CBA001349DC /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Level.h; path = Zend/Level.h; sourceTree = "<group>"; };
-		453DD9151A1E5CBA001349DC /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Level.m; path = Zend/Level.m; sourceTree = "<group>"; };
-		453DD9181A1E7738001349DC /* platforms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = platforms.json; path = Zend/Levels/Level0/platforms.json; sourceTree = "<group>"; };
-		453DD91A1A1E9288001349DC /* zombies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = zombies.json; path = Zend/Levels/Level0/zombies.json; sourceTree = "<group>"; };
-		454387061A25336F00C256E1 /* BoyCharacter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BoyCharacter.png; path = Zend/BoyCharacter.png; sourceTree = "<group>"; };
-		454387071A25336F00C256E1 /* Ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ground.png; path = Zend/Ground.png; sourceTree = "<group>"; };
-		455A3B4F1A2B680700D8B44A /* PauseScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PauseScreen.png; path = Zend/PauseScreen.png; sourceTree = "<group>"; };
-		455A3B501A2B680700D8B44A /* StartScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StartScreen.png; path = Zend/StartScreen.png; sourceTree = "<group>"; };
-		455A3B511A2B680700D8B44A /* WelcomeScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WelcomeScreen.png; path = Zend/WelcomeScreen.png; sourceTree = "<group>"; };
-		455A3B571A2BBE7A00D8B44A /* Dude.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dude.png; path = Zend/Dude.png; sourceTree = "<group>"; };
-		455A3B591A2BF0B300D8B44A /* Dude.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = Dude.atlas; path = Zend/Dude.atlas; sourceTree = "<group>"; };
-		455A3B5B1A2C6C5500D8B44A /* LifeBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LifeBar.png; path = Zend/LifeBar.png; sourceTree = "<group>"; };
-		455E32611A1B3A170047A0EC /* SkinnyZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SkinnyZombie.png; path = Zend/SkinnyZombie.png; sourceTree = "<group>"; };
-		455E32631A1B3D9A0047A0EC /* FatZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FatZombie.png; path = Zend/FatZombie.png; sourceTree = "<group>"; };
-		45F45E771A2CCC8B0024A4F5 /* Cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cat.png; path = Zend/Cat.png; sourceTree = "<group>"; };
-		45F45E7C1A2DAC7E0024A4F5 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stage.h; path = Zend/Stage.h; sourceTree = "<group>"; };
-		45F45E7D1A2DAC7E0024A4F5 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stage.m; path = Zend/Stage.m; sourceTree = "<group>"; };
+		3A91B9771A1FA20000654946 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
+		45B66A151A2E4E150078C5F5 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
+		45B66A161A2E4E150078C5F5 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
+		45B66A171A2E4E150078C5F5 /* CharacterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterFactory.h; sourceTree = "<group>"; };
+		45B66A181A2E4E150078C5F5 /* CharacterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterFactory.m; sourceTree = "<group>"; };
+		45B66A191A2E4E150078C5F5 /* FatZombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FatZombie.h; sourceTree = "<group>"; };
+		45B66A1A1A2E4E150078C5F5 /* FatZombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FatZombie.m; sourceTree = "<group>"; };
+		45B66A1B1A2E4E150078C5F5 /* Human.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Human.h; sourceTree = "<group>"; };
+		45B66A1C1A2E4E150078C5F5 /* Human.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Human.m; sourceTree = "<group>"; };
+		45B66A1D1A2E4E150078C5F5 /* SkinnyZombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkinnyZombie.h; sourceTree = "<group>"; };
+		45B66A1E1A2E4E150078C5F5 /* SkinnyZombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkinnyZombie.m; sourceTree = "<group>"; };
+		45B66A1F1A2E4E150078C5F5 /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zombie.h; sourceTree = "<group>"; };
+		45B66A201A2E4E150078C5F5 /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zombie.m; sourceTree = "<group>"; };
+		45B66A281A2E4E250078C5F5 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		45B66A291A2E4E250078C5F5 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		45B66A2A1A2E4E250078C5F5 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
+		45B66A2B1A2E4E250078C5F5 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
+		45B66A2F1A2E4E380078C5F5 /* PlayerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerControl.h; sourceTree = "<group>"; };
+		45B66A301A2E4E380078C5F5 /* PlayerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerControl.m; sourceTree = "<group>"; };
+		45B66A331A2E4E3F0078C5F5 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		45B66A341A2E4E3F0078C5F5 /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
+		45B66A351A2E4E3F0078C5F5 /* MeleeWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeleeWeapon.h; sourceTree = "<group>"; };
+		45B66A361A2E4E3F0078C5F5 /* MeleeWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeleeWeapon.m; sourceTree = "<group>"; };
+		45B66A371A2E4E3F0078C5F5 /* RangeWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangeWeapon.h; sourceTree = "<group>"; };
+		45B66A381A2E4E3F0078C5F5 /* RangeWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangeWeapon.m; sourceTree = "<group>"; };
+		45B66A391A2E4E3F0078C5F5 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon.h; sourceTree = "<group>"; };
+		45B66A3A1A2E4E3F0078C5F5 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
+		45B66A3B1A2E4E3F0078C5F5 /* WeaponUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeaponUnit.h; sourceTree = "<group>"; };
+		45B66A3C1A2E4E3F0078C5F5 /* WeaponUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeaponUnit.m; sourceTree = "<group>"; };
+		45B66A431A2E4E440078C5F5 /* DeathLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeathLine.h; sourceTree = "<group>"; };
+		45B66A441A2E4E440078C5F5 /* DeathLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeathLine.m; sourceTree = "<group>"; };
+		45B66A451A2E4E440078C5F5 /* DynamicPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicPlatform.h; sourceTree = "<group>"; };
+		45B66A461A2E4E440078C5F5 /* DynamicPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicPlatform.m; sourceTree = "<group>"; };
+		45B66A471A2E4E440078C5F5 /* GroundLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroundLine.h; sourceTree = "<group>"; };
+		45B66A481A2E4E440078C5F5 /* GroundLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroundLine.m; sourceTree = "<group>"; };
+		45B66A491A2E4E440078C5F5 /* Platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Platform.h; sourceTree = "<group>"; };
+		45B66A4A1A2E4E440078C5F5 /* Platform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Platform.m; sourceTree = "<group>"; };
+		45B66A4B1A2E4E440078C5F5 /* PlatformFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformFactory.h; sourceTree = "<group>"; };
+		45B66A4C1A2E4E440078C5F5 /* PlatformFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlatformFactory.m; sourceTree = "<group>"; };
+		45B66A541A2E4F000078C5F5 /* Dude.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Dude.atlas; sourceTree = "<group>"; };
+		45B66A551A2E4F000078C5F5 /* GrandmaBeginWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GrandmaBeginWalk.atlas; sourceTree = "<group>"; };
+		45B66A561A2E4F000078C5F5 /* GrandmaWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GrandmaWalk.atlas; sourceTree = "<group>"; };
+		45B66A571A2E4F000078C5F5 /* WorkerBeginWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = WorkerBeginWalk.atlas; sourceTree = "<group>"; };
+		45B66A581A2E4F000078C5F5 /* WorkerHandsUP.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = WorkerHandsUP.atlas; sourceTree = "<group>"; };
+		45B66A591A2E4F000078C5F5 /* WorkerWalk.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = WorkerWalk.atlas; sourceTree = "<group>"; };
+		45B66A5B1A2E4F000078C5F5 /* CyanBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CyanBackground.png; sourceTree = "<group>"; };
+		45B66A5C1A2E4F000078C5F5 /* DesertBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DesertBackground.png; sourceTree = "<group>"; };
+		45B66A5E1A2E4F000078C5F5 /* PauseScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseScreen.png; sourceTree = "<group>"; };
+		45B66A5F1A2E4F000078C5F5 /* StartScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartScreen.png; sourceTree = "<group>"; };
+		45B66A601A2E4F000078C5F5 /* WelcomeScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeScreen.png; sourceTree = "<group>"; };
+		45B66A621A2E4F000078C5F5 /* BoyCharacter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BoyCharacter.png; sourceTree = "<group>"; };
+		45B66A631A2E4F000078C5F5 /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bullet.png; sourceTree = "<group>"; };
+		45B66A641A2E4F000078C5F5 /* Cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cat.png; sourceTree = "<group>"; };
+		45B66A651A2E4F000078C5F5 /* Dude.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dude.png; sourceTree = "<group>"; };
+		45B66A661A2E4F000078C5F5 /* FatZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FatZombie.png; sourceTree = "<group>"; };
+		45B66A671A2E4F000078C5F5 /* Grandma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Grandma.png; sourceTree = "<group>"; };
+		45B66A681A2E4F000078C5F5 /* GreenPlayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenPlayer.png; sourceTree = "<group>"; };
+		45B66A691A2E4F000078C5F5 /* Ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ground.png; sourceTree = "<group>"; };
+		45B66A6A1A2E4F000078C5F5 /* HealthBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HealthBar.png; sourceTree = "<group>"; };
+		45B66A6B1A2E4F000078C5F5 /* SkinnyZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SkinnyZombie.png; sourceTree = "<group>"; };
+		45B66A6C1A2E4F000078C5F5 /* Worker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Worker.png; sourceTree = "<group>"; };
+		45E226FA1A2F57A000D0A951 /* GameOverScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOverScreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,15 +169,13 @@
 		3A1C7D4B1A1919860036F9C7 = {
 			isa = PBXGroup;
 			children = (
-				455A3B591A2BF0B300D8B44A /* Dude.atlas */,
 				3A74620D1A28688A00235972 /* Levels */,
-				3A91B9771A1FA20000654946 /* Enums.h */,
-				3A7461FF1A26648000235972 /* Weapon */,
-				453DD9171A1E5CE2001349DC /* Level */,
-				455E32661A1B40830047A0EC /* Images */,
-				3ADECE6B1A19F25E00179646 /* World */,
-				3ADECE641A19E8F500179646 /* Character */,
-				3AFFAE621A1AC083002D6320 /* Player */,
+				45B66A521A2E4F000078C5F5 /* Images */,
+				45B66A271A2E4E250078C5F5 /* Level */,
+				45B66A421A2E4E440078C5F5 /* World */,
+				45B66A321A2E4E3F0078C5F5 /* Weapon */,
+				45B66A2E1A2E4E380078C5F5 /* Player */,
+				45B66A141A2E4E150078C5F5 /* Character */,
 				3A1C7D561A1919860036F9C7 /* Zend */,
 				3A1C7D6F1A1919860036F9C7 /* ZendTests */,
 				3A1C7D551A1919860036F9C7 /* Products */,
@@ -184,6 +194,7 @@
 		3A1C7D561A1919860036F9C7 /* Zend */ = {
 			isa = PBXGroup;
 			children = (
+				3A91B9771A1FA20000654946 /* Enums.h */,
 				3A1C7D591A1919860036F9C7 /* AppDelegate.h */,
 				3A1C7D5A1A1919860036F9C7 /* AppDelegate.m */,
 				3A1C7D5E1A1919860036F9C7 /* GameScene.h */,
@@ -222,100 +233,145 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3A7461FF1A26648000235972 /* Weapon */ = {
+		45B66A141A2E4E150078C5F5 /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				3A7462001A2665DC00235972 /* Weapon.h */,
-				3A7462011A2665DC00235972 /* Weapon.m */,
-				3A74620F1A286CAD00235972 /* WeaponUnit.h */,
-				3A7462101A286CAD00235972 /* WeaponUnit.m */,
-				3A74621A1A2B9B0F00235972 /* RangeWeapon.h */,
-				3A74621B1A2B9B0F00235972 /* RangeWeapon.m */,
-				3A7462171A2B9AFC00235972 /* MeleeWeapon.h */,
-				3A7462181A2B9AFC00235972 /* MeleeWeapon.m */,
-				3A7462121A286F3900235972 /* Bullet.h */,
-				3A7462131A286F3900235972 /* Bullet.m */,
-			);
-			name = Weapon;
-			sourceTree = "<group>";
-		};
-		3ADECE641A19E8F500179646 /* Character */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3FB031A1AAA7A00B2F287 /* Character.h */,
-				3AE3FB041A1AAA7A00B2F287 /* Character.m */,
-				3AE3FB051A1AAA7A00B2F287 /* CharacterFactory.h */,
-				3AE3FB061A1AAA7A00B2F287 /* CharacterFactory.m */,
-				3AE3FB091A1AAA7A00B2F287 /* Human.h */,
-				3AE3FB0A1A1AAA7A00B2F287 /* Human.m */,
-				3A4D5F8E1A2CD3BA00C5D2CF /* Zombie.h */,
-				3A4D5F8F1A2CD3BA00C5D2CF /* Zombie.m */,
-				3AE3FB071A1AAA7A00B2F287 /* FatZombie.h */,
-				3AE3FB081A1AAA7A00B2F287 /* FatZombie.m */,
-				3AE3FB0B1A1AAA7A00B2F287 /* SkinnyZombie.h */,
-				3AE3FB0C1A1AAA7A00B2F287 /* SkinnyZombie.m */,
+				45B66A151A2E4E150078C5F5 /* Character.h */,
+				45B66A161A2E4E150078C5F5 /* Character.m */,
+				45B66A171A2E4E150078C5F5 /* CharacterFactory.h */,
+				45B66A181A2E4E150078C5F5 /* CharacterFactory.m */,
+				45B66A191A2E4E150078C5F5 /* FatZombie.h */,
+				45B66A1A1A2E4E150078C5F5 /* FatZombie.m */,
+				45B66A1B1A2E4E150078C5F5 /* Human.h */,
+				45B66A1C1A2E4E150078C5F5 /* Human.m */,
+				45B66A1D1A2E4E150078C5F5 /* SkinnyZombie.h */,
+				45B66A1E1A2E4E150078C5F5 /* SkinnyZombie.m */,
+				45B66A1F1A2E4E150078C5F5 /* Zombie.h */,
+				45B66A201A2E4E150078C5F5 /* Zombie.m */,
 			);
 			name = Character;
+			path = Zend/Character;
 			sourceTree = "<group>";
 		};
-		3ADECE6B1A19F25E00179646 /* World */ = {
+		45B66A271A2E4E250078C5F5 /* Level */ = {
 			isa = PBXGroup;
 			children = (
-				3ADECE6C1A19F36100179646 /* Platform.h */,
-				3ADECE6D1A19F36100179646 /* Platform.m */,
-				3ADECE6F1A19F3B100179646 /* PlatformFactory.h */,
-				3ADECE701A19F3B100179646 /* PlatformFactory.m */,
-				3A0B936C1A1A6A79002CE2FB /* DynamicPlatform.h */,
-				3A0B936D1A1A6A79002CE2FB /* DynamicPlatform.m */,
-				3A0F16E01A2068430085C8A0 /* GroundLine.h */,
-				3A0F16E11A2068430085C8A0 /* GroundLine.m */,
-				3AC0E6A71A2C9A1F00263C6E /* DeathLine.h */,
-				3AC0E6A81A2C9A1F00263C6E /* DeathLine.m */,
-			);
-			name = World;
-			sourceTree = "<group>";
-		};
-		3AFFAE621A1AC083002D6320 /* Player */ = {
-			isa = PBXGroup;
-			children = (
-				3AE3FB151A1AAF3D00B2F287 /* PlayerControl.h */,
-				3AE3FB161A1AAF3D00B2F287 /* PlayerControl.m */,
-			);
-			name = Player;
-			sourceTree = "<group>";
-		};
-		453DD9171A1E5CE2001349DC /* Level */ = {
-			isa = PBXGroup;
-			children = (
-				45F45E7C1A2DAC7E0024A4F5 /* Stage.h */,
-				45F45E7D1A2DAC7E0024A4F5 /* Stage.m */,
-				453DD9141A1E5CBA001349DC /* Level.h */,
-				453DD9151A1E5CBA001349DC /* Level.m */,
-				453DD9181A1E7738001349DC /* platforms.json */,
-				453DD91A1A1E9288001349DC /* zombies.json */,
+				45B66A281A2E4E250078C5F5 /* Level.h */,
+				45B66A291A2E4E250078C5F5 /* Level.m */,
+				45B66A2A1A2E4E250078C5F5 /* Stage.h */,
+				45B66A2B1A2E4E250078C5F5 /* Stage.m */,
 			);
 			name = Level;
+			path = Zend/Level;
 			sourceTree = "<group>";
 		};
-		455E32661A1B40830047A0EC /* Images */ = {
+		45B66A2E1A2E4E380078C5F5 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				45F45E771A2CCC8B0024A4F5 /* Cat.png */,
-				455A3B5B1A2C6C5500D8B44A /* LifeBar.png */,
-				455A3B571A2BBE7A00D8B44A /* Dude.png */,
-				455A3B4F1A2B680700D8B44A /* PauseScreen.png */,
-				455A3B501A2B680700D8B44A /* StartScreen.png */,
-				455A3B511A2B680700D8B44A /* WelcomeScreen.png */,
-				3A7462151A28895100235972 /* Bullet.png */,
-				454387061A25336F00C256E1 /* BoyCharacter.png */,
-				452480191A250C6200D4F4BE /* GreenPlayer.png */,
-				455E32631A1B3D9A0047A0EC /* FatZombie.png */,
-				455E32611A1B3A170047A0EC /* SkinnyZombie.png */,
-				454387071A25336F00C256E1 /* Ground.png */,
-				452480081A24DF4800D4F4BE /* CyanBackground.png */,
-				452480091A24DF4800D4F4BE /* DesertBackground.png */,
+				45B66A2F1A2E4E380078C5F5 /* PlayerControl.h */,
+				45B66A301A2E4E380078C5F5 /* PlayerControl.m */,
+			);
+			name = Player;
+			path = Zend/Player;
+			sourceTree = "<group>";
+		};
+		45B66A321A2E4E3F0078C5F5 /* Weapon */ = {
+			isa = PBXGroup;
+			children = (
+				45B66A331A2E4E3F0078C5F5 /* Bullet.h */,
+				45B66A341A2E4E3F0078C5F5 /* Bullet.m */,
+				45B66A351A2E4E3F0078C5F5 /* MeleeWeapon.h */,
+				45B66A361A2E4E3F0078C5F5 /* MeleeWeapon.m */,
+				45B66A371A2E4E3F0078C5F5 /* RangeWeapon.h */,
+				45B66A381A2E4E3F0078C5F5 /* RangeWeapon.m */,
+				45B66A391A2E4E3F0078C5F5 /* Weapon.h */,
+				45B66A3A1A2E4E3F0078C5F5 /* Weapon.m */,
+				45B66A3B1A2E4E3F0078C5F5 /* WeaponUnit.h */,
+				45B66A3C1A2E4E3F0078C5F5 /* WeaponUnit.m */,
+			);
+			name = Weapon;
+			path = Zend/Weapon;
+			sourceTree = "<group>";
+		};
+		45B66A421A2E4E440078C5F5 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				45B66A431A2E4E440078C5F5 /* DeathLine.h */,
+				45B66A441A2E4E440078C5F5 /* DeathLine.m */,
+				45B66A451A2E4E440078C5F5 /* DynamicPlatform.h */,
+				45B66A461A2E4E440078C5F5 /* DynamicPlatform.m */,
+				45B66A471A2E4E440078C5F5 /* GroundLine.h */,
+				45B66A481A2E4E440078C5F5 /* GroundLine.m */,
+				45B66A491A2E4E440078C5F5 /* Platform.h */,
+				45B66A4A1A2E4E440078C5F5 /* Platform.m */,
+				45B66A4B1A2E4E440078C5F5 /* PlatformFactory.h */,
+				45B66A4C1A2E4E440078C5F5 /* PlatformFactory.m */,
+			);
+			name = World;
+			path = Zend/World;
+			sourceTree = "<group>";
+		};
+		45B66A521A2E4F000078C5F5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				45B66A531A2E4F000078C5F5 /* Atlases */,
+				45B66A5A1A2E4F000078C5F5 /* Backgrounds */,
+				45B66A5D1A2E4F000078C5F5 /* Menu */,
+				45B66A611A2E4F000078C5F5 /* Textures */,
 			);
 			name = Images;
+			path = Zend/Images;
+			sourceTree = "<group>";
+		};
+		45B66A531A2E4F000078C5F5 /* Atlases */ = {
+			isa = PBXGroup;
+			children = (
+				45B66A541A2E4F000078C5F5 /* Dude.atlas */,
+				45B66A551A2E4F000078C5F5 /* GrandmaBeginWalk.atlas */,
+				45B66A561A2E4F000078C5F5 /* GrandmaWalk.atlas */,
+				45B66A571A2E4F000078C5F5 /* WorkerBeginWalk.atlas */,
+				45B66A581A2E4F000078C5F5 /* WorkerHandsUP.atlas */,
+				45B66A591A2E4F000078C5F5 /* WorkerWalk.atlas */,
+			);
+			path = Atlases;
+			sourceTree = "<group>";
+		};
+		45B66A5A1A2E4F000078C5F5 /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				45B66A5B1A2E4F000078C5F5 /* CyanBackground.png */,
+				45B66A5C1A2E4F000078C5F5 /* DesertBackground.png */,
+			);
+			path = Backgrounds;
+			sourceTree = "<group>";
+		};
+		45B66A5D1A2E4F000078C5F5 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				45E226FA1A2F57A000D0A951 /* GameOverScreen.png */,
+				45B66A5E1A2E4F000078C5F5 /* PauseScreen.png */,
+				45B66A5F1A2E4F000078C5F5 /* StartScreen.png */,
+				45B66A601A2E4F000078C5F5 /* WelcomeScreen.png */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		45B66A611A2E4F000078C5F5 /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				45B66A621A2E4F000078C5F5 /* BoyCharacter.png */,
+				45B66A631A2E4F000078C5F5 /* Bullet.png */,
+				45B66A641A2E4F000078C5F5 /* Cat.png */,
+				45B66A651A2E4F000078C5F5 /* Dude.png */,
+				45B66A661A2E4F000078C5F5 /* FatZombie.png */,
+				45B66A671A2E4F000078C5F5 /* Grandma.png */,
+				45B66A681A2E4F000078C5F5 /* GreenPlayer.png */,
+				45B66A691A2E4F000078C5F5 /* Ground.png */,
+				45B66A6A1A2E4F000078C5F5 /* HealthBar.png */,
+				45B66A6B1A2E4F000078C5F5 /* SkinnyZombie.png */,
+				45B66A6C1A2E4F000078C5F5 /* Worker.png */,
+			);
+			path = Textures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,27 +454,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45F45E781A2CCC8B0024A4F5 /* Cat.png in Resources */,
-				455A3B521A2B680700D8B44A /* PauseScreen.png in Resources */,
-				3A7462161A28895100235972 /* Bullet.png in Resources */,
-				453DD9191A1E7738001349DC /* platforms.json in Resources */,
-				4524800D1A24DF4800D4F4BE /* DesertBackground.png in Resources */,
-				4524800C1A24DF4800D4F4BE /* CyanBackground.png in Resources */,
-				455A3B541A2B680700D8B44A /* WelcomeScreen.png in Resources */,
+				45B66A751A2E4F000078C5F5 /* PauseScreen.png in Resources */,
+				45B66A6D1A2E4F000078C5F5 /* Dude.atlas in Resources */,
 				3A1C7D621A1919860036F9C7 /* GameScene.sks in Resources */,
-				455A3B5C1A2C6C5500D8B44A /* LifeBar.png in Resources */,
+				45B66A791A2E4F000078C5F5 /* Bullet.png in Resources */,
+				45B66A7E1A2E4F000078C5F5 /* GreenPlayer.png in Resources */,
+				45B66A741A2E4F000078C5F5 /* DesertBackground.png in Resources */,
+				45B66A771A2E4F000078C5F5 /* WelcomeScreen.png in Resources */,
+				45B66A821A2E4F000078C5F5 /* Worker.png in Resources */,
+				45B66A731A2E4F000078C5F5 /* CyanBackground.png in Resources */,
+				45B66A721A2E4F000078C5F5 /* WorkerWalk.atlas in Resources */,
 				3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */,
-				4524801D1A250C6200D4F4BE /* GreenPlayer.png in Resources */,
-				455E32621A1B3A170047A0EC /* SkinnyZombie.png in Resources */,
-				455A3B581A2BBE7A00D8B44A /* Dude.png in Resources */,
-				455A3B531A2B680700D8B44A /* StartScreen.png in Resources */,
-				455A3B5A1A2BF0B300D8B44A /* Dude.atlas in Resources */,
-				454387081A25336F00C256E1 /* BoyCharacter.png in Resources */,
-				454387091A25336F00C256E1 /* Ground.png in Resources */,
+				45B66A7D1A2E4F000078C5F5 /* Grandma.png in Resources */,
+				45B66A6E1A2E4F000078C5F5 /* GrandmaBeginWalk.atlas in Resources */,
+				45B66A7B1A2E4F000078C5F5 /* Dude.png in Resources */,
+				45B66A811A2E4F000078C5F5 /* SkinnyZombie.png in Resources */,
+				45B66A761A2E4F000078C5F5 /* StartScreen.png in Resources */,
+				45B66A7F1A2E4F000078C5F5 /* Ground.png in Resources */,
+				45B66A781A2E4F000078C5F5 /* BoyCharacter.png in Resources */,
+				45B66A7C1A2E4F000078C5F5 /* FatZombie.png in Resources */,
+				45B66A7A1A2E4F000078C5F5 /* Cat.png in Resources */,
+				45E226FB1A2F57A000D0A951 /* GameOverScreen.png in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
+				45B66A801A2E4F000078C5F5 /* HealthBar.png in Resources */,
 				3A74620E1A28688A00235972 /* Levels in Resources */,
-				453DD91B1A1E9288001349DC /* zombies.json in Resources */,
-				455E32641A1B3D9A0047A0EC /* FatZombie.png in Resources */,
+				45B66A701A2E4F000078C5F5 /* WorkerBeginWalk.atlas in Resources */,
+				45B66A6F1A2E4F000078C5F5 /* GrandmaWalk.atlas in Resources */,
+				45B66A711A2E4F000078C5F5 /* WorkerHandsUP.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,28 +498,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A4D5F901A2CD3BA00C5D2CF /* Zombie.m in Sources */,
-				3AE3FB171A1AAF3D00B2F287 /* PlayerControl.m in Sources */,
-				3A7462111A286CAD00235972 /* WeaponUnit.m in Sources */,
+				45B66A4E1A2E4E440078C5F5 /* DynamicPlatform.m in Sources */,
+				45B66A311A2E4E380078C5F5 /* PlayerControl.m in Sources */,
+				45B66A2C1A2E4E250078C5F5 /* Level.m in Sources */,
+				45B66A3E1A2E4E3F0078C5F5 /* MeleeWeapon.m in Sources */,
+				45B66A261A2E4E150078C5F5 /* Zombie.m in Sources */,
+				45B66A2D1A2E4E250078C5F5 /* Stage.m in Sources */,
+				45B66A241A2E4E150078C5F5 /* Human.m in Sources */,
+				45B66A3F1A2E4E3F0078C5F5 /* RangeWeapon.m in Sources */,
 				3A1C7D5D1A1919860036F9C7 /* main.m in Sources */,
-				3A0F16E21A2068430085C8A0 /* GroundLine.m in Sources */,
-				3AE3FB0D1A1AAA7A00B2F287 /* Character.m in Sources */,
-				3AE3FB0E1A1AAA7A00B2F287 /* CharacterFactory.m in Sources */,
-				3AE3FB111A1AAA7A00B2F287 /* SkinnyZombie.m in Sources */,
-				3A7462141A286F3900235972 /* Bullet.m in Sources */,
-				3ADECE711A19F3B100179646 /* PlatformFactory.m in Sources */,
+				45B66A511A2E4E440078C5F5 /* PlatformFactory.m in Sources */,
+				45B66A221A2E4E150078C5F5 /* CharacterFactory.m in Sources */,
+				45B66A4F1A2E4E440078C5F5 /* GroundLine.m in Sources */,
+				45B66A251A2E4E150078C5F5 /* SkinnyZombie.m in Sources */,
+				45B66A4D1A2E4E440078C5F5 /* DeathLine.m in Sources */,
 				3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */,
-				45F45E7E1A2DAC7E0024A4F5 /* Stage.m in Sources */,
-				3ADECE6E1A19F36100179646 /* Platform.m in Sources */,
-				3AE3FB0F1A1AAA7A00B2F287 /* FatZombie.m in Sources */,
-				3AC0E6A91A2C9A1F00263C6E /* DeathLine.m in Sources */,
-				3AE3FB101A1AAA7A00B2F287 /* Human.m in Sources */,
-				3A0B936E1A1A6A79002CE2FB /* DynamicPlatform.m in Sources */,
-				3A74621C1A2B9B0F00235972 /* RangeWeapon.m in Sources */,
-				3A7462021A2665DC00235972 /* Weapon.m in Sources */,
-				453DD9161A1E5CBA001349DC /* Level.m in Sources */,
-				3A7462191A2B9AFC00235972 /* MeleeWeapon.m in Sources */,
+				45B66A231A2E4E150078C5F5 /* FatZombie.m in Sources */,
 				3A1C7D5B1A1919860036F9C7 /* AppDelegate.m in Sources */,
+				45B66A501A2E4E440078C5F5 /* Platform.m in Sources */,
+				45B66A401A2E4E3F0078C5F5 /* Weapon.m in Sources */,
+				45B66A211A2E4E150078C5F5 /* Character.m in Sources */,
+				45B66A411A2E4E3F0078C5F5 /* WeaponUnit.m in Sources */,
+				45B66A3D1A2E4E3F0078C5F5 /* Bullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

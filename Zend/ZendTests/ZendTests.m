@@ -2,7 +2,7 @@
 //  ZendTests.m
 //  ZendTests
 //
-//  Created by Anton Yakimenko on 16.11.14.
+//  Created by Nikita Makarov on 16.11.14.
 //  Copyright (c) 2014 HardCode. All rights reserved.
 //
 
@@ -24,11 +24,6 @@
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
-}
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
 }
 
 - (void)testCreateSkinnyZombie {
@@ -66,7 +61,7 @@
     
     zombiePattern.type = SZOMBIE;
     zombiePattern.jumpSpeed = 500;
-    zombiePattern.runSpeed  = 380;
+    zombiePattern.runSpeed  = 300;
     zombiePattern.position  = spawnPosition;
     zombiePattern.health    = 2;
     zombiePattern.zPosition = 10;
@@ -165,21 +160,6 @@
     for (Platform *platform in level.platforms) {
         XCTAssertNotNil(platform, @"platform should not be nil");
     }
-}
-
-- (void)testGameLoadingPerformance {
-
-    [self measureBlock:^{
-        CGSize screenSize = CGSizeMake(1440, 900);
-        
-        GameScene *scene = [[GameScene alloc] initWithSize:screenSize];
-        
-        SKView *view = [[SKView alloc] initWithFrame:NSMakeRect(0, 0, 1440, 900)];
-        
-        [scene didMoveToView:view];
-        [scene startGame];
-    }];
-    
 }
 
 - (void)testZombiezJSONDataIsCorrect {
