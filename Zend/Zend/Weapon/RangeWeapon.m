@@ -13,7 +13,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        shotInterval = 0.4;
+        shotInterval = 0.04;
         damage = 1;
     }
     return self;
@@ -30,7 +30,7 @@
     if (!node) {
         return 0;
     }
-    Bullet *bullet = [[Bullet alloc] initWithImageNamed:@"Cat"];
+    Bullet *bullet = [[Bullet alloc] initWithImageNamed:@"Bullet"];
     
     bullet.position = [node convertPoint:self.position fromNode:self];
     bullet.damage = damage;
@@ -49,6 +49,7 @@
                                       bullet.position.y + yShift);
     }
     bullet.physicsBody.velocity = CGVectorMake(1000*dir, 0);
+    [bullet runAction:[SKAction playSoundFileNamed:@"50Caliber.wav" waitForCompletion:NO]];
     [node addChild:bullet];
     [self runAction: [SKAction sequence:@[
                                           [SKAction runBlock:^{isReady = NO;}],

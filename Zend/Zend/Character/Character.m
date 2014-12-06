@@ -236,6 +236,9 @@
     health -= damage;
     if (health <= 0) {
         health = 0;
+        if (self.physicsBody.categoryBitMask == HUMAN) {
+            [self runAction:[SKAction playSoundFileNamed:@"HumanDeath.wav" waitForCompletion:NO]];
+        }
         [self die];
     }
     

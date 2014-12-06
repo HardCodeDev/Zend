@@ -15,6 +15,14 @@
 		3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D651A1919860036F9C7 /* MainMenu.xib */; };
 		3A1C7D731A1919860036F9C7 /* ZendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D721A1919860036F9C7 /* ZendTests.m */; };
 		3A74620E1A28688A00235972 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 3A74620D1A28688A00235972 /* Levels */; };
+		4554B3411A311829001CE328 /* 50Caliber.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4554B33F1A311829001CE328 /* 50Caliber.wav */; };
+		4554B3451A311A7D001CE328 /* HumanDeath.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4554B3431A311A7D001CE328 /* HumanDeath.wav */; };
+		4554B3461A311A7D001CE328 /* HumanFall.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4554B3441A311A7D001CE328 /* HumanFall.wav */; };
+		4554B3481A311CAB001CE328 /* 9Caliber.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4554B3471A311CAB001CE328 /* 9Caliber.wav */; };
+		4554B34A1A311F69001CE328 /* EvgenMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4554B3491A311F69001CE328 /* EvgenMusic.mp3 */; };
+		4554B34E1A321932001CE328 /* EvilOnTheBeach.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4554B34B1A321932001CE328 /* EvilOnTheBeach.mp3 */; };
+		4554B34F1A321932001CE328 /* GameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4554B34C1A321932001CE328 /* GameOver.mp3 */; };
+		4554B3501A321932001CE328 /* WarFace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4554B34D1A321932001CE328 /* WarFace.mp3 */; };
 		45B66A211A2E4E150078C5F5 /* Character.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A161A2E4E150078C5F5 /* Character.m */; };
 		45B66A221A2E4E150078C5F5 /* CharacterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A181A2E4E150078C5F5 /* CharacterFactory.m */; };
 		45B66A231A2E4E150078C5F5 /* FatZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B66A1A1A2E4E150078C5F5 /* FatZombie.m */; };
@@ -85,6 +93,14 @@
 		3A1C7D721A1919860036F9C7 /* ZendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTests.m; sourceTree = "<group>"; };
 		3A74620D1A28688A00235972 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Levels; path = Zend/Levels; sourceTree = "<group>"; };
 		3A91B9771A1FA20000654946 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
+		4554B33F1A311829001CE328 /* 50Caliber.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 50Caliber.wav; sourceTree = "<group>"; };
+		4554B3431A311A7D001CE328 /* HumanDeath.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = HumanDeath.wav; sourceTree = "<group>"; };
+		4554B3441A311A7D001CE328 /* HumanFall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = HumanFall.wav; sourceTree = "<group>"; };
+		4554B3471A311CAB001CE328 /* 9Caliber.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 9Caliber.wav; sourceTree = "<group>"; };
+		4554B3491A311F69001CE328 /* EvgenMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = EvgenMusic.mp3; sourceTree = "<group>"; };
+		4554B34B1A321932001CE328 /* EvilOnTheBeach.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = EvilOnTheBeach.mp3; sourceTree = "<group>"; };
+		4554B34C1A321932001CE328 /* GameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameOver.mp3; sourceTree = "<group>"; };
+		4554B34D1A321932001CE328 /* WarFace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WarFace.mp3; sourceTree = "<group>"; };
 		45B66A151A2E4E150078C5F5 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		45B66A161A2E4E150078C5F5 /* Character.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Character.m; sourceTree = "<group>"; };
 		45B66A171A2E4E150078C5F5 /* CharacterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterFactory.h; sourceTree = "<group>"; };
@@ -170,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				3A74620D1A28688A00235972 /* Levels */,
+				451E0E181A308D84001142AA /* Sounds */,
 				45B66A521A2E4F000078C5F5 /* Images */,
 				45B66A271A2E4E250078C5F5 /* Level */,
 				45B66A421A2E4E440078C5F5 /* World */,
@@ -231,6 +248,22 @@
 				3A1C7D711A1919860036F9C7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		451E0E181A308D84001142AA /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				4554B34B1A321932001CE328 /* EvilOnTheBeach.mp3 */,
+				4554B34C1A321932001CE328 /* GameOver.mp3 */,
+				4554B34D1A321932001CE328 /* WarFace.mp3 */,
+				4554B3491A311F69001CE328 /* EvgenMusic.mp3 */,
+				4554B3471A311CAB001CE328 /* 9Caliber.wav */,
+				4554B33F1A311829001CE328 /* 50Caliber.wav */,
+				4554B3431A311A7D001CE328 /* HumanDeath.wav */,
+				4554B3441A311A7D001CE328 /* HumanFall.wav */,
+			);
+			name = Sounds;
+			path = Zend/Sounds;
 			sourceTree = "<group>";
 		};
 		45B66A141A2E4E150078C5F5 /* Character */ = {
@@ -454,7 +487,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4554B3411A311829001CE328 /* 50Caliber.wav in Resources */,
 				45B66A751A2E4F000078C5F5 /* PauseScreen.png in Resources */,
+				4554B34A1A311F69001CE328 /* EvgenMusic.mp3 in Resources */,
 				45B66A6D1A2E4F000078C5F5 /* Dude.atlas in Resources */,
 				3A1C7D621A1919860036F9C7 /* GameScene.sks in Resources */,
 				45B66A791A2E4F000078C5F5 /* Bullet.png in Resources */,
@@ -462,20 +497,26 @@
 				45B66A741A2E4F000078C5F5 /* DesertBackground.png in Resources */,
 				45B66A771A2E4F000078C5F5 /* WelcomeScreen.png in Resources */,
 				45B66A821A2E4F000078C5F5 /* Worker.png in Resources */,
+				4554B3461A311A7D001CE328 /* HumanFall.wav in Resources */,
 				45B66A731A2E4F000078C5F5 /* CyanBackground.png in Resources */,
 				45B66A721A2E4F000078C5F5 /* WorkerWalk.atlas in Resources */,
 				3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */,
 				45B66A7D1A2E4F000078C5F5 /* Grandma.png in Resources */,
 				45B66A6E1A2E4F000078C5F5 /* GrandmaBeginWalk.atlas in Resources */,
+				4554B34E1A321932001CE328 /* EvilOnTheBeach.mp3 in Resources */,
 				45B66A7B1A2E4F000078C5F5 /* Dude.png in Resources */,
+				4554B3451A311A7D001CE328 /* HumanDeath.wav in Resources */,
 				45B66A811A2E4F000078C5F5 /* SkinnyZombie.png in Resources */,
 				45B66A761A2E4F000078C5F5 /* StartScreen.png in Resources */,
 				45B66A7F1A2E4F000078C5F5 /* Ground.png in Resources */,
 				45B66A781A2E4F000078C5F5 /* BoyCharacter.png in Resources */,
 				45B66A7C1A2E4F000078C5F5 /* FatZombie.png in Resources */,
+				4554B34F1A321932001CE328 /* GameOver.mp3 in Resources */,
 				45B66A7A1A2E4F000078C5F5 /* Cat.png in Resources */,
 				45E226FB1A2F57A000D0A951 /* GameOverScreen.png in Resources */,
+				4554B3501A321932001CE328 /* WarFace.mp3 in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
+				4554B3481A311CAB001CE328 /* 9Caliber.wav in Resources */,
 				45B66A801A2E4F000078C5F5 /* HealthBar.png in Resources */,
 				3A74620E1A28688A00235972 /* Levels in Resources */,
 				45B66A701A2E4F000078C5F5 /* WorkerBeginWalk.atlas in Resources */,
