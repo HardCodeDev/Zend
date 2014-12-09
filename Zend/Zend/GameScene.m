@@ -104,7 +104,7 @@
     /* SETUP WELCOME SCREEN */
     
     [self initProperties];
-    
+/*
     SKSpriteNode *logoBackground = [SKSpriteNode spriteNodeWithImageNamed:@"LogoBackground"];
     [logoBackground setPosition:screenCenter];
     [logoBackground setSize:screenSize];
@@ -149,12 +149,13 @@
     [self runAction:[SKAction waitForDuration:2.2f] completion:^{
         [self showWelcomeScreen];
     }];
-
+*/
+    [self showWelcomeScreen];
 }
             
 - (void)showWelcomeScreen {
     
-    SKAction *wait    = [SKAction waitForDuration:5.0f];     // 5 seconds looks good for presentation
+    SKAction *wait    = [SKAction waitForDuration:0.5f];     // 5 seconds looks good for presentation
     SKAction *fadeOut = [SKAction fadeOutWithDuration:1.0f]; // and 1 second for this line
     
     [self addChild:welcomeScreen];
@@ -585,10 +586,7 @@
     NSArray *worldChilds = [world children];
     
     for (SKNode *node in worldChilds) {
-        if ([node.name isEqualToString:@"DynamicPlatform"]) {
-            //DynamicPlatform *platform = (DynamicPlatform *)node;
-        }
-        else if ([node.name isEqualToString:@"Character"]) {
+        if ([node.name isEqualToString:@"Character"]) {
             Character *character = (Character*)node;
             if (character.physicsBody.categoryBitMask == ZOMBIE) {
                 if (!character.target) {
@@ -607,6 +605,17 @@
                             [character attackTarget:controller2.playerChar];
                         }
                     }
+                }
+                CGFloat zombieX, zombieY, targetX, targetY, zombieWidth3;
+                zombieX = character.position.x;
+                zombieY = character.position.y;
+                targetX = character.target.position.x;
+                targetY = character.target.position.y;
+                zombieWidth3 = character.frame.size.width / 3;
+                CGFloat dx = zombieX - targetX;
+                CGFloat dy = zombieY - targetY;
+                if (character.target && dx * dx + dy * dy < zombieWidth3 * zombieWidth3) {
+                    [character beginCollidingWithTarget];
                 }
             }
         }
