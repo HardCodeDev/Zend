@@ -12,6 +12,8 @@
 #import "CharacterFactory.h"
 #import "PlayerControl.h"
 #import "Level.h"
+#import "HealthBonus.h"
+#import "AcidBonus.h"
 
 #define FULL_HEALTH     5.0f
 

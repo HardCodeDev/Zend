@@ -110,7 +110,7 @@
     [logoBackground setSize:screenSize];
     [logoBackground setZPosition:90];
     
-    SKSpriteNode *HardCodeLogo   = [SKSpriteNode spriteNodeWithImageNamed:@"HardCodeLogo"];
+    SKSpriteNode *HardCodeLogo   = [SKSpriteNode spriteNodeWithImageNamed:@"HardCodeDevLogo"];
     [HardCodeLogo setPosition:screenCenter];
     [HardCodeLogo setZPosition:100];
     [HardCodeLogo setScale:0.8f];
@@ -144,7 +144,6 @@
     [self runAction:[SKAction waitForDuration:2.2f] completion:^{
         [self runAction:runSpriteKit];
     }];
-    
     
     [self runAction:[SKAction waitForDuration:2.2f] completion:^{
         [self showWelcomeScreen];
@@ -180,7 +179,7 @@
     musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
     [musicPlayer setVolume:1.0f];
     [musicPlayer prepareToPlay];
-    [musicPlayer play];
+    //[musicPlayer play];
 
     /* INIT CURRENT GAME GENERAL PROPERTIES */
     
@@ -295,6 +294,15 @@
     
     [self addChild:scoreLabel];
     
+    
+    //HealthBonus *healthBonus = [[HealthBonus alloc] initAtPosition:CGPointMake(1100, 700)];
+    //[world addChild:healthBonus];
+    
+    
+    AcidBonus *acidBonus = [[AcidBonus alloc] initAtPosition:CGPointMake(1100, 800)];
+    [world addChild:acidBonus];
+    
+    
     [self debugConsole:@"startGame" at:@"end" withState:gameState];
     
 }
@@ -362,7 +370,7 @@
     [self debugConsole:@"gameOver" at:@"begin" withState:gameState];
     
     NSError *error;
-    NSURL   *soundURL = [[NSBundle mainBundle] URLForResource:@"GameOver" withExtension:@"mp3"];
+    NSURL   *soundURL = [[NSBundle mainBundle] URLForResource:@"GameOver2" withExtension:@"mp3"];
     
     [musicPlayer stop];
     musicPlayer = [musicPlayer initWithContentsOfURL:soundURL error:&error];
@@ -689,6 +697,10 @@
             [character runAction:[SKAction playSoundFileNamed:@"HumanFall.wav" waitForCompletion:NO]];
         }
         [character die];
+    }
+    else if ((firstBody.categoryBitMask & HUMAN) && (secondBody.categoryBitMask & BONUS)) {
+        Bonus *bonus = (Bonus *)secondBody.node;
+        [bonus applyTo:(Character *)firstBody.node];
     }
     
 }

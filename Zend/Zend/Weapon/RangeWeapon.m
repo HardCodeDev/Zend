@@ -48,7 +48,7 @@
         bullet.position = CGPointMake(bullet.position.x + owner.frame.size.width / 2 + xShift,
                                       bullet.position.y + yShift);
     }
-    bullet.physicsBody.velocity = CGVectorMake(1000*dir, 0);
+    bullet.physicsBody.velocity = CGVectorMake(1000 * dir, 0);
     [bullet runAction:[SKAction playSoundFileNamed:@"50Caliber.wav" waitForCompletion:NO]];
     [node addChild:bullet];
     [self runAction: [SKAction sequence:@[
