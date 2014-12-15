@@ -16,7 +16,7 @@
     self = [super initWithImageNamed:imageName];
     if (self) {
         self.name   = @"Bullet";
-        self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.frame.size.height/2];
+        self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.frame.size.height / 2];
         self.physicsBody.allowsRotation = NO;
         self.physicsBody.affectedByGravity = NO;
         self.physicsBody.dynamic = YES;

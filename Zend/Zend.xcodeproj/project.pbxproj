@@ -15,9 +15,17 @@
 		3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1C7D651A1919860036F9C7 /* MainMenu.xib */; };
 		3A1C7D731A1919860036F9C7 /* ZendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C7D721A1919860036F9C7 /* ZendTests.m */; };
 		3A74620E1A28688A00235972 /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = 3A74620D1A28688A00235972 /* Levels */; };
+		4527B2001A36FD1C002FF0E8 /* HardCodeDevLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4527B1FF1A36FD1C002FF0E8 /* HardCodeDevLogo.png */; };
 		45398DFB1A32E46900A00430 /* HardCodeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 45398DF81A32E46900A00430 /* HardCodeLogo.png */; };
 		45398DFC1A32E46900A00430 /* LogoBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 45398DF91A32E46900A00430 /* LogoBackground.png */; };
 		45398DFD1A32E46900A00430 /* SpriteKitLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 45398DFA1A32E46900A00430 /* SpriteKitLogo.png */; };
+		45398E021A33AFE600A00430 /* GameOver2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45398E011A33AFE600A00430 /* GameOver2.mp3 */; };
+		45398E081A33B23F00A00430 /* Bonus.m in Sources */ = {isa = PBXBuildFile; fileRef = 45398E071A33B23F00A00430 /* Bonus.m */; };
+		45398E0C1A33B3AC00A00430 /* HealthBonus.m in Sources */ = {isa = PBXBuildFile; fileRef = 45398E0B1A33B3AC00A00430 /* HealthBonus.m */; };
+		45398E0E1A33B4E300A00430 /* HealthBonus.png in Resources */ = {isa = PBXBuildFile; fileRef = 45398E0D1A33B4E300A00430 /* HealthBonus.png */; };
+		45398E111A33C2C900A00430 /* AcidBonus.m in Sources */ = {isa = PBXBuildFile; fileRef = 45398E101A33C2C900A00430 /* AcidBonus.m */; };
+		45398E131A33C56900A00430 /* AcidBonus.png in Resources */ = {isa = PBXBuildFile; fileRef = 45398E121A33C56900A00430 /* AcidBonus.png */; };
+		45398E151A33C57000A00430 /* AcidBoost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45398E141A33C57000A00430 /* AcidBoost.mp3 */; };
 		4554B3411A311829001CE328 /* 50Caliber.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4554B33F1A311829001CE328 /* 50Caliber.wav */; };
 		4554B3451A311A7D001CE328 /* HumanDeath.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4554B3431A311A7D001CE328 /* HumanDeath.wav */; };
 		4554B3461A311A7D001CE328 /* HumanFall.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4554B3441A311A7D001CE328 /* HumanFall.wav */; };
@@ -96,9 +104,20 @@
 		3A1C7D721A1919860036F9C7 /* ZendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendTests.m; sourceTree = "<group>"; };
 		3A74620D1A28688A00235972 /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Levels; path = Zend/Levels; sourceTree = "<group>"; };
 		3A91B9771A1FA20000654946 /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
+		4527B1FF1A36FD1C002FF0E8 /* HardCodeDevLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HardCodeDevLogo.png; sourceTree = "<group>"; };
 		45398DF81A32E46900A00430 /* HardCodeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HardCodeLogo.png; sourceTree = "<group>"; };
 		45398DF91A32E46900A00430 /* LogoBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoBackground.png; sourceTree = "<group>"; };
 		45398DFA1A32E46900A00430 /* SpriteKitLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpriteKitLogo.png; sourceTree = "<group>"; };
+		45398E011A33AFE600A00430 /* GameOver2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameOver2.mp3; sourceTree = "<group>"; };
+		45398E061A33B23F00A00430 /* Bonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bonus.h; path = Zend/Bonus.h; sourceTree = "<group>"; };
+		45398E071A33B23F00A00430 /* Bonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bonus.m; path = Zend/Bonus.m; sourceTree = "<group>"; };
+		45398E0A1A33B3AC00A00430 /* HealthBonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HealthBonus.h; path = Zend/HealthBonus.h; sourceTree = "<group>"; };
+		45398E0B1A33B3AC00A00430 /* HealthBonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HealthBonus.m; path = Zend/HealthBonus.m; sourceTree = "<group>"; };
+		45398E0D1A33B4E300A00430 /* HealthBonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HealthBonus.png; sourceTree = "<group>"; };
+		45398E0F1A33C2C900A00430 /* AcidBonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcidBonus.h; path = Zend/AcidBonus.h; sourceTree = "<group>"; };
+		45398E101A33C2C900A00430 /* AcidBonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AcidBonus.m; path = Zend/AcidBonus.m; sourceTree = "<group>"; };
+		45398E121A33C56900A00430 /* AcidBonus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AcidBonus.png; sourceTree = "<group>"; };
+		45398E141A33C57000A00430 /* AcidBoost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AcidBoost.mp3; sourceTree = "<group>"; };
 		4554B33F1A311829001CE328 /* 50Caliber.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 50Caliber.wav; sourceTree = "<group>"; };
 		4554B3431A311A7D001CE328 /* HumanDeath.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = HumanDeath.wav; sourceTree = "<group>"; };
 		4554B3441A311A7D001CE328 /* HumanFall.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = HumanFall.wav; sourceTree = "<group>"; };
@@ -195,6 +214,7 @@
 				451E0E181A308D84001142AA /* Sounds */,
 				45B66A521A2E4F000078C5F5 /* Images */,
 				45B66A271A2E4E250078C5F5 /* Level */,
+				45398E091A33B24300A00430 /* Bonus */,
 				45B66A421A2E4E440078C5F5 /* World */,
 				45B66A321A2E4E3F0078C5F5 /* Weapon */,
 				45B66A2E1A2E4E380078C5F5 /* Player */,
@@ -259,6 +279,8 @@
 		451E0E181A308D84001142AA /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				45398E141A33C57000A00430 /* AcidBoost.mp3 */,
+				45398E011A33AFE600A00430 /* GameOver2.mp3 */,
 				4554B34B1A321932001CE328 /* EvilOnTheBeach.mp3 */,
 				4554B34C1A321932001CE328 /* GameOver.mp3 */,
 				4554B34D1A321932001CE328 /* WarFace.mp3 */,
@@ -275,11 +297,25 @@
 		45398DF71A32E46900A00430 /* Logos */ = {
 			isa = PBXGroup;
 			children = (
+				4527B1FF1A36FD1C002FF0E8 /* HardCodeDevLogo.png */,
 				45398DF81A32E46900A00430 /* HardCodeLogo.png */,
 				45398DF91A32E46900A00430 /* LogoBackground.png */,
 				45398DFA1A32E46900A00430 /* SpriteKitLogo.png */,
 			);
 			path = Logos;
+			sourceTree = "<group>";
+		};
+		45398E091A33B24300A00430 /* Bonus */ = {
+			isa = PBXGroup;
+			children = (
+				45398E061A33B23F00A00430 /* Bonus.h */,
+				45398E071A33B23F00A00430 /* Bonus.m */,
+				45398E0A1A33B3AC00A00430 /* HealthBonus.h */,
+				45398E0B1A33B3AC00A00430 /* HealthBonus.m */,
+				45398E0F1A33C2C900A00430 /* AcidBonus.h */,
+				45398E101A33C2C900A00430 /* AcidBonus.m */,
+			);
+			name = Bonus;
 			sourceTree = "<group>";
 		};
 		45B66A141A2E4E150078C5F5 /* Character */ = {
@@ -409,6 +445,8 @@
 		45B66A611A2E4F000078C5F5 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				45398E121A33C56900A00430 /* AcidBonus.png */,
+				45398E0D1A33B4E300A00430 /* HealthBonus.png */,
 				45B66A621A2E4F000078C5F5 /* BoyCharacter.png */,
 				45B66A631A2E4F000078C5F5 /* Bullet.png */,
 				45B66A641A2E4F000078C5F5 /* Cat.png */,
@@ -514,6 +552,7 @@
 				45B66A741A2E4F000078C5F5 /* DesertBackground.png in Resources */,
 				45B66A771A2E4F000078C5F5 /* WelcomeScreen.png in Resources */,
 				45B66A821A2E4F000078C5F5 /* Worker.png in Resources */,
+				45398E021A33AFE600A00430 /* GameOver2.mp3 in Resources */,
 				4554B3461A311A7D001CE328 /* HumanFall.wav in Resources */,
 				45B66A731A2E4F000078C5F5 /* CyanBackground.png in Resources */,
 				45B66A721A2E4F000078C5F5 /* WorkerWalk.atlas in Resources */,
@@ -527,17 +566,21 @@
 				45B66A811A2E4F000078C5F5 /* SkinnyZombie.png in Resources */,
 				45B66A761A2E4F000078C5F5 /* StartScreen.png in Resources */,
 				45B66A7F1A2E4F000078C5F5 /* Ground.png in Resources */,
+				4527B2001A36FD1C002FF0E8 /* HardCodeDevLogo.png in Resources */,
 				45398DFB1A32E46900A00430 /* HardCodeLogo.png in Resources */,
 				45B66A781A2E4F000078C5F5 /* BoyCharacter.png in Resources */,
 				45B66A7C1A2E4F000078C5F5 /* FatZombie.png in Resources */,
 				4554B34F1A321932001CE328 /* GameOver.mp3 in Resources */,
+				45398E131A33C56900A00430 /* AcidBonus.png in Resources */,
 				45B66A7A1A2E4F000078C5F5 /* Cat.png in Resources */,
 				45E226FB1A2F57A000D0A951 /* GameOverScreen.png in Resources */,
 				45398DFC1A32E46900A00430 /* LogoBackground.png in Resources */,
+				45398E0E1A33B4E300A00430 /* HealthBonus.png in Resources */,
 				4554B3501A321932001CE328 /* WarFace.mp3 in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
 				4554B3481A311CAB001CE328 /* 9Caliber.wav in Resources */,
 				45B66A801A2E4F000078C5F5 /* HealthBar.png in Resources */,
+				45398E151A33C57000A00430 /* AcidBoost.mp3 in Resources */,
 				3A74620E1A28688A00235972 /* Levels in Resources */,
 				45B66A701A2E4F000078C5F5 /* WorkerBeginWalk.atlas in Resources */,
 				45B66A6F1A2E4F000078C5F5 /* GrandmaWalk.atlas in Resources */,
@@ -559,6 +602,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45398E081A33B23F00A00430 /* Bonus.m in Sources */,
 				45B66A4E1A2E4E440078C5F5 /* DynamicPlatform.m in Sources */,
 				45B66A311A2E4E380078C5F5 /* PlayerControl.m in Sources */,
 				45B66A2C1A2E4E250078C5F5 /* Level.m in Sources */,
@@ -571,6 +615,7 @@
 				45B66A511A2E4E440078C5F5 /* PlatformFactory.m in Sources */,
 				45B66A221A2E4E150078C5F5 /* CharacterFactory.m in Sources */,
 				45B66A4F1A2E4E440078C5F5 /* GroundLine.m in Sources */,
+				45398E0C1A33B3AC00A00430 /* HealthBonus.m in Sources */,
 				45B66A251A2E4E150078C5F5 /* SkinnyZombie.m in Sources */,
 				45B66A4D1A2E4E440078C5F5 /* DeathLine.m in Sources */,
 				3A1C7D601A1919860036F9C7 /* GameScene.m in Sources */,
@@ -581,6 +626,7 @@
 				45B66A211A2E4E150078C5F5 /* Character.m in Sources */,
 				45B66A411A2E4E3F0078C5F5 /* WeaponUnit.m in Sources */,
 				45B66A3D1A2E4E3F0078C5F5 /* Bullet.m in Sources */,
+				45398E111A33C2C900A00430 /* AcidBonus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

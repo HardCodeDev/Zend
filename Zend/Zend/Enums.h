@@ -26,7 +26,8 @@ typedef enum {
     CHARACTER = HUMAN | ZOMBIE,
     BULLET   = 64,
     CORPSE   = 128,
-    STAGE    = 256
+    STAGE    = 256,
+    BONUS    = 512
 } BitMask;
 
 typedef enum {
@@ -40,5 +41,12 @@ typedef enum {
     PAUSED,
     OVER,
 } GameState;
+
+typedef enum {
+    HEALTH,
+    ACID,
+    JUMP,
+    WEAPON
+} BonusType;
 
 #endif
