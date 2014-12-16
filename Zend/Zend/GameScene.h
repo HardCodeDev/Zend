@@ -59,10 +59,13 @@
 
 @property SKSpriteNode *welcomeScreen;
 @property SKSpriteNode *startScreen;
+@property SKSpriteNode *playersSelection;
 @property SKSpriteNode *pauseScreen;
 @property SKSpriteNode *gameOverScreen;
 
 @property CGRect playButton;
+@property CGRect singleGameButton;
+@property CGRect multiGameButton;
 @property CGRect continueButton;
 @property CGRect restartButton;
 @property CGRect exitButton;

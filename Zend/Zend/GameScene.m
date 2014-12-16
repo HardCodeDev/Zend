@@ -35,10 +35,13 @@
 
 @synthesize welcomeScreen;
 @synthesize startScreen;
+@synthesize playersSelection;
 @synthesize pauseScreen;
 @synthesize gameOverScreen;
 
 @synthesize playButton;
+@synthesize singleGameButton;
+@synthesize multiGameButton;
 @synthesize continueButton;
 @synthesize restartButton;
 @synthesize exitButton;
@@ -54,33 +57,36 @@
     
     selectedLevel = 0;
     score = 0;
+    playersCount = 1;
     
     screenSize   = self.frame.size;
     screenCenter = CGPointMake(screenSize.width / 2, screenSize.height / 2);
     
     /* CREATE MENU ELEMENTS */
     
-    playButton     = CGRectMake(1275, 30, 0, 0);
     continueButton = CGRectMake(1115, 30, 275, 50);
     restartButton  = CGRectMake(690, 20, 60, 70);
-    exitButton     = CGRectMake(50, 30, 0, 0);
     
-    welcomeScreen = [SKSpriteNode spriteNodeWithImageNamed:@"WelcomeScreen"];
+    welcomeScreen = [SKSpriteNode spriteNodeWithImageNamed:@"NewWelcomeScreen"];
     welcomeScreen.zPosition = 51;
     welcomeScreen.position  = screenCenter;
     welcomeScreen.size      = screenSize;
     
-    startScreen = [SKSpriteNode spriteNodeWithImageNamed:@"StartScreen"];
+    startScreen = [SKSpriteNode spriteNodeWithImageNamed:@"NewStartScreen"];
     startScreen.zPosition = 50;
     startScreen.position  = screenCenter;
     startScreen.size      = screenSize;
     
-    pauseScreen = [SKSpriteNode spriteNodeWithImageNamed:@"PauseScreen"];
+    playersSelection = [SKSpriteNode spriteNodeWithImageNamed:@"PlayersNotSelected"];
+    playersSelection.zPosition = 51;
+    [playersSelection setPosition:CGPointMake(screenCenter.x, screenCenter.y + 150)];
+    
+    pauseScreen = [SKSpriteNode spriteNodeWithImageNamed:@"NewPauseScreen"];
     pauseScreen.zPosition = 50;
     pauseScreen.position  = screenCenter;
     pauseScreen.size      = screenSize;
     
-    gameOverScreen = [SKSpriteNode spriteNodeWithImageNamed:@"GameOverScreen"];
+    gameOverScreen = [SKSpriteNode spriteNodeWithImageNamed:@"NewGameOverScreen"];
     gameOverScreen.zPosition = 50;
     gameOverScreen.position  = screenCenter;
     gameOverScreen.size      = screenSize;
@@ -160,9 +166,13 @@
     [self addChild:startScreen];
     
     [welcomeScreen runAction:wait completion:^{
-        [welcomeScreen runAction:fadeOut];
+        [welcomeScreen runAction:fadeOut completion:^{
+            [self addChild:playersSelection];
+        }];
         playButton = CGRectMake(1275, 30, 140, 50);
         exitButton = CGRectMake(50, 30, 100, 50);
+        singleGameButton = CGRectMake(360, 520, 188, 188);
+        multiGameButton  = CGRectMake(900, 520, 188, 188);
     }];
     
     gameState = LAUNCHED;
@@ -179,7 +189,7 @@
     musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
     [musicPlayer setVolume:1.0f];
     [musicPlayer prepareToPlay];
-    //[musicPlayer play];
+    [musicPlayer play];
 
     /* INIT CURRENT GAME GENERAL PROPERTIES */
     
@@ -223,18 +233,16 @@
     /* INIT PLAYERS */
     
     [controller1 setKeySet:0];
-    [controller2 setKeySet:1];
-    
     controller1.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
-    controller2.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
-    
     [world addChild:controller1.playerChar];
-    [world addChild:controller2.playerChar];
-
-    playersCount = 2;
-    
     [controller1.playerChar.weapon setFirstSlotWeaponType:PISTOL];
-    [controller2.playerChar.weapon setFirstSlotWeaponType:PISTOL];
+    
+    if (playersCount == 2) {
+        [controller2 setKeySet:1];
+        controller2.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
+        [world addChild:controller2.playerChar];
+        [controller2.playerChar.weapon setFirstSlotWeaponType:PISTOL];
+    }
     
     /* CREATE HUD */
     
@@ -256,31 +264,35 @@
     hudLabelPlayer1.position = CGPointMake(HUD_LABEL_1_DEFAULT_POSITION_X,
                                            HUD_LABEL_DEFAULT_POSITION_Y);
     
-    SKLabelNode *hudLabelPlayer2 = [SKLabelNode labelNodeWithFontNamed:HUD_DEFAULT_FONT];
-    hudLabelPlayer2.text = @"Player 2";
-    hudLabelPlayer2.fontSize = 25;
-    hudLabelPlayer2.zPosition = 41;
-    hudLabelPlayer2.fontColor = [SKColor whiteColor];
-    hudLabelPlayer2.position = CGPointMake(HUD_LABEL_2_DEFAULT_POSITION_X,
-                                           HUD_LABEL_DEFAULT_POSITION_Y);
-    
-    [self addChild:hudLabelPlayer1];
-    [self addChild:hudLabelPlayer2];
-    
-    /* CREATE HEALTH BARS */
+     /* CREATE HEALTH BAR */
     
     healthBarPlayer1 = [SKSpriteNode spriteNodeWithImageNamed:@"HealthBar"];
     healthBarPlayer1.position = CGPointMake(HEALTH_BAR_1_DEFAULT_POSITION_X,
                                             HEALTH_BAR_DEFAULT_POSITION_Y);
     healthBarPlayer1.zPosition = 41;
     
-    healthBarPlayer2 = [SKSpriteNode spriteNodeWithImageNamed:@"HealthBar"];
-    healthBarPlayer2.position = CGPointMake(HEALTH_BAR_2_DEFAULT_POSITION_X,
-                                            HEALTH_BAR_DEFAULT_POSITION_Y);
-    healthBarPlayer2.zPosition = 41;
-    
+    [self addChild:hudLabelPlayer1];
     [self addChild:healthBarPlayer1];
-    [self addChild:healthBarPlayer2];
+    
+    if (playersCount == 2) {
+        SKLabelNode *hudLabelPlayer2 = [SKLabelNode labelNodeWithFontNamed:HUD_DEFAULT_FONT];
+        hudLabelPlayer2.text = @"Player 2";
+        hudLabelPlayer2.fontSize = 25;
+        hudLabelPlayer2.zPosition = 41;
+        hudLabelPlayer2.fontColor = [SKColor whiteColor];
+        hudLabelPlayer2.position = CGPointMake(HUD_LABEL_2_DEFAULT_POSITION_X,
+                                               HUD_LABEL_DEFAULT_POSITION_Y);
+        
+         /* CREATE HEALTH BAR */
+        
+        healthBarPlayer2 = [SKSpriteNode spriteNodeWithImageNamed:@"HealthBar"];
+        healthBarPlayer2.position = CGPointMake(HEALTH_BAR_2_DEFAULT_POSITION_X,
+                                                HEALTH_BAR_DEFAULT_POSITION_Y);
+        healthBarPlayer2.zPosition = 41;
+        
+        [self addChild:hudLabelPlayer2];
+        [self addChild:healthBarPlayer2];
+    }
     
     /* CREATE SCORE COUNTER */
     
@@ -294,14 +306,11 @@
     
     [self addChild:scoreLabel];
     
-    
     //HealthBonus *healthBonus = [[HealthBonus alloc] initAtPosition:CGPointMake(1100, 700)];
     //[world addChild:healthBonus];
     
-    
     AcidBonus *acidBonus = [[AcidBonus alloc] initAtPosition:CGPointMake(1100, 800)];
     [world addChild:acidBonus];
-    
     
     [self debugConsole:@"startGame" at:@"end" withState:gameState];
     
@@ -428,8 +437,26 @@
     /* CHECK CLICKS ON START SCREEN */
     
     if (gameState == LAUNCHED) {
+        if (CGRectContainsPoint(singleGameButton, menuClick)) {
+            [playersSelection removeFromParent];
+            playersSelection = [SKSpriteNode spriteNodeWithImageNamed:@"1PlayerSelected"];
+            playersSelection.zPosition = 51;
+            [playersSelection setPosition:CGPointMake(screenCenter.x, screenCenter.y + 150)];
+            [self addChild:playersSelection];
+            playersCount = 1;
+        }
+        else if (CGRectContainsPoint(multiGameButton, menuClick)) {
+            [playersSelection removeFromParent];
+            playersSelection = [SKSpriteNode spriteNodeWithImageNamed:@"2PlayersSelected"];
+            playersSelection.zPosition = 51;
+            [playersSelection setPosition:CGPointMake(screenCenter.x, screenCenter.y + 150)];
+            [self addChild:playersSelection];
+            playersCount = 2;
+        }
+        
         if (CGRectContainsPoint(playButton, menuClick)) {
             [welcomeScreen removeFromParent];
+            [playersSelection removeFromParent];
             [self startGame];
         }
         else if (CGRectContainsPoint(exitButton, menuClick)) {

@@ -75,6 +75,13 @@
 		45B66A801A2E4F000078C5F5 /* HealthBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A6A1A2E4F000078C5F5 /* HealthBar.png */; };
 		45B66A811A2E4F000078C5F5 /* SkinnyZombie.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A6B1A2E4F000078C5F5 /* SkinnyZombie.png */; };
 		45B66A821A2E4F000078C5F5 /* Worker.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B66A6C1A2E4F000078C5F5 /* Worker.png */; };
+		45D805C71A3FCC0D00B7E5D6 /* 1PlayerSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D805C01A3FCC0D00B7E5D6 /* 1PlayerSelected.png */; };
+		45D805C81A3FCC0D00B7E5D6 /* 2PlayersSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D805C11A3FCC0D00B7E5D6 /* 2PlayersSelected.png */; };
+		45D805C91A3FCC0D00B7E5D6 /* NewGameOverScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D805C21A3FCC0D00B7E5D6 /* NewGameOverScreen.png */; };
+		45D805CA1A3FCC0D00B7E5D6 /* NewPauseScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D805C31A3FCC0D00B7E5D6 /* NewPauseScreen.png */; };
+		45D805CB1A3FCC0D00B7E5D6 /* NewStartScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D805C41A3FCC0D00B7E5D6 /* NewStartScreen.png */; };
+		45D805CC1A3FCC0D00B7E5D6 /* NewWelcomeScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D805C51A3FCC0D00B7E5D6 /* NewWelcomeScreen.png */; };
+		45D805CD1A3FCC0D00B7E5D6 /* PlayersNotSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D805C61A3FCC0D00B7E5D6 /* PlayersNotSelected.png */; };
 		45E226FB1A2F57A000D0A951 /* GameOverScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E226FA1A2F57A000D0A951 /* GameOverScreen.png */; };
 /* End PBXBuildFile section */
 
@@ -186,6 +193,13 @@
 		45B66A6A1A2E4F000078C5F5 /* HealthBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HealthBar.png; sourceTree = "<group>"; };
 		45B66A6B1A2E4F000078C5F5 /* SkinnyZombie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SkinnyZombie.png; sourceTree = "<group>"; };
 		45B66A6C1A2E4F000078C5F5 /* Worker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Worker.png; sourceTree = "<group>"; };
+		45D805C01A3FCC0D00B7E5D6 /* 1PlayerSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1PlayerSelected.png; sourceTree = "<group>"; };
+		45D805C11A3FCC0D00B7E5D6 /* 2PlayersSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2PlayersSelected.png; sourceTree = "<group>"; };
+		45D805C21A3FCC0D00B7E5D6 /* NewGameOverScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewGameOverScreen.png; sourceTree = "<group>"; };
+		45D805C31A3FCC0D00B7E5D6 /* NewPauseScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewPauseScreen.png; sourceTree = "<group>"; };
+		45D805C41A3FCC0D00B7E5D6 /* NewStartScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewStartScreen.png; sourceTree = "<group>"; };
+		45D805C51A3FCC0D00B7E5D6 /* NewWelcomeScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewWelcomeScreen.png; sourceTree = "<group>"; };
+		45D805C61A3FCC0D00B7E5D6 /* PlayersNotSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayersNotSelected.png; sourceTree = "<group>"; };
 		45E226FA1A2F57A000D0A951 /* GameOverScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameOverScreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -434,6 +448,13 @@
 		45B66A5D1A2E4F000078C5F5 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				45D805C01A3FCC0D00B7E5D6 /* 1PlayerSelected.png */,
+				45D805C11A3FCC0D00B7E5D6 /* 2PlayersSelected.png */,
+				45D805C21A3FCC0D00B7E5D6 /* NewGameOverScreen.png */,
+				45D805C31A3FCC0D00B7E5D6 /* NewPauseScreen.png */,
+				45D805C41A3FCC0D00B7E5D6 /* NewStartScreen.png */,
+				45D805C51A3FCC0D00B7E5D6 /* NewWelcomeScreen.png */,
+				45D805C61A3FCC0D00B7E5D6 /* PlayersNotSelected.png */,
 				45E226FA1A2F57A000D0A951 /* GameOverScreen.png */,
 				45B66A5E1A2E4F000078C5F5 /* PauseScreen.png */,
 				45B66A5F1A2E4F000078C5F5 /* StartScreen.png */,
@@ -552,9 +573,11 @@
 				45B66A741A2E4F000078C5F5 /* DesertBackground.png in Resources */,
 				45B66A771A2E4F000078C5F5 /* WelcomeScreen.png in Resources */,
 				45B66A821A2E4F000078C5F5 /* Worker.png in Resources */,
+				45D805CC1A3FCC0D00B7E5D6 /* NewWelcomeScreen.png in Resources */,
 				45398E021A33AFE600A00430 /* GameOver2.mp3 in Resources */,
 				4554B3461A311A7D001CE328 /* HumanFall.wav in Resources */,
 				45B66A731A2E4F000078C5F5 /* CyanBackground.png in Resources */,
+				45D805CB1A3FCC0D00B7E5D6 /* NewStartScreen.png in Resources */,
 				45B66A721A2E4F000078C5F5 /* WorkerWalk.atlas in Resources */,
 				3A1C7D641A1919860036F9C7 /* Images.xcassets in Resources */,
 				45398DFD1A32E46900A00430 /* SpriteKitLogo.png in Resources */,
@@ -567,23 +590,28 @@
 				45B66A761A2E4F000078C5F5 /* StartScreen.png in Resources */,
 				45B66A7F1A2E4F000078C5F5 /* Ground.png in Resources */,
 				4527B2001A36FD1C002FF0E8 /* HardCodeDevLogo.png in Resources */,
+				45D805CD1A3FCC0D00B7E5D6 /* PlayersNotSelected.png in Resources */,
 				45398DFB1A32E46900A00430 /* HardCodeLogo.png in Resources */,
 				45B66A781A2E4F000078C5F5 /* BoyCharacter.png in Resources */,
 				45B66A7C1A2E4F000078C5F5 /* FatZombie.png in Resources */,
 				4554B34F1A321932001CE328 /* GameOver.mp3 in Resources */,
+				45D805C71A3FCC0D00B7E5D6 /* 1PlayerSelected.png in Resources */,
 				45398E131A33C56900A00430 /* AcidBonus.png in Resources */,
 				45B66A7A1A2E4F000078C5F5 /* Cat.png in Resources */,
 				45E226FB1A2F57A000D0A951 /* GameOverScreen.png in Resources */,
 				45398DFC1A32E46900A00430 /* LogoBackground.png in Resources */,
 				45398E0E1A33B4E300A00430 /* HealthBonus.png in Resources */,
 				4554B3501A321932001CE328 /* WarFace.mp3 in Resources */,
+				45D805CA1A3FCC0D00B7E5D6 /* NewPauseScreen.png in Resources */,
 				3A1C7D671A1919860036F9C7 /* MainMenu.xib in Resources */,
 				4554B3481A311CAB001CE328 /* 9Caliber.wav in Resources */,
 				45B66A801A2E4F000078C5F5 /* HealthBar.png in Resources */,
 				45398E151A33C57000A00430 /* AcidBoost.mp3 in Resources */,
+				45D805C91A3FCC0D00B7E5D6 /* NewGameOverScreen.png in Resources */,
 				3A74620E1A28688A00235972 /* Levels in Resources */,
 				45B66A701A2E4F000078C5F5 /* WorkerBeginWalk.atlas in Resources */,
 				45B66A6F1A2E4F000078C5F5 /* GrandmaWalk.atlas in Resources */,
+				45D805C81A3FCC0D00B7E5D6 /* 2PlayersSelected.png in Resources */,
 				45B66A711A2E4F000078C5F5 /* WorkerHandsUP.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

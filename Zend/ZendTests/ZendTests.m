@@ -70,7 +70,7 @@
     /* CREATE TEST ZOMBIE UNIT */
     
     CharacterFactory *factory = [[CharacterFactory alloc] init];
-    Character        *testZombie  = [factory createCharacter:SZOMBIE atPosition:spawnPosition];
+    Character    *testZombie  = [factory createCharacter:SZOMBIE atPosition:spawnPosition];
     
     /* TEST PHYSICS BODY */
     
@@ -162,7 +162,7 @@
     }
 }
 
-- (void)testZombiezJSONDataIsCorrect {
+- (void)testZombiesJSONDataIsCorrect {
     
     NSInteger amountInZombiesJSON = 0;
     NSInteger amountInStagesJSON  = 0;
