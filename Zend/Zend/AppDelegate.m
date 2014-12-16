@@ -22,7 +22,7 @@
     [[NSApplication sharedApplication] setPresentationOptions:NSFullScreenWindowMask];
     
     /* Open app on full screen by default */
-    //[[_window contentView] enterFullScreenMode:[NSScreen mainScreen] withOptions:nil];
+    [[_window contentView] enterFullScreenMode:[NSScreen mainScreen] withOptions:nil];
     
     /* Set the scale mode to scale to fit the window */
     scene.scaleMode = SKSceneScaleModeAspectFit;

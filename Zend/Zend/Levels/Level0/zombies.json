@@ -6,7 +6,7 @@
 		"positionY": 300,
 	},
 	{
-		"type": "skinny",
+		"type": "fat",
 		"positionX": 900,
 		"positionY": 350,
 	},
@@ -14,5 +14,25 @@
 		"type": "skinny",
 		"positionX": 700,
 		"positionY": 700,
+	},
+	{
+		"type": "fat",
+		"positionX": 2100,
+		"positionY": 650,
+	},
+	{
+		"type": "skinny",
+		"positionX": 2050,
+		"positionY": 650,
+	},
+	{
+		"type": "fat",
+		"positionX": 2050,
+		"positionY": 650,
+	},
+	{
+		"type": "skinny",
+		"positionX": 2050,
+		"positionY": 650,
 	}]
 }
