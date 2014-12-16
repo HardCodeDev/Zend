@@ -104,7 +104,7 @@
     /* SETUP WELCOME SCREEN */
     
     [self initProperties];
-/*
+
     SKSpriteNode *logoBackground = [SKSpriteNode spriteNodeWithImageNamed:@"LogoBackground"];
     [logoBackground setPosition:screenCenter];
     [logoBackground setSize:screenSize];
@@ -148,8 +148,7 @@
     [self runAction:[SKAction waitForDuration:2.2f] completion:^{
         [self showWelcomeScreen];
     }];
-*/
-    [self showWelcomeScreen];
+ 
 }
             
 - (void)showWelcomeScreen {
