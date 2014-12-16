@@ -14,7 +14,7 @@
     self = [super initWithImageNamed:@"AcidBonus"];
     if (self) {
         self.position = position;
-        self.zPosition = 60;
+        self.zPosition = 5;
         [self initPhysicsBody];
     }
     return self;
