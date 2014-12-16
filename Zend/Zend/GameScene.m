@@ -226,8 +226,8 @@
     [controller1 setKeySet:0];
     [controller2 setKeySet:1];
     
-    controller1.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(800, 300)];
-    controller2.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(900, 350)];
+    controller1.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(800, 300)];
+    controller2.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(900, 350)];
     
     [world addChild:controller1.playerChar];
     [world addChild:controller2.playerChar];
@@ -235,7 +235,7 @@
     playersCount = 2;
     
     [controller1.playerChar.weapon setFirstSlotWeaponType:PISTOL];
-    [controller2.playerChar.weapon setFirstSlotWeaponType:PISTOL];
+    [controller2.playerChar.weapon setFirstSlotWeaponType:SHOTGUN];
     
     /* CREATE HUD */
     

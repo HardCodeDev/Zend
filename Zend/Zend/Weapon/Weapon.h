@@ -9,6 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "WeaponUnit.h"
 #import "RangeWeapon.h"
+#import "Shotgun.h"
 #import "MeleeWeapon.h"
 #import "Enums.h"
 

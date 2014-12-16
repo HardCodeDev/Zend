@@ -1,20 +1,20 @@
 //
-//  RangeWeapon.m
+//  Shotgun.m
 //  Zend
 //
-//  Created by Anton Yakimenko on 30.11.14.
+//  Created by Anton Yakimenko on 16.12.14.
 //  Copyright (c) 2014 HardCode. All rights reserved.
 //
 
-#import "RangeWeapon.h"
+#import "Shotgun.h"
 
-@implementation RangeWeapon
+@implementation Shotgun
 
 - (id)init {
     self = [super init];
     if (self) {
-        shotInterval = 0.2;
-        damage = 1;
+        shotInterval = 0.4;
+        damage = 2;
     }
     return self;
 }
@@ -36,8 +36,8 @@
     bullet.damage = damage;
     SKNode *owner = self.parent.parent;
     NSInteger dir;
-    CGFloat xShift = 22;
-    CGFloat yShift = 38;
+    CGFloat xShift = 1;
+    CGFloat yShift = -4;
     if (owner.xScale < 0) {
         dir = -1;
         bullet.position = CGPointMake(bullet.position.x - owner.frame.size.width / 2 - xShift,

@@ -10,11 +10,17 @@
 
 @implementation Human
 
+@synthesize grandmaWalk, malvinaWalk;
+@synthesize grandmaTex, malvinaTex;
+
 - (id)init {
     
     self = [super init];
     if (self) {
-        self.walk = [self getAnimationFromAtlas:@"GrandmaWalk" timePerFrame:0.04f];
+        self.grandmaWalk = [self getAnimationFromAtlas:@"GrandmaWalk" timePerFrame:0.04f];
+        self.grandmaTex  = [SKTexture textureWithImageNamed:@"Grandma"];
+        self.malvinaWalk = [self getAnimationFromAtlas:@"MalvinaWalk" timePerFrame:0.06f];
+        self.malvinaTex  = [SKTexture textureWithImageNamed:@"Malvina"];
     }
     return self;
     
@@ -24,18 +30,20 @@
     
     Character *newHuman;
     
-    /*if (cType == PLAYER) {
-        newHuman = [[Human alloc] initWithImageNamed:@"Dude.png"];
-        newHuman.walk = [self getAnimationFromAtlas:@"Dude" timePerFrame:0.04f];
+    if (cType == PLAYER) {
+        newHuman = [[Human alloc] initWithImageNamed:@"Grandma.png"];
+        newHuman.walk = self.grandmaWalk;
+        newHuman.standTexture = self.grandmaTex;
     }
-    else if (cType == FRIEND) {*/
-        newHuman = [[Human alloc] initWithImageNamed:@"Grandma"];
-        //newHuman.scale = 0.2;
-        newHuman.walk = self.walk;
-    /*}
+    else if (cType == FRIEND) {
+        newHuman = [[Human alloc] initWithImageNamed:@"Malvina.png"];
+        newHuman.scale = 0.13;
+        newHuman.walk = self.malvinaWalk;
+        newHuman.standTexture = self.malvinaTex;
+    }
     else {
         newHuman = [[Human alloc] init];
-    }*/
+    }
     
     [newHuman initPhysicsBody];
     newHuman.type      = cType;
@@ -67,12 +75,13 @@
         [self runAction:walk withKey:@"walking"];
     }
 }
-
+*/
 - (void)stopWalking {
     if (walk) {
         [self removeActionForKey:@"walking"];
+        //self.texture = self.standTexture;
     }
-}*/
+}
 
 /*- (void)run {
     if (!isAlive) {

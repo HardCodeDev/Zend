@@ -28,6 +28,8 @@
 @synthesize walk;
 @synthesize isReady;
 
+@synthesize standTexture;
+
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     return nil;
 }
@@ -50,6 +52,30 @@
     self.physicsBody.friction = 0.0;
     self.physicsBody.allowsRotation = NO;
     self.physicsBody.dynamic = YES;
+    
+}
+
+-(id)initWithTexture:texture {
+    
+    self = [super initWithTexture:texture];
+    if (self) {
+        self.name   = @"Character";
+        self.speedX = 0;
+        self.speedY = 0;
+        [self setDirection:0];
+        onGround = YES;
+        groundContacts = 0;
+        isAlive = YES;
+        onAttack = NO;
+        weapon = [[Weapon alloc] init];
+        [self addChild:weapon];
+        health = 100;
+        target = nil;
+        collidingWithTarget = NO;
+        walk = nil;
+        isReady = YES;
+    }
+    return self;
     
 }
 

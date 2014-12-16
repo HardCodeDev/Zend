@@ -40,6 +40,9 @@
     else if (wType == MELEE) {
         firstGun = [[MeleeWeapon alloc] init];
     }
+    else if (wType == SHOTGUN) {
+        firstGun = [[Shotgun alloc] init];
+    }
     [self addChild:firstGun];
 }
 

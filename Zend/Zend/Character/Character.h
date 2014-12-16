@@ -52,6 +52,8 @@
 @property BOOL onAttack;
 @property NSInteger groundContacts;
 
+@property SKTexture *standTexture;
+
 @property SKAction *walk;
 
 @property BOOL isReady;

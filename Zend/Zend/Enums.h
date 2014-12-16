@@ -32,7 +32,8 @@ typedef enum {
 
 typedef enum {
     PISTOL,
-    MELEE
+    MELEE,
+    SHOTGUN
 } WeaponType;
 
 typedef enum {

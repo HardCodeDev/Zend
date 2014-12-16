@@ -10,6 +10,9 @@
 
 @interface Human : Character;
 
+@property SKAction *grandmaWalk, *malvinaWalk;
+@property SKTexture *grandmaTex, *malvinaTex;
+
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position;
 - (void)initPhysicsBody;
 - (void) update;
