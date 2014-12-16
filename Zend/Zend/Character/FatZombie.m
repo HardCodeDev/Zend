@@ -10,9 +10,22 @@
 
 @implementation FatZombie
 
+- (id)init {
+    
+    self = [super init];
+    if (self) {
+        self.walk      = [self getAnimationFromAtlas:@"AdvertWalk" timePerFrame:0.04f];
+        //self.fight = nil;
+    }
+    return self;
+    
+}
+
 - (Character *)cloneWithType:(CharacterType)cType atPosition:(CGPoint)position {
     
-    Character *newFatZombie = [[FatZombie alloc] initWithImageNamed:@"FatZombie.png"];
+    Character *newFatZombie = [[FatZombie alloc] initWithImageNamed:@"Advert.png"];
+    newFatZombie.scale = 0.2;
+    newFatZombie.walk = self.walk;
     [newFatZombie initPhysicsBody];
     newFatZombie.type      = cType;
     newFatZombie.jumpSpeed = 500;

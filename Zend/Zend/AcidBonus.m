@@ -23,12 +23,13 @@
 - (void)applyTo:(Character *)player {
     
     player.health = 5;
-    player.runSpeed *= 2;
-    player.jumpSpeed *= 2;
+    CGFloat c = 1.5;
+    player.runSpeed *= c;
+    player.jumpSpeed *= c;
     [player runAction:[SKAction playSoundFileNamed:@"AcidBoost.mp3" waitForCompletion:NO]];
     [player runAction:[SKAction waitForDuration:13.0f] completion:^{
-        player.runSpeed /= 2;
-        player.jumpSpeed /= 2;
+        player.runSpeed /= c;
+        player.jumpSpeed /= c;
     }];
     [self removeFromParent];
 }

@@ -211,10 +211,16 @@
     
     /* INIT CURRENT LEVEL PROPERTIES */
     
-    SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"CyanBackground"];
-    background.zPosition = -10;
-    background.position  = screenCenter;
-    [world addChild:background];
+    for (int j = -10; j < 10; ++j) {
+        for (int i = -10; i < 50; ++i) {
+            SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
+            background.scale = 0.4;
+            background.zPosition = -10;
+            background.position  = CGPointMake(screenCenter.x + background.frame.size.width * i,
+                                               screenCenter.y + background.frame.size.height * j);
+            [world addChild:background];
+        }
+    }
     
     level = [[Level alloc] initWithLevel:selectedLevel];
     [level buildOn:world];
@@ -226,8 +232,8 @@
     [controller1 setKeySet:0];
     [controller2 setKeySet:1];
     
-    controller1.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(800, 300)];
-    controller2.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(900, 350)];
+    controller1.playerChar = [cFactory createCharacter:PLAYER atPosition:CGPointMake(950, 400)];
+    controller2.playerChar = [cFactory createCharacter:FRIEND atPosition:CGPointMake(950, 400)];
     
     [world addChild:controller1.playerChar];
     [world addChild:controller2.playerChar];
