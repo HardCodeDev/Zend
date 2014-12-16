@@ -1,18 +1,8 @@
 {
 	"zombies": [
-	{
+	/*{
 		"type": "skinny",
-		"positionX": 800,
-		"positionY": 300,
-	},
-	{
-		"type": "skinny",
-		"positionX": 900,
-		"positionY": 350,
-	},
-	{
-		"type": "skinny",
-		"positionX": 700,
-		"positionY": 700,
-	}]
+		"positionX": 500,
+		"positionY": 250,
+	}*/]
 }

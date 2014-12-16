@@ -25,29 +25,12 @@ typedef enum {
     ZOMBIE   = 32,
     CHARACTER = HUMAN | ZOMBIE,
     BULLET   = 64,
-    CORPSE   = 128,
-    STAGE    = 256,
-    BONUS    = 512
+    CORPSE   = 128
 } BitMask;
 
 typedef enum {
     PISTOL,
-    MELEE,
-    SHOTGUN
+    MELEE
 } WeaponType;
-
-typedef enum {
-    LAUNCHED = 0,
-    RUNNING,
-    PAUSED,
-    OVER,
-} GameState;
-
-typedef enum {
-    HEALTH,
-    ACID,
-    JUMP,
-    WEAPON
-} BonusType;
 
 #endif
