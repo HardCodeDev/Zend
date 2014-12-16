@@ -2,13 +2,12 @@
 //  ZendTests.m
 //  ZendTests
 //
-//  Created by Anton Yakimenko on 16.11.14.
+//  Created by Nikita Makarov on 16.11.14.
 //  Copyright (c) 2014 HardCode. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
-#import <SenTestingKit/SenTestingKit.h>
 #import "GameScene.h"
 
 @interface ZendTests : XCTestCase
@@ -25,18 +24,6 @@
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
-}
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
 }
 
 - (void)testCreateSkinnyZombie {
@@ -74,7 +61,7 @@
     
     zombiePattern.type = SZOMBIE;
     zombiePattern.jumpSpeed = 500;
-    zombiePattern.runSpeed  = 380;
+    zombiePattern.runSpeed  = 300;
     zombiePattern.position  = spawnPosition;
     zombiePattern.health    = 2;
     zombiePattern.zPosition = 10;
@@ -175,18 +162,22 @@
     }
 }
 
-- (void)testGameLoadingPerformance {
-
-    [self measureBlock:^{
-        CGSize screenSize = CGSizeMake(1440, 900);
-        
-        GameScene *scene = [[GameScene alloc] initWithSize:screenSize];
-        
-        SKView *view = [[SKView alloc] initWithFrame:NSMakeRect(0, 0, 1440, 900)];
-        
-        [scene didMoveToView:view];
-        [scene startGame];
-    }];
+- (void)testZombiezJSONDataIsCorrect {
+    
+    NSInteger amountInZombiesJSON = 0;
+    NSInteger amountInStagesJSON  = 0;
+    
+    SKNode *world = [[SKNode alloc] init];
+    Level  *level = [[Level alloc] initWithLevel:0];
+    [level buildOn:world];
+    
+    amountInZombiesJSON = level.zombies.count;
+    
+    for (Stage *stage in level.stages) {
+        amountInStagesJSON += stage.amountOfZombies;
+    }
+    
+    XCTAssertEqual(amountInZombiesJSON, amountInStagesJSON, @"amounts should be equal");
     
 }
 

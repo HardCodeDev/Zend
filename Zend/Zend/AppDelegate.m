@@ -9,37 +9,20 @@
 #import "AppDelegate.h"
 #import "GameScene.h"
 
-@implementation SKScene (Unarchive)
-
-+ (instancetype)unarchiveFromFile:(NSString *)file {
-    /* Retrieve scene file path from the application bundle */
-    NSString *nodePath = [[NSBundle mainBundle] pathForResource:file ofType:@"sks"];
-    /* Unarchive the file to an SKScene object */
-    NSData *data = [NSData dataWithContentsOfFile:nodePath
-                                          options:NSDataReadingMappedIfSafe
-                                            error:nil];
-    NSKeyedUnarchiver *arch = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-    [arch setClass:self forClassName:@"SKScene"];
-    SKScene *scene = [arch decodeObjectForKey:NSKeyedArchiveRootObjectKey];
-    [arch finishDecoding];
-        
-    return scene;
-}
-
-@end
-
 @implementation AppDelegate
 
 @synthesize window = _window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    //GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
     
     CGSize screenSize = CGSizeMake(1440, 900);
     
     GameScene *scene = [[GameScene alloc] initWithSize:screenSize];
     
     [[NSApplication sharedApplication] setPresentationOptions:NSFullScreenWindowMask];
+    
+    /* Open app on full screen by default */
+    [[_window contentView] enterFullScreenMode:[NSScreen mainScreen] withOptions:nil];
     
     /* Set the scale mode to scale to fit the window */
     scene.scaleMode = SKSceneScaleModeAspectFit;
@@ -51,11 +34,23 @@
     
     //self.skView.showsFPS = YES;
     //self.skView.showsNodeCount = YES;
+    //self.skView.showsDrawCount = YES;
+    
     scene.physicsWorld.contactDelegate = (id<SKPhysicsContactDelegate>)scene;
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
     return YES;
+}
+
+- (void)windowDidBecomeMain:(NSNotification *)notification
+{
+    static BOOL shouldGoFullScreen = YES;
+    if (shouldGoFullScreen) {
+        if (!([self.window styleMask] & NSFullScreenWindowMask))
+            [self.window toggleFullScreen:nil];
+        shouldGoFullScreen = NO;
+    }
 }
 
 @end
